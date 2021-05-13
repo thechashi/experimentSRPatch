@@ -170,7 +170,7 @@ for i in range(10):
     dimension = d
     input_image = randomImage(dimension)
     input_image = input_image.to(device)
-    if(d%print_every == 0):
+    # if(d%print_every == 0):
       # print('Testing dimension: {0}x{1} ...'.format(dimension,dimension))
     with torch.no_grad():
       try:
@@ -182,7 +182,7 @@ for i in range(10):
           result3[dimension].append(total_time)
         else:
           result3[dimension] = [total_time]
-        if(d%print_every == 0):
+        # if(d%print_every == 0):
           # print('Dimension ok.')
         clearCuda(input_image, output_image)
       except RuntimeError as e:
