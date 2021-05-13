@@ -167,7 +167,9 @@ result = dict(result)
 z = {**result2, **result}
 print(z)
 
-import matplotlib.pylab as plt
+date = "_".join(str(time.ctime()).split())
+date = "_".join(date.split(':'))
+filename = 'dim_vs_time' + "_" + date
 
 r = sorted(z.items()) # sorted by key, return a list of tuples
 
@@ -175,4 +177,5 @@ x, y = zip(*r) # unpack a list of pairs into two tuples
 plt.xlabel('Dimension')
 plt.ylabel('Average time (10 runs)')
 plt.plot(x, y)
+plt.savefig("figures/{}.png".format(filename))
 plt.show()
