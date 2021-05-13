@@ -96,6 +96,10 @@ class Upsampler(nn.Sequential):
             raise NotImplementedError
 
         super(Upsampler, self).__init__(*m)
+        
+def make_model(args, parent=False):
+  print(args)
+  return EDSR(args)
 
 class EDSR(nn.Module):
     def __init__(self, args, conv=default_conv):
