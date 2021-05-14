@@ -5,6 +5,7 @@ import gc
 import time
 import math
 import copy
+from tqdm import tqdm
 from EDSR import make_model, load
 
 device = 'cuda'
@@ -166,7 +167,7 @@ print('\nPreparing detailed data... ')
 result3 = {}
 for i in range(10):
   print('Run: ', i+1)
-  for d in range(1, last+1):
+  for d in tqdm(range(1, last+1)):
     dimension = d
     input_image = randomImage(dimension)
     input_image = input_image.to(device)
