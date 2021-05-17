@@ -287,6 +287,11 @@ def main():
     # device information
     _, device_name = getDeviceDetails()
     device = 'cuda'
+    # open log file
+    logfile = open('results/log.txt', 'a')
+    date = "_".join(str(time.ctime()).split())
+    logfile.write('\n\n' + date + '\n')
+    logfile.write('--------------------------------------------------------\n')
     # load model
     run = 10
     clearCuda(None, None)
@@ -296,10 +301,15 @@ def main():
     model = loadEDSR(device=device)
     print('After loading model: ')
     total, used, free = getGPUDetails(device, print_details=True)
+    logfile.write('\nDevice: ' + device)
+    logfile.write('\nDevice name: ' + device_name)
+    logfile.write('\nTotal memory: ' + str(total))
+    logfile.write('\nTotal memory used after loading model: ' + str(used))
     # get the highest unacceptable dimension which is a power of 2
     maxUnacceptabelDimension = maximumUnacceptableDimension2n(device, model)
     # get the maximum acceptable dimension
     maxDim = maximumAcceptableDimension(device, model, maxUnacceptabelDimension)
+    logfile.write('\nmaximum acceptable dimension: ' + str(maxDim))
     # get detailed result
     detailedResult, memoryUsed, memoryFree = resultFromDimensionRange(device,
                                                                       model,
