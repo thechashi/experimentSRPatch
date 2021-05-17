@@ -190,7 +190,6 @@ def resultFromDimensionRange(device, model, first, last, run=10):
             dimension = d
             input_image = randomImage(dimension)
             input_image = input_image.to(device)
-            print(dimension)
             with torch.no_grad():
                 try:
                     start = time.time()
@@ -212,10 +211,6 @@ def resultFromDimensionRange(device, model, first, last, run=10):
                     print("Dimension NOT OK!")
                     print(e)
                     print("--------------------------------------------------")
-                    if dimension in result3.keys():
-                        result3[dimension].append(math.inf)
-                    else:
-                        result3[dimension] = [math.inf]
                     output_image = None
                     clearCuda(input_image, output_image)
                     break
@@ -247,7 +242,43 @@ def plotData(foldername, filename, data_dict, xLabel, yLabel, mode):
     plt.savefig("results/{0}/{1}.png".format(foldername, filename))
     plt.show()
 
-def saveCSV():
+def saveCSV(foldername, filename, device, device_name, total_mem, meanTime,
+            stdTime, meanMemUsed, stdMemUsed, meanMemFree, stdMemFree):
+    mT = sorted(meanTime.items())
+    sT = sorted(stdTime.items())
+    mU = sorted(meanMemUsed.items())
+    sU = sorted(stdMemUsed.items())
+    mF = sorted(meanMemFree.items())
+    sF = sorted(stdMemFree.items())
+    dimension, meanTime = zip(*mT)
+    _, stdTime = zip(*sT)
+    _, meanMemUsed = zip(*mU)
+    _, stdMemUsed = zip(*sU)
+    _, meanMemFree = zip(*mF)
+    _, stdMemFree = zip(*sF)
+    print('mt', str(len(meanTime)))
+    print('st', str(len(stdTime)))
+    print('mU', str(len(meanMemUsed)))
+    print('sU', str(len(stdMemUsed)))
+    print('mF', str(len(meanMemFree)))
+    print('sF', str(len(stdMemFree)))
+    df = pd.DataFrame({'Dimension': list(dimension),
+                       'Mean Time': list(meanTime),
+                       'Std Time': list(stdTime),
+                       'Mean Memory Used': list(meanMemUsed),
+                       'Std Memory Used': list(stdMemUsed),
+                       'Mean Memory Free': list(meanMemFree),
+                       'Std Memory Free': list(stdMemFree),
+                       })
+    date = "_".join(str(time.ctime()).split())
+    date = "_".join(date.split(":"))
+    filename = filename + "_" + date
+    file = open('results/'+foldername+'/'+filename, 'a')
+    file.write('# Device: {0} \n'.format(device))
+    file.write('# Device Name: {0} \n'.format(device_name))
+    file.write('# Total GPU memory: {0} \n'.format(total_mem))
+    df.to_csv(file)
+    file.close()
     pass
 
     
@@ -299,5 +330,7 @@ def main():
     plotData(foldername, 'dimension_vs_stdmemoryfree', stdMemoryFree, 'Dimension',
              'Std Memory Free ('+str(run)+' runs)', mode='std memory free')
     # save data
+    saveCSV(foldername, 'total_stat', device, device_name, total, meanTime, stdTime,
+            meanMemoryUsed, stdMemoryUsed, meanMemoryFree, stdMemoryFree)
 if __name__ == "__main__":
     main()
