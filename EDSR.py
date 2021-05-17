@@ -123,7 +123,6 @@ class Upsampler(nn.Sequential):
 
 
 def make_model(args, parent=False):
-    print(args)
     return EDSR(args)
 
 
@@ -202,7 +201,7 @@ def load(model, pre_train="download", resume=0, cpu=False):
     load_from = None
     kwargs = {}
     if pre_train == "download":
-        print("Download the model")
+        print("Downloading the model")
         # dir_model = os.path.join('..', 'models')
         # os.makedirs(dir_model, exist_ok=True)
         load_from = torch.utils.model_zoo.load_url(
@@ -211,7 +210,7 @@ def load(model, pre_train="download", resume=0, cpu=False):
             **kwargs
         )
     elif pre_train:
-        print("Load the model from {}".format(pre_train))
+        print("Loading the model from {}".format(pre_train))
         load_from = torch.load(pre_train, **kwargs)
     if load_from:
         model.load_state_dict(load_from, strict=False)

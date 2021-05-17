@@ -7,9 +7,49 @@ import math
 import copy
 from tqdm import tqdm
 from EDSR import make_model, load
-
-
-
+from pynvml import *
+import pandas as pd
+import os
+def getDeviceDetails():
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    print('Using device:', device)
+    device_name = 'cpu'
+    if device.type == 'cuda':
+        device_name = torch.cuda.get_device_name(0)
+        print('Device: ', device_name)
+    print()
+    return device, device_name   
+        
+def getGPUDetails(device, memory_size_format = 'MB', print_details = False):
+    power = 2
+    if memory_size_format == 'MB':
+        power = 2
+    elif memory_size_format == 'GB':
+        power = 3
+    if device == 'cuda':
+# =============================================================================
+#         t = torch.cuda.get_device_properties(0).total_memory/(1024**power)
+#         r = torch.cuda.memory_reserved(0)/(1024**power)
+#         c = torch.cuda.memory_reserved(0)/(1024**power)
+#         a = torch.cuda.memory_allocated(0)/(1024**power)
+#         f = r-a  # free inside reserved
+# =============================================================================
+        nvmlInit()
+        h = nvmlDeviceGetHandleByIndex(0)
+        info = nvmlDeviceGetMemoryInfo(h)
+        t = info.total/(1024**power)
+        u = info.used/(1024**power)
+        f = info.free/(1024**power)
+        if print_details:
+            print('******************************************************')
+            print('\nGPU details:')
+            print('Total memory: {0} {1}'.format(t, memory_size_format))
+            print('Used memory: {0} {1}'.format(u, memory_size_format))
+            print('Free memory: {0} {1}'.format(f, memory_size_format))
+            print('****************************************************\n')
+        return t, u, f
+    else:
+        return None
 
 def loadEDSR(device, n_resblocks=16, n_feats=64, scale=[4]):
     args = {
@@ -24,7 +64,9 @@ def loadEDSR(device, n_resblocks=16, n_feats=64, scale=[4]):
     """
     model = make_model(args).to(device)
     load(model)
-    dir(model)
+    print('\nModel details: ')
+    print(model)
+    print()
     return model
 
 
@@ -41,8 +83,9 @@ def clearCuda(inputImage, output_image):
     if output_image != None:
         output_image = output_image.cpu()
         del output_image
-    inputImage = inputImage.cpu()
-    del inputImage
+    if inputImage != None:
+        inputImage = inputImage.cpu()
+        del inputImage
     gc.collect()
     torch.cuda.empty_cache()
 
@@ -73,7 +116,7 @@ def maximumUnacceptableDimension2n(device, model):
                 clearCuda(input_image, output_image)
             except RuntimeError as e:
                 print("Dimension NOT OK!")
-                print("-----------------------------------------------------------")
+                print("------------------------------------------------------")
                 print(e)
                 if dimension in result1.keys():
                     result1[dimension].append(math.inf)
@@ -121,7 +164,7 @@ def maximumAcceptableDimension(device, model, maxUnacceptableDimension):
             except RuntimeError as e:
                 print("Dimension NOT OK!")
                 print(e)
-                print("-----------------------------------------------------------")
+                print("------------------------------------------------------")
                 maxm = copy.copy(dimension)
                 if dimension in result2.keys():
                     result2[dimension].append(math.inf)
@@ -139,6 +182,8 @@ def maximumAcceptableDimension(device, model, maxUnacceptableDimension):
 def resultFromDimensionRange(device, model, first, last, run=10):
     print("\nPreparing detailed data... ")
     result3 = {}
+    memoryUsed = {}
+    memoryFree = {}
     for i in range(run):
         print("Run: ", i + 1)
         for d in tqdm(range(1, last + 1)):
@@ -154,13 +199,19 @@ def resultFromDimensionRange(device, model, first, last, run=10):
                     total_time = end - start
                     if dimension in result3.keys():
                         result3[dimension].append(total_time)
+                        t, u, f = getGPUDetails(device, print_details=False)
+                        memoryUsed[dimension].append(u)
+                        memoryFree[dimension].append(f)
                     else:
                         result3[dimension] = [total_time]
+                        t, u, f = getGPUDetails(device, print_details=False)
+                        memoryUsed[dimension] = [u]
+                        memoryFree[dimension] = [f]
                     clearCuda(input_image, output_image)
                 except RuntimeError as e:
                     print("Dimension NOT OK!")
                     print(e)
-                    print("-----------------------------------------------------------")
+                    print("--------------------------------------------------")
                     if dimension in result3.keys():
                         result3[dimension].append(math.inf)
                     else:
@@ -168,7 +219,7 @@ def resultFromDimensionRange(device, model, first, last, run=10):
                     output_image = None
                     clearCuda(input_image, output_image)
                     break
-    return result3
+    return result3, memoryUsed, memoryFree
 
 def getMeanStd(result3):
     mean_dict = {}
@@ -182,41 +233,71 @@ def getMeanStd(result3):
         
     return mean_dict, std_dict
 
-def plotData(filename, data_dict, xLabel, yLabel, mode):
+def plotData(foldername, filename, data_dict, xLabel, yLabel, mode):
     print("Plotting dimension vs ", mode)
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
     filename = filename + "_" + date
-    
+    foldername = foldername
     data_dict = sorted(data_dict.items())
     x, y = zip(*data_dict)
     plt.xlabel(xLabel)
     plt.ylabel(yLabel)
     plt.plot(x, y)
-    plt.savefig("results/{}.png".format(filename))
+    plt.savefig("results/{0}/{1}.png".format(foldername, filename))
     plt.show()
 
 def saveCSV():
     pass
 
+    
+
 def main():
+    # device information
+    _, device_name = getDeviceDetails()
+    device = 'cuda'
     # load model
-    device = "cuda"
     run = 10
+    clearCuda(None, None)
+    print('Before loading model: ')
+    total, used, free = getGPUDetails(device, print_details=True)
+    print('Total memory: ', total)
     model = loadEDSR(device=device)
+    print('After loading model: ')
+    total, used, free = getGPUDetails(device, print_details=True)
     # get the highest unacceptable dimension which is a power of 2
     maxUnacceptabelDimension = maximumUnacceptableDimension2n(device, model)
     # get the maximum acceptable dimension
     maxDim = maximumAcceptableDimension(device, model, maxUnacceptabelDimension)
     # get detailed result
-    detailedResult = resultFromDimensionRange(device, model, 1, maxDim, run=run)
+    detailedResult, memoryUsed, memoryFree = resultFromDimensionRange(device,
+                                                                      model,
+                                                                      1,
+                                                                      maxDim,
+                                                                      run=run)
     # get mean
     # get std
-    meanResult, stdResult = getMeanStd(detailedResult)
-    # plot data
-    plotData('dimension_vs_meantime', meanResult, 'Dimension', 'Mean Time ('+str(run)+' runs)', mode='mean time')
-    plotData('dimension_vs_std', meanResult, 'Dimension', 'Std Time ('+str(run)+' runs)', mode='std time')
-    # save data
+    meanTime, stdTime = getMeanStd(detailedResult)
+    meanMemoryUsed, stdMemoryUsed =  getMeanStd(memoryUsed)
+    meanMemoryFree, stdMemoryFree =  getMeanStd(memoryFree)
     
+    date = "_".join(str(time.ctime()).split())
+    date = "_".join(date.split(":"))
+    foldername = date
+    os.mkdir('results/'+foldername)
+    # plot data
+    plotData(foldername, 'dimension_vs_meantime', meanTime, 'Dimension',
+             'Mean Time ('+str(run)+' runs)', mode='mean time')
+    plotData(foldername, 'dimension_vs_stdtime', stdTime, 'Dimension',
+             'Std Time ('+str(run)+' runs)', mode='std time')
+    plotData(foldername, 'dimension_vs_meanmemoryused', meanMemoryUsed, 'Dimension',
+             'Mean Memory used ('+str(run)+' runs)', mode='mean memory used')
+    plotData(foldername, 'dimension_vs_stdmemoryused', stdMemoryUsed, 'Dimension',
+             'Std Memory Used ('+str(run)+' runs)', mode='std memory used')
+    plotData(foldername, 'dimension_vs_meanmemoryfree', meanMemoryFree, 'Dimension',
+             'Mean Memory Free ('+str(run)+' runs)', mode='mean memory free')
+    plotData(foldername, 'dimension_vs_stdmemoryfree', stdMemoryFree, 'Dimension',
+             'Std Memory Free ('+str(run)+' runs)', mode='std memory free')
+    # save data
 if __name__ == "__main__":
     main()
