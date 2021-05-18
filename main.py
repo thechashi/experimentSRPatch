@@ -39,7 +39,7 @@ def get_device_details():
 
 def get_gpu_details(device: str, memory_size_format="MB", print_details=False):
     """
-    Get GPU details
+    Get GPU usage
 
     Parameters
     ----------
@@ -74,7 +74,7 @@ def get_gpu_details(device: str, memory_size_format="MB", print_details=False):
         free_mem = info.free / (1024 ** power)
         if print_details:
             print("******************************************************")
-            print("\nGPU details:")
+            print("\nGPU usage:")
             print("Total memory: {0} {1}".format(total_mem, memory_size_format))
             print("Used memory: {0} {1}".format(used_mem, memory_size_format))
             print("Free memory: {0} {1}".format(free_mem, memory_size_format))
