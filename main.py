@@ -192,7 +192,7 @@ def maximum_unacceptable_dimension_2n(device, model):
     while True:
         input_image = random_image(dimension)
         input_image = input_image.to(device)
-        print("Testing dimension: {dimension}x{dimension} ...")
+        print(f"Testing dimension: {dimension}x{dimension} ...")
         with torch.no_grad():
             try:
                 start = time.time()
@@ -250,7 +250,7 @@ def maximum_acceptable_dimension(device, model, max_unacceptable_dimension):
     while True:
         input_image = random_image(dimension)
         input_image = input_image.to(device)
-        print("Testing dimension: {dimension}x{dimension} ...")
+        print(f"Testing dimension: {dimension}x{dimension} ...")
         with torch.no_grad():
             try:
                 if last == dimension:
@@ -542,6 +542,7 @@ def main():
     # get the maximum acceptable dimension
     max_dim = maximum_acceptable_dimension(device, model, max_unacceptable_dimension)
     logfile.write("\nmaximum acceptable dimension: " + str(max_dim))
+    print(f"\nMaximum acceptable dimension is {max_dim}x{max_dim}\n")
     # get detailed result
     detailed_result, memory_used, memory_free = result_from_dimension_range(
         device, model, 1, max_dim, run=run
@@ -551,7 +552,7 @@ def main():
     mean_time, std_time = get_mean_std(detailed_result)
     mean_memory_used, std_memory_used = get_mean_std(memory_used)
     mean_memory_free, std_memory_free = get_mean_std(memory_free)
-
+    # make folder for saving results
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
     foldername = date
