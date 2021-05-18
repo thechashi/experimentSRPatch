@@ -1,5 +1,5 @@
 """
-Experiment on EDSR model
+Experiment on SR models
 """
 import os
 import gc
@@ -14,7 +14,19 @@ from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
 import pandas as pd
 from EDSR import make_model, load
 
+
 def get_device_details():
+    """
+    Get the GPU details
+
+    Returns
+    -------
+    device : torch.device
+        cuda or cpu.
+    device_name : str
+        gpu model name.
+
+    """
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Using device:", device)
     device_name = "cpu"
@@ -25,7 +37,29 @@ def get_device_details():
     return device, device_name
 
 
-def get_gpu_details(device, memory_size_format="MB", print_details=False):
+def get_gpu_details(device: str, memory_size_format="MB", print_details=False):
+    """
+    Get GPU details
+
+    Parameters
+    ----------
+    device : str
+        device type.
+    memory_size_format : str, optional
+        MB or GB. The default is "MB".
+    print_details : Boolean, optional
+        flag for printing the gpu usage. The default is False.
+
+    Returns
+    -------
+    total_mem : float
+        total memory in gpu.
+    used_mem : float
+        used memory in gpu.
+    free_mem : float
+        free memory in gpu.
+
+    """
     power = 2
     if memory_size_format == "MB":
         power = 2
@@ -50,6 +84,24 @@ def get_gpu_details(device, memory_size_format="MB", print_details=False):
 
 
 def load_edsr(device, n_resblocks=16, n_feats=64):
+    """
+    Loads the EDSR model
+
+    Parameters
+    ----------
+    device : str
+        device type.
+    n_resblocks : int, optional
+        number of res_blocks. The default is 16.
+    n_feats : int, optional
+        number of features. The default is 64.
+
+    Returns
+    -------
+    model : torch.nn.model
+        EDSR model.
+
+    """
     args = {
         "n_resblocks": n_resblocks,
         "n_feats": n_feats,
@@ -67,6 +119,20 @@ def load_edsr(device, n_resblocks=16, n_feats=64):
 
 
 def random_image(dimension):
+    """
+    Provides a random image
+
+    Parameters
+    ----------
+    dimension : int
+        The image dimension.
+
+    Returns
+    -------
+    2D Tensor
+        random image.
+
+    """
     image = np.random.random((dimension, dimension)) * 255.0
     image = torch.tensor(image)
     image.unsqueeze_(0)
@@ -76,6 +142,21 @@ def random_image(dimension):
 
 
 def clear_cuda(input_image, output_image):
+    """
+    Clears up the images from cuda
+
+    Parameters
+    ----------
+    input_image : 2D Tensor
+        input image in cuda.
+    output_image : 2D Tenosr
+        output_image in cuda.
+
+    Returns
+    -------
+    None.
+
+    """
     if output_image is not None:
         output_image = output_image.cpu()
         del output_image
@@ -87,6 +168,22 @@ def clear_cuda(input_image, output_image):
 
 
 def maximum_unacceptable_dimension_2n(device, model):
+    """
+    Ge the maximum unacceptable dimension which is apower of 2
+
+    Parameters
+    ----------
+    device : str
+        device type.
+    model : torch.nn.model
+        SR model.
+
+    Returns
+    -------
+    last_dimension : int
+        unacceptabel dimension.
+
+    """
     print()
     print("Getting maximum unacceptable dimension which is a power of two...")
     result1 = {}
@@ -125,6 +222,24 @@ def maximum_unacceptable_dimension_2n(device, model):
 
 
 def maximum_acceptable_dimension(device, model, max_unacceptable_dimension):
+    """
+    Get amximum acceptable dimension
+
+    Parameters
+    ----------
+    device : str
+        device type.
+    model : torch.nn.model
+        SR model.
+    max_unacceptable_dimension : int
+        Maximum unacceptable dimension which is apower of 2.
+
+    Returns
+    -------
+    last : int
+        acceptable dimension.
+
+    """
     print()
     print("Getting maximum acceptable dimension...")
     result2 = {}
@@ -177,6 +292,32 @@ def maximum_acceptable_dimension(device, model, max_unacceptable_dimension):
 
 
 def result_from_dimension_range(device, model, first, last, run=10):
+    """
+    Get detailed result for every dimension from 1 to the last acceptable dimension
+
+    Parameters
+    ----------
+    device : str
+        device type.
+    model : torch.nn.model
+        SR model.
+    first : int
+        starting dimension.
+    last : int
+        last acceptable dimension.
+    run : int, optional
+        total run to average the result. The default is 10.
+
+    Returns
+    -------
+    result3 : dictionary
+        time for every dimension.
+    memory_used : dictionary
+        memory used per dimension.
+    memory_free : dictionary
+        memory free per dimension.
+
+    """
     print("\nPreparing detailed data... ")
     result3 = {}
     memory_used = {}
@@ -215,6 +356,22 @@ def result_from_dimension_range(device, model, first, last, run=10):
 
 
 def get_mean_std(result3):
+    """
+    Ge the mean and std for every value
+
+    Parameters
+    ----------
+    result3 : dictionary
+        data to get mean and std from.
+
+    Returns
+    -------
+    mean_dict : dictionary
+        mean key value.
+    std_dict : dictionary
+        std key value.
+
+    """
     mean_dict = {}
     std_dict = {}
 
@@ -228,6 +385,29 @@ def get_mean_std(result3):
 
 
 def plot_data(foldername, filename, data_dict, x_label, y_label, mode):
+    """
+    Plot data
+
+    Parameters
+    ----------
+    foldername : str
+        folder name.
+    filename : str
+        filen.
+    data_dict : dictionary
+        data to plot.
+    x_label : str
+        x label.
+    y_label : str
+        y label.
+    mode : str
+        mea or std.
+
+    Returns
+    -------
+    None.
+
+    """
     print("Plotting dimension vs ", mode)
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
@@ -254,6 +434,39 @@ def save_csv(
     mean_mem_free,
     std_mem_free,
 ):
+    """
+    Save data in CSV
+
+    Parameters
+    ----------
+    foldername : str
+        foldername.
+    filename : str
+        dilename to save data.
+    device : str
+        device type.
+    device_name : str
+        GPU model.
+    total_mem : float
+        total memory in GPU.
+    mean_time : dictionary
+        mean time vs dimension.
+    std_time : dictionary
+        std time vs dimension.
+    mean_mem_used : dictionary
+        mean memory used vs dimension.
+    std_mem_used : dictionary
+        std memory used vs dimension.
+    mean_mem_free : dictionary
+        mean free memory vs dimension.
+    std_mem_free : dictionary
+        std free memory vs dimension.
+
+    Returns
+    -------
+    None.
+
+    """
     m_time = sorted(mean_time.items())
     s_time = sorted(std_time.items())
     m_used = sorted(mean_mem_used.items())
@@ -293,7 +506,16 @@ def save_csv(
     data_frame.to_csv(file)
     file.close()
 
+
 def main():
+    """
+    Main function
+
+    Returns
+    -------
+    None.
+
+    """
     # device information
     _, device_name = get_device_details()
     device = "cuda"
