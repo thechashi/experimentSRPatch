@@ -37,7 +37,7 @@ def get_device_details():
     return device, device_name
 
 
-def get_gpu_details(device: str, memory_size_format="MB", print_details=False):
+def get_gpu_details(device: str, logfile, memory_size_format="MB", print_details=False):
     """
     Get GPU usage
 
@@ -79,6 +79,12 @@ def get_gpu_details(device: str, memory_size_format="MB", print_details=False):
             print("Used memory: {0} {1}".format(used_mem, memory_size_format))
             print("Free memory: {0} {1}".format(free_mem, memory_size_format))
             print("****************************************************\n")
+            logfile.write("\n**********************************************")
+            logfile.write("\nGPU usage:")
+            logfile.write("\nTotal memory: {0} {1}".format(total_mem, memory_size_format))
+            logfile.write("\nUsed memory: {0} {1}".format(used_mem, memory_size_format))
+            logfile.write("\nFree memory: {0} {1}".format(free_mem, memory_size_format))
+            logfile.write("\n**********************************************\n")
         return total_mem, used_mem, free_mem
     return None
 
@@ -167,7 +173,7 @@ def clear_cuda(input_image, output_image):
     torch.cuda.empty_cache()
 
 
-def maximum_unacceptable_dimension_2n(device, model):
+def maximum_unacceptable_dimension_2n(device, model, logfile):
     """
     Ge the maximum unacceptable dimension which is apower of 2
 
@@ -190,13 +196,23 @@ def maximum_unacceptable_dimension_2n(device, model):
     last_dimension = 0
     dimension = 2
     while True:
+        print("\n#########################################################\n")
+        logfile.write("\n##################################################\n")
+        print(f"Testing dimension: {dimension}x{dimension} ...")
+        logfile.write(f"\nTesting dimension: {dimension}x{dimension} ...")
+        logfile.write("\nBefore loading the images...\n")
+        print("\nBefore loading the images...\n")
+        get_gpu_details(device, logfile, print_details=True)
         input_image = random_image(dimension)
         input_image = input_image.to(device)
-        print(f"Testing dimension: {dimension}x{dimension} ...")
+        
         with torch.no_grad():
             try:
                 start = time.time()
                 output_image = model(input_image)
+                logfile.write("\nAfter loading the images...\n")
+                print("\nAfter loading the images...\n")
+                get_gpu_details(device, logfile, print_details=True)
                 end = time.time()
                 total_time = end - start
                 if dimension in result1.keys():
@@ -204,12 +220,23 @@ def maximum_unacceptable_dimension_2n(device, model):
                 else:
                     result1[dimension] = [total_time]
                 print("Dimension ok.")
+                logfile.write("\nDimension ok.")
                 dimension *= 2
                 clear_cuda(input_image, output_image)
+                logfile.write("\nAfter clearing the images...\n")
+                print("\nAfter clearing the images...\n")
+                get_gpu_details(device, logfile, print_details=True)
+                print("\n#########################################################\n")
+                logfile.write("\n##################################################\n")
             except RuntimeError as err:
-                print("Dimension NOT OK!")
+                print("\nDimension NOT OK!")
                 print("------------------------------------------------------")
                 print(err)
+                logfile.write("\nDimension NOT OK!\n")
+                logfile.write(str(err))
+                logfile.write("\nAfter loading the images...\n")
+                print("\nAfter loading the images...\n")
+                get_gpu_details(device, logfile, print_details=True)
                 if dimension in result1.keys():
                     result1[dimension].append(math.inf)
                 else:
@@ -217,11 +244,17 @@ def maximum_unacceptable_dimension_2n(device, model):
                 last_dimension = dimension
                 output_image = None
                 clear_cuda(input_image, output_image)
+                logfile.write("\nAfter clearing the images...\n")
+                print("\nAfter clearing the images...\n")
+                get_gpu_details(device, logfile, print_details=True)
+                logfile.write("\n------------------------------------------\n")
+                print("\n#########################################################\n")
+                logfile.write("\n##################################################\n")
                 break
     return last_dimension
 
 
-def maximum_acceptable_dimension(device, model, max_unacceptable_dimension):
+def maximum_acceptable_dimension(device, model, max_unacceptable_dimension, logfile):
     """
     Get amximum acceptable dimension
 
@@ -248,16 +281,28 @@ def maximum_acceptable_dimension(device, model, max_unacceptable_dimension):
     minm = -math.inf
     last = 0
     while True:
+        print("\n#########################################################\n")
+        logfile.write("\n##################################################\n")
+        print(f"Testing dimension: {dimension}x{dimension} ...")
+        logfile.write(f"\nTesting dimension: {dimension}x{dimension} ...")
+        logfile.write("\nBefore loading the images...\n")
+        print("\nBefore loading the images...\n")
+        get_gpu_details(device, logfile, print_details=True)
         input_image = random_image(dimension)
         input_image = input_image.to(device)
-        print(f"Testing dimension: {dimension}x{dimension} ...")
         with torch.no_grad():
             try:
                 if last == dimension:
                     clear_cuda(input_image, output_image=None)
+                    logfile.write("\nAfter clearing the images...\n")
+                    print("\nAfter clearing the images...\n")
+                    get_gpu_details(device, logfile, print_details=True)
                     break
                 start = time.time()
                 output_image = model(input_image)
+                logfile.write("\nAfter loading the images...\n")
+                print("\nAfter loading the images...\n")
+                get_gpu_details(device, logfile, print_details=True)
                 end = time.time()
                 total_time = end - start
                 last = dimension
@@ -272,10 +317,20 @@ def maximum_acceptable_dimension(device, model, max_unacceptable_dimension):
                 else:
                     dimension = dimension + (maxm - minm) // 2
                 clear_cuda(input_image, output_image)
+                logfile.write("\nAfter clearing the images...\n")
+                print("\nAfter clearing the images...\n")
+                get_gpu_details(device, logfile, print_details=True)
+                print("\n#########################################################\n")
+                logfile.write("\n##################################################\n")
             except RuntimeError as err:
-                print("Dimension NOT OK!")
-                print(err)
+                print("\nDimension NOT OK!")
                 print("------------------------------------------------------")
+                print(err)
+                logfile.write("\nDimension NOT OK!\n")
+                logfile.write(str(err))
+                logfile.write("\nAfter loading the images...\n")
+                print("\nAfter loading the images...\n")
+                get_gpu_details(device, logfile, print_details=True)
                 maxm = copy.copy(dimension)
                 if dimension in result2.keys():
                     result2[dimension].append(math.inf)
@@ -287,11 +342,17 @@ def maximum_acceptable_dimension(device, model, max_unacceptable_dimension):
                     dimension = minm + (maxm - minm) // 2
                 output_image = None
                 clear_cuda(input_image, output_image)
+                logfile.write("\nAfter clearing the images...\n")
+                print("\nAfter clearing the images...\n")
+                get_gpu_details(device, logfile, print_details=True)
+                logfile.write("\n------------------------------------------\n")
+                print("\n#########################################################\n")
+                logfile.write("\n##################################################\n")
                 continue
     return last
 
 
-def result_from_dimension_range(device, model, first, last, run=10):
+def result_from_dimension_range(device, model, first, last, logfile, run=10):
     """
     Get detailed result for every dimension from 1 to the last acceptable dimension
 
@@ -336,21 +397,29 @@ def result_from_dimension_range(device, model, first, last, run=10):
                     total_time = end - start
                     if dimension in result3.keys():
                         result3[dimension].append(total_time)
-                        _, used, free = get_gpu_details(device, print_details=False)
+                        _, used, free = get_gpu_details(device, logfile, print_details=False)
                         memory_used[dimension].append(used)
                         memory_free[dimension].append(free)
                     else:
                         result3[dimension] = [total_time]
-                        _, used, free = get_gpu_details(device, print_details=False)
+                        _, used, free = get_gpu_details(device, logfile, print_details=False)
                         memory_used[dimension] = [used]
                         memory_free[dimension] = [free]
                     clear_cuda(input_image, output_image)
                 except RuntimeError as err:
-                    print("Dimension NOT OK!")
+                    print("\nDimension NOT OK!")
+                    print("------------------------------------------------------")
                     print(err)
-                    print("--------------------------------------------------")
+                    logfile.write("\nDimension NOT OK!\n")
+                    logfile.write(f"Run: {run}")
+                    logfile.write(str(err))
+                    logfile.write("\nAfter loading the images...\n")
+                    get_gpu_details(device, logfile, print_details=True)
                     output_image = None
                     clear_cuda(input_image, output_image)
+                    logfile.write("\nAfter clearing the images...\n")
+                    get_gpu_details(device, logfile, print_details=True)
+                    logfile.write("\n------------------------------------------\n")
                     break
     return result3, memory_used, memory_free
 
@@ -528,24 +597,24 @@ def main():
     run = 10
     clear_cuda(None, None)
     print("Before loading model: ")
-    total, used, _ = get_gpu_details(device, print_details=True)
+    total, used, _ = get_gpu_details(device, logfile, print_details=True)
     print("Total memory: ", total)
     model = load_edsr(device=device)
     print("After loading model: ")
-    total, used, _ = get_gpu_details(device, print_details=True)
+    total, used, _ = get_gpu_details(device, logfile, print_details=True)
     logfile.write("\nDevice: " + device)
     logfile.write("\nDevice name: " + device_name)
     logfile.write("\nTotal memory: " + str(total))
     logfile.write("\nTotal memory used after loading model: " + str(used))
     # get the highest unacceptable dimension which is a power of 2
-    max_unacceptable_dimension = maximum_unacceptable_dimension_2n(device, model)
+    max_unacceptable_dimension = maximum_unacceptable_dimension_2n(device, model, logfile)
     # get the maximum acceptable dimension
-    max_dim = maximum_acceptable_dimension(device, model, max_unacceptable_dimension)
-    logfile.write("\nmaximum acceptable dimension: " + str(max_dim))
+    max_dim = maximum_acceptable_dimension(device, model, max_unacceptable_dimension, logfile)
+    logfile.write(f"\nMaximum acceptable dimension is {max_dim}x{max_dim}\n")
     print(f"\nMaximum acceptable dimension is {max_dim}x{max_dim}\n")
     # get detailed result
     detailed_result, memory_used, memory_free = result_from_dimension_range(
-        device, model, 1, max_dim, run=run
+        device, model, 1, max_dim, logfile, run=run
     )
     # get mean
     # get std
@@ -620,6 +689,7 @@ def main():
         mean_memory_free,
         std_memory_free,
     )
+    logfile.close()
 
 
 if __name__ == "__main__":
