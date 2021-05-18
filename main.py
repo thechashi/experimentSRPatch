@@ -2,18 +2,17 @@
 Experiment on EDSR model
 """
 import os
-import numpy as np
-import matplotlib.pyplot as plt
-import torch
 import gc
 import time
 import math
 import copy
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
 from tqdm import tqdm
-from EDSR import make_model, load
-from pynvml import *
+from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
 import pandas as pd
-
+from EDSR import make_model, load
 
 def get_device_details():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -33,42 +32,32 @@ def get_gpu_details(device, memory_size_format="MB", print_details=False):
     elif memory_size_format == "GB":
         power = 3
     if device == "cuda":
-        # =============================================================================
-        #         t = torch.cuda.get_device_properties(0).total_memory/(1024**power)
-        #         r = torch.cuda.memory_reserved(0)/(1024**power)
-        #         c = torch.cuda.memory_reserved(0)/(1024**power)
-        #         a = torch.cuda.memory_allocated(0)/(1024**power)
-        #         f = r-a  # free inside reserved
-        # =============================================================================
         nvmlInit()
-        h = nvmlDeviceGetHandleByIndex(0)
-        info = nvmlDeviceGetMemoryInfo(h)
-        t = info.total / (1024 ** power)
-        u = info.used / (1024 ** power)
-        f = info.free / (1024 ** power)
+        dev = nvmlDeviceGetHandleByIndex(0)
+        info = nvmlDeviceGetMemoryInfo(dev)
+        total_mem = info.total / (1024 ** power)
+        used_mem = info.used / (1024 ** power)
+        free_mem = info.free / (1024 ** power)
         if print_details:
             print("******************************************************")
             print("\nGPU details:")
-            print("Total memory: {0} {1}".format(t, memory_size_format))
-            print("Used memory: {0} {1}".format(u, memory_size_format))
-            print("Free memory: {0} {1}".format(f, memory_size_format))
+            print("Total memory: {0} {1}".format(total_mem, memory_size_format))
+            print("Used memory: {0} {1}".format(used_mem, memory_size_format))
+            print("Free memory: {0} {1}".format(free_mem, memory_size_format))
             print("****************************************************\n")
-        return t, u, f
-    else:
-        return None
+        return total_mem, used_mem, free_mem
+    return None
 
 
-def load_edsr(device, n_resblocks=16, n_feats=64, scale=[4]):
+def load_edsr(device, n_resblocks=16, n_feats=64):
     args = {
         "n_resblocks": n_resblocks,
         "n_feats": n_feats,
-        "scale": scale,
+        "scale": [4],
         "rgb_range": 255,
         "n_colors": 3,
         "res_scale": 1,
     }
-    """
-    """
     model = make_model(args).to(device)
     load(model)
     print("\nModel details: ")
@@ -78,21 +67,21 @@ def load_edsr(device, n_resblocks=16, n_feats=64, scale=[4]):
 
 
 def random_image(dimension):
-    B = np.random.random((dimension, dimension)) * 255.0
-    B = torch.tensor(B)
-    B.unsqueeze_(0)
-    B = B.repeat(3, 1, 1)
-    B = B.unsqueeze(0)
-    return B.float()
+    image = np.random.random((dimension, dimension)) * 255.0
+    image = torch.tensor(image)
+    image.unsqueeze_(0)
+    image = image.repeat(3, 1, 1)
+    image = image.unsqueeze(0)
+    return image.float()
 
 
-def clear_cuda(inputImage, output_image):
-    if output_image != None:
+def clear_cuda(input_image, output_image):
+    if output_image is not None:
         output_image = output_image.cpu()
         del output_image
-    if inputImage != None:
-        inputImage = inputImage.cpu()
-        del inputImage
+    if input_image is not None:
+        input_image = input_image.cpu()
+        del input_image
     gc.collect()
     torch.cuda.empty_cache()
 
@@ -101,12 +90,12 @@ def maximum_unacceptable_dimension_2n(device, model):
     print()
     print("Getting maximum unacceptable dimension which is a power of two...")
     result1 = {}
-    lastDimension = 0
+    last_dimension = 0
     dimension = 2
     while True:
         input_image = random_image(dimension)
         input_image = input_image.to(device)
-        print("Testing dimension: {0}x{1} ...".format(dimension, dimension))
+        print("Testing dimension: {dimension}x{dimension} ...")
         with torch.no_grad():
             try:
                 start = time.time()
@@ -120,33 +109,33 @@ def maximum_unacceptable_dimension_2n(device, model):
                 print("Dimension ok.")
                 dimension *= 2
                 clear_cuda(input_image, output_image)
-            except RuntimeError as e:
+            except RuntimeError as err:
                 print("Dimension NOT OK!")
                 print("------------------------------------------------------")
-                print(e)
+                print(err)
                 if dimension in result1.keys():
                     result1[dimension].append(math.inf)
                 else:
                     result1[dimension] = [math.inf]
-                lastDimension = dimension
+                last_dimension = dimension
                 output_image = None
                 clear_cuda(input_image, output_image)
                 break
-    return lastDimension
+    return last_dimension
 
 
-def maximum_acceptable_dimension(device, model, maxUnacceptableDimension):
+def maximum_acceptable_dimension(device, model, max_unacceptable_dimension):
     print()
     print("Getting maximum acceptable dimension...")
     result2 = {}
-    dimension = maxUnacceptableDimension
+    dimension = max_unacceptable_dimension
     maxm = math.inf
     minm = -math.inf
     last = 0
     while True:
         input_image = random_image(dimension)
         input_image = input_image.to(device)
-        print("Testing dimension: {0}x{1} ...".format(dimension, dimension))
+        print("Testing dimension: {dimension}x{dimension} ...")
         with torch.no_grad():
             try:
                 if last == dimension:
@@ -168,9 +157,9 @@ def maximum_acceptable_dimension(device, model, maxUnacceptableDimension):
                 else:
                     dimension = dimension + (maxm - minm) // 2
                 clear_cuda(input_image, output_image)
-            except RuntimeError as e:
+            except RuntimeError as err:
                 print("Dimension NOT OK!")
-                print(e)
+                print(err)
                 print("------------------------------------------------------")
                 maxm = copy.copy(dimension)
                 if dimension in result2.keys():
@@ -190,12 +179,12 @@ def maximum_acceptable_dimension(device, model, maxUnacceptableDimension):
 def result_from_dimension_range(device, model, first, last, run=10):
     print("\nPreparing detailed data... ")
     result3 = {}
-    memoryUsed = {}
-    memoryFree = {}
+    memory_used = {}
+    memory_free = {}
     for i in range(run):
         print("Run: ", i + 1)
-        for d in tqdm(range(1, last + 1)):
-            dimension = d
+        for dim in tqdm(range(first, last + 1)):
+            dimension = dim
             input_image = random_image(dimension)
             input_image = input_image.to(device)
             with torch.no_grad():
@@ -206,49 +195,48 @@ def result_from_dimension_range(device, model, first, last, run=10):
                     total_time = end - start
                     if dimension in result3.keys():
                         result3[dimension].append(total_time)
-                        t, u, f = get_gpu_details(device, print_details=False)
-                        memoryUsed[dimension].append(u)
-                        memoryFree[dimension].append(f)
+                        _, used, free = get_gpu_details(device, print_details=False)
+                        memory_used[dimension].append(used)
+                        memory_free[dimension].append(free)
                     else:
                         result3[dimension] = [total_time]
-                        t, u, f = get_gpu_details(device, print_details=False)
-                        memoryUsed[dimension] = [u]
-                        memoryFree[dimension] = [f]
+                        _, used, free = get_gpu_details(device, print_details=False)
+                        memory_used[dimension] = [used]
+                        memory_free[dimension] = [free]
                     clear_cuda(input_image, output_image)
-                except RuntimeError as e:
+                except RuntimeError as err:
                     print("Dimension NOT OK!")
-                    print(e)
+                    print(err)
                     print("--------------------------------------------------")
                     output_image = None
                     clear_cuda(input_image, output_image)
                     break
-    return result3, memoryUsed, memoryFree
+    return result3, memory_used, memory_free
 
 
 def get_mean_std(result3):
     mean_dict = {}
     std_dict = {}
 
-    for k, v in result3.items():
-        mean_dict[k] = np.mean(np.array(v))
+    for key, val in result3.items():
+        mean_dict[key] = np.mean(np.array(val))
 
-    for k, v in result3.items():
-        std_dict[k] = np.std(np.array(v))
+    for key, val in result3.items():
+        std_dict[key] = np.std(np.array(val))
 
     return mean_dict, std_dict
 
 
-def plot_data(foldername, filename, data_dict, xLabel, yLabel, mode):
+def plot_data(foldername, filename, data_dict, x_label, y_label, mode):
     print("Plotting dimension vs ", mode)
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
     filename = filename + "_" + date
-    foldername = foldername
     data_dict = sorted(data_dict.items())
-    x, y = zip(*data_dict)
-    plt.xlabel(xLabel)
-    plt.ylabel(yLabel)
-    plt.plot(x, y)
+    x_data, y_data = zip(*data_dict)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.plot(x_data, y_data)
     plt.savefig("results/{0}/{1}.png".format(foldername, filename))
     plt.show()
 
@@ -259,40 +247,40 @@ def save_csv(
     device,
     device_name,
     total_mem,
-    meanTime,
-    stdTime,
-    meanMemUsed,
-    stdMemUsed,
-    meanMemFree,
-    stdMemFree,
+    mean_time,
+    std_time,
+    mean_mem_used,
+    std_mem_used,
+    mean_mem_free,
+    std_mem_free,
 ):
-    mT = sorted(meanTime.items())
-    sT = sorted(stdTime.items())
-    mU = sorted(meanMemUsed.items())
-    sU = sorted(stdMemUsed.items())
-    mF = sorted(meanMemFree.items())
-    sF = sorted(stdMemFree.items())
-    dimension, meanTime = zip(*mT)
-    _, stdTime = zip(*sT)
-    _, meanMemUsed = zip(*mU)
-    _, stdMemUsed = zip(*sU)
-    _, meanMemFree = zip(*mF)
-    _, stdMemFree = zip(*sF)
-    print("mt", str(len(meanTime)))
-    print("st", str(len(stdTime)))
-    print("mU", str(len(meanMemUsed)))
-    print("sU", str(len(stdMemUsed)))
-    print("mF", str(len(meanMemFree)))
-    print("sF", str(len(stdMemFree)))
-    df = pd.DataFrame(
+    m_time = sorted(mean_time.items())
+    s_time = sorted(std_time.items())
+    m_used = sorted(mean_mem_used.items())
+    s_used = sorted(std_mem_used.items())
+    m_free = sorted(mean_mem_free.items())
+    s_free = sorted(std_mem_free.items())
+    dimension, mean_time = zip(*m_time)
+    _, std_time = zip(*s_time)
+    _, mean_mem_used = zip(*m_used)
+    _, std_mem_used = zip(*s_used)
+    _, mean_mem_free = zip(*m_free)
+    _, std_mem_free = zip(*s_free)
+    print("mt", str(len(mean_time)))
+    print("st", str(len(std_time)))
+    print("mU", str(len(mean_mem_used)))
+    print("sU", str(len(std_mem_used)))
+    print("mF", str(len(mean_mem_free)))
+    print("sF", str(len(std_mem_free)))
+    data_frame = pd.DataFrame(
         {
             "Dimension": list(dimension),
-            "Mean Time": list(meanTime),
-            "Std Time": list(stdTime),
-            "Mean Memory Used": list(meanMemUsed),
-            "Std Memory Used": list(stdMemUsed),
-            "Mean Memory Free": list(meanMemFree),
-            "Std Memory Free": list(stdMemFree),
+            "Mean Time": list(mean_time),
+            "Std Time": list(std_time),
+            "Mean Memory Used": list(mean_mem_used),
+            "Std Memory Used": list(std_mem_used),
+            "Mean Memory Free": list(mean_mem_free),
+            "Std Memory Free": list(std_mem_free),
         }
     )
     date = "_".join(str(time.ctime()).split())
@@ -302,10 +290,8 @@ def save_csv(
     file.write("# Device: {0} \n".format(device))
     file.write("# Device Name: {0} \n".format(device_name))
     file.write("# Total GPU memory: {0} \n".format(total_mem))
-    df.to_csv(file)
+    data_frame.to_csv(file)
     file.close()
-    pass
-
 
 def main():
     # device information
@@ -320,29 +306,29 @@ def main():
     run = 10
     clear_cuda(None, None)
     print("Before loading model: ")
-    total, used, free = get_gpu_details(device, print_details=True)
+    total, used, _ = get_gpu_details(device, print_details=True)
     print("Total memory: ", total)
     model = load_edsr(device=device)
     print("After loading model: ")
-    total, used, free = get_gpu_details(device, print_details=True)
+    total, used, _ = get_gpu_details(device, print_details=True)
     logfile.write("\nDevice: " + device)
     logfile.write("\nDevice name: " + device_name)
     logfile.write("\nTotal memory: " + str(total))
     logfile.write("\nTotal memory used after loading model: " + str(used))
     # get the highest unacceptable dimension which is a power of 2
-    maxUnacceptabelDimension = maximum_unacceptable_dimension_2n(device, model)
+    max_unacceptable_dimension = maximum_unacceptable_dimension_2n(device, model)
     # get the maximum acceptable dimension
-    maxDim = maximum_acceptable_dimension(device, model, maxUnacceptabelDimension)
-    logfile.write("\nmaximum acceptable dimension: " + str(maxDim))
+    max_dim = maximum_acceptable_dimension(device, model, max_unacceptable_dimension)
+    logfile.write("\nmaximum acceptable dimension: " + str(max_dim))
     # get detailed result
-    detailedResult, memoryUsed, memoryFree = result_from_dimension_range(
-        device, model, 1, maxDim, run=run
+    detailed_result, memory_used, memory_free = result_from_dimension_range(
+        device, model, 1, max_dim, run=run
     )
     # get mean
     # get std
-    meanTime, stdTime = get_mean_std(detailedResult)
-    meanMemoryUsed, stdMemoryUsed = get_mean_std(memoryUsed)
-    meanMemoryFree, stdMemoryFree = get_mean_std(memoryFree)
+    mean_time, std_time = get_mean_std(detailed_result)
+    mean_memory_used, std_memory_used = get_mean_std(memory_used)
+    mean_memory_free, std_memory_free = get_mean_std(memory_free)
 
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
@@ -352,7 +338,7 @@ def main():
     plot_data(
         foldername,
         "dimension_vs_meantime",
-        meanTime,
+        mean_time,
         "Dimension",
         "Mean Time (" + str(run) + " runs)",
         mode="mean time",
@@ -360,7 +346,7 @@ def main():
     plot_data(
         foldername,
         "dimension_vs_stdtime",
-        stdTime,
+        std_time,
         "Dimension",
         "Std Time (" + str(run) + " runs)",
         mode="std time",
@@ -368,7 +354,7 @@ def main():
     plot_data(
         foldername,
         "dimension_vs_meanmemoryused",
-        meanMemoryUsed,
+        mean_memory_used,
         "Dimension",
         "Mean Memory used (" + str(run) + " runs)",
         mode="mean memory used",
@@ -376,7 +362,7 @@ def main():
     plot_data(
         foldername,
         "dimension_vs_stdmemoryused",
-        stdMemoryUsed,
+        std_memory_used,
         "Dimension",
         "Std Memory Used (" + str(run) + " runs)",
         mode="std memory used",
@@ -384,7 +370,7 @@ def main():
     plot_data(
         foldername,
         "dimension_vs_meanmemoryfree",
-        meanMemoryFree,
+        mean_memory_free,
         "Dimension",
         "Mean Memory Free (" + str(run) + " runs)",
         mode="mean memory free",
@@ -392,7 +378,7 @@ def main():
     plot_data(
         foldername,
         "dimension_vs_stdmemoryfree",
-        stdMemoryFree,
+        std_memory_free,
         "Dimension",
         "Std Memory Free (" + str(run) + " runs)",
         mode="std memory free",
@@ -404,12 +390,12 @@ def main():
         device,
         device_name,
         total,
-        meanTime,
-        stdTime,
-        meanMemoryUsed,
-        stdMemoryUsed,
-        meanMemoryFree,
-        stdMemoryFree,
+        mean_time,
+        std_time,
+        mean_memory_used,
+        std_memory_used,
+        mean_memory_free,
+        std_memory_free,
     )
 
 
