@@ -1,4 +1,4 @@
-import EDSR as edsr
+import models.EDSR as edsr
 
 def load_edsr(device, n_resblocks=16, n_feats=64):
     """

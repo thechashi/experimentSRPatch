@@ -1,8 +1,12 @@
+import os
 import time
 import torch
 from tqdm import tqdm
 import utilities as ut
-def result_from_dimension_range(device, model, first, last, logfile, run=10):
+import modelloader as md
+import subprocess
+import toml
+def result_from_dimension_range(device, logger, config, model, first, last):
     """
     Get detailed result for every dimension from 1 to the last acceptable dimension
 
@@ -29,6 +33,7 @@ def result_from_dimension_range(device, model, first, last, logfile, run=10):
         memory free per dimension.
 
     """
+    run = config['run']
     print("\nPreparing detailed data... ")
     result3 = {}
     memory_used = {}
@@ -47,28 +52,145 @@ def result_from_dimension_range(device, model, first, last, logfile, run=10):
                     total_time = end - start
                     if dimension in result3.keys():
                         result3[dimension].append(total_time)
-                        _, used, free = ut.get_gpu_details(device, logfile, print_details=False)
+                        _, used, free = ut.get_gpu_details(device, "", None, print_details=False)
                         memory_used[dimension].append(used)
                         memory_free[dimension].append(free)
                     else:
                         result3[dimension] = [total_time]
-                        _, used, free = ut.get_gpu_details(device, logfile, print_details=False)
+                        _, used, free = ut.get_gpu_details(device, "", None, print_details=False)
                         memory_used[dimension] = [used]
                         memory_free[dimension] = [free]
                     ut.clear_cuda(input_image, output_image)
                 except RuntimeError as err:
-                    print("\nDimension NOT OK!")
-                    print("------------------------------------------------------")
-                    print(err)
-                    logfile.write("\nDimension NOT OK!\n")
-                    logfile.write(f"Run: {run}")
-                    logfile.write(str(err))
-                    logfile.write("\nAfter loading the images...\n")
-                    ut.get_gpu_details(device, logfile, print_details=True)
+                    logger.exception("\nDimension NOT OK!")
+                
+                    state = "\nGPU usage after dimension exception...\n"
+                    ut.get_gpu_details(device, state, logger, print_details=True)
+                    
                     output_image = None
                     ut.clear_cuda(input_image, output_image)
-                    logfile.write("\nAfter clearing the images...\n")
-                    ut.get_gpu_details(device, logfile, print_details=True)
-                    logfile.write("\n------------------------------------------\n")
+                    
+                    state = f"\nGPU usage after clearing the image {dimension}x{dimension}...\n"
+                    ut.get_gpu_details(device, state, logger, print_details=True)
                     break
+        ut.clear_cuda(None, None)
+        subprocess.run('gpustat', shell=True)
     return result3, memory_used, memory_free
+
+def do_linear_search():
+    """
+    Linear search function...
+
+    Returns
+    -------
+    None.
+
+    """ 
+    logger  = ut.get_logger()
+    
+    device = 'cuda'
+    config = toml.load('../config.toml')
+    run = config['run']
+    # device information
+    _, device_name = ut.get_device_details()
+    total, _, _ = ut.get_gpu_details(device, "\nDevice info:", logger, print_details=False)
+    log_message = "\nDevice: " + device + "\tDevice name: " + device_name + \
+        "\tTotal memory: " + str(total)
+    logger.info(log_message)
+    
+    ut.clear_cuda(None, None)
+    
+    state = "Before loading model: "
+    total, used, _ = ut.get_gpu_details(device, state, logger, print_details=True)
+    
+    model = md.load_edsr(device=device)
+    
+    state = "After loading model: "
+    total, used, _ = ut.get_gpu_details(device, state, logger, print_details=True)
+    
+    file = open("temp_max_dim.txt", "r")
+    line = file.read()
+    max_dim = int(line.split(':')[1])
+    
+    detailed_result, memory_used, memory_free = result_from_dimension_range(
+        device, logger, config, model, 1, max_dim
+    )
+    
+    # get mean
+    # get std
+    mean_time, std_time = ut.get_mean_std(detailed_result)
+    mean_memory_used, std_memory_used = ut.get_mean_std(memory_used)
+    mean_memory_free, std_memory_free = ut.get_mean_std(memory_free)
+    
+    # make folder for saving results
+    date = "_".join(str(time.ctime()).split())
+    date = "_".join(date.split(":"))
+    foldername = date
+    os.mkdir("results/" + foldername)
+    # plot data
+    ut.plot_data(
+        foldername,
+        "dimension_vs_meantime",
+        mean_time,
+        "Dimension",
+        "Mean Time (" + str(run) + " runs)",
+        mode="mean time",
+    )
+    ut.plot_data(
+        foldername,
+        "dimension_vs_stdtime",
+        std_time,
+        "Dimension",
+        "Std Time (" + str(run) + " runs)",
+        mode="std time",
+    )
+    ut.plot_data(
+        foldername,
+        "dimension_vs_meanmemoryused",
+        mean_memory_used,
+        "Dimension",
+        "Mean Memory used (" + str(run) + " runs)",
+        mode="mean memory used",
+    )
+    ut.plot_data(
+        foldername,
+        "dimension_vs_stdmemoryused",
+        std_memory_used,
+        "Dimension",
+        "Std Memory Used (" + str(run) + " runs)",
+        mode="std memory used",
+    )
+    ut.plot_data(
+        foldername,
+        "dimension_vs_meanmemoryfree",
+        mean_memory_free,
+        "Dimension",
+        "Mean Memory Free (" + str(run) + " runs)",
+        mode="mean memory free",
+    )
+    ut.plot_data(
+        foldername,
+        "dimension_vs_stdmemoryfree",
+        std_memory_free,
+        "Dimension",
+        "Std Memory Free (" + str(run) + " runs)",
+        mode="std memory free",
+    )
+    # save data
+    ut.save_csv(
+        foldername,
+        "total_stat",
+        device,
+        device_name,
+        total,
+        mean_time,
+        std_time,
+        mean_memory_used,
+        std_memory_used,
+        mean_memory_free,
+        std_memory_free,
+    )
+    
+if __name__ == "__main__":    
+    do_linear_search()
+    

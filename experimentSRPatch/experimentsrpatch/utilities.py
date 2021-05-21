@@ -1,16 +1,35 @@
-import os
 import gc
 import time
-import math
-import copy
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
-from tqdm import tqdm
 from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
 import pandas as pd
-from EDSR import make_model, load
+import logging 
+from datetime import date
 
+def get_logger():
+    today = date.today().strftime("%b-%d-%Y")
+    today = "_".join(str(today).split("-"))
+    logfile_name = "results/logs_" + today + ".log" 
+    
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+    
+    file_formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(message)s')
+    stream_formatter = logging.Formatter('%(levelname)s:%(message)s')
+    
+    file_handler = logging.FileHandler(logfile_name)
+    # file_handler.setLevel(logging.ERROR)
+    file_handler.setFormatter(file_formatter)
+    
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(stream_formatter)
+    
+    logger.addHandler(file_handler)
+    logger.addHandler(stream_handler)
+    
+    return logger
 def get_device_details():
     """
     Get the GPU details
@@ -33,7 +52,7 @@ def get_device_details():
     return device, device_name
 
 
-def get_gpu_details(device: str, logfile, memory_size_format="MB", print_details=False):
+def get_gpu_details(device: str, state: str, logger, memory_size_format="MB", print_details=False):
     """
     Get GPU usage
 
@@ -69,18 +88,11 @@ def get_gpu_details(device: str, logfile, memory_size_format="MB", print_details
         used_mem = info.used / (1024 ** power)
         free_mem = info.free / (1024 ** power)
         if print_details:
-            print("******************************************************")
-            print("\nGPU usage:")
-            print("Total memory: {0} {1}".format(total_mem, memory_size_format))
-            print("Used memory: {0} {1}".format(used_mem, memory_size_format))
-            print("Free memory: {0} {1}".format(free_mem, memory_size_format))
-            print("****************************************************\n")
-            logfile.write("\n**********************************************")
-            logfile.write("\nGPU usage:")
-            logfile.write("\nTotal memory: {0} {1}".format(total_mem, memory_size_format))
-            logfile.write("\nUsed memory: {0} {1}".format(used_mem, memory_size_format))
-            logfile.write("\nFree memory: {0} {1}".format(free_mem, memory_size_format))
-            logfile.write("\n**********************************************\n")
+            log_message = state + \
+                '\nTotal:\t{0} {1}'.format(total_mem, memory_size_format) + \
+                '\nUsed:\t{0} {1}'.format(used_mem, memory_size_format) + \
+                '\nFree:\t{0} {1}'.format(free_mem, memory_size_format) + '\n'
+            logger.info(log_message)
         return total_mem, used_mem, free_mem
     return None
 
@@ -256,12 +268,6 @@ def save_csv(
     _, std_mem_used = zip(*s_used)
     _, mean_mem_free = zip(*m_free)
     _, std_mem_free = zip(*s_free)
-    print("mt", str(len(mean_time)))
-    print("st", str(len(std_time)))
-    print("mU", str(len(mean_mem_used)))
-    print("sU", str(len(std_mem_used)))
-    print("mF", str(len(mean_mem_free)))
-    print("sF", str(len(std_mem_free)))
     data_frame = pd.DataFrame(
         {
             "Dimension": list(dimension),
