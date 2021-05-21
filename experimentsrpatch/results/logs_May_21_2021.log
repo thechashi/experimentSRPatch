@@ -1,0 +1,1276 @@
+2021-05-21 13:28:41,707:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-05-21 13:28:41,746:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	270.8125 MB
+Free:	1733.6875 MB
+
+2021-05-21 13:28:44,493:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	876.5625 MB
+Free:	1127.9375 MB
+
+2021-05-21 13:28:44,493:INFO:
+Testing dimension: 2x2 ...
+2021-05-21 13:28:44,493:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	876.5625 MB
+Free:	1127.9375 MB
+
+2021-05-21 13:28:44,500:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	887.5625 MB
+Free:	1116.9375 MB
+
+2021-05-21 13:28:44,501:INFO:
+Dimension ok!
+2021-05-21 13:28:44,542:INFO:
+GPU usage after clearing the image 4x4...
+
+Total:	2004.5 MB
+Used:	881.5625 MB
+Free:	1122.9375 MB
+
+2021-05-21 13:28:44,542:INFO:
+Testing dimension: 4x4 ...
+2021-05-21 13:28:44,542:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	881.5625 MB
+Free:	1122.9375 MB
+
+2021-05-21 13:28:44,547:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	883.5625 MB
+Free:	1120.9375 MB
+
+2021-05-21 13:28:44,548:INFO:
+Dimension ok!
+2021-05-21 13:28:44,586:INFO:
+GPU usage after clearing the image 8x8...
+
+Total:	2004.5 MB
+Used:	881.5625 MB
+Free:	1122.9375 MB
+
+2021-05-21 13:28:44,586:INFO:
+Testing dimension: 8x8 ...
+2021-05-21 13:28:44,586:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	881.5625 MB
+Free:	1122.9375 MB
+
+2021-05-21 13:28:44,594:INFO:
+GPU usage after loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	903.5625 MB
+Free:	1100.9375 MB
+
+2021-05-21 13:28:44,594:INFO:
+Dimension ok!
+2021-05-21 13:28:44,633:INFO:
+GPU usage after clearing the image 16x16...
+
+Total:	2004.5 MB
+Used:	881.5625 MB
+Free:	1122.9375 MB
+
+2021-05-21 13:28:44,633:INFO:
+Testing dimension: 16x16 ...
+2021-05-21 13:28:44,633:INFO:
+GPU usage before loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	881.5625 MB
+Free:	1122.9375 MB
+
+2021-05-21 13:28:44,639:INFO:
+GPU usage after loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	905.5625 MB
+Free:	1098.9375 MB
+
+2021-05-21 13:28:44,640:INFO:
+Dimension ok!
+2021-05-21 13:28:44,683:INFO:
+GPU usage after clearing the image 32x32...
+
+Total:	2004.5 MB
+Used:	881.5625 MB
+Free:	1122.9375 MB
+
+2021-05-21 13:28:44,684:INFO:
+Testing dimension: 32x32 ...
+2021-05-21 13:28:44,684:INFO:
+GPU usage before loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	881.5625 MB
+Free:	1122.9375 MB
+
+2021-05-21 13:28:44,690:INFO:
+GPU usage after loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	905.5625 MB
+Free:	1098.9375 MB
+
+2021-05-21 13:28:44,690:INFO:
+Dimension ok!
+2021-05-21 13:28:44,731:INFO:
+GPU usage after clearing the image 64x64...
+
+Total:	2004.5 MB
+Used:	883.5625 MB
+Free:	1120.9375 MB
+
+2021-05-21 13:28:44,731:INFO:
+Testing dimension: 64x64 ...
+2021-05-21 13:28:44,731:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	883.5625 MB
+Free:	1120.9375 MB
+
+2021-05-21 13:28:44,739:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	923.5625 MB
+Free:	1080.9375 MB
+
+2021-05-21 13:28:44,739:INFO:
+Dimension ok!
+2021-05-21 13:28:44,801:INFO:
+GPU usage after clearing the image 128x128...
+
+Total:	2004.5 MB
+Used:	883.5625 MB
+Free:	1120.9375 MB
+
+2021-05-21 13:28:44,801:INFO:
+Testing dimension: 128x128 ...
+2021-05-21 13:28:44,802:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	883.5625 MB
+Free:	1120.9375 MB
+
+2021-05-21 13:28:44,808:INFO:
+GPU usage after loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	1063.5625 MB
+Free:	940.9375 MB
+
+2021-05-21 13:28:44,808:INFO:
+Dimension ok!
+2021-05-21 13:28:44,952:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	903.5625 MB
+Free:	1100.9375 MB
+
+2021-05-21 13:28:44,952:INFO:
+Testing dimension: 256x256 ...
+2021-05-21 13:28:44,952:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	903.5625 MB
+Free:	1100.9375 MB
+
+2021-05-21 13:28:44,965:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1591.5625 MB
+Free:	412.9375 MB
+
+2021-05-21 13:28:44,965:INFO:
+Dimension ok!
+2021-05-21 13:28:45,406:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	903.5625 MB
+Free:	1100.9375 MB
+
+2021-05-21 13:28:45,406:INFO:
+Testing dimension: 512x512 ...
+2021-05-21 13:28:45,407:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	903.5625 MB
+Free:	1100.9375 MB
+
+2021-05-21 13:28:46,328:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 41, in maximum_unacceptable_dimension_2n
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 1024.00 MiB (GPU 0; 1.96 GiB total capacity; 405.80 MiB already allocated; 718.94 MiB free; 410.00 MiB reserved in total by PyTorch)
+2021-05-21 13:28:46,330:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1285.5625 MB
+Free:	718.9375 MB
+
+2021-05-21 13:28:46,370:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	1285.5625 MB
+Free:	718.9375 MB
+
+2021-05-21 13:28:46,419:INFO:
+Testing dimension: 512x512 ...
+2021-05-21 13:28:46,419:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	881.5625 MB
+Free:	1122.9375 MB
+
+2021-05-21 13:28:47,333:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 131, in maximum_acceptable_dimension
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 1024.00 MiB (GPU 0; 1.96 GiB total capacity; 392.80 MiB already allocated; 718.94 MiB free; 410.00 MiB reserved in total by PyTorch)
+2021-05-21 13:28:47,333:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1285.5625 MB
+Free:	718.9375 MB
+
+2021-05-21 13:28:47,373:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	1285.5625 MB
+Free:	718.9375 MB
+
+2021-05-21 13:28:47,373:INFO:
+Testing dimension: 256x256 ...
+2021-05-21 13:28:47,373:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1285.5625 MB
+Free:	718.9375 MB
+
+2021-05-21 13:28:47,384:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1543.5625 MB
+Free:	460.9375 MB
+
+2021-05-21 13:28:47,384:INFO:
+Dimension ok!
+2021-05-21 13:28:47,819:INFO:
+GPU usage after clearing the iimage 384x384...
+
+Total:	2004.5 MB
+Used:	903.5625 MB
+Free:	1100.9375 MB
+
+2021-05-21 13:28:47,819:INFO:
+Testing dimension: 384x384 ...
+2021-05-21 13:28:47,819:INFO:
+GPU usage before loading the image 384x384...
+
+Total:	2004.5 MB
+Used:	903.5625 MB
+Free:	1100.9375 MB
+
+2021-05-21 13:28:48,528:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 131, in maximum_acceptable_dimension
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/pixelshuffle.py", line 53, in forward
+    return F.pixel_shuffle(input, self.upscale_factor)
+RuntimeError: CUDA out of memory. Tried to allocate 576.00 MiB (GPU 0; 1.96 GiB total capacity; 667.49 MiB already allocated; 454.94 MiB free; 674.00 MiB reserved in total by PyTorch)
+2021-05-21 13:28:48,528:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1549.5625 MB
+Free:	454.9375 MB
+
+2021-05-21 13:28:48,567:INFO:
+GPU usage after clearing the image 320x320...
+
+Total:	2004.5 MB
+Used:	1549.5625 MB
+Free:	454.9375 MB
+
+2021-05-21 13:28:48,567:INFO:
+Testing dimension: 320x320 ...
+2021-05-21 13:28:48,567:INFO:
+GPU usage before loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	1549.5625 MB
+Free:	454.9375 MB
+
+2021-05-21 13:28:48,578:INFO:
+GPU usage after loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	1951.5625 MB
+Free:	52.9375 MB
+
+2021-05-21 13:28:48,578:INFO:
+Dimension ok!
+2021-05-21 13:28:49,218:INFO:
+GPU usage after clearing the iimage 352x352...
+
+Total:	2004.5 MB
+Used:	937.5625 MB
+Free:	1066.9375 MB
+
+2021-05-21 13:28:49,218:INFO:
+Testing dimension: 352x352 ...
+2021-05-21 13:28:49,218:INFO:
+GPU usage before loading the image 352x352...
+
+Total:	2004.5 MB
+Used:	937.5625 MB
+Free:	1066.9375 MB
+
+2021-05-21 13:28:49,812:INFO:
+GPU usage after loading the image 352x352...
+
+Total:	2004.5 MB
+Used:	1949.5625 MB
+Free:	54.9375 MB
+
+2021-05-21 13:28:49,812:INFO:
+Dimension ok!
+2021-05-21 13:28:50,037:INFO:
+GPU usage after clearing the iimage 368x368...
+
+Total:	2004.5 MB
+Used:	949.5625 MB
+Free:	1054.9375 MB
+
+2021-05-21 13:28:50,037:INFO:
+Testing dimension: 368x368 ...
+2021-05-21 13:28:50,037:INFO:
+GPU usage before loading the image 368x368...
+
+Total:	2004.5 MB
+Used:	949.5625 MB
+Free:	1054.9375 MB
+
+2021-05-21 13:28:50,678:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 131, in maximum_acceptable_dimension
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/pixelshuffle.py", line 53, in forward
+    return F.pixel_shuffle(input, self.upscale_factor)
+RuntimeError: CUDA out of memory. Tried to allocate 530.00 MiB (GPU 0; 1.96 GiB total capacity; 627.10 MiB already allocated; 490.94 MiB free; 638.00 MiB reserved in total by PyTorch)
+2021-05-21 13:28:50,678:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1513.5625 MB
+Free:	490.9375 MB
+
+2021-05-21 13:28:50,717:INFO:
+GPU usage after clearing the image 360x360...
+
+Total:	2004.5 MB
+Used:	1513.5625 MB
+Free:	490.9375 MB
+
+2021-05-21 13:28:50,717:INFO:
+Testing dimension: 360x360 ...
+2021-05-21 13:28:50,718:INFO:
+GPU usage before loading the image 360x360...
+
+Total:	2004.5 MB
+Used:	1513.5625 MB
+Free:	490.9375 MB
+
+2021-05-21 13:28:51,169:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 131, in maximum_acceptable_dimension
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 508.00 MiB (GPU 0; 1.96 GiB total capacity; 197.13 MiB already allocated; 490.94 MiB free; 638.00 MiB reserved in total by PyTorch)
+2021-05-21 13:28:51,169:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1513.5625 MB
+Free:	490.9375 MB
+
+2021-05-21 13:28:51,208:INFO:
+GPU usage after clearing the image 356x356...
+
+Total:	2004.5 MB
+Used:	1513.5625 MB
+Free:	490.9375 MB
+
+2021-05-21 13:28:51,208:INFO:
+Testing dimension: 356x356 ...
+2021-05-21 13:28:51,208:INFO:
+GPU usage before loading the image 356x356...
+
+Total:	2004.5 MB
+Used:	1513.5625 MB
+Free:	490.9375 MB
+
+2021-05-21 13:28:51,653:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 131, in maximum_acceptable_dimension
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 496.00 MiB (GPU 0; 1.96 GiB total capacity; 192.90 MiB already allocated; 490.94 MiB free; 638.00 MiB reserved in total by PyTorch)
+2021-05-21 13:28:51,653:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1513.5625 MB
+Free:	490.9375 MB
+
+2021-05-21 13:28:51,691:INFO:
+GPU usage after clearing the image 354x354...
+
+Total:	2004.5 MB
+Used:	1513.5625 MB
+Free:	490.9375 MB
+
+2021-05-21 13:28:51,691:INFO:
+Testing dimension: 354x354 ...
+2021-05-21 13:28:51,692:INFO:
+GPU usage before loading the image 354x354...
+
+Total:	2004.5 MB
+Used:	1513.5625 MB
+Free:	490.9375 MB
+
+2021-05-21 13:28:52,128:INFO:
+GPU usage after loading the image 354x354...
+
+Total:	2004.5 MB
+Used:	2003.5625 MB
+Free:	0.9375 MB
+
+2021-05-21 13:28:52,128:INFO:
+Dimension ok!
+2021-05-21 13:28:52,482:INFO:
+GPU usage after clearing the iimage 355x355...
+
+Total:	2004.5 MB
+Used:	947.5625 MB
+Free:	1056.9375 MB
+
+2021-05-21 13:28:52,482:INFO:
+Testing dimension: 355x355 ...
+2021-05-21 13:28:52,482:INFO:
+GPU usage before loading the image 355x355...
+
+Total:	2004.5 MB
+Used:	947.5625 MB
+Free:	1056.9375 MB
+
+2021-05-21 13:28:53,092:INFO:
+GPU usage after loading the image 355x355...
+
+Total:	2004.5 MB
+Used:	1967.5625 MB
+Free:	36.9375 MB
+
+2021-05-21 13:28:53,092:INFO:
+Dimension ok!
+2021-05-21 13:28:53,317:INFO:
+GPU usage after clearing the iimage 355x355...
+
+Total:	2004.5 MB
+Used:	947.5625 MB
+Free:	1056.9375 MB
+
+2021-05-21 13:28:53,317:INFO:
+Testing dimension: 355x355 ...
+2021-05-21 13:28:53,317:INFO:
+GPU usage before loading the image 355x355...
+
+Total:	2004.5 MB
+Used:	947.5625 MB
+Free:	1056.9375 MB
+
+2021-05-21 13:28:53,367:INFO:
+GPU usage after clearing the image 355x355...
+
+Total:	2004.5 MB
+Used:	913.5625 MB
+Free:	1090.9375 MB
+
+2021-05-21 13:28:54,909:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-05-21 13:28:54,947:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	271.0625 MB
+Free:	1733.4375 MB
+
+2021-05-21 13:28:57,968:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	876.8125 MB
+Free:	1127.6875 MB
+
+2021-05-21 13:38:35,588:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-05-21 13:38:35,627:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	222.1875 MB
+Free:	1782.3125 MB
+
+2021-05-21 13:38:38,379:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	827.9375 MB
+Free:	1176.5625 MB
+
+2021-05-21 13:38:38,380:INFO:
+Testing dimension: 2x2 ...
+2021-05-21 13:38:38,380:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	827.9375 MB
+Free:	1176.5625 MB
+
+2021-05-21 13:38:38,388:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	838.9375 MB
+Free:	1165.5625 MB
+
+2021-05-21 13:38:38,388:INFO:
+Dimension ok!
+
+2021-05-21 13:38:38,429:INFO:
+GPU usage after clearing the image 4x4...
+
+Total:	2004.5 MB
+Used:	832.9375 MB
+Free:	1171.5625 MB
+
+2021-05-21 13:38:38,429:INFO:
+Testing dimension: 4x4 ...
+2021-05-21 13:38:38,430:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	832.9375 MB
+Free:	1171.5625 MB
+
+2021-05-21 13:38:38,435:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	834.9375 MB
+Free:	1169.5625 MB
+
+2021-05-21 13:38:38,435:INFO:
+Dimension ok!
+
+2021-05-21 13:38:38,473:INFO:
+GPU usage after clearing the image 8x8...
+
+Total:	2004.5 MB
+Used:	832.9375 MB
+Free:	1171.5625 MB
+
+2021-05-21 13:38:38,474:INFO:
+Testing dimension: 8x8 ...
+2021-05-21 13:38:38,474:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	832.9375 MB
+Free:	1171.5625 MB
+
+2021-05-21 13:38:38,480:INFO:
+GPU usage after loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	854.9375 MB
+Free:	1149.5625 MB
+
+2021-05-21 13:38:38,480:INFO:
+Dimension ok!
+
+2021-05-21 13:38:38,519:INFO:
+GPU usage after clearing the image 16x16...
+
+Total:	2004.5 MB
+Used:	832.9375 MB
+Free:	1171.5625 MB
+
+2021-05-21 13:38:38,519:INFO:
+Testing dimension: 16x16 ...
+2021-05-21 13:38:38,519:INFO:
+GPU usage before loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	832.9375 MB
+Free:	1171.5625 MB
+
+2021-05-21 13:38:38,525:INFO:
+GPU usage after loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	856.9375 MB
+Free:	1147.5625 MB
+
+2021-05-21 13:38:38,525:INFO:
+Dimension ok!
+
+2021-05-21 13:38:38,572:INFO:
+GPU usage after clearing the image 32x32...
+
+Total:	2004.5 MB
+Used:	832.9375 MB
+Free:	1171.5625 MB
+
+2021-05-21 13:38:38,572:INFO:
+Testing dimension: 32x32 ...
+2021-05-21 13:38:38,572:INFO:
+GPU usage before loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	832.9375 MB
+Free:	1171.5625 MB
+
+2021-05-21 13:38:38,579:INFO:
+GPU usage after loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	856.9375 MB
+Free:	1147.5625 MB
+
+2021-05-21 13:38:38,579:INFO:
+Dimension ok!
+
+2021-05-21 13:38:38,620:INFO:
+GPU usage after clearing the image 64x64...
+
+Total:	2004.5 MB
+Used:	834.9375 MB
+Free:	1169.5625 MB
+
+2021-05-21 13:38:38,621:INFO:
+Testing dimension: 64x64 ...
+2021-05-21 13:38:38,621:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	834.9375 MB
+Free:	1169.5625 MB
+
+2021-05-21 13:38:38,630:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	874.9375 MB
+Free:	1129.5625 MB
+
+2021-05-21 13:38:38,630:INFO:
+Dimension ok!
+
+2021-05-21 13:38:38,693:INFO:
+GPU usage after clearing the image 128x128...
+
+Total:	2004.5 MB
+Used:	834.9375 MB
+Free:	1169.5625 MB
+
+2021-05-21 13:38:38,694:INFO:
+Testing dimension: 128x128 ...
+2021-05-21 13:38:38,694:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	834.9375 MB
+Free:	1169.5625 MB
+
+2021-05-21 13:38:38,701:INFO:
+GPU usage after loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	1014.9375 MB
+Free:	989.5625 MB
+
+2021-05-21 13:38:38,701:INFO:
+Dimension ok!
+
+2021-05-21 13:38:38,849:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	854.9375 MB
+Free:	1149.5625 MB
+
+2021-05-21 13:38:38,849:INFO:
+Testing dimension: 256x256 ...
+2021-05-21 13:38:38,850:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	854.9375 MB
+Free:	1149.5625 MB
+
+2021-05-21 13:38:38,863:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1542.9375 MB
+Free:	461.5625 MB
+
+2021-05-21 13:38:38,863:INFO:
+Dimension ok!
+
+2021-05-21 13:38:39,310:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	854.9375 MB
+Free:	1149.5625 MB
+
+2021-05-21 13:38:39,310:INFO:
+Testing dimension: 512x512 ...
+2021-05-21 13:38:39,310:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	854.9375 MB
+Free:	1149.5625 MB
+
+2021-05-21 13:38:40,228:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 44, in maximum_unacceptable_dimension_2n
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 1024.00 MiB (GPU 0; 1.96 GiB total capacity; 405.80 MiB already allocated; 767.56 MiB free; 410.00 MiB reserved in total by PyTorch)
+2021-05-21 13:38:40,230:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1236.9375 MB
+Free:	767.5625 MB
+
+2021-05-21 13:38:40,270:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	1236.9375 MB
+Free:	767.5625 MB
+
+2021-05-21 13:38:40,319:INFO:
+Testing dimension: 512x512 ...
+2021-05-21 13:38:40,319:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	832.9375 MB
+Free:	1171.5625 MB
+
+2021-05-21 13:38:41,225:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 1024.00 MiB (GPU 0; 1.96 GiB total capacity; 392.80 MiB already allocated; 767.56 MiB free; 410.00 MiB reserved in total by PyTorch)
+2021-05-21 13:38:41,225:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1236.9375 MB
+Free:	767.5625 MB
+
+2021-05-21 13:38:41,266:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	1236.9375 MB
+Free:	767.5625 MB
+
+2021-05-21 13:38:41,266:INFO:
+Testing dimension: 256x256 ...
+2021-05-21 13:38:41,266:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1236.9375 MB
+Free:	767.5625 MB
+
+2021-05-21 13:38:41,276:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1494.9375 MB
+Free:	509.5625 MB
+
+2021-05-21 13:38:41,276:INFO:
+Dimension ok!
+
+2021-05-21 13:38:41,716:INFO:
+GPU usage after clearing the iimage 384x384...
+
+Total:	2004.5 MB
+Used:	854.9375 MB
+Free:	1149.5625 MB
+
+2021-05-21 13:38:41,716:INFO:
+Testing dimension: 384x384 ...
+2021-05-21 13:38:41,716:INFO:
+GPU usage before loading the image 384x384...
+
+Total:	2004.5 MB
+Used:	854.9375 MB
+Free:	1149.5625 MB
+
+2021-05-21 13:38:42,423:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/pixelshuffle.py", line 53, in forward
+    return F.pixel_shuffle(input, self.upscale_factor)
+RuntimeError: CUDA out of memory. Tried to allocate 576.00 MiB (GPU 0; 1.96 GiB total capacity; 667.49 MiB already allocated; 503.56 MiB free; 674.00 MiB reserved in total by PyTorch)
+2021-05-21 13:38:42,424:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1500.9375 MB
+Free:	503.5625 MB
+
+2021-05-21 13:38:42,463:INFO:
+GPU usage after clearing the image 320x320...
+
+Total:	2004.5 MB
+Used:	1500.9375 MB
+Free:	503.5625 MB
+
+2021-05-21 13:38:42,463:INFO:
+Testing dimension: 320x320 ...
+2021-05-21 13:38:42,464:INFO:
+GPU usage before loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	1500.9375 MB
+Free:	503.5625 MB
+
+2021-05-21 13:38:42,481:INFO:
+GPU usage after loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	1902.9375 MB
+Free:	101.5625 MB
+
+2021-05-21 13:38:42,481:INFO:
+Dimension ok!
+
+2021-05-21 13:38:43,127:INFO:
+GPU usage after clearing the iimage 352x352...
+
+Total:	2004.5 MB
+Used:	888.9375 MB
+Free:	1115.5625 MB
+
+2021-05-21 13:38:43,127:INFO:
+Testing dimension: 352x352 ...
+2021-05-21 13:38:43,127:INFO:
+GPU usage before loading the image 352x352...
+
+Total:	2004.5 MB
+Used:	888.9375 MB
+Free:	1115.5625 MB
+
+2021-05-21 13:38:43,740:INFO:
+GPU usage after loading the image 352x352...
+
+Total:	2004.5 MB
+Used:	1900.9375 MB
+Free:	103.5625 MB
+
+2021-05-21 13:38:43,740:INFO:
+Dimension ok!
+
+2021-05-21 13:38:43,963:INFO:
+GPU usage after clearing the iimage 368x368...
+
+Total:	2004.5 MB
+Used:	900.9375 MB
+Free:	1103.5625 MB
+
+2021-05-21 13:38:43,963:INFO:
+Testing dimension: 368x368 ...
+2021-05-21 13:38:43,963:INFO:
+GPU usage before loading the image 368x368...
+
+Total:	2004.5 MB
+Used:	900.9375 MB
+Free:	1103.5625 MB
+
+2021-05-21 13:38:44,590:INFO:
+GPU usage after loading the image 368x368...
+
+Total:	2004.5 MB
+Used:	1994.9375 MB
+Free:	9.5625 MB
+
+2021-05-21 13:38:44,590:INFO:
+Dimension ok!
+
+2021-05-21 13:38:44,830:INFO:
+GPU usage after clearing the iimage 376x376...
+
+Total:	2004.5 MB
+Used:	900.9375 MB
+Free:	1103.5625 MB
+
+2021-05-21 13:38:44,830:INFO:
+Testing dimension: 376x376 ...
+2021-05-21 13:38:44,831:INFO:
+GPU usage before loading the image 376x376...
+
+Total:	2004.5 MB
+Used:	900.9375 MB
+Free:	1103.5625 MB
+
+2021-05-21 13:38:45,508:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/pixelshuffle.py", line 53, in forward
+    return F.pixel_shuffle(input, self.upscale_factor)
+RuntimeError: CUDA out of memory. Tried to allocate 554.00 MiB (GPU 0; 1.96 GiB total capacity; 653.50 MiB already allocated; 509.56 MiB free; 668.00 MiB reserved in total by PyTorch)
+2021-05-21 13:38:45,509:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1494.9375 MB
+Free:	509.5625 MB
+
+2021-05-21 13:38:45,548:INFO:
+GPU usage after clearing the image 372x372...
+
+Total:	2004.5 MB
+Used:	1494.9375 MB
+Free:	509.5625 MB
+
+2021-05-21 13:38:45,548:INFO:
+Testing dimension: 372x372 ...
+2021-05-21 13:38:45,548:INFO:
+GPU usage before loading the image 372x372...
+
+Total:	2004.5 MB
+Used:	1494.9375 MB
+Free:	509.5625 MB
+
+2021-05-21 13:38:46,022:INFO:
+GPU usage after loading the image 372x372...
+
+Total:	2004.5 MB
+Used:	2000.9375 MB
+Free:	3.5625 MB
+
+2021-05-21 13:38:46,022:INFO:
+Dimension ok!
+
+2021-05-21 13:38:46,416:INFO:
+GPU usage after clearing the iimage 374x374...
+
+Total:	2004.5 MB
+Used:	904.9375 MB
+Free:	1099.5625 MB
+
+2021-05-21 13:38:46,416:INFO:
+Testing dimension: 374x374 ...
+2021-05-21 13:38:46,416:INFO:
+GPU usage before loading the image 374x374...
+
+Total:	2004.5 MB
+Used:	904.9375 MB
+Free:	1099.5625 MB
+
+2021-05-21 13:38:47,096:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-Yoslzh6g-py3.8/lib/python3.8/site-packages/torch/nn/modules/pixelshuffle.py", line 53, in forward
+    return F.pixel_shuffle(input, self.upscale_factor)
+RuntimeError: CUDA out of memory. Tried to allocate 548.00 MiB (GPU 0; 1.96 GiB total capacity; 647.43 MiB already allocated; 515.56 MiB free; 662.00 MiB reserved in total by PyTorch)
+2021-05-21 13:38:47,097:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1488.9375 MB
+Free:	515.5625 MB
+
+2021-05-21 13:38:47,136:INFO:
+GPU usage after clearing the image 373x373...
+
+Total:	2004.5 MB
+Used:	1488.9375 MB
+Free:	515.5625 MB
+
+2021-05-21 13:38:47,136:INFO:
+Testing dimension: 373x373 ...
+2021-05-21 13:38:47,136:INFO:
+GPU usage before loading the image 373x373...
+
+Total:	2004.5 MB
+Used:	1488.9375 MB
+Free:	515.5625 MB
+
+2021-05-21 13:38:47,604:INFO:
+GPU usage after loading the image 373x373...
+
+Total:	2004.5 MB
+Used:	1996.9375 MB
+Free:	7.5625 MB
+
+2021-05-21 13:38:47,604:INFO:
+Dimension ok!
+
+2021-05-21 13:38:47,991:INFO:
+GPU usage after clearing the iimage 373x373...
+
+Total:	2004.5 MB
+Used:	904.9375 MB
+Free:	1099.5625 MB
+
+2021-05-21 13:38:47,991:INFO:
+Testing dimension: 373x373 ...
+2021-05-21 13:38:47,991:INFO:
+GPU usage before loading the image 373x373...
+
+Total:	2004.5 MB
+Used:	904.9375 MB
+Free:	1099.5625 MB
+
+2021-05-21 13:38:48,045:INFO:
+GPU usage after clearing the image 373x373...
+
+Total:	2004.5 MB
+Used:	868.9375 MB
+Free:	1135.5625 MB
+
+2021-05-21 13:38:49,586:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-05-21 13:38:49,624:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	222.1875 MB
+Free:	1782.3125 MB
+
+2021-05-21 13:38:52,927:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	828.6875 MB
+Free:	1175.8125 MB
+
