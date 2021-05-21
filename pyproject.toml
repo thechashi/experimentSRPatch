@@ -5,7 +5,7 @@ description = ""
 authors = ["Chashi Mahiul Islam <ci20l@my.fsu.edu>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.7.1"
 numpy = "^1.20.3"
 matplotlib = "^3.4.2"
 tqdm = "^4.60.0"
