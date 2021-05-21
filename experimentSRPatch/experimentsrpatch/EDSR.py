@@ -1,8 +1,8 @@
 import math
 
 import torch
-import torch.utils.model_zoo
 import torch.nn as nn
+import torch.utils.model_zoo
 
 url = {
     "r16f64x2": "https://cv.snu.ac.kr/research/EDSR/models/edsr_baseline_x2-1bc95232.pt",
