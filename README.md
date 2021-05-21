@@ -1,5 +1,5 @@
 # experimentSRPatch
-This repository contains sourcecode for expermineting different patch dimension for EDSR model.
+This repository contains sourcecode for experimenting different patch dimension for EDSR model.
 
 # How to run:
 
@@ -10,6 +10,7 @@ python3 -m pip install poetry
 cd experimentSRPatch
 
 poetry install
+
 poetry shell
 
 cd experimentsrpatch
