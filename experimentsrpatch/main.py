@@ -20,7 +20,7 @@ def main():
     None.
 
     """
-    subprocess.run("gpustat", shell=True, check=True)
+    subprocess.run("gpustat", shell=True)
 
     # binary search
     print("\n\nStarting binary search...\n")
@@ -28,14 +28,14 @@ def main():
     # subprocess.run('ls -la', shell=True)
 
     print("Binary search done...")
-    subprocess.run("gpustat", shell=True, check=True)
+    subprocess.run("gpustat", shell=True)
 
     # linear search
     print("\n\nStarting linear search...\n")
-    subprocess.run("python3 linearsearch.py", shell=True, check=True)
+    subprocess.run("python3 linearsearch.py", shell=True)
     print("Linear search done...")
 
-    subprocess.run("gpustat", shell=True, check=True)
+    subprocess.run("gpustat", shell=True)
     # get detailed result
 
 

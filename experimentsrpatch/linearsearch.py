@@ -83,7 +83,7 @@ def result_from_dimension_range(device, logger, config, model, first, last):
                     ut.get_gpu_details(device, state, logger, print_details=True)
                     break
         ut.clear_cuda(None, None)
-        subprocess.run("gpustat", shell=True, check=True)
+        subprocess.run("gpustat", shell=True)
     return result3, memory_used, memory_free
 
 
