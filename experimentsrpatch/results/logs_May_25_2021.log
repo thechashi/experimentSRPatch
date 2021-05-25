@@ -1,0 +1,1605 @@
+2021-05-25 12:10:47,226:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-05-25 12:10:47,265:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	88.0 MB
+Free:	1916.5 MB
+
+2021-05-25 12:10:50,000:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	693.75 MB
+Free:	1310.75 MB
+
+2021-05-25 12:10:50,000:INFO:
+Testing dimension: 2x2 ...
+2021-05-25 12:10:50,001:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	693.75 MB
+Free:	1310.75 MB
+
+2021-05-25 12:10:50,037:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	704.75 MB
+Free:	1299.75 MB
+
+2021-05-25 12:10:50,037:INFO:
+Dimension ok!
+
+2021-05-25 12:10:50,076:INFO:
+GPU usage after clearing the image 4x4...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:50,076:INFO:
+Testing dimension: 4x4 ...
+2021-05-25 12:10:50,076:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:50,082:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	700.75 MB
+Free:	1303.75 MB
+
+2021-05-25 12:10:50,082:INFO:
+Dimension ok!
+
+2021-05-25 12:10:50,118:INFO:
+GPU usage after clearing the image 8x8...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:50,118:INFO:
+Testing dimension: 8x8 ...
+2021-05-25 12:10:50,118:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:50,124:INFO:
+GPU usage after loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	720.75 MB
+Free:	1283.75 MB
+
+2021-05-25 12:10:50,124:INFO:
+Dimension ok!
+
+2021-05-25 12:10:50,164:INFO:
+GPU usage after clearing the image 16x16...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:50,164:INFO:
+Testing dimension: 16x16 ...
+2021-05-25 12:10:50,164:INFO:
+GPU usage before loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:50,170:INFO:
+GPU usage after loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	722.75 MB
+Free:	1281.75 MB
+
+2021-05-25 12:10:50,171:INFO:
+Dimension ok!
+
+2021-05-25 12:10:50,208:INFO:
+GPU usage after clearing the image 32x32...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:50,209:INFO:
+Testing dimension: 32x32 ...
+2021-05-25 12:10:50,209:INFO:
+GPU usage before loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:50,215:INFO:
+GPU usage after loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	722.75 MB
+Free:	1281.75 MB
+
+2021-05-25 12:10:50,215:INFO:
+Dimension ok!
+
+2021-05-25 12:10:50,258:INFO:
+GPU usage after clearing the image 64x64...
+
+Total:	2004.5 MB
+Used:	700.75 MB
+Free:	1303.75 MB
+
+2021-05-25 12:10:50,258:INFO:
+Testing dimension: 64x64 ...
+2021-05-25 12:10:50,258:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	700.75 MB
+Free:	1303.75 MB
+
+2021-05-25 12:10:50,264:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	740.75 MB
+Free:	1263.75 MB
+
+2021-05-25 12:10:50,264:INFO:
+Dimension ok!
+
+2021-05-25 12:10:50,325:INFO:
+GPU usage after clearing the image 128x128...
+
+Total:	2004.5 MB
+Used:	700.75 MB
+Free:	1303.75 MB
+
+2021-05-25 12:10:50,326:INFO:
+Testing dimension: 128x128 ...
+2021-05-25 12:10:50,326:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	700.75 MB
+Free:	1303.75 MB
+
+2021-05-25 12:10:50,333:INFO:
+GPU usage after loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	880.75 MB
+Free:	1123.75 MB
+
+2021-05-25 12:10:50,333:INFO:
+Dimension ok!
+
+2021-05-25 12:10:50,472:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	720.75 MB
+Free:	1283.75 MB
+
+2021-05-25 12:10:50,472:INFO:
+Testing dimension: 256x256 ...
+2021-05-25 12:10:50,472:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	720.75 MB
+Free:	1283.75 MB
+
+2021-05-25 12:10:50,484:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1408.75 MB
+Free:	595.75 MB
+
+2021-05-25 12:10:50,484:INFO:
+Dimension ok!
+
+2021-05-25 12:10:50,919:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	720.75 MB
+Free:	1283.75 MB
+
+2021-05-25 12:10:50,919:INFO:
+Testing dimension: 512x512 ...
+2021-05-25 12:10:50,919:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	720.75 MB
+Free:	1283.75 MB
+
+2021-05-25 12:10:52,098:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 45, in maximum_unacceptable_dimension_2n
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 1024.00 MiB (GPU 0; 1.96 GiB total capacity; 405.80 MiB already allocated; 901.75 MiB free; 410.00 MiB reserved in total by PyTorch)
+2021-05-25 12:10:52,122:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1102.75 MB
+Free:	901.75 MB
+
+2021-05-25 12:10:52,162:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	1102.75 MB
+Free:	901.75 MB
+
+2021-05-25 12:10:52,211:INFO:
+Testing dimension: 512x512 ...
+2021-05-25 12:10:52,246:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:57,437:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:10:57,439:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:57,484:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:10:57,484:INFO:
+Testing dimension: 256x256 ...
+2021-05-25 12:10:57,523:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:02,783:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1855.5 MB
+Free:	149.0 MB
+
+2021-05-25 12:11:02,910:INFO:
+GPU usage after clearing the iimage 256x256...
+
+Total:	2004.5 MB
+Used:	1327.5 MB
+Free:	677.0 MB
+
+2021-05-25 12:11:03,259:INFO:
+Dimension ok!
+
+2021-05-25 12:11:03,305:INFO:
+Testing dimension: 384x384 ...
+2021-05-25 12:11:03,343:INFO:
+GPU usage before loading the image 384x384...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:07,947:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:11:07,948:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:07,994:INFO:
+GPU usage after clearing the image 320x320...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:07,994:INFO:
+Testing dimension: 320x320 ...
+2021-05-25 12:11:08,030:INFO:
+GPU usage before loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:12,703:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:11:12,703:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:12,747:INFO:
+GPU usage after clearing the image 288x288...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:12,747:INFO:
+Testing dimension: 288x288 ...
+2021-05-25 12:11:12,783:INFO:
+GPU usage before loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:16,974:INFO:
+GPU usage after loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	2003.5 MB
+Free:	1.0 MB
+
+2021-05-25 12:11:17,130:INFO:
+GPU usage after clearing the iimage 288x288...
+
+Total:	2004.5 MB
+Used:	1333.5 MB
+Free:	671.0 MB
+
+2021-05-25 12:11:17,484:INFO:
+Dimension ok!
+
+2021-05-25 12:11:17,530:INFO:
+Testing dimension: 304x304 ...
+2021-05-25 12:11:17,569:INFO:
+GPU usage before loading the image 304x304...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:22,096:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:11:22,096:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:22,141:INFO:
+GPU usage after clearing the image 296x296...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:22,141:INFO:
+Testing dimension: 296x296 ...
+2021-05-25 12:11:22,180:INFO:
+GPU usage before loading the image 296x296...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:26,739:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:11:26,740:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:26,784:INFO:
+GPU usage after clearing the image 292x292...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:26,784:INFO:
+Testing dimension: 292x292 ...
+2021-05-25 12:11:26,821:INFO:
+GPU usage before loading the image 292x292...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:31,307:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:11:31,308:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:31,352:INFO:
+GPU usage after clearing the image 290x290...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:31,353:INFO:
+Testing dimension: 290x290 ...
+2021-05-25 12:11:31,390:INFO:
+GPU usage before loading the image 290x290...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:35,890:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:11:35,891:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:35,935:INFO:
+GPU usage after clearing the image 289x289...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:35,935:INFO:
+Testing dimension: 289x289 ...
+2021-05-25 12:11:35,971:INFO:
+GPU usage before loading the image 289x289...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:40,451:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:11:40,452:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:40,495:INFO:
+GPU usage after clearing the image 288x288...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:40,495:INFO:
+Testing dimension: 288x288 ...
+2021-05-25 12:11:40,531:INFO:
+GPU usage before loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	698.75 MB
+Free:	1305.75 MB
+
+2021-05-25 12:11:42,204:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-05-25 12:11:42,240:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	88.0 MB
+Free:	1916.5 MB
+
+2021-05-25 12:11:44,896:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	693.75 MB
+Free:	1310.75 MB
+
+2021-05-25 12:13:19,322:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-05-25 12:13:19,359:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	75.375 MB
+Free:	1929.125 MB
+
+2021-05-25 12:13:22,048:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	681.125 MB
+Free:	1323.375 MB
+
+2021-05-25 12:13:22,048:INFO:
+Testing dimension: 2x2 ...
+2021-05-25 12:13:22,048:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	681.125 MB
+Free:	1323.375 MB
+
+2021-05-25 12:13:22,055:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	692.125 MB
+Free:	1312.375 MB
+
+2021-05-25 12:13:22,055:INFO:
+Dimension ok!
+
+2021-05-25 12:13:22,095:INFO:
+GPU usage after clearing the image 4x4...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:22,095:INFO:
+Testing dimension: 4x4 ...
+2021-05-25 12:13:22,095:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:22,100:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	688.125 MB
+Free:	1316.375 MB
+
+2021-05-25 12:13:22,101:INFO:
+Dimension ok!
+
+2021-05-25 12:13:22,140:INFO:
+GPU usage after clearing the image 8x8...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:22,140:INFO:
+Testing dimension: 8x8 ...
+2021-05-25 12:13:22,140:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:22,146:INFO:
+GPU usage after loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	708.125 MB
+Free:	1296.375 MB
+
+2021-05-25 12:13:22,146:INFO:
+Dimension ok!
+
+2021-05-25 12:13:22,189:INFO:
+GPU usage after clearing the image 16x16...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:22,189:INFO:
+Testing dimension: 16x16 ...
+2021-05-25 12:13:22,189:INFO:
+GPU usage before loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:22,194:INFO:
+GPU usage after loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	710.125 MB
+Free:	1294.375 MB
+
+2021-05-25 12:13:22,195:INFO:
+Dimension ok!
+
+2021-05-25 12:13:22,236:INFO:
+GPU usage after clearing the image 32x32...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:22,236:INFO:
+Testing dimension: 32x32 ...
+2021-05-25 12:13:22,236:INFO:
+GPU usage before loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:22,241:INFO:
+GPU usage after loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	710.125 MB
+Free:	1294.375 MB
+
+2021-05-25 12:13:22,242:INFO:
+Dimension ok!
+
+2021-05-25 12:13:22,285:INFO:
+GPU usage after clearing the image 64x64...
+
+Total:	2004.5 MB
+Used:	688.125 MB
+Free:	1316.375 MB
+
+2021-05-25 12:13:22,286:INFO:
+Testing dimension: 64x64 ...
+2021-05-25 12:13:22,286:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	688.125 MB
+Free:	1316.375 MB
+
+2021-05-25 12:13:22,292:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	728.125 MB
+Free:	1276.375 MB
+
+2021-05-25 12:13:22,292:INFO:
+Dimension ok!
+
+2021-05-25 12:13:22,356:INFO:
+GPU usage after clearing the image 128x128...
+
+Total:	2004.5 MB
+Used:	688.125 MB
+Free:	1316.375 MB
+
+2021-05-25 12:13:22,356:INFO:
+Testing dimension: 128x128 ...
+2021-05-25 12:13:22,356:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	688.125 MB
+Free:	1316.375 MB
+
+2021-05-25 12:13:22,363:INFO:
+GPU usage after loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	868.125 MB
+Free:	1136.375 MB
+
+2021-05-25 12:13:22,363:INFO:
+Dimension ok!
+
+2021-05-25 12:13:22,510:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	708.125 MB
+Free:	1296.375 MB
+
+2021-05-25 12:13:22,510:INFO:
+Testing dimension: 256x256 ...
+2021-05-25 12:13:22,510:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	708.125 MB
+Free:	1296.375 MB
+
+2021-05-25 12:13:22,523:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1396.125 MB
+Free:	608.375 MB
+
+2021-05-25 12:13:22,523:INFO:
+Dimension ok!
+
+2021-05-25 12:13:22,968:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	708.125 MB
+Free:	1296.375 MB
+
+2021-05-25 12:13:22,968:INFO:
+Testing dimension: 512x512 ...
+2021-05-25 12:13:22,969:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	708.125 MB
+Free:	1296.375 MB
+
+2021-05-25 12:13:23,882:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 45, in maximum_unacceptable_dimension_2n
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 1024.00 MiB (GPU 0; 1.96 GiB total capacity; 405.80 MiB already allocated; 914.38 MiB free; 410.00 MiB reserved in total by PyTorch)
+2021-05-25 12:13:23,884:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1090.125 MB
+Free:	914.375 MB
+
+2021-05-25 12:13:23,925:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	1090.125 MB
+Free:	914.375 MB
+
+2021-05-25 12:13:23,978:INFO:
+Testing dimension: 512x512 ...
+2021-05-25 12:13:24,018:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:29,015:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:13:29,016:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:29,061:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:29,061:INFO:
+Testing dimension: 256x256 ...
+2021-05-25 12:13:29,097:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:33,145:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1842.875 MB
+Free:	161.625 MB
+
+2021-05-25 12:13:33,270:INFO:
+GPU usage after clearing the iimage 256x256...
+
+Total:	2004.5 MB
+Used:	1314.875 MB
+Free:	689.625 MB
+
+2021-05-25 12:13:33,593:INFO:
+Dimension ok!
+
+2021-05-25 12:13:33,639:INFO:
+Testing dimension: 384x384 ...
+2021-05-25 12:13:33,676:INFO:
+GPU usage before loading the image 384x384...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:38,223:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:13:38,224:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:38,270:INFO:
+GPU usage after clearing the image 320x320...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:38,270:INFO:
+Testing dimension: 320x320 ...
+2021-05-25 12:13:38,308:INFO:
+GPU usage before loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:42,866:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:13:42,866:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:42,911:INFO:
+GPU usage after clearing the image 288x288...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:42,911:INFO:
+Testing dimension: 288x288 ...
+2021-05-25 12:13:42,947:INFO:
+GPU usage before loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:47,137:INFO:
+GPU usage after loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	1990.875 MB
+Free:	13.625 MB
+
+2021-05-25 12:13:47,288:INFO:
+GPU usage after clearing the iimage 288x288...
+
+Total:	2004.5 MB
+Used:	1320.875 MB
+Free:	683.625 MB
+
+2021-05-25 12:13:47,617:INFO:
+Dimension ok!
+
+2021-05-25 12:13:47,661:INFO:
+Testing dimension: 304x304 ...
+2021-05-25 12:13:47,697:INFO:
+GPU usage before loading the image 304x304...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:52,193:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:13:52,194:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:52,238:INFO:
+GPU usage after clearing the image 296x296...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:52,238:INFO:
+Testing dimension: 296x296 ...
+2021-05-25 12:13:52,274:INFO:
+GPU usage before loading the image 296x296...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:56,822:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 139, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:13:56,823:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:56,868:INFO:
+GPU usage after clearing the image 292x292...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:13:56,868:INFO:
+Testing dimension: 292x292 ...
+2021-05-25 12:13:56,905:INFO:
+GPU usage before loading the image 292x292...
+
+Total:	2004.5 MB
+Used:	686.125 MB
+Free:	1318.375 MB
+
+2021-05-25 12:14:48,838:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-05-25 12:14:48,876:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	92.0 MB
+Free:	1912.5 MB
+
+2021-05-25 12:14:51,541:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	697.75 MB
+Free:	1306.75 MB
+
+2021-05-25 12:14:51,541:INFO:
+Testing dimension: 2x2 ...
+2021-05-25 12:14:51,541:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	697.75 MB
+Free:	1306.75 MB
+
+2021-05-25 12:14:51,548:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	708.75 MB
+Free:	1295.75 MB
+
+2021-05-25 12:14:51,548:INFO:
+Dimension ok!
+
+2021-05-25 12:14:51,586:INFO:
+GPU usage after clearing the image 4x4...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:51,586:INFO:
+Testing dimension: 4x4 ...
+2021-05-25 12:14:51,587:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:51,592:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	704.75 MB
+Free:	1299.75 MB
+
+2021-05-25 12:14:51,592:INFO:
+Dimension ok!
+
+2021-05-25 12:14:51,628:INFO:
+GPU usage after clearing the image 8x8...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:51,628:INFO:
+Testing dimension: 8x8 ...
+2021-05-25 12:14:51,629:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:51,634:INFO:
+GPU usage after loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	724.75 MB
+Free:	1279.75 MB
+
+2021-05-25 12:14:51,634:INFO:
+Dimension ok!
+
+2021-05-25 12:14:51,673:INFO:
+GPU usage after clearing the image 16x16...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:51,673:INFO:
+Testing dimension: 16x16 ...
+2021-05-25 12:14:51,673:INFO:
+GPU usage before loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:51,679:INFO:
+GPU usage after loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	726.75 MB
+Free:	1277.75 MB
+
+2021-05-25 12:14:51,680:INFO:
+Dimension ok!
+
+2021-05-25 12:14:51,717:INFO:
+GPU usage after clearing the image 32x32...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:51,717:INFO:
+Testing dimension: 32x32 ...
+2021-05-25 12:14:51,718:INFO:
+GPU usage before loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:51,724:INFO:
+GPU usage after loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	726.75 MB
+Free:	1277.75 MB
+
+2021-05-25 12:14:51,724:INFO:
+Dimension ok!
+
+2021-05-25 12:14:51,764:INFO:
+GPU usage after clearing the image 64x64...
+
+Total:	2004.5 MB
+Used:	704.75 MB
+Free:	1299.75 MB
+
+2021-05-25 12:14:51,764:INFO:
+Testing dimension: 64x64 ...
+2021-05-25 12:14:51,764:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	704.75 MB
+Free:	1299.75 MB
+
+2021-05-25 12:14:51,770:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	744.75 MB
+Free:	1259.75 MB
+
+2021-05-25 12:14:51,770:INFO:
+Dimension ok!
+
+2021-05-25 12:14:51,831:INFO:
+GPU usage after clearing the image 128x128...
+
+Total:	2004.5 MB
+Used:	704.75 MB
+Free:	1299.75 MB
+
+2021-05-25 12:14:51,831:INFO:
+Testing dimension: 128x128 ...
+2021-05-25 12:14:51,832:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	704.75 MB
+Free:	1299.75 MB
+
+2021-05-25 12:14:51,839:INFO:
+GPU usage after loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	884.75 MB
+Free:	1119.75 MB
+
+2021-05-25 12:14:51,839:INFO:
+Dimension ok!
+
+2021-05-25 12:14:51,982:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	724.75 MB
+Free:	1279.75 MB
+
+2021-05-25 12:14:51,982:INFO:
+Testing dimension: 256x256 ...
+2021-05-25 12:14:51,982:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	724.75 MB
+Free:	1279.75 MB
+
+2021-05-25 12:14:51,995:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1412.75 MB
+Free:	591.75 MB
+
+2021-05-25 12:14:51,995:INFO:
+Dimension ok!
+
+2021-05-25 12:14:52,440:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	724.75 MB
+Free:	1279.75 MB
+
+2021-05-25 12:14:52,440:INFO:
+Testing dimension: 512x512 ...
+2021-05-25 12:14:52,440:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	724.75 MB
+Free:	1279.75 MB
+
+2021-05-25 12:14:53,364:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 45, in maximum_unacceptable_dimension_2n
+    output_image = model(input_image)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/Desktop/dis/experimentSRPatch/experimentsrpatch/models/EDSR.py", line 171, in forward
+    x = self.tail(res)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/container.py", line 119, in forward
+    input = module(input)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 399, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/chashi/.cache/pypoetry/virtualenvs/experimentsrpatch-JdK1ri2D-py3.8/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 395, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: CUDA out of memory. Tried to allocate 1024.00 MiB (GPU 0; 1.96 GiB total capacity; 405.80 MiB already allocated; 897.75 MiB free; 410.00 MiB reserved in total by PyTorch)
+2021-05-25 12:14:53,366:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1106.75 MB
+Free:	897.75 MB
+
+2021-05-25 12:14:53,407:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	1106.75 MB
+Free:	897.75 MB
+
+2021-05-25 12:14:53,454:INFO:
+Testing dimension: 512x512 ...
+2021-05-25 12:14:53,490:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:58,476:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 140, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:14:58,477:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:58,525:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:14:58,525:INFO:
+Testing dimension: 256x256 ...
+2021-05-25 12:14:58,563:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	702.75 MB
+Free:	1301.75 MB
+
+2021-05-25 12:15:02,617:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1857.875 MB
+Free:	146.625 MB
+
+2021-05-25 12:15:02,741:INFO:
+GPU usage after clearing the iimage 256x256...
+
+Total:	2004.5 MB
+Used:	1329.875 MB
+Free:	674.625 MB
+
+2021-05-25 12:15:03,063:INFO:
+Dimension ok!
+
+2021-05-25 12:15:03,110:INFO:
+Testing dimension: 384x384 ...
+2021-05-25 12:15:03,147:INFO:
+GPU usage before loading the image 384x384...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:07,680:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 140, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:15:07,681:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:07,727:INFO:
+GPU usage after clearing the image 320x320...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:07,727:INFO:
+Testing dimension: 320x320 ...
+2021-05-25 12:15:07,765:INFO:
+GPU usage before loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:12,407:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 140, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:15:12,408:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:12,455:INFO:
+GPU usage after clearing the image 288x288...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:12,455:INFO:
+Testing dimension: 288x288 ...
+2021-05-25 12:15:12,492:INFO:
+GPU usage before loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:16,932:ERROR:
+Dimension NOT OK!
+Traceback (most recent call last):
+  File "binarysearch.py", line 140, in maximum_acceptable_dimension
+    raise RuntimeError(process_output.stderr)
+RuntimeError: None
+2021-05-25 12:15:16,933:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:16,978:INFO:
+GPU usage after clearing the image 272x272...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:16,978:INFO:
+Testing dimension: 272x272 ...
+2021-05-25 12:15:17,014:INFO:
+GPU usage before loading the image 272x272...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:21,141:INFO:
+GPU usage after loading the image 272x272...
+
+Total:	2004.5 MB
+Used:	1933.875 MB
+Free:	70.625 MB
+
+2021-05-25 12:15:21,287:INFO:
+GPU usage after clearing the iimage 272x272...
+
+Total:	2004.5 MB
+Used:	1333.875 MB
+Free:	670.625 MB
+
+2021-05-25 12:15:21,619:INFO:
+Dimension ok!
+
+2021-05-25 12:15:21,664:INFO:
+Testing dimension: 280x280 ...
+2021-05-25 12:15:21,701:INFO:
+GPU usage before loading the image 280x280...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:25,801:INFO:
+GPU usage after loading the image 280x280...
+
+Total:	2004.5 MB
+Used:	1969.875 MB
+Free:	34.625 MB
+
+2021-05-25 12:15:25,952:INFO:
+GPU usage after clearing the iimage 280x280...
+
+Total:	2004.5 MB
+Used:	1333.875 MB
+Free:	670.625 MB
+
+2021-05-25 12:15:26,277:INFO:
+Dimension ok!
+
+2021-05-25 12:15:26,321:INFO:
+Testing dimension: 284x284 ...
+2021-05-25 12:15:26,358:INFO:
+GPU usage before loading the image 284x284...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:30,561:INFO:
+GPU usage after loading the image 284x284...
+
+Total:	2004.5 MB
+Used:	1985.875 MB
+Free:	18.625 MB
+
+2021-05-25 12:15:30,719:INFO:
+GPU usage after clearing the iimage 284x284...
+
+Total:	2004.5 MB
+Used:	1333.875 MB
+Free:	670.625 MB
+
+2021-05-25 12:15:31,045:INFO:
+Dimension ok!
+
+2021-05-25 12:15:31,089:INFO:
+Testing dimension: 286x286 ...
+2021-05-25 12:15:31,125:INFO:
+GPU usage before loading the image 286x286...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:35,237:INFO:
+GPU usage after loading the image 286x286...
+
+Total:	2004.5 MB
+Used:	1993.875 MB
+Free:	10.625 MB
+
+2021-05-25 12:15:35,388:INFO:
+GPU usage after clearing the iimage 286x286...
+
+Total:	2004.5 MB
+Used:	1333.875 MB
+Free:	670.625 MB
+
+2021-05-25 12:15:35,709:INFO:
+Dimension ok!
+
+2021-05-25 12:15:35,753:INFO:
+Testing dimension: 287x287 ...
+2021-05-25 12:15:35,789:INFO:
+GPU usage before loading the image 287x287...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:39,917:INFO:
+GPU usage after loading the image 287x287...
+
+Total:	2004.5 MB
+Used:	2001.875 MB
+Free:	2.625 MB
+
+2021-05-25 12:15:40,063:INFO:
+GPU usage after clearing the iimage 287x287...
+
+Total:	2004.5 MB
+Used:	1335.875 MB
+Free:	668.625 MB
+
+2021-05-25 12:15:40,387:INFO:
+Dimension ok!
+
+2021-05-25 12:15:40,431:INFO:
+Testing dimension: 287x287 ...
+2021-05-25 12:15:40,467:INFO:
+GPU usage before loading the image 287x287...
+
+Total:	2004.5 MB
+Used:	701.125 MB
+Free:	1303.375 MB
+
+2021-05-25 12:15:41,963:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-05-25 12:15:42,000:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	90.375 MB
+Free:	1914.125 MB
+
+2021-05-25 12:15:44,681:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	696.125 MB
+Free:	1308.375 MB
+

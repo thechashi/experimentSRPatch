@@ -2,7 +2,7 @@
 import models.EDSR as edsr
 
 
-def load_edsr(device, n_resblocks=16, n_feats=64):
+def load_edsr(device, n_resblocks=16, n_feats=64, model_details=True):
     """
     Loads the EDSR model
 
@@ -31,7 +31,8 @@ def load_edsr(device, n_resblocks=16, n_feats=64):
     }
     model = edsr.make_model(args).to(device)
     edsr.load(model)
-    print("\nModel details: ")
-    print(model)
-    print()
+    if model_details:
+        print("\nModel details: ")
+        print(model)
+        print()
     return model

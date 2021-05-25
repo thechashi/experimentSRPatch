@@ -3,6 +3,7 @@ import time
 import math
 import copy
 import torch
+import subprocess
 import utilities as ut
 import modelloader as md
 
@@ -118,33 +119,25 @@ def maximum_acceptable_dimension(device, logger, model, max_unacceptable_dimensi
     last = 0
     while True:
         logger.info(f"\nTesting dimension: {dimension}x{dimension} ...")
-
+        ut.clear_cuda(None, None)
         state = f"\nGPU usage before loading the image {dimension}x{dimension}...\n"
         ut.get_gpu_details(device, state, logger, print_details=True)
-
-        input_image = ut.random_image(dimension)
-        input_image = input_image.to(device)
 
         with torch.no_grad():
             try:
                 if last == dimension:
-
-                    ut.clear_cuda(input_image, output_image=None)
-                    state = f"\nGPU usage after clearing the image {dimension}x{dimension}...\n"
-                    ut.get_gpu_details(device, state, logger, print_details=True)
-
                     break
-
-                start = time.time()
-                output_image = model(input_image)
-                end = time.time()
-
-                state = (
-                    f"\nGPU usage after loading the image {dimension}x{dimension}...\n"
-                )
-                ut.get_gpu_details(device, state, logger, print_details=True)
-
-                total_time = end - start
+                process_output = subprocess.run(
+                    ['python3', 'binarysearch_helper.py',
+                     str(dimension)],
+                    stdout=subprocess.PIPE,
+                    text=True)
+                print(process_output.stdout)
+                if process_output.returncode == 0:
+                    out = process_output.stdout.split('\n')
+                    total_time  = out[0]
+                else:
+                    raise RuntimeError(process_output.stderr)
 
                 last = dimension
 
@@ -156,17 +149,12 @@ def maximum_acceptable_dimension(device, logger, model, max_unacceptable_dimensi
                 minm = copy.copy(dimension)
 
                 logger.info("\nDimension ok!\n")
-
+                
                 if maxm == math.inf:
                     dimension *= 2
                 else:
                     dimension = dimension + (maxm - minm) // 2
-
-                ut.clear_cuda(input_image, output_image)
-
-                state = f"\nGPU usage after clearing the iimage {dimension}x{dimension}...\n"
-                ut.get_gpu_details(device, state, logger, print_details=True)
-
+                ut.clear_cuda(None, None)
             except RuntimeError as err:
                 logger.exception("\nDimension NOT OK!\n")
 
@@ -183,10 +171,7 @@ def maximum_acceptable_dimension(device, logger, model, max_unacceptable_dimensi
                     dimension = dimension // 2
                 else:
                     dimension = minm + (maxm - minm) // 2
-
-                output_image = None
-                ut.clear_cuda(input_image, output_image)
-
+                ut.clear_cuda(None, None)
                 state = (
                     f"\nGPU usage after clearing the image {dimension}x{dimension}...\n"
                 )
