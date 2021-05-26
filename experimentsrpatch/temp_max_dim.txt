@@ -1,1 +1,1 @@
-max_dim:287
+max_dim:275
