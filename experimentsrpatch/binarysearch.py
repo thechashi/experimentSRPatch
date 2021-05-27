@@ -59,10 +59,6 @@ def maximum_unacceptable_dimension_2n(device, logger, model):
                     total_time  = out[0]
                 else:
                     raise RuntimeError(process_output.stderr)
-                state = (
-                    f"\nGPU usage after loading the image {dimension}x{dimension}...\n"
-                )
-                ut.get_gpu_details(device, state, logger, print_details=True)
                 if dimension in result1.keys():
                     result1[dimension].append(total_time)
                 else:
