@@ -1,1 +1,9 @@
-run = 10
+run = 2
+last_folder = "Fri_May_28_12_11_14_2021"
+last_stat_csv = "total_stat_Fri_May_28_12_11_38_2021"
+img_height = 4096
+img_width = 4096
+shave = 10
+dimension = 160
+scale = 4
+start_shave = 3

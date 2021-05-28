@@ -15,4 +15,18 @@ poetry shell
 
 cd experimentsrpatch
 
-python3 main.py
+Two ways to run:
+
+
+Way 1 (manually):
+
+    python3 main.py
+    
+    python3 different_shave_checker.py # here you can change the config.toml file before running this command
+    
+    python3 different_patch_checker.py # here you can change the config.toml file before running this command
+    
+    # config.toml file contains arguments for different patch and shave checker.
+Way 2 ( with a script):
+
+    sh demo.sh 
