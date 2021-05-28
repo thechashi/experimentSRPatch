@@ -8,9 +8,6 @@ from tqdm import tqdm
 import utilities as ut
 import modelloader as md
 
-
-
-
 def result_from_dimension_range(device, logger, config, model, first, last):
     """
     Get detailed result for every dimension from 1 to the last acceptable dimension
