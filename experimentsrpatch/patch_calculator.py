@@ -42,12 +42,13 @@ def total_patch(dimension, height, width, shave=10, scale=4):
         w_size += w_size % scale
         size = h_size * w_size
         height, width = h_size, w_size
+        #print(height, width)
         count += 1
 
     if h * w == min_size:
         count = 0
-    return 4 ** count
+    return (4 ** count, height*width)
 
 
 if __name__ == "__main__":
-    total_patch(100, 100, 100, 10, 4)
+    p = total_patch(85, 4096, 4096, 10, 4)

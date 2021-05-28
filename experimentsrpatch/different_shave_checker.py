@@ -1,6 +1,7 @@
 import sys
 import toml
 import time
+import math
 import pandas as pd
 import numpy as np
 import patch_calculator as pc
@@ -29,11 +30,16 @@ if __name__ == "__main__":
 
     print('\nCalculating processing time for different shave sizes for an image {}x{} and dimension {}...\n'.format(height, width, dimension))
     # calculating different processing time with different patch size for an image
-    result_df = dim_mean_time_list.iloc[dimension - 1, :].values
+    result_df = dim_mean_time_list.iloc[:, :].values
     patch_list = []
     for i in range(start_shave, end_shave):
+        total_patches, patch_size =  pc.total_patch(
+            dimension, height, width, shave = i
+        )
+        patch_side = int(math.sqrt(patch_size))
+        # print(i, total_patches, patch_side)
         patch_list.append(
-            [i, result_df[1] * pc.total_patch(dimension, height, width, shave=i)]
+            [i, result_df[patch_side-1, 1] * total_patches]
         )
     patch_list = pd.DataFrame(patch_list)
     # plots

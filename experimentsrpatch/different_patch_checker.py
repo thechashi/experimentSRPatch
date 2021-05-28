@@ -1,6 +1,7 @@
 import sys
 import toml
 import time
+import math
 import pandas as pd
 import numpy as np
 import patch_calculator as pc
@@ -30,11 +31,16 @@ if __name__ == "__main__":
     
     print('\nCalculating processing time for different dimensions for an image {}x{}...\n'.format(height, width))
     # calculating different processing time with different patch size for an image
-    result_df = dim_mean_time_list.iloc[start_dim - 1 : end_dim, :].values
-    for i in range(len(result_df)):
-        result_df[i, 1] = result_df[i, 1] * pc.total_patch(
-            result_df[i, 0], height, width
+    result_df = dim_mean_time_list.iloc[:, :].values
+    for i in range(start_dim, end_dim):
+        # print(i, height, width)
+        total_patches, patch_size =  pc.total_patch(
+            i, height, width
         )
+        #print(total_patches, patch_size)
+        patch_side = int(math.sqrt(patch_size))
+        # print(i*i, total_patches, patch_side, result_df[patch_side-1, 1])
+        result_df[i, 1] = result_df[patch_side-1, 1] * total_patches
 
     # plots
     print(
@@ -46,8 +52,8 @@ if __name__ == "__main__":
     date = "_".join(date.split(":"))
     filename = "patch_fullimage_" + str(height) + "_" + str(width) + "_" + date
     x_data, y_data = (
-        np.array(result_df[:, 0]).flatten(),
-        np.array(result_df[:, 1]).flatten(),
+        np.array(result_df[start_dim:end_dim, 0]).flatten(),
+        np.array(result_df[start_dim:end_dim, 1]).flatten(),
     )
     x_label = "Patch dimension (1 side) for an image ({}x{})".format(height, width)
     y_label = "Processing time (sec)"
