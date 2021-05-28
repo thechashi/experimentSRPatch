@@ -27,6 +27,7 @@ if __name__ == "__main__":
     df = pd.read_csv("results/" + foldername + "/" + filename, comment="#")
     dim_mean_time_list = df[["Dimension", "Mean Time"]]
 
+    print('\nCalculating processing time for different shave sizes for an image {}x{} and dimension {}...\n'.format(height, width, dimension))
     # calculating different processing time with different patch size for an image
     result_df = dim_mean_time_list.iloc[dimension - 1, :].values
     patch_list = []
@@ -37,13 +38,13 @@ if __name__ == "__main__":
     patch_list = pd.DataFrame(patch_list)
     # plots
     print(
-        "Plotting processing time for shave size from: {0} to {1} for image with shape {2}x{3} and patch size {4}".format(
+        "Plotting processing time for shave size from: {0} to {1} for image with shape {2}x{3} and patch size {4}...\n".format(
             start_shave, end_shave, height, width, dimension
         )
     )
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
-    filename = "patch_fullimage_" + str(height) + "_" + str(width) + "_" + date
+    filename = "shave_fullimage_" + str(height) + "_" + str(width) + "_" + date
     x_data, y_data = (
         np.array(patch_list.iloc[:, 0].values).flatten(),
         np.array(patch_list.iloc[:, 1].values).flatten(),

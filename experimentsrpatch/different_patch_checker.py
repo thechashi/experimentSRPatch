@@ -27,7 +27,8 @@ if __name__ == "__main__":
 
     start_dim = 4 * shave
     end_dim = min(height, width, dim_mean_time_list["Dimension"].max())
-
+    
+    print('\nCalculating processing time for different dimensions for an image {}x{}...\n'.format(height, width))
     # calculating different processing time with different patch size for an image
     result_df = dim_mean_time_list.iloc[start_dim - 1 : end_dim, :].values
     for i in range(len(result_df)):
@@ -37,7 +38,7 @@ if __name__ == "__main__":
 
     # plots
     print(
-        "Plotting processing time for patch size from: {0} to {1} for image with shape {2}x{3}".format(
+        "Plotting processing time for patch size from: {0} to {1} for image with shape {2}x{3}...\n".format(
             start_dim, end_dim, height, width
         )
     )
