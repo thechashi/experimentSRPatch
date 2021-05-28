@@ -1,3 +1,5 @@
 .spyproject/*
 install.txt.save
 misc/
+expermientsrpatch/__py_cache__
+.spyproject
