@@ -8,7 +8,7 @@ from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
 import pandas as pd
 import logging
 from datetime import date
-
+import toml
 
 def get_logger():
     """
@@ -276,6 +276,7 @@ def save_csv(
     None.
 
     """
+    config = toml.load("../config.toml")
     m_time = sorted(mean_time.items())
     s_time = sorted(std_time.items())
     m_used = sorted(mean_mem_used.items())
@@ -302,6 +303,11 @@ def save_csv(
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
     filename = filename + "_" + date
+    config['last_folder'] = foldername
+    config['last_stat_csv'] = filename
+    f = open("../config.toml", "w")
+    toml.dump(config, f)
+    f.close()
     file = open("results/" + foldername + "/" + filename, "a")
     file.write("# Device: {0} \n".format(device))
     file.write("# Device Name: {0} \n".format(device_name))
