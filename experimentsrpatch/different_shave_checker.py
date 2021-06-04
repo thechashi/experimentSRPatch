@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import patch_calculator as pc
 import matplotlib.pyplot as plt
-
+import utilities as ut
 if __name__ == "__main__":
     config = toml.load("../config.toml")
     height = int(config["img_height"])
@@ -17,12 +17,19 @@ if __name__ == "__main__":
     dimension = int(config["dimension"]) if config["dimension"] else 64
     start_shave = int(config["start_shave"]) if config["start_shave"] else 3
     end_shave = (dimension // 8) * 3
-
-    stat_file = open("results/" + foldername + "/" + filename, "r")
-    lines = stat_file.readlines()
-    device = lines[0]
-    device_name = lines[1]
-    total_memory = lines[2]
+    model_name = "EDSR"
+    device = "cuda"
+    _, device_name = ut.get_device_details()
+    total_memory, _, _ = ut.get_gpu_details(
+        device, "\nDevice info:", logger=None, print_details=False
+    )
+# =============================================================================
+#     stat_file = open("results/" + foldername + "/" + filename, "r")
+#     lines = stat_file.readlines()
+#     device = lines[0]
+#     device_name = lines[1]
+#     total_memory = lines[2]
+# =============================================================================
 
     # loading patch stats from latest binary search
     df = pd.read_csv("results/" + foldername + "/" + filename, comment="#")
@@ -48,6 +55,7 @@ if __name__ == "__main__":
             start_shave, end_shave, height, width, dimension
         )
     )
+    plt_title = 'Model: {} | GPU: {} | Memory: {} MB'.format(model_name, device_name, total_memory)
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
     filename = "shave_fullimage_" + str(height) + "_" + str(width) + "_" + date
@@ -55,12 +63,13 @@ if __name__ == "__main__":
         np.array(patch_list.iloc[:, 0].values).flatten(),
         np.array(patch_list.iloc[:, 1].values).flatten(),
     )
-    x_label = "Shave for dimension {}x{} and an image ({}x{})".format(
+    x_label = "Shave size for dimension {}x{} and an image ({}x{})".format(
         dimension, dimension, height, width
     )
-    y_label = "Processing time (sec)"
+    y_label = "Processing time (sec): LR -> SR (Scale: {})".format(scale)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
+    plt.title(plt_title)
     plt.plot(x_data, y_data)
     plt.savefig("results/{0}/{1}.png".format(foldername, filename))
     plt.show()
@@ -69,7 +78,7 @@ if __name__ == "__main__":
     data_frame = pd.DataFrame(
         {
             "Shave": list(x_data),
-            "Full Image ({}x{}) and Dimension {} Processing Time:".format(
+            "Full Image ({}x{}) and Patch Dimension {} Processing Time:".format(
                 height, width, dimension
             ): list(y_data),
         }
@@ -80,6 +89,6 @@ if __name__ == "__main__":
     file = open("results/" + foldername + "/" + filename, "a")
     file.write(device)
     file.write(device_name)
-    file.write(total_memory)
+    file.write(str(total_memory))
     data_frame.to_csv(file)
     file.close()

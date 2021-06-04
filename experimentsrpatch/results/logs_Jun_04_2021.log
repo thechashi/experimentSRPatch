@@ -1,0 +1,3717 @@
+2021-06-04 08:44:13,054:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:44:13,106:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	110.625 MB
+Free:	1893.875 MB
+
+2021-06-04 08:44:20,095:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	716.0 MB
+Free:	1288.5 MB
+
+2021-06-04 08:45:15,015:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:45:15,015:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:45:15,088:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	715.5 MB
+Free:	1289.0 MB
+
+2021-06-04 08:45:15,088:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	715.5 MB
+Free:	1289.0 MB
+
+2021-06-04 08:45:15,132:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	727.5 MB
+Free:	1277.0 MB
+
+2021-06-04 08:45:15,132:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	727.5 MB
+Free:	1277.0 MB
+
+2021-06-04 08:53:19,087:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:53:19,087:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:53:19,087:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:53:19,158:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	714.0 MB
+Free:	1290.5 MB
+
+2021-06-04 08:53:19,158:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	714.0 MB
+Free:	1290.5 MB
+
+2021-06-04 08:53:19,158:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	714.0 MB
+Free:	1290.5 MB
+
+2021-06-04 08:53:19,207:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	726.0 MB
+Free:	1278.5 MB
+
+2021-06-04 08:53:19,207:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	726.0 MB
+Free:	1278.5 MB
+
+2021-06-04 08:53:19,207:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	726.0 MB
+Free:	1278.5 MB
+
+2021-06-04 08:53:55,602:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:53:55,602:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:53:55,602:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:53:55,602:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:53:55,674:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	713.5 MB
+Free:	1291.0 MB
+
+2021-06-04 08:53:55,674:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	713.5 MB
+Free:	1291.0 MB
+
+2021-06-04 08:53:55,674:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	713.5 MB
+Free:	1291.0 MB
+
+2021-06-04 08:53:55,674:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	713.5 MB
+Free:	1291.0 MB
+
+2021-06-04 08:53:55,727:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	725.5 MB
+Free:	1279.0 MB
+
+2021-06-04 08:53:55,727:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	725.5 MB
+Free:	1279.0 MB
+
+2021-06-04 08:53:55,727:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	725.5 MB
+Free:	1279.0 MB
+
+2021-06-04 08:53:55,727:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	725.5 MB
+Free:	1279.0 MB
+
+2021-06-04 08:56:24,918:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:56:24,918:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:56:24,918:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:56:24,918:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:56:24,918:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 08:56:24,993:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	714.0 MB
+Free:	1290.5 MB
+
+2021-06-04 08:56:24,993:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	714.0 MB
+Free:	1290.5 MB
+
+2021-06-04 08:56:24,993:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	714.0 MB
+Free:	1290.5 MB
+
+2021-06-04 08:56:24,993:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	714.0 MB
+Free:	1290.5 MB
+
+2021-06-04 08:56:24,993:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	714.0 MB
+Free:	1290.5 MB
+
+2021-06-04 08:56:25,048:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	726.0 MB
+Free:	1278.5 MB
+
+2021-06-04 08:56:25,048:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	726.0 MB
+Free:	1278.5 MB
+
+2021-06-04 08:56:25,048:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	726.0 MB
+Free:	1278.5 MB
+
+2021-06-04 08:56:25,048:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	726.0 MB
+Free:	1278.5 MB
+
+2021-06-04 08:56:25,048:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	726.0 MB
+Free:	1278.5 MB
+
+2021-06-04 09:00:55,650:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 09:00:55,650:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 09:00:55,650:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 09:00:55,650:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 09:00:55,650:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 09:00:55,650:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 09:00:55,732:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	715.5 MB
+Free:	1289.0 MB
+
+2021-06-04 09:00:55,732:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	715.5 MB
+Free:	1289.0 MB
+
+2021-06-04 09:00:55,732:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	715.5 MB
+Free:	1289.0 MB
+
+2021-06-04 09:00:55,732:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	715.5 MB
+Free:	1289.0 MB
+
+2021-06-04 09:00:55,732:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	715.5 MB
+Free:	1289.0 MB
+
+2021-06-04 09:00:55,732:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	715.5 MB
+Free:	1289.0 MB
+
+2021-06-04 09:00:55,788:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	727.5 MB
+Free:	1277.0 MB
+
+2021-06-04 09:00:55,788:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	727.5 MB
+Free:	1277.0 MB
+
+2021-06-04 09:00:55,788:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	727.5 MB
+Free:	1277.0 MB
+
+2021-06-04 09:00:55,788:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	727.5 MB
+Free:	1277.0 MB
+
+2021-06-04 09:00:55,788:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	727.5 MB
+Free:	1277.0 MB
+
+2021-06-04 09:00:55,788:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	727.5 MB
+Free:	1277.0 MB
+
+2021-06-04 11:02:37,836:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:02:37,836:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:02:37,836:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:02:37,836:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:02:37,836:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:02:37,836:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:02:37,836:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:02:37,927:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:02:37,927:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:02:37,927:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:02:37,927:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:02:37,927:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:02:37,927:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:02:37,927:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:02:37,990:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:02:37,990:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:02:37,990:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:02:37,990:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:02:37,990:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:02:37,990:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:02:37,990:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:04:14,048:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:04:14,048:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:04:14,048:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:04:14,048:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:04:14,048:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:04:14,048:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:04:14,048:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:04:14,048:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:04:14,130:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:04:14,130:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:04:14,130:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:04:14,130:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:04:14,130:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:04:14,130:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:04:14,130:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:04:14,130:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:04:14,189:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:04:14,189:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:04:14,189:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:04:14,189:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:04:14,189:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:04:14,189:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:04:14,189:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:04:14,189:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:05:48,913:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:05:48,913:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:05:48,913:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:05:48,913:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:05:48,913:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:05:48,913:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:05:48,913:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:05:48,913:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:05:48,913:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:05:49,002:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:05:49,002:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:05:49,002:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:05:49,002:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:05:49,002:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:05:49,002:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:05:49,002:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:05:49,002:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:05:49,002:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	724.875 MB
+Free:	1279.625 MB
+
+2021-06-04 11:05:49,070:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:05:49,070:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:05:49,070:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:05:49,070:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:05:49,070:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:05:49,070:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:05:49,070:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:05:49,070:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:05:49,070:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	736.875 MB
+Free:	1267.625 MB
+
+2021-06-04 11:08:23,436:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:08:23,436:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:08:23,436:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:08:23,436:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:08:23,436:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:08:23,436:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:08:23,436:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:08:23,436:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:08:23,436:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:08:23,436:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:08:23,518:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	725.0 MB
+Free:	1279.5 MB
+
+2021-06-04 11:08:23,518:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	725.0 MB
+Free:	1279.5 MB
+
+2021-06-04 11:08:23,518:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	725.0 MB
+Free:	1279.5 MB
+
+2021-06-04 11:08:23,518:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	725.0 MB
+Free:	1279.5 MB
+
+2021-06-04 11:08:23,518:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	725.0 MB
+Free:	1279.5 MB
+
+2021-06-04 11:08:23,518:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	725.0 MB
+Free:	1279.5 MB
+
+2021-06-04 11:08:23,518:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	725.0 MB
+Free:	1279.5 MB
+
+2021-06-04 11:08:23,518:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	725.0 MB
+Free:	1279.5 MB
+
+2021-06-04 11:08:23,518:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	725.0 MB
+Free:	1279.5 MB
+
+2021-06-04 11:08:23,518:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	725.0 MB
+Free:	1279.5 MB
+
+2021-06-04 11:08:23,582:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	737.0 MB
+Free:	1267.5 MB
+
+2021-06-04 11:08:23,582:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	737.0 MB
+Free:	1267.5 MB
+
+2021-06-04 11:08:23,582:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	737.0 MB
+Free:	1267.5 MB
+
+2021-06-04 11:08:23,582:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	737.0 MB
+Free:	1267.5 MB
+
+2021-06-04 11:08:23,582:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	737.0 MB
+Free:	1267.5 MB
+
+2021-06-04 11:08:23,582:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	737.0 MB
+Free:	1267.5 MB
+
+2021-06-04 11:08:23,582:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	737.0 MB
+Free:	1267.5 MB
+
+2021-06-04 11:08:23,582:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	737.0 MB
+Free:	1267.5 MB
+
+2021-06-04 11:08:23,582:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	737.0 MB
+Free:	1267.5 MB
+
+2021-06-04 11:08:23,582:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	737.0 MB
+Free:	1267.5 MB
+
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,696:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:34,843:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	738.125 MB
+Free:	1266.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 11:33:35,063:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	750.125 MB
+Free:	1254.375 MB
+
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:06,969:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,157:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	716.5 MB
+Free:	1288.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:10:07,542:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	728.5 MB
+Free:	1276.0 MB
+
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,090:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,178:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.75 MB
+Free:	1249.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:06,239:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,323:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,403:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	754.125 MB
+Free:	1250.375 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:14:31,496:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	766.375 MB
+Free:	1238.125 MB
+
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,379:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,460:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	762.5 MB
+Free:	1242.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:13,534:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	774.5 MB
+Free:	1230.0 MB
+
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,174:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,253:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.5 MB
+Free:	1221.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:17:32,319:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.5 MB
+Free:	1209.0 MB
+
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,026:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,110:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.375 MB
+Free:	1221.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:01,172:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.375 MB
+Free:	1209.125 MB
+
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,263:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,355:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	783.625 MB
+Free:	1220.875 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:18:31,451:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	795.875 MB
+Free:	1208.625 MB
+
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,139:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,285:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	785.3125 MB
+Free:	1219.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 12:24:55,386:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	797.3125 MB
+Free:	1207.1875 MB
+
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,333:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,461:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	729.5625 MB
+Free:	1274.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:16:05,622:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	741.5625 MB
+Free:	1262.9375 MB
+
+2021-06-04 13:19:37,991:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:19:38,028:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	745.9375 MB
+Free:	1258.5625 MB
+
+2021-06-04 13:21:15,467:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:21:15,503:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	744.1875 MB
+Free:	1260.3125 MB
+
+2021-06-04 13:21:18,383:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	1349.9375 MB
+Free:	654.5625 MB
+
+2021-06-04 13:21:18,383:INFO:
+Testing dimension: 2x2 ...
+2021-06-04 13:21:18,384:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1349.9375 MB
+Free:	654.5625 MB
+
+2021-06-04 13:21:35,497:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1966.9375 MB
+Free:	37.5625 MB
+
+2021-06-04 13:21:35,630:INFO:
+GPU usage after clearing the iimage 2x2...
+
+Total:	2004.5 MB
+Used:	1960.9375 MB
+Free:	43.5625 MB
+
+2021-06-04 13:21:38,289:INFO:
+Dimension ok!
+
+2021-06-04 13:21:38,290:INFO:
+Testing dimension: 4x4 ...
+2021-06-04 13:21:38,290:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	1350.1875 MB
+Free:	654.3125 MB
+
+2021-06-04 13:21:51,539:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	1966.3125 MB
+Free:	38.1875 MB
+
+2021-06-04 13:21:51,657:INFO:
+GPU usage after clearing the iimage 4x4...
+
+Total:	2004.5 MB
+Used:	1960.3125 MB
+Free:	44.1875 MB
+
+2021-06-04 13:21:58,759:INFO:
+Dimension ok!
+
+2021-06-04 13:21:58,759:INFO:
+Testing dimension: 8x8 ...
+2021-06-04 13:21:58,760:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	1349.5625 MB
+Free:	654.9375 MB
+
+2021-06-04 13:22:08,965:INFO:
+GPU usage after loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	1986.6875 MB
+Free:	17.8125 MB
+
+2021-06-04 13:22:09,007:INFO:
+GPU usage after clearing the iimage 8x8...
+
+Total:	2004.5 MB
+Used:	1960.6875 MB
+Free:	43.8125 MB
+
+2021-06-04 13:22:09,470:INFO:
+Dimension ok!
+
+2021-06-04 13:22:09,471:INFO:
+Testing dimension: 16x16 ...
+2021-06-04 13:22:09,471:INFO:
+GPU usage before loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	1349.9375 MB
+Free:	654.5625 MB
+
+2021-06-04 13:22:14,081:INFO:
+GPU usage after loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	1986.6875 MB
+Free:	17.8125 MB
+
+2021-06-04 13:22:14,123:INFO:
+GPU usage after clearing the iimage 16x16...
+
+Total:	2004.5 MB
+Used:	1960.6875 MB
+Free:	43.8125 MB
+
+2021-06-04 13:22:14,481:INFO:
+Dimension ok!
+
+2021-06-04 13:22:14,481:INFO:
+Testing dimension: 32x32 ...
+2021-06-04 13:22:14,482:INFO:
+GPU usage before loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	1349.9375 MB
+Free:	654.5625 MB
+
+2021-06-04 13:22:18,364:INFO:
+GPU usage after loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	1986.8125 MB
+Free:	17.6875 MB
+
+2021-06-04 13:22:18,405:INFO:
+GPU usage after clearing the iimage 32x32...
+
+Total:	2004.5 MB
+Used:	1962.8125 MB
+Free:	41.6875 MB
+
+2021-06-04 13:22:18,767:INFO:
+Dimension ok!
+
+2021-06-04 13:22:18,768:INFO:
+Testing dimension: 64x64 ...
+2021-06-04 13:22:18,768:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	1350.0625 MB
+Free:	654.4375 MB
+
+2021-06-04 13:22:22,665:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	2002.8125 MB
+Free:	1.6875 MB
+
+2021-06-04 13:22:22,718:INFO:
+GPU usage after clearing the iimage 64x64...
+
+Total:	2004.5 MB
+Used:	1962.8125 MB
+Free:	41.6875 MB
+
+2021-06-04 13:22:23,076:INFO:
+Dimension ok!
+
+2021-06-04 13:22:23,077:INFO:
+Testing dimension: 128x128 ...
+2021-06-04 13:22:23,077:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	1350.0625 MB
+Free:	654.4375 MB
+
+2021-06-04 13:22:27,930:ERROR:
+Dimension NOT OK!
+
+2021-06-04 13:22:27,930:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1350.0625 MB
+Free:	654.4375 MB
+
+2021-06-04 13:22:27,977:INFO:
+GPU usage after clearing the image 128x128...
+
+Total:	2004.5 MB
+Used:	1344.0625 MB
+Free:	660.4375 MB
+
+2021-06-04 13:22:28,013:INFO:
+Testing dimension: 128x128 ...
+2021-06-04 13:22:28,051:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	1344.0625 MB
+Free:	660.4375 MB
+
+2021-06-04 13:22:32,532:ERROR:
+Dimension NOT OK!
+
+2021-06-04 13:22:32,533:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:32,533:INFO:
+GPU usage after clearing the image 128x128...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:32,579:INFO:
+Testing dimension: 64x64 ...
+2021-06-04 13:22:32,616:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:36,873:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	1997.0625 MB
+Free:	7.4375 MB
+
+2021-06-04 13:22:36,925:INFO:
+GPU usage after clearing the iimage 64x64...
+
+Total:	2004.5 MB
+Used:	1957.0625 MB
+Free:	47.4375 MB
+
+2021-06-04 13:22:37,297:INFO:
+Dimension ok!
+
+2021-06-04 13:22:37,341:INFO:
+Testing dimension: 96x96 ...
+2021-06-04 13:22:37,378:INFO:
+GPU usage before loading the image 96x96...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:41,647:ERROR:
+Dimension NOT OK!
+
+2021-06-04 13:22:41,647:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:41,648:INFO:
+GPU usage after clearing the image 96x96...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:41,694:INFO:
+Testing dimension: 80x80 ...
+2021-06-04 13:22:41,730:INFO:
+GPU usage before loading the image 80x80...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:45,958:ERROR:
+Dimension NOT OK!
+
+2021-06-04 13:22:45,958:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:45,959:INFO:
+GPU usage after clearing the image 80x80...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:46,004:INFO:
+Testing dimension: 72x72 ...
+2021-06-04 13:22:46,040:INFO:
+GPU usage before loading the image 72x72...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:50,254:ERROR:
+Dimension NOT OK!
+
+2021-06-04 13:22:50,254:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:50,254:INFO:
+GPU usage after clearing the image 72x72...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:50,300:INFO:
+Testing dimension: 68x68 ...
+2021-06-04 13:22:50,336:INFO:
+GPU usage before loading the image 68x68...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:54,658:ERROR:
+Dimension NOT OK!
+
+2021-06-04 13:22:54,659:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:54,659:INFO:
+GPU usage after clearing the image 68x68...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:54,704:INFO:
+Testing dimension: 66x66 ...
+2021-06-04 13:22:54,740:INFO:
+GPU usage before loading the image 66x66...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:22:58,543:INFO:
+GPU usage after loading the image 66x66...
+
+Total:	2004.5 MB
+Used:	1999.0625 MB
+Free:	5.4375 MB
+
+2021-06-04 13:22:58,604:INFO:
+GPU usage after clearing the iimage 66x66...
+
+Total:	2004.5 MB
+Used:	1957.0625 MB
+Free:	47.4375 MB
+
+2021-06-04 13:22:58,963:INFO:
+Dimension ok!
+
+2021-06-04 13:22:59,008:INFO:
+Testing dimension: 67x67 ...
+2021-06-04 13:22:59,044:INFO:
+GPU usage before loading the image 67x67...
+
+Total:	2004.5 MB
+Used:	1344.3125 MB
+Free:	660.1875 MB
+
+2021-06-04 13:23:02,861:INFO:
+GPU usage after loading the image 67x67...
+
+Total:	2004.5 MB
+Used:	1999.3125 MB
+Free:	5.1875 MB
+
+2021-06-04 13:23:02,922:INFO:
+GPU usage after clearing the iimage 67x67...
+
+Total:	2004.5 MB
+Used:	1957.3125 MB
+Free:	47.1875 MB
+
+2021-06-04 13:23:03,295:INFO:
+Dimension ok!
+
+2021-06-04 13:23:03,342:INFO:
+Testing dimension: 67x67 ...
+2021-06-04 13:23:03,379:INFO:
+GPU usage before loading the image 67x67...
+
+Total:	2004.5 MB
+Used:	1344.5625 MB
+Free:	659.9375 MB
+
+2021-06-04 13:23:05,025:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 13:23:05,063:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	744.8125 MB
+Free:	1259.6875 MB
+
+2021-06-04 13:23:07,785:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	1350.5625 MB
+Free:	653.9375 MB
+
+2021-06-04 14:21:58,711:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 14:21:58,748:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	744.8125 MB
+Free:	1259.6875 MB
+
+2021-06-04 14:22:01,488:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	1350.6875 MB
+Free:	653.8125 MB
+
+2021-06-04 14:22:01,488:INFO:
+Testing dimension: 2x2 ...
+2021-06-04 14:22:01,488:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1350.6875 MB
+Free:	653.8125 MB
+
+2021-06-04 14:22:07,356:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1967.9375 MB
+Free:	36.5625 MB
+
+2021-06-04 14:22:07,414:INFO:
+GPU usage after clearing the iimage 2x2...
+
+Total:	2004.5 MB
+Used:	1961.9375 MB
+Free:	42.5625 MB
+
+2021-06-04 14:22:07,928:INFO:
+Dimension ok!
+
+2021-06-04 14:22:07,928:INFO:
+Testing dimension: 4x4 ...
+2021-06-04 14:22:07,929:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	1351.1875 MB
+Free:	653.3125 MB
+
+2021-06-04 14:22:13,871:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	1967.9375 MB
+Free:	36.5625 MB
+
+2021-06-04 14:22:13,911:INFO:
+GPU usage after clearing the iimage 4x4...
+
+Total:	2004.5 MB
+Used:	1961.9375 MB
+Free:	42.5625 MB
+
+2021-06-04 14:22:14,256:INFO:
+Dimension ok!
+
+2021-06-04 14:22:14,256:INFO:
+Testing dimension: 8x8 ...
+2021-06-04 14:22:14,257:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	1351.1875 MB
+Free:	653.3125 MB
+
+2021-06-04 14:23:26,648:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 14:23:26,685:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	752.6875 MB
+Free:	1251.8125 MB
+
+2021-06-04 14:23:29,396:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	1358.4375 MB
+Free:	646.0625 MB
+
+2021-06-04 14:23:29,396:INFO:
+Testing dimension: 2x2 ...
+2021-06-04 14:23:29,396:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1358.4375 MB
+Free:	646.0625 MB
+
+2021-06-04 14:23:34,083:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1975.4375 MB
+Free:	29.0625 MB
+
+2021-06-04 14:23:34,122:INFO:
+GPU usage after clearing the iimage 2x2...
+
+Total:	2004.5 MB
+Used:	1969.4375 MB
+Free:	35.0625 MB
+
+2021-06-04 14:23:34,478:INFO:
+Dimension ok!
+
+2021-06-04 14:23:34,479:INFO:
+Testing dimension: 4x4 ...
+2021-06-04 14:23:34,479:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	1358.6875 MB
+Free:	645.8125 MB
+
+2021-06-04 14:26:40,463:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 14:26:40,507:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	67.125 MB
+Free:	1937.375 MB
+
+2021-06-04 14:26:48,506:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:26:48,506:INFO:
+Testing dimension: 2x2 ...
+2021-06-04 14:26:48,507:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:26:52,284:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1289.625 MB
+Free:	714.875 MB
+
+2021-06-04 14:26:52,321:INFO:
+GPU usage after clearing the iimage 2x2...
+
+Total:	2004.5 MB
+Used:	1283.625 MB
+Free:	720.875 MB
+
+2021-06-04 14:26:52,828:INFO:
+Dimension ok!
+
+2021-06-04 14:26:52,828:INFO:
+Testing dimension: 4x4 ...
+2021-06-04 14:26:52,829:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:26:56,533:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	1289.625 MB
+Free:	714.875 MB
+
+2021-06-04 14:26:56,571:INFO:
+GPU usage after clearing the iimage 4x4...
+
+Total:	2004.5 MB
+Used:	1283.625 MB
+Free:	720.875 MB
+
+2021-06-04 14:26:56,902:INFO:
+Dimension ok!
+
+2021-06-04 14:26:56,902:INFO:
+Testing dimension: 8x8 ...
+2021-06-04 14:26:56,903:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:27:00,623:INFO:
+GPU usage after loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	1309.625 MB
+Free:	694.875 MB
+
+2021-06-04 14:27:00,663:INFO:
+GPU usage after clearing the iimage 8x8...
+
+Total:	2004.5 MB
+Used:	1283.625 MB
+Free:	720.875 MB
+
+2021-06-04 14:27:00,987:INFO:
+Dimension ok!
+
+2021-06-04 14:27:00,987:INFO:
+Testing dimension: 16x16 ...
+2021-06-04 14:27:00,987:INFO:
+GPU usage before loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:27:04,702:INFO:
+GPU usage after loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	1309.625 MB
+Free:	694.875 MB
+
+2021-06-04 14:27:04,741:INFO:
+GPU usage after clearing the iimage 16x16...
+
+Total:	2004.5 MB
+Used:	1283.625 MB
+Free:	720.875 MB
+
+2021-06-04 14:27:05,065:INFO:
+Dimension ok!
+
+2021-06-04 14:27:05,065:INFO:
+Testing dimension: 32x32 ...
+2021-06-04 14:27:05,065:INFO:
+GPU usage before loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:27:08,767:INFO:
+GPU usage after loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	1309.625 MB
+Free:	694.875 MB
+
+2021-06-04 14:27:08,805:INFO:
+GPU usage after clearing the iimage 32x32...
+
+Total:	2004.5 MB
+Used:	1285.625 MB
+Free:	718.875 MB
+
+2021-06-04 14:27:09,125:INFO:
+Dimension ok!
+
+2021-06-04 14:27:09,125:INFO:
+Testing dimension: 64x64 ...
+2021-06-04 14:27:09,125:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:27:12,832:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	1325.625 MB
+Free:	678.875 MB
+
+2021-06-04 14:27:12,884:INFO:
+GPU usage after clearing the iimage 64x64...
+
+Total:	2004.5 MB
+Used:	1285.625 MB
+Free:	718.875 MB
+
+2021-06-04 14:27:13,207:INFO:
+Dimension ok!
+
+2021-06-04 14:27:13,207:INFO:
+Testing dimension: 128x128 ...
+2021-06-04 14:27:13,207:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:27:16,912:INFO:
+GPU usage after loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	1469.625 MB
+Free:	534.875 MB
+
+2021-06-04 14:27:17,053:INFO:
+GPU usage after clearing the iimage 128x128...
+
+Total:	2004.5 MB
+Used:	1305.625 MB
+Free:	698.875 MB
+
+2021-06-04 14:27:17,380:INFO:
+Dimension ok!
+
+2021-06-04 14:27:17,380:INFO:
+Testing dimension: 256x256 ...
+2021-06-04 14:27:17,381:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:27:21,084:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1993.625 MB
+Free:	10.875 MB
+
+2021-06-04 14:27:21,549:INFO:
+GPU usage after clearing the iimage 256x256...
+
+Total:	2004.5 MB
+Used:	1301.625 MB
+Free:	702.875 MB
+
+2021-06-04 14:27:21,870:INFO:
+Dimension ok!
+
+2021-06-04 14:27:21,870:INFO:
+Testing dimension: 512x512 ...
+2021-06-04 14:27:21,870:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:27:26,943:ERROR:
+Dimension NOT OK!
+
+2021-06-04 14:27:26,944:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	672.875 MB
+Free:	1331.625 MB
+
+2021-06-04 14:27:26,999:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:27,034:INFO:
+Testing dimension: 512x512 ...
+2021-06-04 14:27:27,070:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:32,003:ERROR:
+Dimension NOT OK!
+
+2021-06-04 14:27:32,004:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:32,004:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:32,049:INFO:
+Testing dimension: 256x256 ...
+2021-06-04 14:27:32,084:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:35,787:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1987.625 MB
+Free:	16.875 MB
+
+2021-06-04 14:27:36,236:INFO:
+GPU usage after clearing the iimage 256x256...
+
+Total:	2004.5 MB
+Used:	1295.625 MB
+Free:	708.875 MB
+
+2021-06-04 14:27:36,557:INFO:
+Dimension ok!
+
+2021-06-04 14:27:36,602:INFO:
+Testing dimension: 384x384 ...
+2021-06-04 14:27:36,638:INFO:
+GPU usage before loading the image 384x384...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:41,177:ERROR:
+Dimension NOT OK!
+
+2021-06-04 14:27:41,178:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:41,178:INFO:
+GPU usage after clearing the image 384x384...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:41,223:INFO:
+Testing dimension: 320x320 ...
+2021-06-04 14:27:41,259:INFO:
+GPU usage before loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:45,871:ERROR:
+Dimension NOT OK!
+
+2021-06-04 14:27:45,871:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:45,872:INFO:
+GPU usage after clearing the image 320x320...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:45,916:INFO:
+Testing dimension: 288x288 ...
+2021-06-04 14:27:45,952:INFO:
+GPU usage before loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:50,034:INFO:
+GPU usage after loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	1971.625 MB
+Free:	32.875 MB
+
+2021-06-04 14:27:50,185:INFO:
+GPU usage after clearing the iimage 288x288...
+
+Total:	2004.5 MB
+Used:	1301.625 MB
+Free:	702.875 MB
+
+2021-06-04 14:27:50,510:INFO:
+Dimension ok!
+
+2021-06-04 14:27:50,556:INFO:
+Testing dimension: 304x304 ...
+2021-06-04 14:27:50,594:INFO:
+GPU usage before loading the image 304x304...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:55,045:ERROR:
+Dimension NOT OK!
+
+2021-06-04 14:27:55,046:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:55,046:INFO:
+GPU usage after clearing the image 304x304...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:55,092:INFO:
+Testing dimension: 296x296 ...
+2021-06-04 14:27:55,130:INFO:
+GPU usage before loading the image 296x296...
+
+Total:	2004.5 MB
+Used:	666.875 MB
+Free:	1337.625 MB
+
+2021-06-04 14:27:59,871:ERROR:
+Dimension NOT OK!
+
+2021-06-04 14:27:59,872:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	668.875 MB
+Free:	1335.625 MB
+
+2021-06-04 14:27:59,872:INFO:
+GPU usage after clearing the image 296x296...
+
+Total:	2004.5 MB
+Used:	668.875 MB
+Free:	1335.625 MB
+
+2021-06-04 14:27:59,915:INFO:
+Testing dimension: 292x292 ...
+2021-06-04 14:27:59,951:INFO:
+GPU usage before loading the image 292x292...
+
+Total:	2004.5 MB
+Used:	668.875 MB
+Free:	1335.625 MB
+
+2021-06-04 14:28:04,080:INFO:
+GPU usage after loading the image 292x292...
+
+Total:	2004.5 MB
+Used:	1993.625 MB
+Free:	10.875 MB
+
+2021-06-04 14:28:04,236:INFO:
+GPU usage after clearing the iimage 292x292...
+
+Total:	2004.5 MB
+Used:	1303.625 MB
+Free:	700.875 MB
+
+2021-06-04 14:28:04,561:INFO:
+Dimension ok!
+
+2021-06-04 14:28:04,605:INFO:
+Testing dimension: 294x294 ...
+2021-06-04 14:28:04,641:INFO:
+GPU usage before loading the image 294x294...
+
+Total:	2004.5 MB
+Used:	668.875 MB
+Free:	1335.625 MB
+
+2021-06-04 14:28:08,726:INFO:
+GPU usage after loading the image 294x294...
+
+Total:	2004.5 MB
+Used:	2001.625 MB
+Free:	2.875 MB
+
+2021-06-04 14:28:08,881:INFO:
+GPU usage after clearing the iimage 294x294...
+
+Total:	2004.5 MB
+Used:	1303.625 MB
+Free:	700.875 MB
+
+2021-06-04 14:28:09,202:INFO:
+Dimension ok!
+
+2021-06-04 14:28:09,247:INFO:
+Testing dimension: 295x295 ...
+2021-06-04 14:28:09,283:INFO:
+GPU usage before loading the image 295x295...
+
+Total:	2004.5 MB
+Used:	668.875 MB
+Free:	1335.625 MB
+
+2021-06-04 14:28:13,758:ERROR:
+Dimension NOT OK!
+
+2021-06-04 14:28:13,758:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	668.875 MB
+Free:	1335.625 MB
+
+2021-06-04 14:28:13,759:INFO:
+GPU usage after clearing the image 295x295...
+
+Total:	2004.5 MB
+Used:	668.875 MB
+Free:	1335.625 MB
+
+2021-06-04 14:28:13,803:INFO:
+Testing dimension: 294x294 ...
+2021-06-04 14:28:13,839:INFO:
+GPU usage before loading the image 294x294...
+
+Total:	2004.5 MB
+Used:	668.875 MB
+Free:	1335.625 MB
+
+2021-06-04 14:28:15,352:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 14:28:15,388:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	69.125 MB
+Free:	1935.375 MB
+
+2021-06-04 14:28:18,031:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	674.875 MB
+Free:	1329.625 MB
+
+2021-06-04 14:46:38,540:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 14:46:38,597:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	116.375 MB
+Free:	1888.125 MB
+
+2021-06-04 14:46:41,507:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	722.125 MB
+Free:	1282.375 MB
+
+2021-06-04 15:02:28,740:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 15:02:28,740:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 15:02:28,821:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 15:02:28,821:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	766.75 MB
+Free:	1237.75 MB
+
+2021-06-04 15:02:28,874:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	778.75 MB
+Free:	1225.75 MB
+
+2021-06-04 15:02:28,874:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	778.75 MB
+Free:	1225.75 MB
+
+2021-06-04 15:09:04,826:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 15:09:04,826:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 15:09:04,826:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 15:09:04,903:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	723.875 MB
+Free:	1280.625 MB
+
+2021-06-04 15:09:04,903:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	723.875 MB
+Free:	1280.625 MB
+
+2021-06-04 15:09:04,903:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	723.875 MB
+Free:	1280.625 MB
+
+2021-06-04 15:09:04,954:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	735.875 MB
+Free:	1268.625 MB
+
+2021-06-04 15:09:04,954:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	735.875 MB
+Free:	1268.625 MB
+
+2021-06-04 15:09:04,954:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	735.875 MB
+Free:	1268.625 MB
+
+2021-06-04 15:25:20,351:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 15:25:20,351:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 15:25:20,351:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 15:25:20,351:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-04 15:25:20,447:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	718.375 MB
+Free:	1286.125 MB
+
+2021-06-04 15:25:20,447:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	718.375 MB
+Free:	1286.125 MB
+
+2021-06-04 15:25:20,447:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	718.375 MB
+Free:	1286.125 MB
+
+2021-06-04 15:25:20,447:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	718.375 MB
+Free:	1286.125 MB
+
+2021-06-04 15:25:20,509:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	730.375 MB
+Free:	1274.125 MB
+
+2021-06-04 15:25:20,509:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	730.375 MB
+Free:	1274.125 MB
+
+2021-06-04 15:25:20,509:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	730.375 MB
+Free:	1274.125 MB
+
+2021-06-04 15:25:20,509:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	730.375 MB
+Free:	1274.125 MB
+

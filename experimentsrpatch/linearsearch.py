@@ -99,8 +99,10 @@ def do_linear_search():
     logger = ut.get_logger()
 
     device = "cuda"
+    model_name = "EDSR"
     config = toml.load("../config.toml")
     run = config["run"]
+    scale = int(config["scale"]) if config["scale"] else 4
     # device information
     _, device_name = ut.get_device_details()
     total, _, _ = ut.get_gpu_details(
@@ -141,6 +143,7 @@ def do_linear_search():
     mean_memory_free, std_memory_free = ut.get_mean_std(memory_free)
 
     # make folder for saving results
+    plt_title = 'Model: {} | GPU: {} | Memory: {} MB'.format(model_name, device_name, total)
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
     foldername = date
@@ -150,49 +153,55 @@ def do_linear_search():
         foldername,
         "dimension_vs_meantime",
         mean_time,
-        "Dimension",
-        "Mean Time (" + str(run) + " runs)",
+        "Dimensionn of Patch(nxn)",
+        "Mean Processing Time: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
         mode="mean time",
+        title=plt_title
     )
     ut.plot_data(
         foldername,
         "dimension_vs_stdtime",
         std_time,
-        "Dimension",
-        "Std Time (" + str(run) + " runs)",
+        "Dimension n of Patch(nxn)",
+        "Std of Processing Time: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
         mode="std time",
+        title=plt_title
     )
     ut.plot_data(
         foldername,
         "dimension_vs_meanmemoryused",
         mean_memory_used,
-        "Dimension",
-        "Mean Memory used (" + str(run) + " runs)",
+        "Dimension n of Patch(nxn)",
+        "Mean Memory used: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
         mode="mean memory used",
+        title=plt_title
     )
     ut.plot_data(
         foldername,
         "dimension_vs_stdmemoryused",
         std_memory_used,
-        "Dimension",
-        "Std Memory Used (" + str(run) + " runs)",
+        "Dimension n of Patch(nxn)",
+        "Std Memory Used: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
         mode="std memory used",
+        title=plt_title
     )
     ut.plot_data(
         foldername,
         "dimension_vs_meanmemoryfree",
         mean_memory_free,
-        "Dimension",
-        "Mean Memory Free (" + str(run) + " runs)",
+        "Dimension n of Patch(nxn)",
+        "Mean Memory Free: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
         mode="mean memory free",
+        title=plt_title
     )
     ut.plot_data(
         foldername,
         "dimension_vs_stdmemoryfree",
         std_memory_free,
-        "Dimension",
-        "Std Memory Free (" + str(run) + " runs)",
+        "Dimension n of Patch(nxn)",
+        "Std Memory Free: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
         mode="std memory free",
+        title=plt_title
     )
     # save data
     ut.save_csv(

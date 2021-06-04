@@ -17,6 +17,7 @@ torchaudio = "^0.8.1"
 toml = "^0.10.2"
 Sphinx = "^4.0.2"
 gpustat = "^0.6.0"
+scikit-image = "^0.18.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

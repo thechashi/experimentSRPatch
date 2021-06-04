@@ -127,7 +127,6 @@ def make_model(args, parent=False):
 class EDSR(nn.Module):
     def __init__(self, args, conv=default_conv):
         super(EDSR, self).__init__()
-
         n_resblocks = args["n_resblocks"]
         n_feats = args["n_feats"]
         kernel_size = 3

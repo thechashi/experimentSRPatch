@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import patch_calculator as pc
 import matplotlib.pyplot as plt
-
+import utilities as ut
 if __name__ == "__main__":
     config = toml.load("../config.toml")
     height = int(config["img_height"])
@@ -15,12 +15,19 @@ if __name__ == "__main__":
     scale = int(config["scale"]) if config["scale"] else 4
     filename = config["last_stat_csv"]
     foldername = config["last_folder"]
-
-    stat_file = open("results/" + foldername + "/" + filename, "r")
-    lines = stat_file.readlines()
-    device = lines[0]
-    device_name = lines[1]
-    total_memory = lines[2]
+    model_name = "EDSR"
+    device = "cuda"
+    _, device_name = ut.get_device_details()
+    total_memory, _, _ = ut.get_gpu_details(
+        device, "\nDevice info:", logger=None, print_details=False
+    )
+# =============================================================================
+#     stat_file = open("results/" + foldername + "/" + filename, "r")
+#     lines = stat_file.readlines()
+#     device = lines[0]
+#     device_name = lines[1]
+#     total_memory = lines[2]
+# =============================================================================
 
     # loading patch stats from latest binary search
     df = pd.read_csv("results/" + foldername + "/" + filename, comment="#")
@@ -50,6 +57,7 @@ if __name__ == "__main__":
             start_dim, end_dim, height, width
         )
     )
+    plt_title = 'Model: {} | GPU: {} | Memory: {} MB'.format(model_name, device_name, total_memory)
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
     filename = "patch_fullimage_" + str(height) + "_" + str(width) + "_" + date
@@ -57,10 +65,11 @@ if __name__ == "__main__":
         np.array(post_df[start_dim-1:end_dim, 0]).flatten(),
         np.array(post_df[start_dim-1:end_dim, 1]).flatten(),
     )
-    x_label = "Patch dimension (1 side) for an image ({}x{})".format(height, width)
-    y_label = "Processing time (sec)"
+    x_label = "Dimension n of a patch (nxn) for an input image ({}x{})".format(height, width)
+    y_label = "Processing time (sec): LR -> SR (Scale: {})".format(scale)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
+    plt.title(plt_title)
     plt.plot(x_data, y_data)
     plt.savefig("results/{0}/{1}.png".format(foldername, filename))
     plt.show()
@@ -78,6 +87,6 @@ if __name__ == "__main__":
     file = open("results/" + foldername + "/" + filename, "a")
     file.write(device)
     file.write(device_name)
-    file.write(total_memory)
+    file.write(str(total_memory))
     data_frame.to_csv(file)
     file.close()

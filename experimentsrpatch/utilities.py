@@ -9,6 +9,14 @@ import pandas as pd
 import logging
 from datetime import date
 import toml
+from PIL import Image
+
+def test_image():
+    data = np.random.randint(0, 255, size=(100, 100), dtype=np.uint8)
+    print(data.shape)
+    img = Image.fromarray(data, 'RGB')
+    img.save('random_test.png')
+    img.show()
 
 def get_logger():
     """
@@ -130,8 +138,13 @@ def random_image(dimension):
         random image.
 
     """
-    image = np.random.random((dimension, dimension)) * 255.0
-    image = torch.tensor(image)
+    data = np.random.randint(0, 255, size=(dimension, dimension), dtype=np.uint8)
+# =============================================================================
+#     image = np.random.random((dimension, dimension)) * 255.0
+#     image = np.round(image, 0)
+#     print(image.shape)
+# =============================================================================
+    image = torch.tensor(data)
     image.unsqueeze_(0)
     image = image.repeat(3, 1, 1)
     image = image.unsqueeze(0)
@@ -193,7 +206,7 @@ def get_mean_std(result3):
     return mean_dict, std_dict
 
 
-def plot_data(foldername, filename, data_dict, x_label, y_label, mode):
+def plot_data(foldername, filename, data_dict, x_label, y_label, mode, title):
     """
     Plot data
 
@@ -225,6 +238,7 @@ def plot_data(foldername, filename, data_dict, x_label, y_label, mode):
     x_data, y_data = zip(*data_dict)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
+    plt.title(title)
     plt.plot(x_data, y_data)
     plt.savefig("results/{0}/{1}.png".format(foldername, filename))
     plt.show()
@@ -314,3 +328,7 @@ def save_csv(
     file.write("# Total GPU memory: {0} \n".format(total_mem))
     data_frame.to_csv(file)
     file.close()
+    
+if __name__ == "__main__":
+    print(random_image(32))
+    #test_image()

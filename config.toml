@@ -1,9 +1,9 @@
 run = 10
-last_folder = "Tue_Jun_1_10_47_53_2021"
-last_stat_csv = "total_stat_Tue_Jun_1_10_48_21_2021"
-img_height = 4096
-img_width = 4096
+last_folder = "Fri_Jun_4_15_27_49_2021"
+last_stat_csv = "total_stat_Fri_Jun_4_15_27_50_2021"
+img_height = 100
+img_width = 100
 shave = 10
-dimension = 278
+dimension = 40
 scale = 4
 start_shave = 3
