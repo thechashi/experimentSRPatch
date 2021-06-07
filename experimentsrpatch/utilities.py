@@ -12,7 +12,7 @@ import toml
 from PIL import Image
 
 def test_image():
-    data = np.random.randint(0, 255, size=(100, 100), dtype=np.uint8)
+    data = np.random.randint(0, 255, size=(104, 104, 3), dtype=np.uint8)
     print(data.shape)
     img = Image.fromarray(data, 'RGB')
     img.save('random_test.png')
@@ -330,5 +330,5 @@ def save_csv(
     file.close()
     
 if __name__ == "__main__":
-    print(random_image(32))
-    #test_image()
+    #print(random_image(32))
+    test_image()

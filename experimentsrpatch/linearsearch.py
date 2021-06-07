@@ -44,17 +44,23 @@ def result_from_dimension_range(device, logger, config, model, first, last):
     memory_used = {}
     memory_free = {}
     for i in range(run):
-        print("Run: ", i + 1)
+        print("\nRun: ", i + 1)
+        print()
         for dim in tqdm(range(first, last + 1)):
             dimension = dim
             input_image = ut.random_image(dimension)
             input_image = input_image.to(device)
             with torch.no_grad():
                 try:
+                    print('\n')
+                    print(input_image.shape)
+                    print(input_image[0,0,0,0:5])
                     start = time.time()
                     output_image = model(input_image)
                     end = time.time()
                     total_time = end - start
+                    print('Processing time: ', total_time)
+                    print('\n')
                     if dimension in result3.keys():
                         result3[dimension].append(total_time)
                         _, used, free = ut.get_gpu_details(
@@ -87,7 +93,7 @@ def result_from_dimension_range(device, logger, config, model, first, last):
     return result3, memory_used, memory_free
 
 
-def do_linear_search():
+def do_linear_search(test=False, test_dim=32):
     """
     Linear search function...
 
@@ -131,93 +137,97 @@ def do_linear_search():
     file = open("temp_max_dim.txt", "r")
     line = file.read()
     max_dim = int(line.split(":")[1])
-
-    detailed_result, memory_used, memory_free = result_from_dimension_range(
-        device, logger, config, model, 1, max_dim
-    )
-
-    # get mean
-    # get std
-    mean_time, std_time = ut.get_mean_std(detailed_result)
-    mean_memory_used, std_memory_used = ut.get_mean_std(memory_used)
-    mean_memory_free, std_memory_free = ut.get_mean_std(memory_free)
-
-    # make folder for saving results
-    plt_title = 'Model: {} | GPU: {} | Memory: {} MB'.format(model_name, device_name, total)
-    date = "_".join(str(time.ctime()).split())
-    date = "_".join(date.split(":"))
-    foldername = date
-    os.mkdir("results/" + foldername)
-    # plot data
-    ut.plot_data(
-        foldername,
-        "dimension_vs_meantime",
-        mean_time,
-        "Dimensionn of Patch(nxn)",
-        "Mean Processing Time: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
-        mode="mean time",
-        title=plt_title
-    )
-    ut.plot_data(
-        foldername,
-        "dimension_vs_stdtime",
-        std_time,
-        "Dimension n of Patch(nxn)",
-        "Std of Processing Time: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
-        mode="std time",
-        title=plt_title
-    )
-    ut.plot_data(
-        foldername,
-        "dimension_vs_meanmemoryused",
-        mean_memory_used,
-        "Dimension n of Patch(nxn)",
-        "Mean Memory used: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
-        mode="mean memory used",
-        title=plt_title
-    )
-    ut.plot_data(
-        foldername,
-        "dimension_vs_stdmemoryused",
-        std_memory_used,
-        "Dimension n of Patch(nxn)",
-        "Std Memory Used: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
-        mode="std memory used",
-        title=plt_title
-    )
-    ut.plot_data(
-        foldername,
-        "dimension_vs_meanmemoryfree",
-        mean_memory_free,
-        "Dimension n of Patch(nxn)",
-        "Mean Memory Free: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
-        mode="mean memory free",
-        title=plt_title
-    )
-    ut.plot_data(
-        foldername,
-        "dimension_vs_stdmemoryfree",
-        std_memory_free,
-        "Dimension n of Patch(nxn)",
-        "Std Memory Free: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
-        mode="std memory free",
-        title=plt_title
-    )
-    # save data
-    ut.save_csv(
-        foldername,
-        "total_stat",
-        device,
-        device_name,
-        total,
-        mean_time,
-        std_time,
-        mean_memory_used,
-        std_memory_used,
-        mean_memory_free,
-        std_memory_free,
-    )
+    if test==False:
+        detailed_result, memory_used, memory_free = result_from_dimension_range(
+            device, logger, config, model, 1, max_dim
+        )
+    else:
+        detailed_result, memory_used, memory_free = result_from_dimension_range(
+            device, logger, config, model, test_dim, test_dim
+        )
+    if test==False:
+        # get mean
+        # get std
+        mean_time, std_time = ut.get_mean_std(detailed_result)
+        mean_memory_used, std_memory_used = ut.get_mean_std(memory_used)
+        mean_memory_free, std_memory_free = ut.get_mean_std(memory_free)
+    
+        # make folder for saving results
+        plt_title = 'Model: {} | GPU: {} | Memory: {} MB'.format(model_name, device_name, total)
+        date = "_".join(str(time.ctime()).split())
+        date = "_".join(date.split(":"))
+        foldername = date
+        os.mkdir("results/" + foldername)
+        # plot data
+        ut.plot_data(
+            foldername,
+            "dimension_vs_meantime",
+            mean_time,
+            "Dimensionn of Patch(nxn)",
+            "Mean Processing Time: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
+            mode="mean time",
+            title=plt_title
+        )
+        ut.plot_data(
+            foldername,
+            "dimension_vs_stdtime",
+            std_time,
+            "Dimension n of Patch(nxn)",
+            "Std of Processing Time: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
+            mode="std time",
+            title=plt_title
+        )
+        ut.plot_data(
+            foldername,
+            "dimension_vs_meanmemoryused",
+            mean_memory_used,
+            "Dimension n of Patch(nxn)",
+            "Mean Memory used: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
+            mode="mean memory used",
+            title=plt_title
+        )
+        ut.plot_data(
+            foldername,
+            "dimension_vs_stdmemoryused",
+            std_memory_used,
+            "Dimension n of Patch(nxn)",
+            "Std Memory Used: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
+            mode="std memory used",
+            title=plt_title
+        )
+        ut.plot_data(
+            foldername,
+            "dimension_vs_meanmemoryfree",
+            mean_memory_free,
+            "Dimension n of Patch(nxn)",
+            "Mean Memory Free: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
+            mode="mean memory free",
+            title=plt_title
+        )
+        ut.plot_data(
+            foldername,
+            "dimension_vs_stdmemoryfree",
+            std_memory_free,
+            "Dimension n of Patch(nxn)",
+            "Std Memory Free: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
+            mode="std memory free",
+            title=plt_title
+        )
+        # save data
+        ut.save_csv(
+            foldername,
+            "total_stat",
+            device,
+            device_name,
+            total,
+            mean_time,
+            std_time,
+            mean_memory_used,
+            std_memory_used,
+            mean_memory_free,
+            std_memory_free,
+        )
 
 
 if __name__ == "__main__":
-    do_linear_search()
+    do_linear_search(test=True, test_dim=32)
