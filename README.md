@@ -1,7 +1,7 @@
 # experimentSRPatch
 This repository contains sourcecode for experimenting different patch dimension for EDSR model.
 
-# How to run:
+# How to run EDSR patch experiment:
 
 git clone https://github.com/chashi-mahiul-islam-bd/experimentSRPatch.git
 
@@ -30,3 +30,11 @@ Way 1 (manually):
 Way 2 ( with a script):
 
     sh demo.sh 
+    
+# How to run EDSR iterative forward chop: 
+
+Inside experimentsrpatch folder: 
+
+python3 forward_chop.py <file_path> <patch_dimension> <shave_value> 
+
+example: python3 forward_chop.py test2.jpg 32 12 # you will get an output in the experimentsrpatch folder named result_imagex4.png
