@@ -16,6 +16,9 @@ def forward_chop_iterative(x, model = None, shave=10, min_size=1024):
         patch_count = 0
         output = torch.tensor(np.zeros((b, c, h*4, w*4)))
         total_time = 0
+        total_crop_time = 0
+        total_shift_time = 0
+        total_clear_time = 0
         x = x.to(device)
         
         new_i_s = 0 
@@ -47,22 +50,44 @@ def forward_chop_iterative(x, model = None, shave=10, min_size=1024):
                 n_w_e = ((w_e-w_s)*4) if w_e == w else (((w_e-w_s) - shave)*4)
                 new_j_e = new_j_e + n_w_e - n_w_s 
                 
-                # corpping image in gpu
+                # corpping image in 
+                crop_start = time.time()
                 sr_small = sr[:, :, n_h_s:n_h_e, n_w_s:n_w_e]
+                crop_end = time.time()
+                crop_time = crop_end - crop_start
+                total_crop_time += crop_time
+# =============================================================================
+#                 print('Crop time: ', crop_time)
+# =============================================================================
+                
+                shift_start = time.time()
                 sr_small = sr_small.to('cpu')
+                shift_end = time.time()
+                shift_time = shift_end - shift_start
+                total_shift_time += shift_time
+# =============================================================================
+#                 print('Shift time: ', shift_time)
+# =============================================================================
                 output[:, :, new_i_s:new_i_e, new_j_s:new_j_e] = sr_small
                 del sr_small
 
                 if w_e == w:
                     break
                 new_j_s = new_j_e
+                clear_start = time.time()
                 ut.clear_cuda(lr, sr)
+                clear_end = time.time()
+                clear_time = clear_end - clear_start
+                total_clear_time += clear_time
             new_i_s = new_i_e
             if h_e == h:
                 break
         print('Patch dimension: {}x{}'.format(dim, dim))
         print('Total pacthes: ', patch_count)
         print('Total EDSR Processing time: ', total_time)
+        print('Total crop time: ', total_crop_time)
+        print('Total shift time: ', total_shift_time)
+        print('Total clear time: ', total_clear_time)
         return output
 
 if __name__ == "__main__":

@@ -173,7 +173,7 @@ def clear_cuda(input_image, output_image):
     if input_image is not None:
         input_image = input_image.cpu()
         del input_image
-    gc.collect()
+    #gc.collect()
     torch.cuda.empty_cache()
 
 
