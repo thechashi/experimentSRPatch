@@ -8,108 +8,60 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 import time
 import sys
-def forward_chop_iterative(x, model = None, shave=12, min_size=1024):
-        dim = round(math.sqrt(min_size))
-        b, c, h, w = x.size()
+from PIL import Image
+def forward_chop_iterative(x, model = None, shave=10, min_size=1024):
+        dim = int(math.sqrt(min_size)) # getting patch dimension
+        b, c, h, w = x.size() # current image batch, channel, height, width
         device = 'cuda'
-        count = 0
+        patch_count = 0
         output = torch.tensor(np.zeros((b, c, h*4, w*4)))
         total_time = 0
-        new_i_s = 0
+        x = x.to(device)
+        
+        new_i_s = 0 
         for i in tqdm(range(0, h, dim-2*shave)):
             new_j_s = 0
             new_j_e = 0
-# =============================================================================
-#             subprocess.run("gpustat", shell=True)
-# =============================================================================
             for j in range(0, w, dim-2*shave):
-# =============================================================================
-#                 print(i,j)
-#                 subprocess.run("gpustat", shell=True)
-# =============================================================================
-                count += 1
-                h_s = i
-                h_e = min(h, i+dim)
-                w_s = j
-                w_e = min(w, j+dim)
+                patch_count += 1
+                h_s, h_e = i, min(h, i+dim) # patch height start and end
+                w_s, w_e = j, min(w, j+dim) # patch width start and end
                 lr = x[:, :, h_s:h_e, w_s:w_e]
-# =============================================================================
-#                 print('h: {}x{} w: {}x{}'.format(h_s, h_e, w_s, w_e))
-#                 print('current dim: {}x{}'.format(h_e-h_s,w_e-w_s))
-# =============================================================================
+                
                 with torch.no_grad():
-                    lr = lr.to(device)
-# =============================================================================
-#                     subprocess.run("gpustat", shell=True)
-# =============================================================================
+                    # EDSR processing
                     start = time.time()
                     sr = model(lr)
                     end = time.time()
                     processing_time = end - start
                     total_time += processing_time
-                    sr = sr.to('cpu')
-# =============================================================================
-#                     subprocess.run("gpustat", shell=True)
-# =============================================================================
-                #sr = sr.detach().numpy()
-                n_h = (h_e-h_s)*4
-                n_w = (w_e-w_s)*4
-
-# =============================================================================
-#                 print('next_dimension: {}x{}'.format(n_h, n_w))
-# =============================================================================
+                
+                # new cropped patch's dimension (h and w)
                 n_h_s, n_h_e, n_w_s, n_w_e = 0, 0, 0, 0
-
-                if h_s == 0:
-                    n_h_s = 0
-                else:
-                    n_h_s = shave*4
-                if h_e == h:
-                    n_h_e = (h_e-h_s)*4
-
-                else:
-                    n_h_e = ((h_e-h_s) - shave)*4
-                    
+                
+                n_h_s = 0 if h_s == 0 else (shave*4)
+                n_h_e = ((h_e-h_s)*4) if h_e == h else (((h_e-h_s) - shave)*4)
                 new_i_e = new_i_s + n_h_e - n_h_s
                 
-                if w_s == 0:
-                    n_w_s = 0
-                else:
-                    n_w_s = shave*4
-                if w_e == w:
-                    n_w_e = (w_e-w_s)*4
-                else:
-                    n_w_e = ((w_e-w_s) - shave)*4
+                n_w_s = 0 if w_s ==0 else (shave*4)
+                n_w_e = ((w_e-w_s)*4) if w_e == w else (((w_e-w_s) - shave)*4)
                 new_j_e = new_j_e + n_w_e - n_w_s 
-                output[:, :, new_i_s:new_i_e, new_j_s:new_j_e] \
-                        = sr[:, :, n_h_s:n_h_e, n_w_s:n_w_e]
-# =============================================================================
-#                 print('new -> h: {}x{} w: {}x{}'.format(n_h_s, n_h_e, n_w_s, n_w_e))
-#                 print('h-> {}:{}, w-> {}:{}'.format(new_i_s, new_i_e, new_j_s, new_j_e))
-#                 print()
-# =============================================================================
+                
+                # corpping image in gpu
+                sr_small = sr[:, :, n_h_s:n_h_e, n_w_s:n_w_e]
+                sr_small = sr_small.to('cpu')
+                output[:, :, new_i_s:new_i_e, new_j_s:new_j_e] = sr_small
+                del sr_small
+
                 if w_e == w:
                     break
                 new_j_s = new_j_e
-                ut.clear_cuda(lr, None)
-# =============================================================================
-#                 subprocess.run("gpustat", shell=True)
-#                 print('-----------------------------------------------------')
-# =============================================================================
-# =============================================================================
-#             print('After:')
-#             subprocess.run("gpustat", shell=True)
-#             print()
-# =============================================================================
+                ut.clear_cuda(lr, sr)
             new_i_s = new_i_e
             if h_e == h:
                 break
-# =============================================================================
-#         print(count)
-#         print(output.shape)
-# =============================================================================
         print('Patch dimension: {}x{}'.format(dim, dim))
-        print('Total pacthes: ', count)
+        print('Total pacthes: ', patch_count)
         print('Total EDSR Processing time: ', total_time)
         return output
 
@@ -128,6 +80,7 @@ if __name__ == "__main__":
     input_image = img.float()
 
     model = md.load_edsr(device=device)
+    model.eval()
     st = time.time()
     out = forward_chop_iterative(input_image, shave=shave, min_size=dimension*dimension, model = model)
     et = time.time()
