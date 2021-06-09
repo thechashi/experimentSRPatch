@@ -1,7 +1,7 @@
 # experimentSRPatch
 This repository contains sourcecode for experimenting different patch dimension for EDSR model.
 
-# How to run:
+# How to run EDSR patch experiment:
 
 git clone https://github.com/chashi-mahiul-islam-bd/experimentSRPatch.git
 
