@@ -111,8 +111,16 @@ if __name__ == "__main__":
     et = time.time()
     tt = et - st
     print('Total forward chopping time: ', tt)
+    print('\nSaving...\n')
     out = out.int()
-    
-    plt.imshow(out[0].permute((1,2,0)))
-    plt.savefig('result_imagex4.png', bbox_inches='tight')
-
+    save_start = time.time()
+    fig = plt.figure(figsize=((4*h)/1000, (4*w)/1000), dpi=100, frameon=False)
+    ax = plt.Axes(fig, [0., 0., 1., 1.])
+    ax.set_axis_off()
+    fig.add_axes(ax)
+    #fig = plt.figure(figsize=(4*h, 4*w))
+    ax.imshow(out[0].permute((1,2,0)))  
+    fig.savefig('result_imagex4.png',bbox_inches='tight',transparent=True, pad_inches=0, dpi=1000)
+    save_end = time.time()
+    save_time = save_end -save_start
+    print('Saving time: {}'.format(save_time))

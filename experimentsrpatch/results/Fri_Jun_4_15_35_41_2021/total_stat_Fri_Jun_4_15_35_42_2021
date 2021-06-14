@@ -1,5 +1,0 @@
-# Device: cuda 
-# Device Name: GeForce GTX 860M 
-# Total GPU memory: 2004.5 
-,Dimension,Mean Time,Std Time,Mean Memory Used,Std Memory Used,Mean Memory Free,Std Memory Free
-0,32,0.005846500396728516,0.001116439862477555,755.325,0.6000000000000001,1249.175,0.6000000000000001

@@ -1,7 +1,7 @@
 """Model Loader"""
 import models.EDSR as edsr
 import toml
-
+import torch
 def load_edsr(device, n_resblocks=16, n_feats=64, model_details=True):
     """
     Loads the EDSR model
@@ -23,6 +23,11 @@ def load_edsr(device, n_resblocks=16, n_feats=64, model_details=True):
     """
     config = toml.load("../config.toml")
     scale = int(config["scale"]) if config["scale"] else 4
+    cpu = 'False' if torch.cuda.is_available() else 'True'
+    if cpu == 'True':
+        print('\nCuda not available\n')
+    elif cpu == 'False':
+        print('\nCUDA Available\n')
     args = {
         "n_resblocks": n_resblocks,
         "n_feats": n_feats,
@@ -30,6 +35,7 @@ def load_edsr(device, n_resblocks=16, n_feats=64, model_details=True):
         "rgb_range": 255,
         "n_colors": 3,
         "res_scale": 1,
+        "cpu": cpu
     }
     model = edsr.make_model(args).to(device)
     edsr.load(model)
