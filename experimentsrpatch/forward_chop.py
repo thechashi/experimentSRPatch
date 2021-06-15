@@ -9,7 +9,7 @@ from tqdm import tqdm
 import time
 import sys
 from PIL import Image
-def forward_chop_iterative(x, model = None, shave=10, min_size=1024):
+def forward_chop_iterative(x, model = None, shave=10, min_size=1024, print_result=True):
         dim = int(math.sqrt(min_size)) # getting patch dimension
         b, c, h, w = x.size() # current image batch, channel, height, width
         device = 'cuda'
@@ -22,7 +22,7 @@ def forward_chop_iterative(x, model = None, shave=10, min_size=1024):
         x = x.to(device)
         
         new_i_s = 0 
-        for i in tqdm(range(0, h, dim-2*shave)):
+        for i in range(0, h, dim-2*shave):
             new_j_s = 0
             new_j_e = 0
             for j in range(0, w, dim-2*shave):
@@ -82,20 +82,20 @@ def forward_chop_iterative(x, model = None, shave=10, min_size=1024):
             new_i_s = new_i_e
             if h_e == h:
                 break
-        print('Patch dimension: {}x{}'.format(dim, dim))
-        print('Total pacthes: ', patch_count)
-        print('Total EDSR Processing time: ', total_time)
-        print('Total crop time: ', total_crop_time)
-        print('Total shift time: ', total_shift_time)
-        print('Total clear time: ', total_clear_time)
-        return output
+        if print_result == True:
+            print('Patch dimension: {}x{}'.format(dim, dim))
+            print('Total pacthes: ', patch_count)
+            print('Total EDSR Processing time: ', total_time)
+            print('Total crop time: ', total_crop_time)
+            print('Total shift time: ', total_shift_time)
+            print('Total clear time: ', total_clear_time)
+        return output, total_time, total_crop_time, total_shift_time, total_clear_time
 
 if __name__ == "__main__":
-    
     img_path = sys.argv[1] if len(sys.argv) > 1 else 'test2.jpg'
     dimension = int(sys.argv[2])if len(sys.argv) > 2 else 32
     shave = int(sys.argv[3]) if len(sys.argv) > 3 else 12
-    
+    print_result = bool(int(sys.argv[4])) if len(sys.argv) > 4 else True
     device = 'cuda'
     img = torchvision.io.read_image(img_path)
     
@@ -107,20 +107,25 @@ if __name__ == "__main__":
     model = md.load_edsr(device=device)
     model.eval()
     st = time.time()
-    out = forward_chop_iterative(input_image, shave=shave, min_size=dimension*dimension, model = model)
+    out_tuple = forward_chop_iterative(input_image, shave=shave, min_size=dimension*dimension, model = model, print_result=print_result)
+    out = out_tuple[0]
     et = time.time()
     tt = et - st
-    print('Total forward chopping time: ', tt)
-    print('\nSaving...\n')
-    out = out.int()
-    save_start = time.time()
-    fig = plt.figure(figsize=((4*h)/1000, (4*w)/1000), dpi=100, frameon=False)
-    ax = plt.Axes(fig, [0., 0., 1., 1.])
-    ax.set_axis_off()
-    fig.add_axes(ax)
-    #fig = plt.figure(figsize=(4*h, 4*w))
-    ax.imshow(out[0].permute((1,2,0)))  
-    fig.savefig('result_imagex4.png',bbox_inches='tight',transparent=True, pad_inches=0, dpi=1000)
-    save_end = time.time()
-    save_time = save_end -save_start
-    print('Saving time: {}'.format(save_time))
+    
+    if print_result == True:
+        print('Total forward chopping time: ', tt)
+        print('\nSaving...\n')
+        out = out.int()
+        save_start = time.time()
+        fig = plt.figure(figsize=((4*h)/1000, (4*w)/1000), dpi=100, frameon=False)
+        ax = plt.Axes(fig, [0., 0., 1., 1.])
+        ax.set_axis_off()
+        fig.add_axes(ax)
+        #fig = plt.figure(figsize=(4*h, 4*w))
+        ax.imshow(out[0].permute((1,2,0)))  
+        fig.savefig('result_imagex4.png',bbox_inches='tight',transparent=True, pad_inches=0, dpi=1000)
+        save_end = time.time()
+        save_time = save_end -save_start
+        print('Saving time: {}'.format(save_time))
+    else:
+        print(dimension, *out_tuple[1:], )
