@@ -33,7 +33,7 @@ def check_differnet_patches_in_forward_chop(min_dim, max_dim, shave, image_path,
                 temp += list(map(float, p.stdout.decode().split()[1:]))
                 s = [s[i] + temp[i] for i in range(len(temp))]
             else:
-                raise Exception("ERROR!")
+                raise Exception(p.stderr)
                 break
         s = np.array(s) / run
         full_result.append(s)
