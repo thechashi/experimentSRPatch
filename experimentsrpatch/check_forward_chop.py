@@ -11,23 +11,33 @@ import matplotlib.pyplot as plt
 def check_differnet_patches_in_forward_chop(min_dim, max_dim, shave, image_path, run = 1, device="cuda"):
     
     model_name = "EDSR"
+    device_name = "CPU"
+    total_memory = "~"
     device = device
-    
-    _, device_name = ut.get_device_details()
-    total_memory, _, _ = ut.get_gpu_details(
-        device, "\nDevice info:", logger=None, print_details=False
-    )
+    if device == "cuda":
+        _, device_name = ut.get_device_details()
+        total_memory, _, _ = ut.get_gpu_details(
+            device, "\nDevice info:", logger=None, print_details=False
+        )
     print_result = "0" 
     full_result = []
+    break_flag = 0
     for d in tqdm(range(min_dim, max_dim+1)):
-        s = [d]
-        command = "python3 " + "forward_chop.py " + image_path + " " +   str(d) + " "  + str(shave) + " " +  print_result
-        p = subprocess.run(command, shell=True, capture_output = True)
-        if p.returncode == 0:
-            s += list(map(float, p.stdout.decode().split()[1:]))
-            full_result.append(s)
-        else:
-            break
+        s = [0,0,0,0,0]
+        s_t = []
+        for r in range(run):
+            temp = [d]
+            command = "python3 " + "forward_chop.py " + image_path + " " +   str(d) + " "  + str(shave) + " " + print_result + " " + device
+            p = subprocess.run(command, shell=True, capture_output = True)
+            if p.returncode == 0:
+                temp += list(map(float, p.stdout.decode().split()[1:]))
+                s = [s[i] + temp[i] for i in range(len(temp))]
+            else:
+                raise Exception("ERROR!")
+                break
+        s = np.array(s) / run
+        full_result.append(s)
+        
         
     full_result = pd.DataFrame(full_result)
     full_result.columns = ['Dimension', 'EDSR Processing Time', 'Cropping time', 'Shifting Time', 'CUDA Cleanign Time']
