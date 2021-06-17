@@ -37,7 +37,7 @@ Inside experimentsrpatch folder:
 
 python3 forward_chop.py <file_path> <patch_dimension> <shave_value> 
 
-example: python3 forward_chop.py test2.jpg 32 12 # output will be available in the experimentsrpatch folder named result_imagex4.png
+example: python3 forward_chop.py data/test2.jpg 32 12 # output will be available in the experimentsrpatch folder named result_imagex4.png
 
 # Experimenting EDSR iterative forward chop with patch dimension range: 
 
@@ -45,4 +45,4 @@ Inside experimentsrpatch folder:
 
 python3 check_forward_chop.py <start_dimension> <end_dimension> <shave> <image_path> <total_run> <device_type>
 
-example: python3 check_forward_chop.py 40 1023 10 t2.jpg 5 cuda # plots and stats will be available inside results/forward_chop_experiment folder
+example: python3 check_forward_chop.py 40 1023 10 data/t2.jpg 5 cuda # plots and stats will be available inside results/forward_chop_experiment folder

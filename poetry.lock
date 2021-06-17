@@ -2915,7 +2915,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "pyqt5"
 version = "5.12.3"
 description = "Python bindings for the Qt cross platform UI and application toolkit"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -2926,7 +2926,7 @@ PyQt5_sip = ">=4.19.14,<13"
 name = "pyqt5-sip"
 version = "12.9.0"
 description = "The sip module support for PyQt5"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -3017,7 +3017,6 @@ pyflakes = {version = ">=2.2.0,<2.3.0", optional = true, markers = "extra == \"a
 pylint = {version = ">=2.5.0", optional = true, markers = "extra == \"all\""}
 python-jsonrpc-server = ">=0.4.0"
 rope = {version = ">=0.10.5", optional = true, markers = "extra == \"all\""}
-ujson = {version = ">=3.0.0", markers = "python_version > \"3\""}
 yapf = {version = "*", optional = true, markers = "extra == \"all\""}
 
 [package.extras]
@@ -3395,7 +3394,7 @@ test = ["pytest"]
 
 [[package]]
 name = "spyder"
-version = "5.0.3"
+version = "5.0.4"
 description = "The Scientific Python Development Environment"
 category = "dev"
 optional = false
@@ -3436,17 +3435,17 @@ qtconsole = ">=5.1.0"
 qtpy = ">=1.5.0"
 rtree = ">=0.9.7"
 sphinx = ">=0.6.6"
-spyder-kernels = ">=2.0.3,<2.1.0"
+spyder-kernels = ">=2.0.4,<2.1.0"
 textdistance = ">=4.2.0"
 three-merge = ">=0.1.1"
-watchdog = ">=0.10.3,<2.0.0"
+watchdog = ">=0.10.3"
 
 [package.extras]
-test = ["coverage", "cython", "flaky", "matplotlib", "pandas", "pillow", "pytest (<6.0)", "pytest-cov", "pytest-lazy-fixture", "pytest-mock", "pytest-order", "pytest-qt", "pyyaml", "scipy", "sympy", "pytest-xvfb", "pywin32"]
+test = ["coverage", "cython", "flaky", "matplotlib", "pandas", "pillow", "pytest (<6.0)", "pytest-cov", "pytest-lazy-fixture", "pytest-mock", "pytest-order", "pytest-qt (<4.0)", "pyyaml", "scipy", "sympy", "pytest-xvfb", "pywin32"]
 
 [[package]]
 name = "spyder-kernels"
-version = "2.0.3"
+version = "2.0.4"
 description = "Jupyter kernels for Spyder's console"
 category = "dev"
 optional = false
@@ -3454,7 +3453,6 @@ python-versions = "*"
 
 [package.dependencies]
 cloudpickle = "*"
-decorator = "<5"
 ipykernel = {version = ">=5.3.0", markers = "python_version >= \"3\""}
 ipython = {version = ">=7.6.0", markers = "python_version >= \"3\""}
 jupyter-client = ">=5.3.4"
@@ -3733,7 +3731,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.1"
-content-hash = "ccd684be0ca6d5fb4b32e8ae9a11ba53d04e5bf439f4d4b2a02cce80694b1ccc"
+content-hash = "2f0abb0ac9cb1aa207175a165cf65bc7f23da3779dc3324f161e2c735bac27d9"
 
 [metadata.files]
 alabaster = [
@@ -5082,15 +5080,19 @@ pyqt5 = [
 pyqt5-sip = [
     {file = "PyQt5_sip-12.9.0-cp36-cp36m-macosx_10_6_intel.whl", hash = "sha256:d85002238b5180bce4b245c13d6face848faa1a7a9e5c6e292025004f2fd619a"},
     {file = "PyQt5_sip-12.9.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:83c3220b1ca36eb8623ba2eb3766637b19eb0ce9f42336ad8253656d32750c0a"},
+    {file = "PyQt5_sip-12.9.0-cp36-cp36m-win32.whl", hash = "sha256:d8b2bdff7bbf45bc975c113a03b14fd669dc0c73e1327f02706666a7dd51a197"},
     {file = "PyQt5_sip-12.9.0-cp36-cp36m-win_amd64.whl", hash = "sha256:69a3ad4259172e2b1aa9060de211efac39ddd734a517b1924d9c6c0cc4f55f96"},
     {file = "PyQt5_sip-12.9.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:42274a501ab4806d2c31659170db14c282b8313d2255458064666d9e70d96206"},
     {file = "PyQt5_sip-12.9.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:6a8701892a01a5a2a4720872361197cc80fdd5f49c8482d488ddf38c9c84f055"},
+    {file = "PyQt5_sip-12.9.0-cp37-cp37m-win32.whl", hash = "sha256:ac57d796c78117eb39edd1d1d1aea90354651efac9d3590aac67fa4983f99f1f"},
     {file = "PyQt5_sip-12.9.0-cp37-cp37m-win_amd64.whl", hash = "sha256:4347bd81d30c8e3181e553b3734f91658cfbdd8f1a19f254777f906870974e6d"},
     {file = "PyQt5_sip-12.9.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:c446971c360a0a1030282a69375a08c78e8a61d568bfd6dab3dcc5cf8817f644"},
     {file = "PyQt5_sip-12.9.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:fc43f2d7c438517ee33e929e8ae77132749c15909afab6aeece5fcf4147ffdb5"},
+    {file = "PyQt5_sip-12.9.0-cp38-cp38-win32.whl", hash = "sha256:055581c6fed44ba4302b70eeb82e979ff70400037358908f251cd85cbb3dbd93"},
     {file = "PyQt5_sip-12.9.0-cp38-cp38-win_amd64.whl", hash = "sha256:c5216403d4d8d857ec4a61f631d3945e44fa248aa2415e9ee9369ab7c8a4d0c7"},
     {file = "PyQt5_sip-12.9.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:a25b9843c7da6a1608f310879c38e6434331aab1dc2fe6cb65c14f1ecf33780e"},
     {file = "PyQt5_sip-12.9.0-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:dd05c768c2b55ffe56a9d49ce6cc77cdf3d53dbfad935258a9e347cbfd9a5850"},
+    {file = "PyQt5_sip-12.9.0-cp39-cp39-win32.whl", hash = "sha256:4f8e05fe01d54275877c59018d8e82dcdd0bc5696053a8b830eecea3ce806121"},
     {file = "PyQt5_sip-12.9.0-cp39-cp39-win_amd64.whl", hash = "sha256:b09f4cd36a4831229fb77c424d89635fa937d97765ec90685e2f257e56a2685a"},
     {file = "PyQt5_sip-12.9.0.tar.gz", hash = "sha256:d3e4489d7c2b0ece9d203ae66e573939f7f60d4d29e089c9f11daa17cfeaae32"},
 ]
@@ -5395,12 +5397,12 @@ sphinxcontrib-serializinghtml = [
     {file = "sphinxcontrib_serializinghtml-1.1.4-py2.py3-none-any.whl", hash = "sha256:f242a81d423f59617a8e5cf16f5d4d74e28ee9a66f9e5b637a18082991db5a9a"},
 ]
 spyder = [
-    {file = "spyder-5.0.3-py3-none-any.whl", hash = "sha256:f3464939765a87fe2ded7f38626c77df22a0b55d34315f41f6b3be5e57450478"},
-    {file = "spyder-5.0.3.tar.gz", hash = "sha256:3422de6446286abe80a362d72cd8f1a96bf8cd323f485b0fc30fd51704062ed2"},
+    {file = "spyder-5.0.4-py3-none-any.whl", hash = "sha256:1f40f62ad9c438c2b929d6616ed6ee19ef7b2016b2ca107850bac7c696766b53"},
+    {file = "spyder-5.0.4.tar.gz", hash = "sha256:a5b51f6b34fe688fcfb671f2560707f3511cd14836abc50df08c45f82c7e40d3"},
 ]
 spyder-kernels = [
-    {file = "spyder-kernels-2.0.3.tar.gz", hash = "sha256:827dca9f82c3aa9ba34ac60236d8f18c0575b1bf04e19d86b16bccb876d3b35c"},
-    {file = "spyder_kernels-2.0.3-py2.py3-none-any.whl", hash = "sha256:517370b7ace7cd895e7279cf77c7119fcbdc2a700b4b7f828092897193aa9ff5"},
+    {file = "spyder-kernels-2.0.4.tar.gz", hash = "sha256:d7a636496ead327a036f3deceabbf3ac8690127c755456d5f731246aaf39478d"},
+    {file = "spyder_kernels-2.0.4-py2.py3-none-any.whl", hash = "sha256:a78cb116da8579b1155f053c0da3131374e8208808887a68addbf9bd1e344b5a"},
 ]
 testpath = [
     {file = "testpath-0.5.0-py3-none-any.whl", hash = "sha256:8044f9a0bab6567fc644a3593164e872543bb44225b0e24846e2c89237937589"},
