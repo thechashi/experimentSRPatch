@@ -1,0 +1,5 @@
+2021-05-21 11:12:07,504:__main__:Tried to divide by zero
+Traceback (most recent call last):
+  File "/home/chashi/Desktop/dis/experimentSRPatch/misc/log-sample-2.py", line 38, in divide
+    result = x / y
+ZeroDivisionError: division by zero
