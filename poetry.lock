@@ -805,7 +805,7 @@ test = ["check-manifest", "fastjsonschema", "testpath", "pytest", "pytest-cov"]
 name = "nest-asyncio"
 version = "1.5.1"
 description = "Patch asyncio to allow nested event loops"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -2915,7 +2915,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "pyqt5"
 version = "5.12.3"
 description = "Python bindings for the Qt cross platform UI and application toolkit"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -2926,7 +2926,7 @@ PyQt5_sip = ">=4.19.14,<13"
 name = "pyqt5-sip"
 version = "12.9.0"
 description = "The sip module support for PyQt5"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -3731,7 +3731,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.1"
-content-hash = "2f0abb0ac9cb1aa207175a165cf65bc7f23da3779dc3324f161e2c735bac27d9"
+content-hash = "9970d50e3e68acecc240301fad87d149338032023bf969cd4ee504b60c2f5d42"
 
 [metadata.files]
 alabaster = [
