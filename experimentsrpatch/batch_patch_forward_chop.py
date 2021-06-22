@@ -1,4 +1,6 @@
 import sys
+import time
+import numpy as np
 import torchvision
 import torch
 def create_patch_list(patch_list, img, dim, shave, scale, channel, img_height, img_width):
@@ -67,9 +69,10 @@ def create_patch_list(patch_list, img, dim, shave, scale, channel, img_height, i
     return patch_count
 
 
-def batch_forward_chop(patch_list, batch_size, model, device='cuda'):
+def batch_forward_chop(patch_list, batch_size, channel, img_height, img_width, dim, shave, scale,  model, device='cuda'):
     total_patches = len(patch_list)
-    batches = []
+    #output_image = torch.tensor(np.zeros(( channel, img_height*scale, img_width*scale)))
+    height_start, width_start = 0, 0
     for start in range(1, total_patches + 1, batch_size):
         batch = []
         end = start+batch_size
@@ -79,10 +82,31 @@ def batch_forward_chop(patch_list, batch_size, model, device='cuda'):
             batch.append(patch_list[p][6]) 
         batch = torch.stack(batch)
         
-        batches.append(batch)
+# =============================================================================
+#         with torch.no_grad():
+#             # EDSR processing
+#             start_time = time.time()
+#             sr_batch = model(batch)
+#             end_time = time.time()
+#             processing_time = end_time - start_time
+#             
+#         sr_batch = sr_batch.to('cpu')
+#         _, _, patch_height, patch_width = sr_batch.size()
+# =============================================================================
+        patch_height, patch_width = dim*scale, dim*scale 
+
+        for p in range(start, end):
+            height_end = patch_height - patch_list[p][2] - patch_list[p][5]
+            width_end = patch_width - patch_list[p][3] - patch_list[p][4]
+            print('Patch: {}'.format(p))
+            print('Output position: {}-{}x{}-{}'.format(height_start, height_start+height_end, width_start, width_start+width_end))
+            h_s, h_e, w_s, w_e = patch_height + patch_list[p][3], patch_height - patch_list[p][5], patch_width + patch_list[p][2], patch_width - patch_list[p][4] 
+            print('Patch main portion: {}-{}x{}-{}\n'.format(h_s, h_e, w_s, w_e))
+            width_start = width_end
+        height_start = height_end
+            #output_image [:, height_start: height_end, width_start:width_end ] = 
         
-        
-    return batches
+
 
 
 if __name__ == "__main__":
@@ -100,5 +124,5 @@ if __name__ == "__main__":
     
     patch_list = {}
     create_patch_list(patch_list, input_image, dimension, shave, 4, c, h, w)
-    batches = batch_forward_chop(patch_list, 6)
+    batches = batch_forward_chop(patch_list, 6, c, h, w, dimension, shave, 4, model = None)
     
