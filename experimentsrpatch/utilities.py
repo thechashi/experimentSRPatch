@@ -9,8 +9,34 @@ import pandas as pd
 import logging
 from datetime import date
 import toml
+import torchvision
 from PIL import Image
 
+class timer():
+    def __init__(self):
+        self.acc = 0
+        self.tic()
+
+    def tic(self):
+        self.t0 = time.time()
+
+    def toc(self, restart=False):
+        diff = time.time() - self.t0
+        if restart: self.t0 = time.time()
+        return diff
+
+    def hold(self):
+        self.acc += self.toc()
+
+    def release(self):
+        ret = self.acc
+        self.acc = 0
+
+        return ret
+
+    def reset(self):
+        self.acc = 0
+        
 def test_image():
     data = np.random.randint(0, 255, size=(104, 104, 3), dtype=np.uint8)
     print(data.shape)
@@ -72,6 +98,25 @@ def get_device_details():
     print()
     return device, device_name
 
+def load_image(img_path, show_img = False):
+    # Reading image
+    img = torchvision.io.read_image(img_path)
+    if show_img:
+        plt.imshow(img.permute((1,2,0)))
+    img = img.float()
+    return img
+
+def save_image(image, output_folder, input_height, input_width, scale):
+    date = "_".join(str(time.ctime()).split())
+    date = "_".join(date.split(":"))
+    filename = 'outputx4' + "_" + date
+    img_path = output_folder + '/' + filename + '.png'
+    fig = plt.figure(figsize=((scale*input_height)/1000, (scale*input_width)/1000), dpi=100, frameon=False)
+    ax = plt.Axes(fig, [0., 0., 1., 1.])
+    ax.set_axis_off()
+    fig.add_axes(ax)
+    ax.imshow(image.permute((1,2,0)))  
+    fig.savefig(img_path, bbox_inches='tight',transparent=True, pad_inches=0, dpi=1000)
 
 def get_gpu_details(
     device: str, state: str, logger, memory_size_format="MB", print_details=False

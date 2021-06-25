@@ -1,0 +1,12 @@
+run = 3
+min_batch = 1
+max_batch = 99
+img_path = 'data/test2.jpg'
+end_patch_dimension = 50
+start_patch_dimension = 40
+shave = 10
+scale = 4
+device = 'cuda'
+model = "EDSR"
+single_patch_dimension = 45
+single_patch_batch_size_start = 1

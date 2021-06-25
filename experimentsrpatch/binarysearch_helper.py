@@ -24,7 +24,7 @@ def binary_search_helper(dimension, logger,  device='cuda'):
             total_time = end - start
             ut.clear_cuda(input_image, output_image)
     
-            state = f"\nGPU usage after clearing the iimage {dimension}x{dimension}...\n"
+            state = f"\nGPU usage after clearing the image {dimension}x{dimension}...\n"
             ut.get_gpu_details(device, state, logger, print_details=True)
     return total_time
 
