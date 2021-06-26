@@ -8,8 +8,39 @@ import utilities as ut
 import matplotlib.pyplot as plt
 
 
-def check_differnet_patches_in_forward_chop(min_dim, max_dim, shave, image_path, run = 1, device="cuda"):
-    
+def check_differnet_patches_in_forward_chop(min_dim, max_dim, shave, image_path, gap = 1, run = 1, device="cuda"):
+    """
+    Experiments iterative forward chop for different patch dimensions
+
+    Parameters
+    ----------
+    min_dim : int
+        starting patch dimension.
+    max_dim : int
+        ending patch dimension.
+    shave : int
+        overlapping pixel amount.
+    image_path : str
+        image path.
+    gap : int, optional
+        gap between two patch dimension. The default is 1.
+    run : int, optional
+        total number of run for averaging. The default is 1.
+    device : str, optional
+        GPU or CPU. The default is "cuda".
+
+    Raises
+    ------
+    Exception
+        DESCRIPTION.
+
+    Returns
+    -------
+    None.
+
+    """
+    logger = ut.get_logger()
+    logger.info('Checking different patches with dimension from {} to {} in iterative forward chop...\n'.format(min_dim, max_dim))
     model_name = "EDSR"
     device_name = "CPU"
     total_memory = "~"
@@ -21,10 +52,9 @@ def check_differnet_patches_in_forward_chop(min_dim, max_dim, shave, image_path,
         )
     print_result = "0" 
     full_result = []
-    break_flag = 0
-    for d in tqdm(range(min_dim, max_dim+1)):
+    for d in tqdm(range(min_dim, max_dim+1, gap)):
         s = [0,0,0,0,0]
-        s_t = []
+        ut.get_gpu_details('cuda', 'GPU status before patch: ({}x{}):'.format(d,d), logger)
         for r in range(run):
             temp = [d]
             command = "python3 " + "forward_chop.py " + image_path + " " +   str(d) + " "  + str(shave) + " " + print_result + " " + device
@@ -35,6 +65,7 @@ def check_differnet_patches_in_forward_chop(min_dim, max_dim, shave, image_path,
             else:
                 raise Exception(p.stderr)
                 break
+
         s = np.array(s) / run
         full_result.append(s)
         

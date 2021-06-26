@@ -16,7 +16,7 @@ np.set_printoptions(suppress=True)
 
 
 def batch_range_checker(
-    max_dim, min_dim, patch_shave, scale, img_path, logger, batch_start=1, device="cuda"
+    max_dim, min_dim, patch_shave, scale, img_path, logger, dim_gap=1, batch_start=1, device="cuda"
 ):
     """
     Checks maximum valid batch size for every patch dimension from min_dim to amx_dim
@@ -52,7 +52,7 @@ def batch_range_checker(
 
     """
     full_result = []
-    for d in tqdm(range(max_dim, min_dim - 1, -1)):
+    for d in tqdm(range(max_dim, min_dim - 1, -dim_gap)):
         # print('\n dimension: {}, batch_start: {}\n'.format(d, batch_start))
         ut.get_gpu_details(
             device, state="GPU stat before dimension: {}".format(d), logger=logger
@@ -139,6 +139,7 @@ def single_patch_highest_batch_checker(
     print("Processing...\n")
     while exception == False:
         result = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        print('\nBatch size: {}\n'.format(batch_size_start))
         for r in tqdm(range(run)):
             temp = [batch_size_start]
             command = (
@@ -398,6 +399,7 @@ if __name__ == "__main__":
         scale = int(config["scale"])
         img_path = config["img_path"]
         batch_size_start = int(config["single_patch_batch_size_start"])
+        dim_gap = int(config["dim_gap"])
         model_name = config["model"]
         device = config["device"]
         full_result = batch_range_checker(
@@ -405,6 +407,7 @@ if __name__ == "__main__":
             min_dim,
             shave,
             scale,
+            dim_gap = dim_gap,
             batch_start=batch_size_start,
             logger=logger,
             img_path=img_path,
@@ -505,7 +508,7 @@ if __name__ == "__main__":
             "Total time",
         ]
         """
-        0 -batch size
+        0 - batch size
         1 - patch list creation time
         2 - EDSR processing time
         3 - CPU to GPU shifting time

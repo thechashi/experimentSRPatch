@@ -1,12 +1,17 @@
-run = 3
-min_batch = 1
-max_batch = 99
 img_path = 'data/test2.jpg'
-end_patch_dimension = 50
-start_patch_dimension = 40
+device = 'cuda'
+model = 'EDSR'
 shave = 10
 scale = 4
-device = 'cuda'
-model = "EDSR"
-single_patch_dimension = 45
-single_patch_batch_size_start = 1
+single_patch_batch_size_start = 10 #  starting batch size for a patch
+
+# maximum valid batch size check in dimension range
+end_patch_dimension = 50 # stop checking at this dimension
+start_patch_dimension = 40 # start checking from this dimension
+dim_gap = 1 # gap between dimension to dimension for iterative process
+
+# single patch dimension all possible batch details
+run = 3
+single_patch_dimension = 45 # fixed dimension of a single patch
+
+
