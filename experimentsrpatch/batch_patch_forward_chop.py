@@ -251,6 +251,11 @@ if __name__ == "__main__":
     model = md.load_edsr(device=device)
     model.eval()
     
+    min_dim = min(dimension, h, w)
+    
+    if min_dim != dimension:
+        print("\nPatch dimension is greater than the input image's minimum dimension. Changing patch dimension to input image's minimum dimension... \n ")
+        dimension = min_dim 
     # Batch Processing
     batch_processing_start = time.time()
     output, _ = batch_forward_chop(patch_list, 1, c, h, w, dimension, shave, 4, model = model, device = 'cuda')
