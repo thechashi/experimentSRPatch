@@ -119,7 +119,7 @@ def save_image(image, output_folder, input_height, input_width, scale):
     fig.savefig(img_path, bbox_inches='tight',transparent=True, pad_inches=0, dpi=1000)
 
 def get_gpu_details(
-    device: str, state: str, logger, memory_size_format="MB", print_details=False
+    device: str, state: str, logger, memory_size_format="MB", print_details=True
 ):
     """
     Get GPU usage

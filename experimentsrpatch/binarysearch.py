@@ -6,7 +6,7 @@ import torch
 import subprocess
 import utilities as ut
 import modelloader as md
-
+import toml
 
 def maximum_unacceptable_dimension_2n(device, logger, model):
     """
@@ -230,6 +230,10 @@ def do_binary_search():
         device, logger, model, max_unacceptable_dimension
     )
     print('\nMaximum acceptable dimension: {}\n'.format(max_dim))
+    config = toml.load("../batch_processing.toml")
+    config['end_patch_dimension'] = max_dim
+    f = open("../batch_processing.toml", "w")
+    toml.dump(config, f)
     file = open("temp_max_dim.txt", "w")
     file.write("max_dim:" + str(max_dim))
     file.close()

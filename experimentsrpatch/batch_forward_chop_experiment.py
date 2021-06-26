@@ -79,7 +79,7 @@ def batch_range_checker(
             )
             p = subprocess.run(command, shell=True, capture_output=True)
             if p.returncode == 0:
-                # logger.info('OK! Dimension: {}, Batch size : {}'.format(d, batch_start))
+                #logger.info('OK! Dimension: {}, Batch size : {}'.format(d, batch_start))
                 batch_start += 1
             else:
                 # raise Exception(p.stderr.decode())
@@ -462,7 +462,7 @@ if __name__ == "__main__":
         plt.xlabel(x_label)
         plt.ylabel(y_label)
         plt.title(plt_title)
-        plt.plot(x_data, y_data)
+        plt.plot(x_data, y_data, linestyle='--', marker='o', color='b')
         plt.savefig(
             "results/batch_forward_chop_experiment/{0}.png".format(
                 "maximum_batch_size" + "_" + date

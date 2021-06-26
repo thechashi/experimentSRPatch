@@ -46,3 +46,12 @@ Inside experimentsrpatch folder:
 python3 check_forward_chop.py <start_dimension> <end_dimension> <shave> <image_path> <total_run> <device_type>
 
 example: python3 check_forward_chop.py 40 1023 10 data/t2.jpg 5 cuda # plots and stats will be available inside results/forward_chop_experiment folder
+
+# Running batch experiment:
+Inside experimentsrpatch folder: 
+
+sh batch_experiment.sh
+
+For increasing the experiment speed we can increase the diff_gap amount inside the batch_processing.toml file. 
+
+
