@@ -3,16 +3,16 @@ Experiment effectivity of different patch dimension and batch size in a SR model
 
 # Table of Contents
 
-* [Features] (#features)
-* [Installation] (#installation)
-* [Getting Started] (#getting-started)
-* [Binary Search] (#binary-search)
-* [Linear Search] (#linear-search)
-* [Dimension And Shave Checker] (#dimension-and-shave-checker)
-* [Iterative Forward Chop] (#iterative-forward-chop)
-* [Batch Iterative Forward Chop] (#batch-iterative-forward-chop)
-* [Maximum Batch Size For A Given Patch Dimension Range] (#maximum-batch-size-for-a-given-dimension-range)
-* [All Possible Batch Details For A Specific Patch Dimension] (#all-possible-batch-details-for-a-specific-patch-dimension)
+* [Features](#features)
+* [Installation](#installation)
+* [Getting Started](#getting-started)
+* [Binary Search](#binary-search)
+* [Linear Search](#linear-search)
+* [Dimension And Shave Checker](#dimension-and-shave-checker)
+* [Iterative Forward Chop](#iterative-forward-chop)
+* [Batch Iterative Forward Chop](#batch-iterative-forward-chop)
+* [Maximum Batch Size For A Given Patch Dimension Range](#maximum-batch-size-for-a-given-dimension-range)
+* [All Possible Batch Details For A Specific Patch Dimension](#all-possible-batch-details-for-a-specific-patch-dimension)
 
 # Features
 
