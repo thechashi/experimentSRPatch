@@ -13,28 +13,73 @@ import torchvision
 from PIL import Image
 
 class timer():
+    """
+    Tracks timing 
+    """
     def __init__(self):
         self.acc = 0
         self.tic()
 
     def tic(self):
+        """
+        Starts timer
+
+        Returns
+        -------
+        None.
+
+        """
         self.t0 = time.time()
 
     def toc(self, restart=False):
+        """
+        Ends timer and calculates time
+
+        Parameters
+        ----------
+        restart : TYPE, optional
+            DESCRIPTION. The default is False.
+
+        Returns
+        -------
+        diff : float
+            total time taken.
+
+        """
         diff = time.time() - self.t0
         if restart: self.t0 = time.time()
         return diff
 
     def hold(self):
+        """
+        Pauses timer
+
+        Returns
+        -------
+        None.
+
+        """
         self.acc += self.toc()
 
     def release(self):
+        """
+        Unpauses timer
+
+        Returns
+        -------
+        ret : float
+            paused time.
+
+        """
         ret = self.acc
         self.acc = 0
 
         return ret
 
     def reset(self):
+        """
+        Resets timer
+        """
         self.acc = 0
         
 def test_image():
@@ -50,8 +95,8 @@ def get_logger():
 
     Returns
     -------
-    logger : TYPE
-        DESCRIPTION.
+    logger : logger
+        keeps log.
 
     """
     today = date.today().strftime("%b-%d-%Y")
@@ -99,6 +144,22 @@ def get_device_details():
     return device, device_name
 
 def load_image(img_path, show_img = False):
+    """
+    Loads image and returns it
+
+    Parameters
+    ----------
+    img_path : str
+        image path.
+    show_img : bool, optional
+        show image or not. The default is False.
+
+    Returns
+    -------
+    img : 3D Matrix
+        image.
+
+    """
     # Reading image
     img = torchvision.io.read_image(img_path)
     if show_img:
@@ -107,6 +168,27 @@ def load_image(img_path, show_img = False):
     return img
 
 def save_image(image, output_folder, input_height, input_width, scale):
+    """
+    Saves image
+
+    Parameters
+    ----------
+    image : 3D Matrix
+        image to save.
+    output_folder : str
+        output folder.
+    input_height : int
+        actual image height.
+    input_width : int
+        actual image width.
+    scale : int
+        scale for LR to SR.
+
+    Returns
+    -------
+    None.
+
+    """
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
     filename = 'outputx4' + "_" + date

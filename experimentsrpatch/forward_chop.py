@@ -10,6 +10,38 @@ import time
 import sys
 from PIL import Image
 def forward_chop_iterative(x, model = None, shave=10, min_size=1024, device = 'cuda', print_result=True):
+    """
+    Forward chopping in an iterative way
+
+    Parameters
+    ----------
+    x : tensor
+        input image.
+    model : nn.Module, optional
+        SR model. The default is None.
+    shave : int, optional
+        patch shave value. The default is 10.
+    min_size : int, optional
+        total patch size (dimension x dimension) . The default is 1024.
+    device : int, optional
+        GPU or CPU. The default is 'cuda'.
+    print_result : bool, optional
+        print result or not. The default is True.
+
+    Returns
+    -------
+    output : tensor
+        output image.
+    total_time : float
+        total execution time.
+    total_crop_time : float
+        total cropping time.
+    total_shift_time : float
+        total GPU to CPU shfiting time.
+    total_clear_time : float
+        total GPU clearing time.
+
+    """
     dim = int(math.sqrt(min_size)) # getting patch dimension
     b, c, h, w = x.size() # current image batch, channel, height, width
     device = device
