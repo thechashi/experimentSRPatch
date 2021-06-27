@@ -52,14 +52,14 @@ Two ways to run:
 Finds out the maximum acceptable patch dimension for a SR model in given system. Saves the maximum dimension size inside a temp_max_dim.txt inside experimentsrpatch folder.
 
 ```bash
-python3 binary_search.py
+python3 binarysearch.py
 ```
 
 # Linear Search
 Calculates timings for different patch dimensions till the maximum acceptable dimension. Binary search dhould be run first before running this. Plots and statistics can be found inside the results folder.
 
 ```bash
-python3 linear_search.py
+python3 linearsearch.py
 ```
 
 # Dimension And Shave Checker
