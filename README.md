@@ -31,8 +31,10 @@ git clone https://github.com/chashi-mahiul-islam-bd/experimentSRPatch.git
 python3 -m pip install poetry
 
 cd experimentSRPatch
-```
+
 poetry install
+```
+
 
 # Getting Started:
 
@@ -102,7 +104,18 @@ python3 check_forward_chop.py 40 1023 10 data/t2.jpg 5 cuda
     # plots and stats will be available inside results/forward_chop_experiment folder
 
 # Batch Iterative Forward Chop
-BATCH ITERATIVE FORWARD CHOP
+Generates a HR image in batch iterative forward chopping.
+
+Inside experimentsrpatch folder: 
+
+```bash
+python3 batch_patch_forward_chop.py <imgage_path> <patch_dimension> <shave_value> <batch_size> <print_result> <device_type>
+```
+
+Example:
+```bash
+python3 batch_patch_forward_chop.py data/test2.jpg 40 12 4  1 cuda 
+```
 
 # Maximum Batch Size For A Given Patch Dimension Range
 
@@ -112,9 +125,26 @@ Inside experimentsrpatch folder:
 sh batch_experiment.sh
 ```
 
-For increasing the experiment speed we can increase the diff_gap amount inside the batch_processing.toml file. 
+To run in a user defined specific range change the `end_patch_dimension` and  `start_patch_dimension` in the batch_processing.toml file. Then run this command: 
+
+```bash
+python3 batch_forward_chop_experiment.py batch_range
+```
+
+For increasing the experiment speed we can increase the `diff_gap` amount inside the batch_processing.toml file. 
 
 # All Possible Batch Details For A Specific Patch Dimension
-ALL POSSIBLE BATCH DETAILS FOR A SPECIFIC PATCH DIMENSION
+Statistics for all possible batches for a specific patch dimension
+
+```bash
+python3 batch_forward_chop_experiment.py batch_details
+```
+
+Inside the batch_processing.toml file this parameters can be changed to produce different results:
+
+`run` # for averaging the result
+`single_patch_dimension` # specific patch_dimension
+`shave` # shave value for overlapping patches
+`singl_patch_batch_size_start` # the starting batch size which will increment linearly
 
 
