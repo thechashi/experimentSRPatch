@@ -16,7 +16,15 @@ np.set_printoptions(suppress=True)
 
 
 def batch_range_checker(
-    max_dim, min_dim, patch_shave, scale, img_path, logger, dim_gap=1, batch_start=1, device="cuda"
+    max_dim,
+    min_dim,
+    patch_shave,
+    scale,
+    img_path,
+    logger,
+    dim_gap=1,
+    batch_start=1,
+    device="cuda",
 ):
     """
     Checks maximum valid batch size for every patch dimension from min_dim to amx_dim
@@ -79,7 +87,7 @@ def batch_range_checker(
             )
             p = subprocess.run(command, shell=True, capture_output=True)
             if p.returncode == 0:
-                #logger.info('OK! Dimension: {}, Batch size : {}'.format(d, batch_start))
+                # logger.info('OK! Dimension: {}, Batch size : {}'.format(d, batch_start))
                 batch_start += 1
             else:
                 # raise Exception(p.stderr.decode())
@@ -139,7 +147,7 @@ def single_patch_highest_batch_checker(
     print("Processing...\n")
     while exception == False:
         result = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        print('\nBatch size: {}\n'.format(batch_size_start))
+        print("\nBatch size: {}\n".format(batch_size_start))
         for r in tqdm(range(run)):
             temp = [batch_size_start]
             command = (
@@ -407,7 +415,7 @@ if __name__ == "__main__":
             min_dim,
             shave,
             scale,
-            dim_gap = dim_gap,
+            dim_gap=dim_gap,
             batch_start=batch_size_start,
             logger=logger,
             img_path=img_path,
@@ -462,7 +470,7 @@ if __name__ == "__main__":
         plt.xlabel(x_label)
         plt.ylabel(y_label)
         plt.title(plt_title)
-        plt.plot(x_data, y_data, linestyle='--', marker='o', color='b')
+        plt.plot(x_data, y_data, linestyle="--", marker="o", color="b")
         plt.savefig(
             "results/batch_forward_chop_experiment/{0}.png".format(
                 "maximum_batch_size" + "_" + date

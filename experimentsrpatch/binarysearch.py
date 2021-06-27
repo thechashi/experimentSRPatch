@@ -8,6 +8,7 @@ import utilities as ut
 import modelloader as md
 import toml
 
+
 def maximum_unacceptable_dimension_2n(device, logger, model):
     """
     Ge the maximum unacceptable dimension which is apower of 2
@@ -35,28 +36,28 @@ def maximum_unacceptable_dimension_2n(device, logger, model):
 
         state = f"\nGPU usage before loading the image {dimension}x{dimension}...\n"
         ut.get_gpu_details(device, state, logger, print_details=True)
-# =============================================================================
-# 
-#         input_image = ut.random_image(dimension)
-#         input_image = input_image.to(device)
-# =============================================================================
+        # =============================================================================
+        #
+        #         input_image = ut.random_image(dimension)
+        #         input_image = input_image.to(device)
+        # =============================================================================
 
         with torch.no_grad():
             try:
-# =============================================================================
-#                 start = time.time()
-#                 output_image = model(input_image)
-#                 end = time.time()
-# =============================================================================
+                # =============================================================================
+                #                 start = time.time()
+                #                 output_image = model(input_image)
+                #                 end = time.time()
+                # =============================================================================
                 process_output = subprocess.run(
-                    ['python3', 'binarysearch_helper.py',
-                     str(dimension)],
+                    ["python3", "binarysearch_helper.py", str(dimension)],
                     stdout=subprocess.PIPE,
-                    text=True)
+                    text=True,
+                )
                 print(process_output.stdout)
                 if process_output.returncode == 0:
-                    out = process_output.stdout.split('\n')
-                    total_time  = out[0]
+                    out = process_output.stdout.split("\n")
+                    total_time = out[0]
                 else:
                     raise RuntimeError(process_output.stderr)
                 if dimension in result1.keys():
@@ -66,7 +67,7 @@ def maximum_unacceptable_dimension_2n(device, logger, model):
 
                 logger.info("\nDimension ok!\n")
                 dimension *= 2
-                
+
             except RuntimeError as err:
                 logger.error("\nDimension NOT OK!\n")
 
@@ -127,14 +128,14 @@ def maximum_acceptable_dimension(device, logger, model, max_unacceptable_dimensi
                 if last == dimension:
                     break
                 process_output = subprocess.run(
-                    ['python3', 'binarysearch_helper.py',
-                     str(dimension)],
+                    ["python3", "binarysearch_helper.py", str(dimension)],
                     stdout=subprocess.PIPE,
-                    text=True)
+                    text=True,
+                )
                 print(process_output.stdout)
                 if process_output.returncode == 0:
-                    out = process_output.stdout.split('\n')
-                    total_time  = out[0]
+                    out = process_output.stdout.split("\n")
+                    total_time = out[0]
                 else:
                     raise RuntimeError(process_output.stderr)
 
@@ -148,7 +149,7 @@ def maximum_acceptable_dimension(device, logger, model, max_unacceptable_dimensi
                 minm = copy.copy(dimension)
 
                 logger.info("\nDimension ok!\n")
-                
+
                 if maxm == math.inf:
                     dimension *= 2
                 else:
@@ -222,16 +223,16 @@ def do_binary_search():
     max_unacceptable_dimension = maximum_unacceptable_dimension_2n(
         device, logger, model
     )
-    print('\nMaximum unacceptable dimension: {}\n'.format(max_unacceptable_dimension))
+    print("\nMaximum unacceptable dimension: {}\n".format(max_unacceptable_dimension))
     ut.clear_cuda(None, None)
 
     # get the maximum acceptable dimension
     max_dim = maximum_acceptable_dimension(
         device, logger, model, max_unacceptable_dimension
     )
-    print('\nMaximum acceptable dimension: {}\n'.format(max_dim))
+    print("\nMaximum acceptable dimension: {}\n".format(max_dim))
     config = toml.load("../batch_processing.toml")
-    config['end_patch_dimension'] = max_dim
+    config["end_patch_dimension"] = max_dim
     f = open("../batch_processing.toml", "w")
     toml.dump(config, f)
     file = open("temp_max_dim.txt", "w")

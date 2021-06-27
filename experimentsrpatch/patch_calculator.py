@@ -48,7 +48,7 @@ def total_patch(dimension, height, width, shave=10, scale=4):
     if h * w == min_size:
         count = 0
     # print('Total patchs: {} height: {} width: {}'.format(4**count, height, width))
-    return (4 ** count, height*width)
+    return (4 ** count, height * width)
 
 
 if __name__ == "__main__":

@@ -10,7 +10,6 @@ import modelloader as md
 import utilities as ut
 
 
-
 def main():
     """
     Main function

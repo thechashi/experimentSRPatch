@@ -1,3 +1,6 @@
+"""
+Checks different shave value for a given patch dimension
+"""
 import sys
 import toml
 import time
@@ -7,6 +10,7 @@ import numpy as np
 import patch_calculator as pc
 import matplotlib.pyplot as plt
 import utilities as ut
+
 if __name__ == "__main__":
     config = toml.load("../config.toml")
     height = int(config["img_height"])
@@ -23,31 +27,31 @@ if __name__ == "__main__":
     total_memory, _, _ = ut.get_gpu_details(
         device, "\nDevice info:", logger=None, print_details=False
     )
-# =============================================================================
-#     stat_file = open("results/" + foldername + "/" + filename, "r")
-#     lines = stat_file.readlines()
-#     device = lines[0]
-#     device_name = lines[1]
-#     total_memory = lines[2]
-# =============================================================================
+    # =============================================================================
+    #     stat_file = open("results/" + foldername + "/" + filename, "r")
+    #     lines = stat_file.readlines()
+    #     device = lines[0]
+    #     device_name = lines[1]
+    #     total_memory = lines[2]
+    # =============================================================================
 
     # loading patch stats from latest binary search
     df = pd.read_csv("results/" + foldername + "/" + filename, comment="#")
     dim_mean_time_list = df[["Dimension", "Mean Time"]]
 
-    print('\nCalculating processing time for different shave sizes for an image {}x{} and dimension {}...\n'.format(height, width, dimension))
+    print(
+        "\nCalculating processing time for different shave sizes for an image {}x{} and dimension {}...\n".format(
+            height, width, dimension
+        )
+    )
     # calculating different processing time with different patch size for an image
     result_df = dim_mean_time_list.iloc[:, :].values
     patch_list = []
     for i in range(start_shave, end_shave):
-        total_patches, patch_size =  pc.total_patch(
-            dimension, height, width, shave = i
-        )
+        total_patches, patch_size = pc.total_patch(dimension, height, width, shave=i)
         patch_side = int(math.sqrt(patch_size))
         # print(i, total_patches, patch_side)
-        patch_list.append(
-            [i, result_df[patch_side-1, 1] * total_patches]
-        )
+        patch_list.append([i, result_df[patch_side - 1, 1] * total_patches])
     patch_list = pd.DataFrame(patch_list)
     # plots
     print(
@@ -55,7 +59,9 @@ if __name__ == "__main__":
             start_shave, end_shave, height, width, dimension
         )
     )
-    plt_title = 'Model: {} | GPU: {} | Memory: {} MB'.format(model_name, device_name, total_memory)
+    plt_title = "Model: {} | GPU: {} | Memory: {} MB".format(
+        model_name, device_name, total_memory
+    )
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
     filename = "shave_fullimage_" + str(height) + "_" + str(width) + "_" + date

@@ -162,11 +162,11 @@ class EDSR(nn.Module):
         self.tail = nn.Sequential(*m_tail)
 
     def forward(self, x):
-# =============================================================================
-#         print('\nHere\n')
-#         print(x.shape)
-#         print(x[0,0,0:10])
-# =============================================================================
+        # =============================================================================
+        #         print('\nHere\n')
+        #         print(x.shape)
+        #         print(x[0,0,0:10])
+        # =============================================================================
         x = self.sub_mean(x)
         x = self.head(x)
 
@@ -204,7 +204,7 @@ def load(model, pre_train="download", resume=0, cpu=False):
     load_from = None
     kwargs = {}
     if pre_train == "download":
-        #print("Downloading the model")
+        # print("Downloading the model")
         # dir_model = os.path.join('..', 'models')
         # os.makedirs(dir_model, exist_ok=True)
         load_from = torch.utils.model_zoo.load_url(
@@ -213,7 +213,7 @@ def load(model, pre_train="download", resume=0, cpu=False):
             **kwargs
         )
     elif pre_train:
-        #print("Loading the model from {}".format(pre_train))
+        # print("Loading the model from {}".format(pre_train))
         load_from = torch.load(pre_train, **kwargs)
     if load_from:
         model.load_state_dict(load_from, strict=False)

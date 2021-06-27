@@ -9,8 +9,6 @@ import utilities as ut
 import modelloader as md
 
 
-
-
 def result_from_dimension_range(device, logger, config, model, first, last):
     """
     Get detailed result for every dimension from 1 to the last acceptable dimension
@@ -52,15 +50,15 @@ def result_from_dimension_range(device, logger, config, model, first, last):
             input_image = input_image.to(device)
             with torch.no_grad():
                 try:
-                    print('\n')
+                    print("\n")
                     print(input_image.shape)
-                    print(input_image[0,0,0,0:5])
+                    print(input_image[0, 0, 0, 0:5])
                     start = time.time()
                     output_image = model(input_image)
                     end = time.time()
                     total_time = end - start
-                    print('Processing time: ', total_time)
-                    print('\n')
+                    print("Processing time: ", total_time)
+                    print("\n")
                     if dimension in result3.keys():
                         result3[dimension].append(total_time)
                         _, used, free = ut.get_gpu_details(
@@ -137,7 +135,7 @@ def do_linear_search(test=False, test_dim=32):
     file = open("temp_max_dim.txt", "r")
     line = file.read()
     max_dim = int(line.split(":")[1])
-    if test==False:
+    if test == False:
         detailed_result, memory_used, memory_free = result_from_dimension_range(
             device, logger, config, model, 1, max_dim
         )
@@ -145,15 +143,17 @@ def do_linear_search(test=False, test_dim=32):
         detailed_result, memory_used, memory_free = result_from_dimension_range(
             device, logger, config, model, test_dim, test_dim
         )
-    if test==False:
+    if test == False:
         # get mean
         # get std
         mean_time, std_time = ut.get_mean_std(detailed_result)
         mean_memory_used, std_memory_used = ut.get_mean_std(memory_used)
         mean_memory_free, std_memory_free = ut.get_mean_std(memory_free)
-    
+
         # make folder for saving results
-        plt_title = 'Model: {} | GPU: {} | Memory: {} MB'.format(model_name, device_name, total)
+        plt_title = "Model: {} | GPU: {} | Memory: {} MB".format(
+            model_name, device_name, total
+        )
         date = "_".join(str(time.ctime()).split())
         date = "_".join(date.split(":"))
         foldername = date
@@ -166,16 +166,18 @@ def do_linear_search(test=False, test_dim=32):
             "Dimensionn of Patch(nxn)",
             "Mean Processing Time: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
             mode="mean time",
-            title=plt_title
+            title=plt_title,
         )
         ut.plot_data(
             foldername,
             "dimension_vs_stdtime",
             std_time,
             "Dimension n of Patch(nxn)",
-            "Std of Processing Time: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
+            "Std of Processing Time: LR -> SR, Scale: {} ( {} runs )".format(
+                scale, run
+            ),
             mode="std time",
-            title=plt_title
+            title=plt_title,
         )
         ut.plot_data(
             foldername,
@@ -184,7 +186,7 @@ def do_linear_search(test=False, test_dim=32):
             "Dimension n of Patch(nxn)",
             "Mean Memory used: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
             mode="mean memory used",
-            title=plt_title
+            title=plt_title,
         )
         ut.plot_data(
             foldername,
@@ -193,7 +195,7 @@ def do_linear_search(test=False, test_dim=32):
             "Dimension n of Patch(nxn)",
             "Std Memory Used: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
             mode="std memory used",
-            title=plt_title
+            title=plt_title,
         )
         ut.plot_data(
             foldername,
@@ -202,7 +204,7 @@ def do_linear_search(test=False, test_dim=32):
             "Dimension n of Patch(nxn)",
             "Mean Memory Free: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
             mode="mean memory free",
-            title=plt_title
+            title=plt_title,
         )
         ut.plot_data(
             foldername,
@@ -211,7 +213,7 @@ def do_linear_search(test=False, test_dim=32):
             "Dimension n of Patch(nxn)",
             "Std Memory Free: LR -> SR, Scale: {} ( {} runs )".format(scale, run),
             mode="std memory free",
-            title=plt_title
+            title=plt_title,
         )
         # save data
         ut.save_csv(
