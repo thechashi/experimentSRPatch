@@ -415,8 +415,7 @@ if __name__ == "__main__":
         c, h, w = img.shape
         
         if max_dim > h or max_dim > w:
-            raise Exception('end_patch_dimension in batch_processing.toml is greater than input image dimension. \
-                            Use a bigger input image or change end_patch_dimension. ')
+            raise Exception('end_patch_dimension in batch_processing.toml is greater than input image dimension. Use a bigger input image or change end_patch_dimension. ')
         
         full_result = batch_range_checker(
             max_dim,
