@@ -15,20 +15,20 @@ def create_patch_list(patch_list, img, dim, shave, scale, channel, img_height, i
     ----------
     patch_list : list
         container for patches.
-    img : TYPE
-        DESCRIPTION.
-    dim : TYPE
-        DESCRIPTION.
-    shave : TYPE
-        DESCRIPTION.
-    scale : TYPE
-        DESCRIPTION.
-    channel : TYPE
-        DESCRIPTION.
-    img_height : TYPE
-        DESCRIPTION.
-    img_width : TYPE
-        DESCRIPTION.
+    img : np array
+        3D matrix.
+    dim : int
+        patch dimension.
+    shave : int
+        shave value for patch overlapping.
+    scale : int
+        scale value for LR to SR.
+    channel : int
+        input image total channel.
+    img_height : int
+        input image height.
+    img_width : int
+        input image width.
 
     Returns
     -------
@@ -121,6 +121,45 @@ def create_patch_list(patch_list, img, dim, shave, scale, channel, img_height, i
 
 
 def batch_forward_chop(patch_list, batch_size, channel, img_height, img_width, dim, shave, scale,  model, device='cuda', print_timer = True):
+    """
+    Create SR image from batches of patches
+
+    Parameters
+    ----------
+    patch_list : list
+        list of patches.
+    batch_size : int
+        batch size.
+    channel : int
+        input image channel.
+    img_height : int
+        input image height.
+    img_width : int
+        input image width.
+    dim : int
+        patch dimension.
+    shave : int
+        shave value for patch.
+    scale : int
+        scale for LR to SR.
+    model : nn.Module
+        SR model.
+    device : str, optional
+        GPU or CPU. The default is 'cuda'.
+    print_timer : bool, optional
+        Print result or not. The default is True.
+
+    Raises
+    ------
+    Exception
+        DESCRIPTION.
+
+    Returns
+    -------
+    3D matrix, tuple
+        output_image, tuple of timings.
+
+    """
     total_patches = len(patch_list)
     if batch_size > total_patches:
         raise Exception('Batch size greater than total number of patches')
@@ -189,6 +228,34 @@ def batch_forward_chop(patch_list, batch_size, channel, img_height, img_width, d
         
 
 def patch_batch_forward_chop(input_image, patch_dimension, patch_shave, scale, batch_size, model_type = 'EDSR', device = 'cuda', print_timer = True):
+    """
+    
+
+    Parameters
+    ----------
+    input_image : 3D Matrix
+        input image.
+    patch_dimension : int
+        patch dimension.
+    patch_shave : int
+        patch shave value.
+    scale : int
+        scale for LR to SR.
+    batch_size : int
+        batch size.
+    model_type : str, optional
+        model name. The default is 'EDSR'.
+    device : str, optional
+        GPU or CPU. The default is 'cuda'.
+    print_timer : bool, optional
+        print result or not. The default is True.
+
+    Returns
+    -------
+    output_image : 3D Matrix
+        output SR image.
+
+    """
     
     model = None
     
