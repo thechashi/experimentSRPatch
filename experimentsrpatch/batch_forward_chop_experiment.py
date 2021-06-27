@@ -410,6 +410,14 @@ if __name__ == "__main__":
         dim_gap = int(config["dim_gap"])
         model_name = config["model"]
         device = config["device"]
+        
+        img = ut.load_image(img_path)
+        c, h, w = img.shape
+        
+        if max_dim > h or max_dim > w:
+            raise Exception('end_patch_dimension in batch_processing.toml is greater than input image dimension. \
+                            Use a bigger input image or change end_patch_dimension. ')
+        
         full_result = batch_range_checker(
             max_dim,
             min_dim,
@@ -423,8 +431,7 @@ if __name__ == "__main__":
         full_result = pd.DataFrame(full_result)
         full_result.columns = ["Patch dimnesion", "Maximum Batch Size"]
 
-        img = ut.load_image(img_path)
-        c, h, w = img.shape
+
         device_name = "CPU"
         total_memory = "~"
         device = device
