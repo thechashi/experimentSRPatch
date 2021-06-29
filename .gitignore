@@ -2,3 +2,5 @@
 install.txt.save
 experimentsrpatch/__pycache__/
 .spyproject
+experimentsrpatch/saved_models/*.pt
+*.pyc

@@ -1,5 +1,6 @@
 """Model Loader"""
 import models.EDSR as edsr
+import models.RRDBNet as rrdb
 import toml
 import torch
 
@@ -49,4 +50,17 @@ def load_edsr(device, n_resblocks=16, n_feats=64, model_details=True):
         #         print(model)
         # =============================================================================
         print()
+    return model
+
+
+def load_rrdb(device):
+    config = toml.load("../gantrainingconfig.toml")
+    path_config = toml.load("../config.toml")
+    path = path_config["rrdb_path"]
+    model = rrdb.RRDBNet(
+        config["generator"]["num_in_channels"],
+        config["generator"]["num_out_channels"],
+        config["generator"]["num_fea"],
+        config["generator"]["num_layers"])
+    rrdb.load(model, path).to(device)
     return model

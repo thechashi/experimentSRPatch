@@ -1,0 +1,100 @@
+data_exist = false # set if data already exist
+down_path = "../medicalsrgan/medicalsrgan/Download" # Download path
+
+[datadict]
+rrdb_gen = ["https://www.dropbox.com/s/ojrlugt15yz4waa/rrdb_gen_500.zip?dl=0",
+            "./medicalsrgan/pretrained_model/rrdb/gen"] #rrdb model
+rrdb_disc = ["https://www.dropbox.com/s/vsw6dnaq26ci7u9/rrdb_disc_500.zip?dl=0",
+            "./medicalsrgan/pretrained_model/rrdb/disc"] # multiscale-discriminator
+earth1 = ["https://www.dropbox.com/s/4ri7j7xawss88l6/earth1.tar.xz?dl=0",
+            "../medicalsrgan/medicalsrgan/InputDir"] # Earth1 Dataset
+slices = ["https://www.dropbox.com/s/90g1p2z4surin50/slices.tar.xz?dl=0",
+            "../medicalsrgan/medicalsrgan/InputDir"] # Slices Dataset
+
+
+[preprocess]
+input_dir = "./medicalsrgan/InputDir" # Input Directory Only HR
+output_dir = "./medicalsrgan/OutputDir/train_input" # Output Directory For Training
+preprocess_log_dir = "./medicalsrgan/PreprocessLogDir" # Log Directory for Preprocessing
+cleanup_factor = 1 # Factor on how much to clean hr generally put it to 1
+upscale_factor = 4 # Factor by how much downsample needs to be done (4 means image will be downsampled 4 times)
+cut_height = 256 # Image minimum cut height
+cut_width = 256 # Image minimum cut width
+num_of_five_percent_slices = 10
+upsample = false # preprocessing for upsampling not training
+debug_pic = false # to check how images look after sampling mainly used in tests
+kernel = false # whether kernelgan needs to be used for downsampling.
+
+[preprocess.kernel_gan]
+output_dir_path='./medicalsrgan/kernelgan/results' # the location of kernels being stored after calculation
+input_crop_size=64 # image crop size
+G_structure = [7, 5, 3, 1, 1, 1] # filter size of each layer in generator
+scale_factor=0.5 # by how much factor downsample
+X4=0 # downsample by 4 times
+G_chan=64 # generator features
+D_chan=64 # discriminator features
+G_kernel_size=13 # final generator kernel size
+D_n_layers=7 # discriminator layers
+D_kernel_size=7 # discriminator kernel size
+max_iters=3000 # max iterations
+g_lr=2e-4 # generator learning rate
+d_lr=2e-4 # discriminator learning rate
+beta1=0.5
+gpu_id=0
+n_filtering=40
+real_image = 0
+
+[preprocess.kernel_gan.stats]
+mean = 0
+std = 0.12
+
+
+[generator]
+train_path = "./medicalsrgan/OutputDir/train_input/train" # Training data path
+valid_path = "./medicalsrgan/OutputDir/train_input/valid" # Validation data path
+save_model_path = "./medicalsrgan/OutputDir/saved_model/rrdb_gen" # Generator save path
+train_log_dir = "./medicalsrgan/TrainingLogDir" # Training Log Dir
+tensorboard_log_dir = "./medicalsrgan/OutputDir/logger" # TensorBoard Log Dir
+architecture = "rrdb" # Generator architecture
+batch_size = 2 # batch size
+learning_rate = 1e-4 # Generator learning rate
+num_in_channels = 1 # rrdb input channels
+num_out_channels = 1 # rrdb output channels
+num_fea=64 # rrdb no. of features
+num_layers = 15 # no. of rrdb section
+gan = 1 # This parameters trains architecture in gan format
+lambda_vgg = 1 # weight of perceptual loss
+percept = 1 # option to enable percetual loss or not
+precision = "full" # (datatype full - Float32, half - Float16)
+lognorm = false # option for log normalization
+cutblur = true # option for cut blur
+adjacent_loss = "row" # adjacency loss
+lambda_pixel = 1 # l1 loss weight
+lambda_row = 1e-2 # adjacency loss weight
+lambda_gen_disc_loss = 5e-3 # generator discriminator loss weight
+lambda_tv = 2e-8 # total variation loss weight
+max_epochs = 400 # Maximum epochs
+Adam_eps = 1e-8 # Adam Optimizer epsilon value
+upsample = false # If set to true it will train the model and delete if any existing model in upsample directory.
+                 # (Use it only when upsampling and not training)
+efemarai = false # If efemarai is required to debug
+set_scheduler = true # if sceduler is required
+milestones = [50, 100, 200, 300] # scheduler milestones
+
+
+[discriminator]
+save_model_path = "./medicalsrgan/OutputDir/saved_model/rrdb_disc" # Discriminator save path
+disc_base_channels = 32 # discriminator base channels
+disc_in_channels = 1 # discriminator input channels
+disc_n_layers = 3 # discriminator layers
+disc_n_discriminators = 3 # no. of discriminators
+architecture = "disc" # Multiscale Discriminator architecture
+learning_rate = 1e-4 # Discriminate learning rate
+max_epochs = 400 # Max epochs
+Adam_eps = 1e-8 # Adam epsilon
+upsample = false # If set to true it will train the model and delete if any existing model in upsample directory.
+                 # (Use it only when upsampling and not training)
+efemarai = false # If efemarai is required to debug
+set_scheduler = true # if sceduler is required
+milestones = [50, 100, 200, 300] # scheduler milestones
+
