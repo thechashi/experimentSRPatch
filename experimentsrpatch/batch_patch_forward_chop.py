@@ -9,7 +9,7 @@ import torch
 import matplotlib.pyplot as plt
 import modelloader as md
 import utilities as ut
-
+import subprocess
 
 def create_patch_list(
     patch_list, img, dim, shave, scale, channel, img_height, img_width
@@ -212,53 +212,61 @@ def batch_forward_chop(
     cuda_clear_time = 0
     merging_time = 0
     for start in range(1, total_patches + 1, batch_size):
-
-        batch_creating_timer = ut.timer()
-        batch = []
-        end = start + batch_size
-        if start + batch_size + batch_size > total_patches:
-            end = total_patches + 1
-        for p in range(start, end):
-            batch.append(patch_list[p][4])
-        batch_creating_time += batch_creating_timer.toc()
-
-        cpu_to_gpu_timer = ut.timer()
-        batch = torch.stack(batch).to(device)
-        cpu_to_gpu_time += cpu_to_gpu_timer.toc()
-
-        with torch.no_grad():
-            # EDSR processing
-            # print(sys.getsizeof(batch.storage()))
-            start_time = time.time()
-            sr_batch = model(batch)
-            end_time = time.time()
-            processing_time = end_time - start_time
-            total_EDSR_time += processing_time
-
-        gpu_to_cpu_timer = ut.timer()
-        sr_batch = sr_batch.to("cpu")
-        gpu_to_cpu_time += gpu_to_cpu_timer.toc()
-
-        _, _, patch_height, patch_width = sr_batch.size()
-
-        batch_id = 0
-        merging_timer = ut.timer()
-        for p in range(start, end):
-            output_image[
-                :,
-                patch_list[p][3][0] : patch_list[p][3][1],
-                patch_list[p][3][2] : patch_list[p][3][3],
-            ] = sr_batch[batch_id][
-                :,
-                patch_list[p][2][0] : patch_list[p][2][1],
-                patch_list[p][2][2] : patch_list[p][2][3],
-            ]
-            batch_id += 1
-
-        merging_time += merging_timer.toc()
-        cuda_clear_timer = ut.timer()
-        ut.clear_cuda(batch, None)
-        cuda_clear_time += cuda_clear_timer.toc()
+        try:
+            batch_creating_timer = ut.timer()
+            batch = []
+            end = start + batch_size
+            if start + batch_size + batch_size > total_patches:
+                end = total_patches + 1
+            for p in range(start, end):
+                batch.append(patch_list[p][4])
+            batch_creating_time += batch_creating_timer.toc()
+        
+            cpu_to_gpu_timer = ut.timer()
+            batch = torch.stack(batch).to(device)
+            cpu_to_gpu_time += cpu_to_gpu_timer.toc()
+        
+            with torch.no_grad():
+                # EDSR processing
+                # print(sys.getsizeof(batch.storage()))
+        
+                    subprocess.run("gpustat", shell=True)
+                    start_time = time.time()
+                    sr_batch = model(batch)
+                    end_time = time.time()
+                    subprocess.run("gpustat", shell=True)
+                    processing_time = end_time - start_time
+                    total_EDSR_time += processing_time
+        
+            gpu_to_cpu_timer = ut.timer()
+            sr_batch = sr_batch.to("cpu")
+            gpu_to_cpu_time += gpu_to_cpu_timer.toc()
+        
+            _, _, patch_height, patch_width = sr_batch.size()
+        
+            batch_id = 0
+            merging_timer = ut.timer()
+            for p in range(start, end):
+                output_image[
+                    :,
+                    patch_list[p][3][0] : patch_list[p][3][1],
+                    patch_list[p][3][2] : patch_list[p][3][3],
+                ] = sr_batch[batch_id][
+                    :,
+                    patch_list[p][2][0] : patch_list[p][2][1],
+                    patch_list[p][2][2] : patch_list[p][2][3],
+                ]
+                batch_id += 1
+        
+            merging_time += merging_timer.toc()
+            cuda_clear_timer = ut.timer()
+            ut.clear_cuda(batch, None)
+            cuda_clear_time += cuda_clear_timer.toc()
+        except RuntimeError as err:
+            ut.clear_cuda(batch, None)
+            raise Exception(err)
+    model = model.to("cpu")
+    
     if print_timer:
         print("Total EDSR Processing time: {}\n".format(total_EDSR_time))
         print("Total CPU to GPU shifting time: {}\n".format(cpu_to_gpu_time))
@@ -381,9 +389,9 @@ def patch_batch_forward_chop(
 if __name__ == "__main__":
     # Arguments
     img_path = sys.argv[1] if len(sys.argv) > 1 else "data/test5.jpg"
-    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 40
+    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 263
     shave = int(sys.argv[3]) if len(sys.argv) > 3 else 10
-    batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 4
+    batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 1
     print_result = bool(int(sys.argv[5])) if len(sys.argv) > 5 else True
     device = str(sys.argv[6]) if len(sys.argv) > 6 else "cuda"
 
