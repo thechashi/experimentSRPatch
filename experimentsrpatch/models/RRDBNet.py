@@ -7,9 +7,10 @@ import torch
 import torch.nn as nn
 
 def load(model, path):
-    print(path)
     path = 'saved_models/rrdb_gen_500.pt'
-    model.load_state_dict(torch.load(path))
+    checkpoint = torch.load(path)
+    model.load_state_dict(checkpoint["model"])
+    del checkpoint
     
 def make_layer(block, n_layers):
     """
