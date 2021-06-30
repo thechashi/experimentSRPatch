@@ -231,6 +231,9 @@ def do_binary_search():
         device, logger, model, max_unacceptable_dimension
     )
     print("\nMaximum acceptable dimension: {}\n".format(max_dim))
+    model = model.to('cpu')
+    del  model 
+    ut.clear_cuda(None, None)
     config = toml.load("../batch_processing.toml")
     config["end_patch_dimension"] = max_dim
     f = open("../batch_processing.toml", "w")

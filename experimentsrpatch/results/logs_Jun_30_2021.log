@@ -904,3 +904,1791 @@ Total:	2004.5 MB
 Used:	805.3125 MB
 Free:	1199.1875 MB
 
+2021-06-30 02:31:18,452:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-30 02:31:18,453:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	805.0625 MB
+Free:	1199.4375 MB
+
+2021-06-30 02:31:21,199:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	1410.8125 MB
+Free:	593.6875 MB
+
+2021-06-30 02:31:21,199:INFO:
+Testing dimension: 2x2 ...
+2021-06-30 02:31:21,199:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1410.8125 MB
+Free:	593.6875 MB
+
+2021-06-30 02:31:50,015:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-30 02:31:50,016:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	194.3125 MB
+Free:	1810.1875 MB
+
+2021-06-30 02:31:56,311:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:31:56,312:INFO:
+Testing dimension: 2x2 ...
+2021-06-30 02:31:56,312:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:32:00,253:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1416.8125 MB
+Free:	587.6875 MB
+
+2021-06-30 02:32:00,254:INFO:
+GPU usage after clearing the image 2x2...
+
+Total:	2004.5 MB
+Used:	1410.8125 MB
+Free:	593.6875 MB
+
+2021-06-30 02:32:00,797:INFO:
+Dimension ok!
+
+2021-06-30 02:32:00,797:INFO:
+Testing dimension: 4x4 ...
+2021-06-30 02:32:00,798:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:32:04,738:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	1416.8125 MB
+Free:	587.6875 MB
+
+2021-06-30 02:32:04,739:INFO:
+GPU usage after clearing the image 4x4...
+
+Total:	2004.5 MB
+Used:	1410.8125 MB
+Free:	593.6875 MB
+
+2021-06-30 02:32:05,125:INFO:
+Dimension ok!
+
+2021-06-30 02:32:05,125:INFO:
+Testing dimension: 8x8 ...
+2021-06-30 02:32:05,125:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:32:09,041:INFO:
+GPU usage after loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	1436.8125 MB
+Free:	567.6875 MB
+
+2021-06-30 02:32:09,044:INFO:
+GPU usage after clearing the image 8x8...
+
+Total:	2004.5 MB
+Used:	1410.8125 MB
+Free:	593.6875 MB
+
+2021-06-30 02:32:09,424:INFO:
+Dimension ok!
+
+2021-06-30 02:32:09,424:INFO:
+Testing dimension: 16x16 ...
+2021-06-30 02:32:09,424:INFO:
+GPU usage before loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:32:13,509:INFO:
+GPU usage after loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	1436.8125 MB
+Free:	567.6875 MB
+
+2021-06-30 02:32:13,512:INFO:
+GPU usage after clearing the image 16x16...
+
+Total:	2004.5 MB
+Used:	1410.8125 MB
+Free:	593.6875 MB
+
+2021-06-30 02:32:13,876:INFO:
+Dimension ok!
+
+2021-06-30 02:32:13,876:INFO:
+Testing dimension: 32x32 ...
+2021-06-30 02:32:13,877:INFO:
+GPU usage before loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:32:17,821:INFO:
+GPU usage after loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	1436.8125 MB
+Free:	567.6875 MB
+
+2021-06-30 02:32:17,824:INFO:
+GPU usage after clearing the image 32x32...
+
+Total:	2004.5 MB
+Used:	1412.8125 MB
+Free:	591.6875 MB
+
+2021-06-30 02:32:18,204:INFO:
+Dimension ok!
+
+2021-06-30 02:32:18,204:INFO:
+Testing dimension: 64x64 ...
+2021-06-30 02:32:18,205:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:32:22,158:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	1452.8125 MB
+Free:	551.6875 MB
+
+2021-06-30 02:32:22,181:INFO:
+GPU usage after clearing the image 64x64...
+
+Total:	2004.5 MB
+Used:	1412.8125 MB
+Free:	591.6875 MB
+
+2021-06-30 02:32:22,551:INFO:
+Dimension ok!
+
+2021-06-30 02:32:22,551:INFO:
+Testing dimension: 128x128 ...
+2021-06-30 02:32:22,552:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:32:26,440:INFO:
+GPU usage after loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	1596.8125 MB
+Free:	407.6875 MB
+
+2021-06-30 02:32:26,553:INFO:
+GPU usage after clearing the image 128x128...
+
+Total:	2004.5 MB
+Used:	1432.8125 MB
+Free:	571.6875 MB
+
+2021-06-30 02:32:26,918:INFO:
+Dimension ok!
+
+2021-06-30 02:32:26,918:INFO:
+Testing dimension: 256x256 ...
+2021-06-30 02:32:26,919:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:32:31,124:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1956.8125 MB
+Free:	47.6875 MB
+
+2021-06-30 02:32:31,217:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	1428.8125 MB
+Free:	575.6875 MB
+
+2021-06-30 02:32:31,591:INFO:
+Dimension ok!
+
+2021-06-30 02:32:31,591:INFO:
+Testing dimension: 512x512 ...
+2021-06-30 02:32:31,592:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:32:36,913:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:32:36,914:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	800.0625 MB
+Free:	1204.4375 MB
+
+2021-06-30 02:32:36,934:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:36,935:INFO:
+Testing dimension: 512x512 ...
+2021-06-30 02:32:36,935:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:42,103:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:32:42,103:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:42,104:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:42,104:INFO:
+Testing dimension: 256x256 ...
+2021-06-30 02:32:42,104:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:46,333:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1950.8125 MB
+Free:	53.6875 MB
+
+2021-06-30 02:32:46,426:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	1422.8125 MB
+Free:	581.6875 MB
+
+2021-06-30 02:32:46,795:INFO:
+Dimension ok!
+
+2021-06-30 02:32:46,795:INFO:
+Testing dimension: 384x384 ...
+2021-06-30 02:32:46,796:INFO:
+GPU usage before loading the image 384x384...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:51,576:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:32:51,577:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:51,577:INFO:
+GPU usage after clearing the image 384x384...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:51,577:INFO:
+Testing dimension: 320x320 ...
+2021-06-30 02:32:51,578:INFO:
+GPU usage before loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:56,342:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:32:56,343:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:56,343:INFO:
+GPU usage after clearing the image 320x320...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:32:56,343:INFO:
+Testing dimension: 288x288 ...
+2021-06-30 02:32:56,344:INFO:
+GPU usage before loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:01,057:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:33:01,057:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:01,058:INFO:
+GPU usage after clearing the image 288x288...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:01,058:INFO:
+Testing dimension: 272x272 ...
+2021-06-30 02:33:01,058:INFO:
+GPU usage before loading the image 272x272...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:05,717:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:33:05,717:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:05,718:INFO:
+GPU usage after clearing the image 272x272...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:05,718:INFO:
+Testing dimension: 264x264 ...
+2021-06-30 02:33:05,718:INFO:
+GPU usage before loading the image 264x264...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:09,944:INFO:
+GPU usage after loading the image 264x264...
+
+Total:	2004.5 MB
+Used:	1990.8125 MB
+Free:	13.6875 MB
+
+2021-06-30 02:33:10,033:INFO:
+GPU usage after clearing the image 264x264...
+
+Total:	2004.5 MB
+Used:	1424.8125 MB
+Free:	579.6875 MB
+
+2021-06-30 02:33:10,410:INFO:
+Dimension ok!
+
+2021-06-30 02:33:10,410:INFO:
+Testing dimension: 268x268 ...
+2021-06-30 02:33:10,411:INFO:
+GPU usage before loading the image 268x268...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:15,332:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:33:15,333:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:15,333:INFO:
+GPU usage after clearing the image 268x268...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:15,334:INFO:
+Testing dimension: 266x266 ...
+2021-06-30 02:33:15,334:INFO:
+GPU usage before loading the image 266x266...
+
+Total:	2004.5 MB
+Used:	794.0625 MB
+Free:	1210.4375 MB
+
+2021-06-30 02:33:19,873:INFO:
+GPU usage after loading the image 266x266...
+
+Total:	2004.5 MB
+Used:	1999.1875 MB
+Free:	5.3125 MB
+
+2021-06-30 02:33:19,962:INFO:
+GPU usage after clearing the image 266x266...
+
+Total:	2004.5 MB
+Used:	1425.1875 MB
+Free:	579.3125 MB
+
+2021-06-30 02:33:20,351:INFO:
+Dimension ok!
+
+2021-06-30 02:33:20,352:INFO:
+Testing dimension: 267x267 ...
+2021-06-30 02:33:20,352:INFO:
+GPU usage before loading the image 267x267...
+
+Total:	2004.5 MB
+Used:	794.4375 MB
+Free:	1210.0625 MB
+
+2021-06-30 02:33:24,636:INFO:
+GPU usage after loading the image 267x267...
+
+Total:	2004.5 MB
+Used:	2003.4375 MB
+Free:	1.0625 MB
+
+2021-06-30 02:33:24,726:INFO:
+GPU usage after clearing the image 267x267...
+
+Total:	2004.5 MB
+Used:	1425.4375 MB
+Free:	579.0625 MB
+
+2021-06-30 02:33:25,095:INFO:
+Dimension ok!
+
+2021-06-30 02:33:25,095:INFO:
+Testing dimension: 267x267 ...
+2021-06-30 02:33:25,096:INFO:
+GPU usage before loading the image 267x267...
+
+Total:	2004.5 MB
+Used:	794.6875 MB
+Free:	1209.8125 MB
+
+2021-06-30 02:36:58,164:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-30 02:36:58,165:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	1245.6875 MB
+Free:	758.8125 MB
+
+2021-06-30 02:37:01,202:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	1851.4375 MB
+Free:	153.0625 MB
+
+2021-06-30 02:37:01,203:INFO:
+Testing dimension: 2x2 ...
+2021-06-30 02:37:01,203:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1851.4375 MB
+Free:	153.0625 MB
+
+2021-06-30 02:37:17,714:INFO:GPU stat before dimension: 267
+Total:	2004.5 MB
+Used:	1245.8125 MB
+Free:	758.6875 MB
+
+2021-06-30 02:37:22,406:INFO:Error: Dimension: 267, Batch size : 1
+2021-06-30 02:37:22,407:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	1245.8125 MB
+Free:	758.6875 MB
+
+2021-06-30 02:37:22,408:INFO:GPU stat before dimension: 266
+Total:	2004.5 MB
+Used:	1245.8125 MB
+Free:	758.6875 MB
+
+2021-06-30 02:37:27,032:INFO:Error: Dimension: 266, Batch size : 0
+2021-06-30 02:37:27,033:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	1245.8125 MB
+Free:	758.6875 MB
+
+2021-06-30 02:37:27,034:INFO:GPU stat before dimension: 265
+Total:	2004.5 MB
+Used:	1245.8125 MB
+Free:	758.6875 MB
+
+2021-06-30 02:37:35,582:INFO:Error: Dimension: 265, Batch size : 0
+2021-06-30 02:37:35,583:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	1245.8125 MB
+Free:	758.6875 MB
+
+2021-06-30 02:37:35,584:INFO:GPU stat before dimension: 264
+Total:	2004.5 MB
+Used:	1245.8125 MB
+Free:	758.6875 MB
+
+2021-06-30 02:37:44,157:INFO:Error: Dimension: 264, Batch size : 0
+2021-06-30 02:37:44,158:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	1245.8125 MB
+Free:	758.6875 MB
+
+2021-06-30 02:37:44,159:INFO:GPU stat before dimension: 263
+Total:	2004.5 MB
+Used:	1245.8125 MB
+Free:	758.6875 MB
+
+2021-06-30 02:37:54,052:INFO:Error: Dimension: 263, Batch size : 0
+2021-06-30 02:37:54,053:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	184.5625 MB
+Free:	1819.9375 MB
+
+2021-06-30 02:37:54,054:INFO:GPU stat before dimension: 262
+Total:	2004.5 MB
+Used:	184.5625 MB
+Free:	1819.9375 MB
+
+2021-06-30 02:37:57,249:INFO:GPU stat before dimension: 267
+Total:	2004.5 MB
+Used:	184.5625 MB
+Free:	1819.9375 MB
+
+2021-06-30 02:39:52,400:INFO:GPU stat before dimension: 267
+Total:	2004.5 MB
+Used:	184.8125 MB
+Free:	1819.6875 MB
+
+2021-06-30 02:40:03,636:INFO:Error: Dimension: 267, Batch size : 2
+2021-06-30 02:40:03,637:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	184.8125 MB
+Free:	1819.6875 MB
+
+2021-06-30 02:40:03,637:INFO:GPU stat before dimension: 266
+Total:	2004.5 MB
+Used:	184.8125 MB
+Free:	1819.6875 MB
+
+2021-06-30 02:40:21,714:INFO:Error: Dimension: 266, Batch size : 3
+2021-06-30 02:40:21,715:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	184.4375 MB
+Free:	1820.0625 MB
+
+2021-06-30 02:40:21,715:INFO:GPU stat before dimension: 265
+Total:	2004.5 MB
+Used:	184.4375 MB
+Free:	1820.0625 MB
+
+2021-06-30 02:40:33,189:INFO:Error: Dimension: 265, Batch size : 3
+2021-06-30 02:40:33,189:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	184.4375 MB
+Free:	1820.0625 MB
+
+2021-06-30 02:40:33,190:INFO:GPU stat before dimension: 264
+Total:	2004.5 MB
+Used:	184.4375 MB
+Free:	1820.0625 MB
+
+2021-06-30 02:42:04,996:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-30 02:42:04,997:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	186.9375 MB
+Free:	1817.5625 MB
+
+2021-06-30 02:42:07,763:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	792.6875 MB
+Free:	1211.8125 MB
+
+2021-06-30 02:42:07,763:INFO:
+Testing dimension: 2x2 ...
+2021-06-30 02:42:07,763:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	792.6875 MB
+Free:	1211.8125 MB
+
+2021-06-30 02:42:11,757:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1409.4375 MB
+Free:	595.0625 MB
+
+2021-06-30 02:42:11,758:INFO:
+GPU usage after clearing the image 2x2...
+
+Total:	2004.5 MB
+Used:	1403.4375 MB
+Free:	601.0625 MB
+
+2021-06-30 02:42:12,128:INFO:
+Dimension ok!
+
+2021-06-30 02:42:12,129:INFO:
+Testing dimension: 4x4 ...
+2021-06-30 02:42:12,129:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	792.6875 MB
+Free:	1211.8125 MB
+
+2021-06-30 02:42:16,117:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	1409.5625 MB
+Free:	594.9375 MB
+
+2021-06-30 02:42:16,118:INFO:
+GPU usage after clearing the image 4x4...
+
+Total:	2004.5 MB
+Used:	1403.5625 MB
+Free:	600.9375 MB
+
+2021-06-30 02:42:16,536:INFO:
+Dimension ok!
+
+2021-06-30 02:42:16,537:INFO:
+Testing dimension: 8x8 ...
+2021-06-30 02:42:16,537:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	792.8125 MB
+Free:	1211.6875 MB
+
+2021-06-30 02:42:20,494:INFO:
+GPU usage after loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	1429.5625 MB
+Free:	574.9375 MB
+
+2021-06-30 02:42:20,498:INFO:
+GPU usage after clearing the image 8x8...
+
+Total:	2004.5 MB
+Used:	1403.5625 MB
+Free:	600.9375 MB
+
+2021-06-30 02:42:20,867:INFO:
+Dimension ok!
+
+2021-06-30 02:42:20,868:INFO:
+Testing dimension: 16x16 ...
+2021-06-30 02:42:20,868:INFO:
+GPU usage before loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	792.8125 MB
+Free:	1211.6875 MB
+
+2021-06-30 02:42:24,776:INFO:
+GPU usage after loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	1429.5625 MB
+Free:	574.9375 MB
+
+2021-06-30 02:42:24,779:INFO:
+GPU usage after clearing the image 16x16...
+
+Total:	2004.5 MB
+Used:	1403.5625 MB
+Free:	600.9375 MB
+
+2021-06-30 02:42:25,149:INFO:
+Dimension ok!
+
+2021-06-30 02:42:25,149:INFO:
+Testing dimension: 32x32 ...
+2021-06-30 02:42:25,150:INFO:
+GPU usage before loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	792.8125 MB
+Free:	1211.6875 MB
+
+2021-06-30 02:42:29,041:INFO:
+GPU usage after loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	1429.5625 MB
+Free:	574.9375 MB
+
+2021-06-30 02:42:29,044:INFO:
+GPU usage after clearing the image 32x32...
+
+Total:	2004.5 MB
+Used:	1405.5625 MB
+Free:	598.9375 MB
+
+2021-06-30 02:42:29,418:INFO:
+Dimension ok!
+
+2021-06-30 02:42:29,418:INFO:
+Testing dimension: 64x64 ...
+2021-06-30 02:42:29,418:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	792.8125 MB
+Free:	1211.6875 MB
+
+2021-06-30 02:42:33,327:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	1445.5625 MB
+Free:	558.9375 MB
+
+2021-06-30 02:42:33,343:INFO:
+GPU usage after clearing the image 64x64...
+
+Total:	2004.5 MB
+Used:	1405.5625 MB
+Free:	598.9375 MB
+
+2021-06-30 02:42:33,723:INFO:
+Dimension ok!
+
+2021-06-30 02:42:33,723:INFO:
+Testing dimension: 128x128 ...
+2021-06-30 02:42:33,724:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	792.8125 MB
+Free:	1211.6875 MB
+
+2021-06-30 02:42:37,649:INFO:
+GPU usage after loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	1589.5625 MB
+Free:	414.9375 MB
+
+2021-06-30 02:42:37,767:INFO:
+GPU usage after clearing the image 128x128...
+
+Total:	2004.5 MB
+Used:	1425.5625 MB
+Free:	578.9375 MB
+
+2021-06-30 02:42:38,137:INFO:
+Dimension ok!
+
+2021-06-30 02:42:38,138:INFO:
+Testing dimension: 256x256 ...
+2021-06-30 02:42:38,138:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	792.8125 MB
+Free:	1211.6875 MB
+
+2021-06-30 02:42:42,344:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1949.5625 MB
+Free:	54.9375 MB
+
+2021-06-30 02:42:42,438:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	1421.5625 MB
+Free:	582.9375 MB
+
+2021-06-30 02:42:42,809:INFO:
+Dimension ok!
+
+2021-06-30 02:42:42,809:INFO:
+Testing dimension: 512x512 ...
+2021-06-30 02:42:42,810:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	792.8125 MB
+Free:	1211.6875 MB
+
+2021-06-30 02:42:47,922:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:42:47,923:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	792.8125 MB
+Free:	1211.6875 MB
+
+2021-06-30 02:42:47,941:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:42:47,941:INFO:
+Testing dimension: 512x512 ...
+2021-06-30 02:42:47,941:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:42:53,084:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:42:53,085:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:42:53,086:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:42:53,086:INFO:
+Testing dimension: 256x256 ...
+2021-06-30 02:42:53,086:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:42:57,344:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1943.5625 MB
+Free:	60.9375 MB
+
+2021-06-30 02:42:57,436:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	1415.5625 MB
+Free:	588.9375 MB
+
+2021-06-30 02:42:57,813:INFO:
+Dimension ok!
+
+2021-06-30 02:42:57,814:INFO:
+Testing dimension: 384x384 ...
+2021-06-30 02:42:57,814:INFO:
+GPU usage before loading the image 384x384...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:43:02,646:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:43:02,647:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:43:02,647:INFO:
+GPU usage after clearing the image 384x384...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:43:02,647:INFO:
+Testing dimension: 320x320 ...
+2021-06-30 02:43:02,648:INFO:
+GPU usage before loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:43:07,424:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:43:07,424:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:43:07,425:INFO:
+GPU usage after clearing the image 320x320...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:43:07,425:INFO:
+Testing dimension: 288x288 ...
+2021-06-30 02:43:07,425:INFO:
+GPU usage before loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:43:12,127:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:43:12,128:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:43:12,128:INFO:
+GPU usage after clearing the image 288x288...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:43:12,129:INFO:
+Testing dimension: 272x272 ...
+2021-06-30 02:43:12,129:INFO:
+GPU usage before loading the image 272x272...
+
+Total:	2004.5 MB
+Used:	786.8125 MB
+Free:	1217.6875 MB
+
+2021-06-30 02:43:16,802:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:43:16,802:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	787.0625 MB
+Free:	1217.4375 MB
+
+2021-06-30 02:43:16,803:INFO:
+GPU usage after clearing the image 272x272...
+
+Total:	2004.5 MB
+Used:	787.0625 MB
+Free:	1217.4375 MB
+
+2021-06-30 02:43:16,803:INFO:
+Testing dimension: 264x264 ...
+2021-06-30 02:43:16,803:INFO:
+GPU usage before loading the image 264x264...
+
+Total:	2004.5 MB
+Used:	787.0625 MB
+Free:	1217.4375 MB
+
+2021-06-30 02:43:21,091:INFO:
+GPU usage after loading the image 264x264...
+
+Total:	2004.5 MB
+Used:	1984.0625 MB
+Free:	20.4375 MB
+
+2021-06-30 02:43:21,180:INFO:
+GPU usage after clearing the image 264x264...
+
+Total:	2004.5 MB
+Used:	1418.0625 MB
+Free:	586.4375 MB
+
+2021-06-30 02:43:21,551:INFO:
+Dimension ok!
+
+2021-06-30 02:43:21,551:INFO:
+Testing dimension: 268x268 ...
+2021-06-30 02:43:21,552:INFO:
+GPU usage before loading the image 268x268...
+
+Total:	2004.5 MB
+Used:	787.3125 MB
+Free:	1217.1875 MB
+
+2021-06-30 02:43:25,788:INFO:
+GPU usage after loading the image 268x268...
+
+Total:	2004.5 MB
+Used:	2000.0625 MB
+Free:	4.4375 MB
+
+2021-06-30 02:43:25,879:INFO:
+GPU usage after clearing the image 268x268...
+
+Total:	2004.5 MB
+Used:	1418.0625 MB
+Free:	586.4375 MB
+
+2021-06-30 02:43:26,252:INFO:
+Dimension ok!
+
+2021-06-30 02:43:26,252:INFO:
+Testing dimension: 270x270 ...
+2021-06-30 02:43:26,253:INFO:
+GPU usage before loading the image 270x270...
+
+Total:	2004.5 MB
+Used:	787.3125 MB
+Free:	1217.1875 MB
+
+2021-06-30 02:43:30,894:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:43:30,895:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	787.3125 MB
+Free:	1217.1875 MB
+
+2021-06-30 02:43:30,895:INFO:
+GPU usage after clearing the image 270x270...
+
+Total:	2004.5 MB
+Used:	787.3125 MB
+Free:	1217.1875 MB
+
+2021-06-30 02:43:30,895:INFO:
+Testing dimension: 269x269 ...
+2021-06-30 02:43:30,896:INFO:
+GPU usage before loading the image 269x269...
+
+Total:	2004.5 MB
+Used:	787.3125 MB
+Free:	1217.1875 MB
+
+2021-06-30 02:43:35,144:INFO:
+GPU usage after loading the image 269x269...
+
+Total:	2004.5 MB
+Used:	2004.0625 MB
+Free:	0.4375 MB
+
+2021-06-30 02:43:35,234:INFO:
+GPU usage after clearing the image 269x269...
+
+Total:	2004.5 MB
+Used:	1418.0625 MB
+Free:	586.4375 MB
+
+2021-06-30 02:43:35,603:INFO:
+Dimension ok!
+
+2021-06-30 02:43:35,604:INFO:
+Testing dimension: 269x269 ...
+2021-06-30 02:43:35,604:INFO:
+GPU usage before loading the image 269x269...
+
+Total:	2004.5 MB
+Used:	787.3125 MB
+Free:	1217.1875 MB
+
+2021-06-30 02:43:37,294:INFO:GPU stat before dimension: 269
+Total:	2004.5 MB
+Used:	185.0625 MB
+Free:	1819.4375 MB
+
+2021-06-30 02:43:48,509:INFO:Error: Dimension: 269, Batch size : 2
+2021-06-30 02:43:48,509:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	185.0625 MB
+Free:	1819.4375 MB
+
+2021-06-30 02:43:48,510:INFO:GPU stat before dimension: 268
+Total:	2004.5 MB
+Used:	185.0625 MB
+Free:	1819.4375 MB
+
+2021-06-30 02:43:59,920:INFO:Error: Dimension: 268, Batch size : 2
+2021-06-30 02:43:59,920:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	185.0625 MB
+Free:	1819.4375 MB
+
+2021-06-30 02:43:59,921:INFO:GPU stat before dimension: 267
+Total:	2004.5 MB
+Used:	185.0625 MB
+Free:	1819.4375 MB
+
+2021-06-30 02:44:11,305:INFO:Error: Dimension: 267, Batch size : 2
+2021-06-30 02:44:11,305:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	185.0625 MB
+Free:	1819.4375 MB
+
+2021-06-30 02:44:11,307:INFO:GPU stat before dimension: 266
+Total:	2004.5 MB
+Used:	185.0625 MB
+Free:	1819.4375 MB
+
+2021-06-30 02:46:55,362:INFO:
+Device: cuda	Device name: GeForce GTX 860M	Total memory: 2004.5
+2021-06-30 02:46:55,362:INFO:Before loading model: 
+Total:	2004.5 MB
+Used:	214.4375 MB
+Free:	1790.0625 MB
+
+2021-06-30 02:46:58,125:INFO:After loading model: 
+Total:	2004.5 MB
+Used:	820.1875 MB
+Free:	1184.3125 MB
+
+2021-06-30 02:46:58,125:INFO:
+Testing dimension: 2x2 ...
+2021-06-30 02:46:58,125:INFO:
+GPU usage before loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	820.1875 MB
+Free:	1184.3125 MB
+
+2021-06-30 02:47:02,042:INFO:
+GPU usage after loading the image 2x2...
+
+Total:	2004.5 MB
+Used:	1436.9375 MB
+Free:	567.5625 MB
+
+2021-06-30 02:47:02,043:INFO:
+GPU usage after clearing the image 2x2...
+
+Total:	2004.5 MB
+Used:	1430.9375 MB
+Free:	573.5625 MB
+
+2021-06-30 02:47:02,411:INFO:
+Dimension ok!
+
+2021-06-30 02:47:02,412:INFO:
+Testing dimension: 4x4 ...
+2021-06-30 02:47:02,412:INFO:
+GPU usage before loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	820.1875 MB
+Free:	1184.3125 MB
+
+2021-06-30 02:47:06,322:INFO:
+GPU usage after loading the image 4x4...
+
+Total:	2004.5 MB
+Used:	1436.9375 MB
+Free:	567.5625 MB
+
+2021-06-30 02:47:06,323:INFO:
+GPU usage after clearing the image 4x4...
+
+Total:	2004.5 MB
+Used:	1430.9375 MB
+Free:	573.5625 MB
+
+2021-06-30 02:47:06,711:INFO:
+Dimension ok!
+
+2021-06-30 02:47:06,712:INFO:
+Testing dimension: 8x8 ...
+2021-06-30 02:47:06,712:INFO:
+GPU usage before loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	820.1875 MB
+Free:	1184.3125 MB
+
+2021-06-30 02:47:10,621:INFO:
+GPU usage after loading the image 8x8...
+
+Total:	2004.5 MB
+Used:	1456.9375 MB
+Free:	547.5625 MB
+
+2021-06-30 02:47:10,624:INFO:
+GPU usage after clearing the image 8x8...
+
+Total:	2004.5 MB
+Used:	1430.9375 MB
+Free:	573.5625 MB
+
+2021-06-30 02:47:10,988:INFO:
+Dimension ok!
+
+2021-06-30 02:47:10,989:INFO:
+Testing dimension: 16x16 ...
+2021-06-30 02:47:10,989:INFO:
+GPU usage before loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	820.1875 MB
+Free:	1184.3125 MB
+
+2021-06-30 02:47:14,891:INFO:
+GPU usage after loading the image 16x16...
+
+Total:	2004.5 MB
+Used:	1456.9375 MB
+Free:	547.5625 MB
+
+2021-06-30 02:47:14,894:INFO:
+GPU usage after clearing the image 16x16...
+
+Total:	2004.5 MB
+Used:	1430.9375 MB
+Free:	573.5625 MB
+
+2021-06-30 02:47:15,264:INFO:
+Dimension ok!
+
+2021-06-30 02:47:15,265:INFO:
+Testing dimension: 32x32 ...
+2021-06-30 02:47:15,265:INFO:
+GPU usage before loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	820.1875 MB
+Free:	1184.3125 MB
+
+2021-06-30 02:47:19,446:INFO:
+GPU usage after loading the image 32x32...
+
+Total:	2004.5 MB
+Used:	1457.0625 MB
+Free:	547.4375 MB
+
+2021-06-30 02:47:19,449:INFO:
+GPU usage after clearing the image 32x32...
+
+Total:	2004.5 MB
+Used:	1433.0625 MB
+Free:	571.4375 MB
+
+2021-06-30 02:47:19,809:INFO:
+Dimension ok!
+
+2021-06-30 02:47:19,809:INFO:
+Testing dimension: 64x64 ...
+2021-06-30 02:47:19,810:INFO:
+GPU usage before loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	820.3125 MB
+Free:	1184.1875 MB
+
+2021-06-30 02:47:23,707:INFO:
+GPU usage after loading the image 64x64...
+
+Total:	2004.5 MB
+Used:	1473.0625 MB
+Free:	531.4375 MB
+
+2021-06-30 02:47:23,723:INFO:
+GPU usage after clearing the image 64x64...
+
+Total:	2004.5 MB
+Used:	1433.0625 MB
+Free:	571.4375 MB
+
+2021-06-30 02:47:24,095:INFO:
+Dimension ok!
+
+2021-06-30 02:47:24,095:INFO:
+Testing dimension: 128x128 ...
+2021-06-30 02:47:24,096:INFO:
+GPU usage before loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	820.3125 MB
+Free:	1184.1875 MB
+
+2021-06-30 02:47:28,002:INFO:
+GPU usage after loading the image 128x128...
+
+Total:	2004.5 MB
+Used:	1617.0625 MB
+Free:	387.4375 MB
+
+2021-06-30 02:47:28,113:INFO:
+GPU usage after clearing the image 128x128...
+
+Total:	2004.5 MB
+Used:	1453.0625 MB
+Free:	551.4375 MB
+
+2021-06-30 02:47:28,481:INFO:
+Dimension ok!
+
+2021-06-30 02:47:28,481:INFO:
+Testing dimension: 256x256 ...
+2021-06-30 02:47:28,481:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	820.3125 MB
+Free:	1184.1875 MB
+
+2021-06-30 02:47:32,620:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1977.0625 MB
+Free:	27.4375 MB
+
+2021-06-30 02:47:32,703:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	1449.0625 MB
+Free:	555.4375 MB
+
+2021-06-30 02:47:33,071:INFO:
+Dimension ok!
+
+2021-06-30 02:47:33,071:INFO:
+Testing dimension: 512x512 ...
+2021-06-30 02:47:33,071:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	820.3125 MB
+Free:	1184.1875 MB
+
+2021-06-30 02:47:38,138:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:47:38,139:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	820.3125 MB
+Free:	1184.1875 MB
+
+2021-06-30 02:47:38,157:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:38,157:INFO:
+Testing dimension: 512x512 ...
+2021-06-30 02:47:38,157:INFO:
+GPU usage before loading the image 512x512...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:43,294:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:47:43,294:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:43,295:INFO:
+GPU usage after clearing the image 512x512...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:43,295:INFO:
+Testing dimension: 256x256 ...
+2021-06-30 02:47:43,295:INFO:
+GPU usage before loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:47,439:INFO:
+GPU usage after loading the image 256x256...
+
+Total:	2004.5 MB
+Used:	1971.0625 MB
+Free:	33.4375 MB
+
+2021-06-30 02:47:47,523:INFO:
+GPU usage after clearing the image 256x256...
+
+Total:	2004.5 MB
+Used:	1443.0625 MB
+Free:	561.4375 MB
+
+2021-06-30 02:47:47,894:INFO:
+Dimension ok!
+
+2021-06-30 02:47:47,894:INFO:
+Testing dimension: 384x384 ...
+2021-06-30 02:47:47,894:INFO:
+GPU usage before loading the image 384x384...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:52,671:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:47:52,671:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:52,671:INFO:
+GPU usage after clearing the image 384x384...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:52,672:INFO:
+Testing dimension: 320x320 ...
+2021-06-30 02:47:52,672:INFO:
+GPU usage before loading the image 320x320...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:57,434:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:47:57,435:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:57,435:INFO:
+GPU usage after clearing the image 320x320...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:47:57,435:INFO:
+Testing dimension: 288x288 ...
+2021-06-30 02:47:57,436:INFO:
+GPU usage before loading the image 288x288...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:02,166:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:48:02,166:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:02,166:INFO:
+GPU usage after clearing the image 288x288...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:02,167:INFO:
+Testing dimension: 272x272 ...
+2021-06-30 02:48:02,167:INFO:
+GPU usage before loading the image 272x272...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:06,827:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:48:06,827:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:06,827:INFO:
+GPU usage after clearing the image 272x272...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:06,828:INFO:
+Testing dimension: 264x264 ...
+2021-06-30 02:48:06,828:INFO:
+GPU usage before loading the image 264x264...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:11,403:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:48:11,404:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:11,404:INFO:
+GPU usage after clearing the image 264x264...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:11,404:INFO:
+Testing dimension: 260x260 ...
+2021-06-30 02:48:11,404:INFO:
+GPU usage before loading the image 260x260...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:15,572:INFO:
+GPU usage after loading the image 260x260...
+
+Total:	2004.5 MB
+Used:	1995.0625 MB
+Free:	9.4375 MB
+
+2021-06-30 02:48:15,657:INFO:
+GPU usage after clearing the image 260x260...
+
+Total:	2004.5 MB
+Used:	1445.0625 MB
+Free:	559.4375 MB
+
+2021-06-30 02:48:16,017:INFO:
+Dimension ok!
+
+2021-06-30 02:48:16,017:INFO:
+Testing dimension: 262x262 ...
+2021-06-30 02:48:16,017:INFO:
+GPU usage before loading the image 262x262...
+
+Total:	2004.5 MB
+Used:	814.3125 MB
+Free:	1190.1875 MB
+
+2021-06-30 02:48:20,240:INFO:
+GPU usage after loading the image 262x262...
+
+Total:	2004.5 MB
+Used:	2003.3125 MB
+Free:	1.1875 MB
+
+2021-06-30 02:48:20,325:INFO:
+GPU usage after clearing the image 262x262...
+
+Total:	2004.5 MB
+Used:	1445.3125 MB
+Free:	559.1875 MB
+
+2021-06-30 02:48:20,688:INFO:
+Dimension ok!
+
+2021-06-30 02:48:20,688:INFO:
+Testing dimension: 263x263 ...
+2021-06-30 02:48:20,689:INFO:
+GPU usage before loading the image 263x263...
+
+Total:	2004.5 MB
+Used:	814.5625 MB
+Free:	1189.9375 MB
+
+2021-06-30 02:48:25,278:ERROR:
+Dimension NOT OK!
+
+2021-06-30 02:48:25,278:INFO:
+GPU usage after dimension exception...
+
+Total:	2004.5 MB
+Used:	814.8125 MB
+Free:	1189.6875 MB
+
+2021-06-30 02:48:25,279:INFO:
+GPU usage after clearing the image 263x263...
+
+Total:	2004.5 MB
+Used:	814.8125 MB
+Free:	1189.6875 MB
+
+2021-06-30 02:48:25,279:INFO:
+Testing dimension: 262x262 ...
+2021-06-30 02:48:25,279:INFO:
+GPU usage before loading the image 262x262...
+
+Total:	2004.5 MB
+Used:	814.8125 MB
+Free:	1189.6875 MB
+
+2021-06-30 02:48:26,933:INFO:GPU stat before dimension: 262
+Total:	2004.5 MB
+Used:	212.5625 MB
+Free:	1791.9375 MB
+
+2021-06-30 02:48:44,398:INFO:Error: Dimension: 262, Batch size : 3
+2021-06-30 02:48:44,399:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	212.5625 MB
+Free:	1791.9375 MB
+
+2021-06-30 02:48:44,400:INFO:GPU stat before dimension: 261
+Total:	2004.5 MB
+Used:	212.5625 MB
+Free:	1791.9375 MB
+
+2021-06-30 02:48:56,006:INFO:Error: Dimension: 261, Batch size : 3
+2021-06-30 02:48:56,006:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	212.5625 MB
+Free:	1791.9375 MB
+
+2021-06-30 02:48:56,007:INFO:GPU stat before dimension: 260
+Total:	2004.5 MB
+Used:	212.5625 MB
+Free:	1791.9375 MB
+
+2021-06-30 02:49:07,755:INFO:Error: Dimension: 260, Batch size : 3
+2021-06-30 02:49:07,756:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	213.1875 MB
+Free:	1791.3125 MB
+
+2021-06-30 02:49:07,756:INFO:GPU stat before dimension: 259
+Total:	2004.5 MB
+Used:	213.1875 MB
+Free:	1791.3125 MB
+
+2021-06-30 02:49:20,358:INFO:Error: Dimension: 259, Batch size : 3
+2021-06-30 02:49:20,359:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	212.5625 MB
+Free:	1791.9375 MB
+
+2021-06-30 02:49:20,360:INFO:GPU stat before dimension: 258
+Total:	2004.5 MB
+Used:	212.5625 MB
+Free:	1791.9375 MB
+
+2021-06-30 02:49:32,570:INFO:Error: Dimension: 258, Batch size : 3
+2021-06-30 02:49:32,570:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	212.5625 MB
+Free:	1791.9375 MB
+
+2021-06-30 02:49:32,571:INFO:GPU stat before dimension: 257
+Total:	2004.5 MB
+Used:	212.5625 MB
+Free:	1791.9375 MB
+

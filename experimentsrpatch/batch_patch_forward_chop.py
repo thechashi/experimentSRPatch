@@ -228,6 +228,10 @@ def batch_forward_chop(
             cpu_to_gpu_time += cpu_to_gpu_timer.toc()
         
             with torch.no_grad():
+# =============================================================================
+#                 print(start, end)
+#                 print(sys.getsizeof(batch))
+# =============================================================================
                 start_time = time.time()
                 sr_batch = model(batch)
                 end_time = time.time()
@@ -384,10 +388,10 @@ def patch_batch_forward_chop(
 
 if __name__ == "__main__":
     # Arguments
-    img_path = sys.argv[1] if len(sys.argv) > 1 else "data/test2.jpg"
-    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 40
+    img_path = sys.argv[1] if len(sys.argv) > 1 else "data/test5.jpg"
+    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 267
     shave = int(sys.argv[3]) if len(sys.argv) > 3 else 10
-    batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 4
+    batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 1
     print_result = bool(int(sys.argv[5])) if len(sys.argv) > 5 else True
     device = str(sys.argv[6]) if len(sys.argv) > 6 else "cuda"
 

@@ -483,7 +483,6 @@ if __name__ == "__main__":
             )
         else:
             plt_title = "Model: {} | Device: {}".format(model_name, "CPU")
-
 # =============================================================================
 #         date = "_".join(str(time.ctime()).split())
 #         date = "_".join(date.split(":"))
