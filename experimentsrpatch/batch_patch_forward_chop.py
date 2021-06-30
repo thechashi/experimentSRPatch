@@ -216,7 +216,7 @@ def batch_forward_chop(
             batch_creating_timer = ut.timer()
             batch = []
             end = start + batch_size
-            if start + batch_size + batch_size > total_patches:
+            if start + batch_size > total_patches:
                 end = total_patches + 1
             for p in range(start, end):
                 batch.append(patch_list[p][4])
@@ -227,16 +227,11 @@ def batch_forward_chop(
             cpu_to_gpu_time += cpu_to_gpu_timer.toc()
         
             with torch.no_grad():
-                # EDSR processing
-                # print(sys.getsizeof(batch.storage()))
-        
-                    subprocess.run("gpustat", shell=True)
-                    start_time = time.time()
-                    sr_batch = model(batch)
-                    end_time = time.time()
-                    subprocess.run("gpustat", shell=True)
-                    processing_time = end_time - start_time
-                    total_EDSR_time += processing_time
+                start_time = time.time()
+                sr_batch = model(batch)
+                end_time = time.time()
+                processing_time = end_time - start_time
+                total_EDSR_time += processing_time
         
             gpu_to_cpu_timer = ut.timer()
             sr_batch = sr_batch.to("cpu")
@@ -388,10 +383,10 @@ def patch_batch_forward_chop(
 
 if __name__ == "__main__":
     # Arguments
-    img_path = sys.argv[1] if len(sys.argv) > 1 else "data/test5.jpg"
-    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 263
+    img_path = sys.argv[1] if len(sys.argv) > 1 else "data/test2.jpg"
+    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 40
     shave = int(sys.argv[3]) if len(sys.argv) > 3 else 10
-    batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 1
+    batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 4
     print_result = bool(int(sys.argv[5])) if len(sys.argv) > 5 else True
     device = str(sys.argv[6]) if len(sys.argv) > 6 else "cuda"
 
@@ -442,7 +437,7 @@ if __name__ == "__main__":
     # fig = plt.figure(figsize=(4*h, 4*w))
     ax.imshow(output.permute((1, 2, 0)))
     fig.savefig(
-        "result_imagex4.png",
+        "output_images/"+"4x_" + img_path.split('/')[1],
         bbox_inches="tight",
         transparent=True,
         pad_inches=0,

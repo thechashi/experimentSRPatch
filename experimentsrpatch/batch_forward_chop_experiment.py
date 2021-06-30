@@ -2,6 +2,7 @@
 This is the driver source code for running the batch patch experiment
 """
 import sys
+import os
 import subprocess
 import numpy as np
 import pandas as pd
@@ -170,6 +171,7 @@ def single_patch_highest_batch_checker(
 
             p = subprocess.run(command, shell=True, capture_output=True)
             if p.returncode == 0:
+                print(p.stdout.decode())
                 temp += list(map(float, p.stdout.decode().split("\n")[1:10]))
                 result = [result[i] + temp[i] for i in range(len(temp))]
             else:
@@ -224,13 +226,13 @@ def plot_stat(x_data, y_data, x_label, y_label, plt_title, png_prefix, date):
     plt.title(plt_title)
     plt.plot(x_data, y_data)
     plt.savefig(
-        "results/batch_forward_chop_experiment/{0}.png".format(png_prefix + "_" + date)
+        "results/batch_forward_chop_experiment/{0}/{1}.png".format(date, png_prefix + "_" + date)
     )
     plt.show()
 
 
 def process_stats_of_single_patch_batch(
-    full_result, img_height, img_width, patch_dim, patch_shave, scale, model, device
+    full_result, img_height, img_width, patch_dim, patch_shave, scale, model, device, date
 ):
     """
     Plots and saves data as csv from the single patch every possible batch experiment
@@ -275,8 +277,10 @@ def process_stats_of_single_patch_batch(
     else:
         plt_title = "Model: {} | Device: {}".format(model_name, "CPU")
 
-    date = "_".join(str(time.ctime()).split())
-    date = "_".join(date.split(":"))
+# =============================================================================
+#     date = "_".join(str(time.ctime()).split())
+#     date = "_".join(date.split(":"))
+# =============================================================================
 
     x_data, y_data = (
         np.array(full_result.iloc[:, 0].values).flatten(),
@@ -346,7 +350,7 @@ def process_stats_of_single_patch_batch(
 
 
 def save_stat_csv(
-    full_result, img_height, img_width, patch_dim, patch_shave, scale, model, device
+    full_result, img_height, img_width, patch_dim, patch_shave, scale, model, device, file_name, folder_name, date
 ):
     """
     Saves data as csv
@@ -379,26 +383,62 @@ def save_stat_csv(
     device_name = "CPU"
     total_memory = "~"
     device = device
-    date = "_".join(str(time.ctime()).split())
-    date = "_".join(date.split(":"))
-    filename = "stat_" + "single_patch_all_batch_" + date
-    file = open("results/" + "batch_forward_chop_experiment" + "/" + filename, "a")
-    file.write(model_name + "\n")
-    file.write(device + "\n")
-    file.write(device_name + "\n")
-    file.write("Memory: " + str(total_memory) + "MB\n")
-    process_details = "Image: {}x{}, Patch: {}x{}, Shave: {}, Scale: {}".format(
-        img_height, img_width, patch_dim, patch_dim, patch_shave, scale
+    _, device_name = ut.get_device_details()
+    total_memory, _, _ = ut.get_gpu_details(
+        device, "\nDevice info:", logger, print_details=False
     )
-    file.write(str(process_details) + "\n")
+# =============================================================================
+#     date = "_".join(str(time.ctime()).split())
+#     date = "_".join(date.split(":"))
+# =============================================================================
+    filename = "stat_" + "single_patch_all_batch_" + date
+# =============================================================================
+#     folder_name = "results/" + "batch_forward_chop_experiment" + "/" + date
+#     os.mkdir(folder_name)
+# =============================================================================
+    file = open(folder_name + "/" + file_name, "a")
     full_result.to_csv(file)
     file.close()
+    meta_data_path = folder_name + "/" + "gpustat.json"
+    gpu_command = "gpustat --json > " + meta_data_path
+    subprocess.run(gpu_command, shell=True)
+# =============================================================================
+#     file.write('#' + model_name + "\n")
+#     file.write('#' + device + "\n")
+#     file.write('#' + device_name + "\n")
+#     file.write("Memory: " + str(total_memory) + "MB\n")
+#     process_details = "Image: {}x{}, Patch: {}x{}, Shave: {}, Scale: {}".format(
+#         img_height, img_width, patch_dim, patch_dim, patch_shave, scale
+#     )
+#     file.write(str(process_details) + "\n")
+# =============================================================================
+# =============================================================================
+#     meta_data = {}
+#     meta_data["model_name"] = model_name
+#     meta_data["device"] = device
+#     meta_data["device_name"] = device_name
+#     meta_data["total_memory"] = total_memory
+#     meta_data["image_height"] = str(img_height)
+#     meta_data["image_width"] = str(img_width)
+#     meta_data["patch_dimension"] = str(patch_dim)
+#     meta_data["shave"] = str(patch_shave)
+#     meta_data["scale"] = str(scale)
+#     output_file_name ="results/" + "batch_forward_chop_experiment" + "/" + date + "/" +  "metadata.toml"
+#     with open(output_file_name, "w") as toml_file:
+#         toml.dump(meta_data, toml_file)
+# =============================================================================
+
 
 
 if __name__ == "__main__":
     logger = ut.get_logger()
     process = sys.argv[1] if len(sys.argv) > 1 else "batch_range"
-
+    
+    date = "_".join(str(time.ctime()).split())
+    date = "_".join(date.split(":"))
+    folder_name = "results/" + "batch_forward_chop_experiment" + "/" + date
+    os.mkdir(folder_name)
+    
     if process == "batch_range":
         config = toml.load("../batch_processing.toml")
         max_dim = int(config["end_patch_dimension"])
@@ -450,6 +490,9 @@ if __name__ == "__main__":
             scale=scale,
             model=model_name,
             device=device,
+            file_name="maximum_batch_size_per_dimension.csv",
+            folder_name = folder_name,
+            date = date
         )
 
         print("\nPlotting result...\n")
@@ -460,8 +503,10 @@ if __name__ == "__main__":
         else:
             plt_title = "Model: {} | Device: {}".format(model_name, "CPU")
 
-        date = "_".join(str(time.ctime()).split())
-        date = "_".join(date.split(":"))
+# =============================================================================
+#         date = "_".join(str(time.ctime()).split())
+#         date = "_".join(date.split(":"))
+# =============================================================================
 
         x_data, y_data = (
             np.array(full_result.iloc[:, 0].values).flatten(),
@@ -478,7 +523,7 @@ if __name__ == "__main__":
         plt.title(plt_title)
         plt.plot(x_data, y_data, linestyle="--", marker="o", color="b")
         plt.savefig(
-            "results/batch_forward_chop_experiment/{0}.png".format(
+            folder_name +  "/{0}.png".format(
                 "maximum_batch_size" + "_" + date
             )
         )
@@ -533,7 +578,7 @@ if __name__ == "__main__":
         8 - Total batch processing time
         9 - Total time
         """
-        save_stat_csv(full_result, h, w, dim, shave, scale, model=model, device=device)
+        save_stat_csv(full_result, h, w, dim, shave, scale, model=model, device=device, file_name="single_patch_all_batch.csv", folder_name = folder_name, date = date)
         process_stats_of_single_patch_batch(
-            full_result, h, w, dim, shave, scale, model=model, device=device
+            full_result, h, w, dim, shave, scale, model=model, device=device, date=date
         )

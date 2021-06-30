@@ -1,0 +1,72 @@
+2021-06-30 00:21:20,464:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	236.1875 MB
+Free:	1768.3125 MB
+
+2021-06-30 00:21:24,767:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 00:21:24,767:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	236.4375 MB
+Free:	1768.0625 MB
+
+2021-06-30 00:21:24,768:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	236.4375 MB
+Free:	1768.0625 MB
+
+2021-06-30 00:21:29,031:INFO:Error: Dimension: 49, Batch size : 10
+2021-06-30 00:21:29,032:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	235.9375 MB
+Free:	1768.5625 MB
+
+2021-06-30 00:21:29,032:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	235.9375 MB
+Free:	1768.5625 MB
+
+2021-06-30 00:21:33,299:INFO:Error: Dimension: 48, Batch size : 10
+2021-06-30 00:21:33,300:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	236.1875 MB
+Free:	1768.3125 MB
+
+2021-06-30 00:21:33,301:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	236.1875 MB
+Free:	1768.3125 MB
+
+2021-06-30 00:21:37,588:INFO:Error: Dimension: 47, Batch size : 10
+2021-06-30 00:21:37,589:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	236.3125 MB
+Free:	1768.1875 MB
+
+2021-06-30 00:21:37,590:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	236.3125 MB
+Free:	1768.1875 MB
+
+2021-06-30 00:22:16,484:INFO:Error: Dimension: 46, Batch size : 17
+2021-06-30 00:22:16,485:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	236.1875 MB
+Free:	1768.3125 MB
+
+2021-06-30 00:22:16,485:INFO:GPU stat before dimension: 45
+Total:	2004.5 MB
+Used:	236.1875 MB
+Free:	1768.3125 MB
+
+2021-06-30 00:22:20,783:INFO:Error: Dimension: 45, Batch size : 17
+2021-06-30 00:22:20,783:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	236.4375 MB
+Free:	1768.0625 MB
+
+2021-06-30 00:28:08,359:INFO:Error: Dimension - 45, Batch size - 17
+2021-06-30 00:28:08,368:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	243.6875 MB
+Free:	1760.8125 MB
+
