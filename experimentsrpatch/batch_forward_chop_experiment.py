@@ -67,8 +67,10 @@ def batch_range_checker(
             device, state="GPU stat before dimension: {}".format(d), logger=logger
         )
         result = [d]
+        error_type = [0]
+        time_stats = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         while True:
-
+            
             command = (
                 "python3 "
                 + "helper_batch_patch_forward_chop.py "
@@ -88,10 +90,15 @@ def batch_range_checker(
             )
             p = subprocess.run(command, shell=True, capture_output=True)
             if p.returncode == 0:
+                #print(p.stdout.decode())
+                time_stats = list(map(float, p.stdout.decode().split("\n")[1:10]))
+                
                 # logger.info('OK! Dimension: {}, Batch size : {}'.format(d, batch_start))
                 batch_start += 1
             else:
                 # raise Exception(p.stderr.decode())
+                if p.returncode == 2:
+                    error_type[0] = 1
                 logger.info(
                     "Error: Dimension: {}, Batch size : {}".format(d, batch_start)
                 )
@@ -100,8 +107,12 @@ def batch_range_checker(
                 )
                 print("Error: Dimension: {}, Batch size : {}".format(d, batch_start))
                 print(p.stderr.decode())
+                
+                batch_start -= 1
                 break
-        result += [batch_start - 1]
+        result += [batch_start]
+        result += error_type
+        result += time_stats
 
         full_result.append(result)
     return full_result
@@ -171,7 +182,7 @@ def single_patch_highest_batch_checker(
 
             p = subprocess.run(command, shell=True, capture_output=True)
             if p.returncode == 0:
-                print(p.stdout.decode())
+                #print(p.stdout.decode())
                 temp += list(map(float, p.stdout.decode().split("\n")[1:10]))
                 result = [result[i] + temp[i] for i in range(len(temp))]
             else:
@@ -379,54 +390,13 @@ def save_stat_csv(
     None.
 
     """
-    model_name = model
-    device_name = "CPU"
-    total_memory = "~"
-    device = device
-    _, device_name = ut.get_device_details()
-    total_memory, _, _ = ut.get_gpu_details(
-        device, "\nDevice info:", logger, print_details=False
-    )
-# =============================================================================
-#     date = "_".join(str(time.ctime()).split())
-#     date = "_".join(date.split(":"))
-# =============================================================================
-    filename = "stat_" + "single_patch_all_batch_" + date
-# =============================================================================
-#     folder_name = "results/" + "batch_forward_chop_experiment" + "/" + date
-#     os.mkdir(folder_name)
-# =============================================================================
     file = open(folder_name + "/" + file_name, "a")
     full_result.to_csv(file)
     file.close()
     meta_data_path = folder_name + "/" + "gpustat.json"
     gpu_command = "gpustat --json > " + meta_data_path
     subprocess.run(gpu_command, shell=True)
-# =============================================================================
-#     file.write('#' + model_name + "\n")
-#     file.write('#' + device + "\n")
-#     file.write('#' + device_name + "\n")
-#     file.write("Memory: " + str(total_memory) + "MB\n")
-#     process_details = "Image: {}x{}, Patch: {}x{}, Shave: {}, Scale: {}".format(
-#         img_height, img_width, patch_dim, patch_dim, patch_shave, scale
-#     )
-#     file.write(str(process_details) + "\n")
-# =============================================================================
-# =============================================================================
-#     meta_data = {}
-#     meta_data["model_name"] = model_name
-#     meta_data["device"] = device
-#     meta_data["device_name"] = device_name
-#     meta_data["total_memory"] = total_memory
-#     meta_data["image_height"] = str(img_height)
-#     meta_data["image_width"] = str(img_width)
-#     meta_data["patch_dimension"] = str(patch_dim)
-#     meta_data["shave"] = str(patch_shave)
-#     meta_data["scale"] = str(scale)
-#     output_file_name ="results/" + "batch_forward_chop_experiment" + "/" + date + "/" +  "metadata.toml"
-#     with open(output_file_name, "w") as toml_file:
-#         toml.dump(meta_data, toml_file)
-# =============================================================================
+
 
 
 
@@ -468,7 +438,18 @@ if __name__ == "__main__":
             img_path=img_path,
         )
         full_result = pd.DataFrame(full_result)
-        full_result.columns = ["Patch dimnesion", "Maximum Batch Size"]
+        full_result.columns = ["Patch dimnesion",
+                               "Maximum Batch Size",
+                               "Batch Error",
+                               "Patch list creation time",
+                                "EDSR processing time",
+                                "CPU to GPU",
+                                "GPU to CPU",
+                                "Batch creation",
+                                "CUDA clear time",
+                                "Merging time",
+                                "Total batch processing time",
+                                "Total time"]
 
 
         device_name = "CPU"

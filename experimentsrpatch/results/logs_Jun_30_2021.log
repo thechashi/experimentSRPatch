@@ -70,3 +70,837 @@ Total:	2004.5 MB
 Used:	243.6875 MB
 Free:	1760.8125 MB
 
+2021-06-30 01:13:08,310:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	895.8125 MB
+Free:	1108.6875 MB
+
+2021-06-30 01:13:18,897:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 01:13:18,919:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	893.5625 MB
+Free:	1110.9375 MB
+
+2021-06-30 01:13:18,926:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	893.5625 MB
+Free:	1110.9375 MB
+
+2021-06-30 01:13:32,921:INFO:Error: Dimension: 49, Batch size : 10
+2021-06-30 01:13:32,927:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	893.8125 MB
+Free:	1110.6875 MB
+
+2021-06-30 01:13:32,931:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	893.8125 MB
+Free:	1110.6875 MB
+
+2021-06-30 01:13:39,818:INFO:Error: Dimension: 48, Batch size : 10
+2021-06-30 01:13:39,820:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	893.8125 MB
+Free:	1110.6875 MB
+
+2021-06-30 01:13:39,822:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	893.8125 MB
+Free:	1110.6875 MB
+
+2021-06-30 01:13:45,722:INFO:Error: Dimension: 47, Batch size : 10
+2021-06-30 01:13:45,723:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	894.0625 MB
+Free:	1110.4375 MB
+
+2021-06-30 01:13:45,726:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	894.0625 MB
+Free:	1110.4375 MB
+
+2021-06-30 01:14:30,287:INFO:Error: Dimension: 46, Batch size : 17
+2021-06-30 01:14:30,296:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	890.0625 MB
+Free:	1114.4375 MB
+
+2021-06-30 01:14:30,299:INFO:GPU stat before dimension: 45
+Total:	2004.5 MB
+Used:	890.0625 MB
+Free:	1114.4375 MB
+
+2021-06-30 01:14:35,218:INFO:Error: Dimension: 45, Batch size : 17
+2021-06-30 01:14:35,220:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	890.0625 MB
+Free:	1114.4375 MB
+
+2021-06-30 01:19:54,630:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	852.6875 MB
+Free:	1151.8125 MB
+
+2021-06-30 01:20:16,881:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 01:20:16,885:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	851.6875 MB
+Free:	1152.8125 MB
+
+2021-06-30 01:20:16,889:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	851.6875 MB
+Free:	1152.8125 MB
+
+2021-06-30 01:20:25,595:INFO:Error: Dimension: 49, Batch size : 10
+2021-06-30 01:20:25,691:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	851.4375 MB
+Free:	1153.0625 MB
+
+2021-06-30 01:20:25,693:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	851.4375 MB
+Free:	1153.0625 MB
+
+2021-06-30 01:20:30,970:INFO:Error: Dimension: 48, Batch size : 10
+2021-06-30 01:20:30,971:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	851.4375 MB
+Free:	1153.0625 MB
+
+2021-06-30 01:20:30,972:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	851.4375 MB
+Free:	1153.0625 MB
+
+2021-06-30 01:20:35,353:INFO:Error: Dimension: 47, Batch size : 10
+2021-06-30 01:20:35,353:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	851.8125 MB
+Free:	1152.6875 MB
+
+2021-06-30 01:20:35,354:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	851.8125 MB
+Free:	1152.6875 MB
+
+2021-06-30 01:21:12,963:INFO:Error: Dimension: 46, Batch size : 17
+2021-06-30 01:21:12,964:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	851.4375 MB
+Free:	1153.0625 MB
+
+2021-06-30 01:21:12,965:INFO:GPU stat before dimension: 45
+Total:	2004.5 MB
+Used:	851.4375 MB
+Free:	1153.0625 MB
+
+2021-06-30 01:21:17,390:INFO:Error: Dimension: 45, Batch size : 17
+2021-06-30 01:21:17,390:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	851.4375 MB
+Free:	1153.0625 MB
+
+2021-06-30 01:28:55,496:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	859.4375 MB
+Free:	1145.0625 MB
+
+2021-06-30 01:30:07,686:INFO:Error: Dimension: 50, Batch size : 9
+2021-06-30 01:30:07,687:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	859.4375 MB
+Free:	1145.0625 MB
+
+2021-06-30 01:30:07,689:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	859.4375 MB
+Free:	1145.0625 MB
+
+2021-06-30 01:30:16,521:INFO:Error: Dimension: 49, Batch size : 9
+2021-06-30 01:30:16,522:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	859.4375 MB
+Free:	1145.0625 MB
+
+2021-06-30 01:30:16,523:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	859.4375 MB
+Free:	1145.0625 MB
+
+2021-06-30 01:30:25,245:INFO:Error: Dimension: 48, Batch size : 9
+2021-06-30 01:30:25,245:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	856.5625 MB
+Free:	1147.9375 MB
+
+2021-06-30 01:30:25,246:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	856.5625 MB
+Free:	1147.9375 MB
+
+2021-06-30 01:30:34,921:INFO:Error: Dimension: 47, Batch size : 9
+2021-06-30 01:30:34,922:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	857.6875 MB
+Free:	1146.8125 MB
+
+2021-06-30 01:30:34,923:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	857.6875 MB
+Free:	1146.8125 MB
+
+2021-06-30 01:31:29,636:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	856.8125 MB
+Free:	1147.6875 MB
+
+2021-06-30 01:32:14,982:INFO:Error: Dimension: 50, Batch size : 9
+2021-06-30 01:32:14,982:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	856.8125 MB
+Free:	1147.6875 MB
+
+2021-06-30 01:32:14,983:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	856.8125 MB
+Free:	1147.6875 MB
+
+2021-06-30 01:32:23,940:INFO:Error: Dimension: 49, Batch size : 9
+2021-06-30 01:32:23,941:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	856.9375 MB
+Free:	1147.5625 MB
+
+2021-06-30 01:32:23,942:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	856.9375 MB
+Free:	1147.5625 MB
+
+2021-06-30 01:32:32,730:INFO:Error: Dimension: 48, Batch size : 9
+2021-06-30 01:32:32,730:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	856.9375 MB
+Free:	1147.5625 MB
+
+2021-06-30 01:32:32,731:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	856.9375 MB
+Free:	1147.5625 MB
+
+2021-06-30 01:32:52,958:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	856.9375 MB
+Free:	1147.5625 MB
+
+2021-06-30 01:33:38,087:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 01:33:38,087:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	857.4375 MB
+Free:	1147.0625 MB
+
+2021-06-30 01:33:38,088:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	857.4375 MB
+Free:	1147.0625 MB
+
+2021-06-30 01:33:47,031:INFO:Error: Dimension: 49, Batch size : 10
+2021-06-30 01:33:47,032:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	857.0625 MB
+Free:	1147.4375 MB
+
+2021-06-30 01:33:47,032:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	857.0625 MB
+Free:	1147.4375 MB
+
+2021-06-30 01:33:55,902:INFO:Error: Dimension: 48, Batch size : 10
+2021-06-30 01:33:55,903:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	856.8125 MB
+Free:	1147.6875 MB
+
+2021-06-30 01:33:55,904:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	856.8125 MB
+Free:	1147.6875 MB
+
+2021-06-30 01:34:04,770:INFO:Error: Dimension: 47, Batch size : 10
+2021-06-30 01:34:04,770:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	856.8125 MB
+Free:	1147.6875 MB
+
+2021-06-30 01:34:04,771:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	856.8125 MB
+Free:	1147.6875 MB
+
+2021-06-30 01:34:48,518:INFO:Error: Dimension: 46, Batch size : 17
+2021-06-30 01:34:48,892:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	848.4375 MB
+Free:	1156.0625 MB
+
+2021-06-30 01:34:48,894:INFO:GPU stat before dimension: 45
+Total:	2004.5 MB
+Used:	848.4375 MB
+Free:	1156.0625 MB
+
+2021-06-30 01:34:57,812:INFO:Error: Dimension: 45, Batch size : 17
+2021-06-30 01:34:57,813:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	848.4375 MB
+Free:	1156.0625 MB
+
+2021-06-30 01:39:34,789:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	868.1875 MB
+Free:	1136.3125 MB
+
+2021-06-30 01:42:45,608:INFO:Error: Dimension: 50, Batch size : 25
+2021-06-30 01:42:45,609:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	868.1875 MB
+Free:	1136.3125 MB
+
+2021-06-30 01:42:45,610:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	868.1875 MB
+Free:	1136.3125 MB
+
+2021-06-30 01:43:14,314:INFO:Error: Dimension: 49, Batch size : 27
+2021-06-30 01:43:14,314:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	867.9375 MB
+Free:	1136.5625 MB
+
+2021-06-30 01:43:14,315:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	867.9375 MB
+Free:	1136.5625 MB
+
+2021-06-30 01:43:33,568:INFO:Error: Dimension: 48, Batch size : 28
+2021-06-30 01:43:33,569:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	868.1875 MB
+Free:	1136.3125 MB
+
+2021-06-30 01:43:33,570:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	868.1875 MB
+Free:	1136.3125 MB
+
+2021-06-30 01:43:53,650:INFO:Error: Dimension: 47, Batch size : 29
+2021-06-30 01:43:53,650:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	868.1875 MB
+Free:	1136.3125 MB
+
+2021-06-30 01:43:53,651:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	868.1875 MB
+Free:	1136.3125 MB
+
+2021-06-30 01:44:13,496:INFO:Error: Dimension: 46, Batch size : 30
+2021-06-30 01:44:13,496:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	868.1875 MB
+Free:	1136.3125 MB
+
+2021-06-30 01:44:13,497:INFO:GPU stat before dimension: 45
+Total:	2004.5 MB
+Used:	868.1875 MB
+Free:	1136.3125 MB
+
+2021-06-30 01:44:49,828:INFO:Error: Dimension: 45, Batch size : 33
+2021-06-30 01:44:49,829:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	848.8125 MB
+Free:	1155.6875 MB
+
+2021-06-30 01:47:22,795:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	849.0625 MB
+Free:	1155.4375 MB
+
+2021-06-30 01:50:40,058:INFO:Error: Dimension: 50, Batch size : 24
+2021-06-30 01:50:40,066:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	887.5625 MB
+Free:	1116.9375 MB
+
+2021-06-30 01:50:40,067:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	887.5625 MB
+Free:	1116.9375 MB
+
+2021-06-30 01:51:10,193:INFO:Error: Dimension: 49, Batch size : 26
+2021-06-30 01:51:10,194:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	916.4375 MB
+Free:	1088.0625 MB
+
+2021-06-30 01:51:10,195:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	916.4375 MB
+Free:	1088.0625 MB
+
+2021-06-30 01:51:29,488:INFO:Error: Dimension: 48, Batch size : 27
+2021-06-30 01:51:29,489:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	889.1875 MB
+Free:	1115.3125 MB
+
+2021-06-30 01:51:29,489:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	889.1875 MB
+Free:	1115.3125 MB
+
+2021-06-30 01:51:49,521:INFO:Error: Dimension: 47, Batch size : 28
+2021-06-30 01:51:49,521:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	889.1875 MB
+Free:	1115.3125 MB
+
+2021-06-30 01:51:49,522:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	889.1875 MB
+Free:	1115.3125 MB
+
+2021-06-30 01:52:09,213:INFO:Error: Dimension: 46, Batch size : 29
+2021-06-30 01:52:09,213:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	889.1875 MB
+Free:	1115.3125 MB
+
+2021-06-30 01:52:09,214:INFO:GPU stat before dimension: 45
+Total:	2004.5 MB
+Used:	889.1875 MB
+Free:	1115.3125 MB
+
+2021-06-30 01:52:26,070:INFO:Error: Dimension: 45, Batch size : 29
+2021-06-30 01:52:26,071:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	901.1875 MB
+Free:	1103.3125 MB
+
+2021-06-30 01:55:08,287:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	874.6875 MB
+Free:	1129.8125 MB
+
+2021-06-30 01:55:52,484:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 01:55:52,484:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	868.8125 MB
+Free:	1135.6875 MB
+
+2021-06-30 01:55:52,485:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	868.8125 MB
+Free:	1135.6875 MB
+
+2021-06-30 01:56:03,718:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	868.8125 MB
+Free:	1135.6875 MB
+
+2021-06-30 01:59:11,453:INFO:Error: Dimension: 50, Batch size : 25
+2021-06-30 01:59:11,453:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	868.9375 MB
+Free:	1135.5625 MB
+
+2021-06-30 01:59:11,454:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	868.9375 MB
+Free:	1135.5625 MB
+
+2021-06-30 01:59:40,926:INFO:Error: Dimension: 49, Batch size : 27
+2021-06-30 01:59:40,927:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	890.1875 MB
+Free:	1114.3125 MB
+
+2021-06-30 01:59:40,927:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	890.1875 MB
+Free:	1114.3125 MB
+
+2021-06-30 01:59:53,986:INFO:Error: Dimension: 48, Batch size : 27
+2021-06-30 01:59:53,987:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	872.9375 MB
+Free:	1131.5625 MB
+
+2021-06-30 01:59:53,988:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	872.9375 MB
+Free:	1131.5625 MB
+
+2021-06-30 02:00:31,035:INFO:Error: Dimension: 47, Batch size : 30
+2021-06-30 02:00:31,036:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	846.6875 MB
+Free:	1157.8125 MB
+
+2021-06-30 02:00:31,036:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	846.6875 MB
+Free:	1157.8125 MB
+
+2021-06-30 02:00:51,102:INFO:Error: Dimension: 46, Batch size : 31
+2021-06-30 02:00:51,103:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.6875 MB
+Free:	1161.8125 MB
+
+2021-06-30 02:00:51,104:INFO:GPU stat before dimension: 45
+Total:	2004.5 MB
+Used:	842.6875 MB
+Free:	1161.8125 MB
+
+2021-06-30 02:01:19,197:INFO:Error: Dimension: 45, Batch size : 33
+2021-06-30 02:01:19,198:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	833.1875 MB
+Free:	1171.3125 MB
+
+2021-06-30 02:03:27,291:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	845.5625 MB
+Free:	1158.9375 MB
+
+2021-06-30 02:04:11,500:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 02:04:11,500:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	845.5625 MB
+Free:	1158.9375 MB
+
+2021-06-30 02:04:11,501:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	845.5625 MB
+Free:	1158.9375 MB
+
+2021-06-30 02:04:20,591:INFO:Error: Dimension: 49, Batch size : 10
+2021-06-30 02:04:20,591:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	845.5625 MB
+Free:	1158.9375 MB
+
+2021-06-30 02:04:20,592:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	845.5625 MB
+Free:	1158.9375 MB
+
+2021-06-30 02:04:55,044:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	845.5625 MB
+Free:	1158.9375 MB
+
+2021-06-30 02:05:38,810:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 02:05:38,811:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:05:38,812:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:05:47,540:INFO:Error: Dimension: 49, Batch size : 10
+2021-06-30 02:05:47,541:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:05:47,542:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:05:56,756:INFO:Error: Dimension: 48, Batch size : 10
+2021-06-30 02:05:56,756:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:05:56,757:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:06:06,592:INFO:Error: Dimension: 47, Batch size : 10
+2021-06-30 02:06:06,593:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:06:06,593:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:06:52,268:INFO:Error: Dimension: 46, Batch size : 17
+2021-06-30 02:06:52,269:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:06:52,270:INFO:GPU stat before dimension: 45
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:07:02,287:INFO:Error: Dimension: 45, Batch size : 17
+2021-06-30 02:07:02,287:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.4375 MB
+Free:	1162.0625 MB
+
+2021-06-30 02:07:48,556:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	842.5625 MB
+Free:	1161.9375 MB
+
+2021-06-30 02:08:32,720:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 02:08:32,720:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.8125 MB
+Free:	1161.6875 MB
+
+2021-06-30 02:08:32,721:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	842.8125 MB
+Free:	1161.6875 MB
+
+2021-06-30 02:08:41,320:INFO:Error: Dimension: 49, Batch size : 10
+2021-06-30 02:08:41,320:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.8125 MB
+Free:	1161.6875 MB
+
+2021-06-30 02:08:41,321:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	842.8125 MB
+Free:	1161.6875 MB
+
+2021-06-30 02:08:49,887:INFO:Error: Dimension: 48, Batch size : 10
+2021-06-30 02:08:49,888:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.8125 MB
+Free:	1161.6875 MB
+
+2021-06-30 02:08:49,888:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	842.8125 MB
+Free:	1161.6875 MB
+
+2021-06-30 02:08:58,919:INFO:Error: Dimension: 47, Batch size : 10
+2021-06-30 02:08:58,920:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	842.8125 MB
+Free:	1161.6875 MB
+
+2021-06-30 02:08:58,921:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	842.8125 MB
+Free:	1161.6875 MB
+
+2021-06-30 02:09:39,268:INFO:Error: Dimension: 46, Batch size : 17
+2021-06-30 02:09:39,268:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	831.5625 MB
+Free:	1172.9375 MB
+
+2021-06-30 02:09:39,269:INFO:GPU stat before dimension: 45
+Total:	2004.5 MB
+Used:	831.5625 MB
+Free:	1172.9375 MB
+
+2021-06-30 02:09:47,973:INFO:Error: Dimension: 45, Batch size : 17
+2021-06-30 02:09:47,973:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	831.5625 MB
+Free:	1172.9375 MB
+
+2021-06-30 02:12:44,302:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	804.1875 MB
+Free:	1200.3125 MB
+
+2021-06-30 02:13:15,015:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	804.1875 MB
+Free:	1200.3125 MB
+
+2021-06-30 02:13:19,261:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 02:13:19,261:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	804.4375 MB
+Free:	1200.0625 MB
+
+2021-06-30 02:13:19,262:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	804.4375 MB
+Free:	1200.0625 MB
+
+2021-06-30 02:13:28,140:INFO:Error: Dimension: 49, Batch size : 10
+2021-06-30 02:13:28,140:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	804.6875 MB
+Free:	1199.8125 MB
+
+2021-06-30 02:13:28,141:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	804.6875 MB
+Free:	1199.8125 MB
+
+2021-06-30 02:13:36,739:INFO:Error: Dimension: 48, Batch size : 10
+2021-06-30 02:13:36,739:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	804.6875 MB
+Free:	1199.8125 MB
+
+2021-06-30 02:16:12,574:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:16:16,787:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 02:16:16,788:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:16:16,789:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:16:25,431:INFO:Error: Dimension: 49, Batch size : 10
+2021-06-30 02:16:25,432:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:16:25,433:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:16:34,064:INFO:Error: Dimension: 48, Batch size : 10
+2021-06-30 02:16:34,065:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:17:35,552:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	798.0625 MB
+Free:	1206.4375 MB
+
+2021-06-30 02:17:39,737:INFO:Error: Dimension: 50, Batch size : 10
+2021-06-30 02:17:39,738:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	798.0625 MB
+Free:	1206.4375 MB
+
+2021-06-30 02:17:39,739:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	798.0625 MB
+Free:	1206.4375 MB
+
+2021-06-30 02:17:48,354:INFO:Error: Dimension: 49, Batch size : 10
+2021-06-30 02:17:48,355:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	798.0625 MB
+Free:	1206.4375 MB
+
+2021-06-30 02:17:48,355:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	798.0625 MB
+Free:	1206.4375 MB
+
+2021-06-30 02:17:56,954:INFO:Error: Dimension: 48, Batch size : 10
+2021-06-30 02:17:56,954:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	798.0625 MB
+Free:	1206.4375 MB
+
+2021-06-30 02:18:23,402:INFO:GPU stat before dimension: 50
+Total:	2004.5 MB
+Used:	798.5625 MB
+Free:	1205.9375 MB
+
+2021-06-30 02:22:01,809:INFO:Error: Dimension: 50, Batch size : 29
+2021-06-30 02:22:01,809:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	797.8125 MB
+Free:	1206.6875 MB
+
+2021-06-30 02:22:01,810:INFO:GPU stat before dimension: 49
+Total:	2004.5 MB
+Used:	797.8125 MB
+Free:	1206.6875 MB
+
+2021-06-30 02:22:22,518:INFO:Error: Dimension: 49, Batch size : 30
+2021-06-30 02:22:22,518:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:22:22,519:INFO:GPU stat before dimension: 48
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:22:41,432:INFO:Error: Dimension: 48, Batch size : 31
+2021-06-30 02:22:41,432:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:22:41,433:INFO:GPU stat before dimension: 47
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:23:08,636:INFO:Error: Dimension: 47, Batch size : 33
+2021-06-30 02:23:08,637:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:23:08,638:INFO:GPU stat before dimension: 46
+Total:	2004.5 MB
+Used:	797.9375 MB
+Free:	1206.5625 MB
+
+2021-06-30 02:23:28,343:INFO:Error: Dimension: 46, Batch size : 34
+2021-06-30 02:23:28,343:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	798.3125 MB
+Free:	1206.1875 MB
+
+2021-06-30 02:23:28,344:INFO:GPU stat before dimension: 45
+Total:	2004.5 MB
+Used:	798.3125 MB
+Free:	1206.1875 MB
+
+2021-06-30 02:23:56,352:INFO:Error: Dimension: 45, Batch size : 36
+2021-06-30 02:23:56,352:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	798.3125 MB
+Free:	1206.1875 MB
+
+2021-06-30 02:27:58,384:INFO:Error: Dimension - 45, Batch size - 17
+2021-06-30 02:27:58,393:INFO:GPU stat after batch size error:
+Total:	2004.5 MB
+Used:	805.3125 MB
+Free:	1199.1875 MB
+

@@ -200,6 +200,7 @@ def batch_forward_chop(
     """
     total_patches = len(patch_list)
     if batch_size > total_patches:
+        sys.exit(2)
         raise Exception("Batch size greater than total number of patches")
     output_image = torch.tensor(
         np.zeros((channel, img_height * scale, img_width * scale))
