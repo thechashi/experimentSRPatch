@@ -1,0 +1,4 @@
+batch_size = 1
+patch_dimension = 40
+patch_shave = 10
+scale = 4

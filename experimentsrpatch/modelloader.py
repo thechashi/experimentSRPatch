@@ -66,7 +66,7 @@ def load_edsr(device, n_resblocks=16, n_feats=64, model_details=True):
         #         print("\nModel details: ")
         #         print(model)
         # =============================================================================
-        print()
+        pass
     return model
 
 

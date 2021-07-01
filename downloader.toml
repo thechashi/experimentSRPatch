@@ -2,10 +2,4 @@ down_path = "../medicalsrgan/medicalsrgan/download"
 
 [datadict]
 rrdb_gen = ["https://www.dropbox.com/s/ojrlugt15yz4waa/rrdb_gen_500.zip?dl=0",
-            "./medicalsrgan/pretrained_model/rrdb/gen"] #rrdb model
-rrdb_disc = ["https://www.dropbox.com/s/vsw6dnaq26ci7u9/rrdb_disc_500.zip?dl=0",
-            "./medicalsrgan/pretrained_model/rrdb/disc"] # multiscale-discriminator
-earth1 = ["https://www.dropbox.com/s/4ri7j7xawss88l6/earth1.tar.xz?dl=0",
-            "../medicalsrgan/medicalsrgan/InputDir"] # Earth1 Dataset
-slices = ["https://www.dropbox.com/s/90g1p2z4surin50/slices.tar.xz?dl=0",
-            "../medicalsrgan/medicalsrgan/InputDir"] # Slices Dataset
+            "./saved_models/"] #rrdb model

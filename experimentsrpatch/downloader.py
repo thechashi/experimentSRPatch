@@ -6,8 +6,6 @@ import tarfile
 import zipfile
 from pathlib import Path
 
-import toml
-
 
 def get_file_name(url):
     """

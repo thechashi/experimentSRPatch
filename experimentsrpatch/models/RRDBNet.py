@@ -4,13 +4,25 @@ Residual Residual Dense Generator that takes Noise vector and generates a medica
 import functools
 import toml
 import torch
+from pathlib import Path
 import torch.nn as nn
-
+import downloader as dw
 def load(model, path):
-    path = 'saved_models/rrdb_gen_500.pt'
-    checkpoint = torch.load(path)
-    model.load_state_dict(checkpoint["model"])
-    del checkpoint
+    #path = 'saved_models/rrdb_gen_500.pt'
+    rrdb_pt = Path(path)
+    if rrdb_pt.exists():
+        #print('Loading model...')
+        checkpoint = torch.load(path)
+        model.load_state_dict(checkpoint["model"])
+        del checkpoint
+    else:
+        #print('Downloading model...\n')
+        downloader_dict = toml.load('../downloader.toml')
+        dw.data_download(downloader_dict['datadict'], './downloads')
+        #print('Loading model...\n')
+        checkpoint = torch.load(path)
+        model.load_state_dict(checkpoint["model"])
+        del checkpoint
     
 def make_layer(block, n_layers):
     """

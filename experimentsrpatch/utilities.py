@@ -173,7 +173,29 @@ def load_image(img_path, show_img=False):
     img = img.float()
     return img
 
+def load_grayscale_image(img_path, show_img=False):
+    """
+    Loads image and returns it
 
+    Parameters
+    ----------
+    img_path : str
+        image path.
+    show_img : bool, optional
+        show image or not. The default is False.
+
+    Returns
+    -------
+    img : 3D Matrix
+        image.
+
+    """
+    # Reading image
+    img = torchvision.io.read_image(img_path)
+    if show_img:
+        plt.imshow(img.permute((1, 2, 0)))
+    img = img[2:, :, :].float()
+    return img
 def save_image(image, output_folder, input_height, input_width, scale):
     """
     Saves image
@@ -251,10 +273,10 @@ def get_gpu_details(
         free_mem = info.free / (1024 ** power)
         if print_details:
             log_message = (
-                state
-                + "\nTotal:\t{0} {1}".format(total_mem, memory_size_format)
-                + "\nUsed:\t{0} {1}".format(used_mem, memory_size_format)
-                + "\nFree:\t{0} {1}".format(free_mem, memory_size_format)
+                '\t' + state
+                + "\tTotal:\t{0} {1}".format(total_mem, memory_size_format)
+                + "\tUsed:\t{0} {1}".format(used_mem, memory_size_format)
+                + "\tFree:\t{0} {1}".format(free_mem, memory_size_format)
                 + "\n"
             )
             logger.info(log_message)

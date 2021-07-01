@@ -240,6 +240,7 @@ def batch_forward_chop(
         
             gpu_to_cpu_timer = ut.timer()
             sr_batch = sr_batch.to("cpu")
+            torch.cuda.synchronize()
             gpu_to_cpu_time += gpu_to_cpu_timer.toc()
         
             _, _, patch_height, patch_width = sr_batch.size()
@@ -268,7 +269,7 @@ def batch_forward_chop(
     model = model.to("cpu")
     
     if print_timer:
-        print("Total EDSR Processing time: {}\n".format(total_EDSR_time))
+        print("Total upsampling time: {}\n".format(total_EDSR_time))
         print("Total CPU to GPU shifting time: {}\n".format(cpu_to_gpu_time))
         print("Total GPU to CPU shifting time: {}\n".format(gpu_to_cpu_time))
         print("Total batch creation time: {}\n".format(batch_creating_time))
@@ -338,9 +339,11 @@ def patch_batch_forward_chop(
     if model_type == "EDSR":
         model = md.load_edsr(device=device)
         model.eval()
+    elif model_type == "RRDB":
+        model = md.load_rrdb(device=device)
+        model.eval()
     else:
-        pass
-
+        raise Exception('{} : Unknown model...'.format(model_type))
     total_timer = ut.timer()
     channel, height, width = input_image.shape
 
@@ -383,8 +386,54 @@ def patch_batch_forward_chop(
             print(t)
         print(total_batch_processing_time)
         print(total_time)
+    model = model.cpu()
+    del model
     return output_image
 
+def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
+    if model_name == 'RRDB':
+        input_image = ut.load_grayscale_image(img_path)
+        c, h, w = input_image.shape
+        patch_list = {}
+        create_patch_list(patch_list, input_image, dimension, shave, scale, c, h, w)
+        model = md.load_rrdb(device=device)
+        model.eval()
+        min_dim = min(dimension, h, w)
+
+        if min_dim != dimension:
+            print(
+                "\nPatch dimension is greater than the input image's minimum dimension. Changing patch dimension to input image's minimum dimension... \n "
+            )
+            dimension = min_dim
+        output, _ = batch_forward_chop(
+        patch_list, batch_size, c, h, w, dimension, shave, scale, model=model, device=device
+        )
+        output = output.int()
+        output_folder = 'output_images'
+        ut.save_image(output, output_folder, h, w, scale)
+        pass
+    elif model_name == 'EDSR':
+        input_image = ut.load_image(img_path)
+        c, h, w = input_image.shape
+        patch_list = {}
+        create_patch_list(patch_list, input_image, dimension, shave, scale, c, h, w)
+        model = md.load_edsr(device=device)
+        model.eval()
+        min_dim = min(dimension, h, w)
+
+        if min_dim != dimension:
+            print(
+                "\nPatch dimension is greater than the input image's minimum dimension. Changing patch dimension to input image's minimum dimension... \n "
+            )
+            dimension = min_dim
+        output, _ = batch_forward_chop(
+        patch_list, batch_size, c, h, w, dimension, shave, scale, model=model, device=device
+        )
+        output = output.int()
+        output_folder = 'output_images'
+        ut.save_image(output, output_folder, h, w, scale)
+    else:
+        print('Unknown model...')
 
 if __name__ == "__main__":
     # Arguments

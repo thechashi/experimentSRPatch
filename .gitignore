@@ -4,3 +4,4 @@ experimentsrpatch/__pycache__/
 .spyproject
 experimentsrpatch/saved_models/*.pt
 *.pyc
+experimentsrpatch/downloads/

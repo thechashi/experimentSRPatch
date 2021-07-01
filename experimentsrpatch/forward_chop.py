@@ -104,6 +104,7 @@ def forward_chop_iterative(
             shift_start = time.time()
             if device == "cuda":
                 sr_small = sr_small.to("cpu")
+                torch.cuda.synchronize()
             shift_end = time.time()
             shift_time = shift_end - shift_start
             total_shift_time += shift_time

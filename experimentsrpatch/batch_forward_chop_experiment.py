@@ -25,6 +25,7 @@ def batch_range_checker(
     logger,
     dim_gap=1,
     batch_start=1,
+    model_name = "EDSR",
     device="cuda",
 ):
     """
@@ -63,6 +64,7 @@ def batch_range_checker(
     full_result = []
     for d in tqdm(range(max_dim, min_dim - 1, -dim_gap)):
         # print('\n dimension: {}, batch_start: {}\n'.format(d, batch_start))
+        print('\n')
         ut.get_gpu_details(
             device, state="GPU stat before dimension: {}".format(d), logger=logger
         )
@@ -87,11 +89,13 @@ def batch_range_checker(
                 + str(0)
                 + " "
                 + device
+                + " "
+                + model_name 
             )
             p = subprocess.run(command, shell=True, capture_output=True)
             if p.returncode == 0:
-                #print(p.stdout.decode())
-                time_stats = list(map(float, p.stdout.decode().split("\n")[1:10]))
+                #print(p.stdout.decode().split("\n"))
+                time_stats = list(map(float, p.stdout.decode().split("\n")[0:9]))
                 
                 # logger.info('OK! Dimension: {}, Batch size : {}'.format(d, batch_start))
                 batch_start += 1
@@ -99,14 +103,21 @@ def batch_range_checker(
                 # raise Exception(p.stderr.decode())
                 if p.returncode == 2:
                     error_type[0] = 1
-                logger.info(
-                    "Error: Dimension: {}, Batch size : {}".format(d, batch_start)
-                )
+                if p.returncode == 2:
+                    logger.error(
+                        "\tDimension: {}, Batch size : {}. Batch size larger than total number of patches".format(d, batch_start)
+                    )
+                elif p.returncode == 1:
+                    logger.error(
+                        "\tDimension: {}, Batch size : {}. CUDA out of memory".format(d, batch_start)
+                    )
                 ut.get_gpu_details(
                     device, state="GPU stat after batch size error:", logger=logger
                 )
-                print("Error: Dimension: {}, Batch size : {}".format(d, batch_start))
-                print(p.stderr.decode())
+# =============================================================================
+#                 print("\tError: Dimension: {}, Batch size : {}".format(d, batch_start))
+#                 print(p.stderr.decode())
+# =============================================================================
                 
                 batch_start -= 1
                 break
@@ -186,6 +197,14 @@ def single_patch_highest_batch_checker(
                 temp += list(map(float, p.stdout.decode().split("\n")[1:10]))
                 result = [result[i] + temp[i] for i in range(len(temp))]
             else:
+                if p.returncode == 2:
+                    logger.error(
+                        "\tDimension: {}, Batch size : {}. Batch size larger than total number of patches".format(patch_dim, batch_size_start)
+                    )
+                elif p.returncode == 1:
+                    logger.error(
+                        "\tDimension: {}, Batch size : {}. CUDA out of memory".format(patch_dim, batch_size_start)
+                    )
                 # raise Exception(p.stderr.decode())
                 logger.info(
                     "Error: Dimension - {}, Batch size - {}".format(
@@ -195,7 +214,6 @@ def single_patch_highest_batch_checker(
                 ut.get_gpu_details(
                     device, state="GPU stat after batch size error:", logger=logger
                 )
-                print(p.stderr.decode())
                 exception = True
                 break
         if exception == False:
@@ -436,13 +454,14 @@ if __name__ == "__main__":
             batch_start=batch_size_start,
             logger=logger,
             img_path=img_path,
+            model_name=model_name
         )
         full_result = pd.DataFrame(full_result)
         full_result.columns = ["Patch dimnesion",
                                "Maximum Batch Size",
                                "Batch Error",
                                "Patch list creation time",
-                                "EDSR processing time",
+                                "Upsampling time",
                                 "CPU to GPU",
                                 "GPU to CPU",
                                 "Batch creation",
@@ -537,7 +556,7 @@ if __name__ == "__main__":
         full_result.columns = [
             "Batch size",
             "Patch list creation time",
-            "EDSR processing time",
+            "Upsampling time",
             "CPU to GPU",
             "GPU to CPU",
             "Batch creation",
@@ -549,7 +568,7 @@ if __name__ == "__main__":
         """
         0 - batch size
         1 - patch list creation time
-        2 - EDSR processing time
+        2 - Upsampling time
         3 - CPU to GPU shifting time
         4 - GPU to CPU shifting time
         5 - Batch creation
