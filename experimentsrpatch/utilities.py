@@ -85,7 +85,11 @@ class timer:
         """
         self.acc = 0
 
-
+def get_device_type():
+    if torch.cuda.is_available():
+        return "cuda"
+    else:
+        return "cpu"
 def test_image():
     data = np.random.randint(0, 255, size=(104, 104, 3), dtype=np.uint8)
     print(data.shape)
@@ -109,6 +113,7 @@ def get_logger():
     logfile_name = "results/logs_" + today + ".log"
 
     logger = logging.getLogger(__name__)
+    logger.propagate = False
     logger.setLevel(logging.DEBUG)
 
     file_formatter = logging.Formatter("%(asctime)s:%(levelname)s:%(message)s")
@@ -123,7 +128,7 @@ def get_logger():
 
     logger.addHandler(file_handler)
     logger.addHandler(stream_handler)
-
+    
     return logger
 
 
@@ -140,12 +145,12 @@ def get_device_details():
 
     """
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print("Using device:", device)
+    #print("Using device:", device)
     device_name = "cpu"
     if device.type == "cuda":
         device_name = torch.cuda.get_device_name(0)
-        print("Device: ", device_name)
-    print()
+        #print("Device: ", device_name)
+    #print()
     return device, device_name
 
 
@@ -279,7 +284,7 @@ def get_gpu_details(
                 + "\tFree:\t{0} {1}".format(free_mem, memory_size_format)
                 + "\n"
             )
-            logger.info(log_message)
+            #logger.info(log_message)
         return total_mem, used_mem, free_mem
     return None
 

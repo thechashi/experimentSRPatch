@@ -9,6 +9,8 @@ import pandas as pd
 import time
 import toml
 from tqdm import tqdm
+from tqdm import trange
+import pyfiglet
 import matplotlib.pyplot as plt
 import utilities as ut
 
@@ -61,18 +63,35 @@ def batch_range_checker(
         stats of the experiment.
 
     """
+    banner = pyfiglet.figlet_format("Batch Experiment: " + model_name)
+    
+    print(banner)
     full_result = []
-    for d in tqdm(range(max_dim, min_dim - 1, -dim_gap)):
-        # print('\n dimension: {}, batch_start: {}\n'.format(d, batch_start))
+    t = trange(max_dim, min_dim - 1, -dim_gap)
+    used_memory = 0
+    last_used_memory = 0
+    for d in t:
+        _, used_memory, _ = ut.get_gpu_details(device, None, logger, print_details=False)
+        leaked_memory = used_memory - last_used_memory if used_memory > last_used_memory else 0
+        t.set_description('Patch Dim: {:04}x{:04} | Start Batch Size: {:04} | Used Memory: {:09.3f} | Leaked Memory: {:09.3f}'.format(d, d, batch_start, used_memory, leaked_memory ))
+        used_memory = leaked_memory
+        if d < max_dim and batch_start == 0:
+            raise Exception("Batch execution error. Highest patch dimension couldn't be processed in a batch of size 1.")
         print('\n')
-        ut.get_gpu_details(
-            device, state="GPU stat before dimension: {}".format(d), logger=logger
-        )
         result = [d]
         error_type = [0]
-        time_stats = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        time_stats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# =============================================================================
+#         used_memory = 0
+#         last_used_memory = 0
+# =============================================================================
         while True:
-            
+# =============================================================================
+#             _, used_memory, _ = ut.get_gpu_details(device, None, logger, print_details=False)
+#             leaked_memory = used_memory - last_used_memory if used_memory > last_used_memory else 0
+#             t.set_description('Patch Dimension: {:04}x{:04} | Batch Size: {:04} | Used Memory: {:09.3f} | Leaked Memory: {:09.3f}'.format(d, d, batch_start, used_memory, leaked_memory ))
+#             used_memory = leaked_memory
+# =============================================================================
             command = (
                 "python3 "
                 + "helper_batch_patch_forward_chop.py "
@@ -94,10 +113,8 @@ def batch_range_checker(
             )
             p = subprocess.run(command, shell=True, capture_output=True)
             if p.returncode == 0:
-                #print(p.stdout.decode().split("\n"))
-                time_stats = list(map(float, p.stdout.decode().split("\n")[0:9]))
-                
-                # logger.info('OK! Dimension: {}, Batch size : {}'.format(d, batch_start))
+                #print(p.stdout.decode().split("\n")[0:10])
+                time_stats = list(map(float, p.stdout.decode().split("\n")[0:10]))
                 batch_start += 1
             else:
                 # raise Exception(p.stderr.decode())
@@ -108,12 +125,17 @@ def batch_range_checker(
                         "\tDimension: {}, Batch size : {}. Batch size larger than total number of patches".format(d, batch_start)
                     )
                 elif p.returncode == 1:
-                    logger.error(
-                        "\tDimension: {}, Batch size : {}. CUDA out of memory".format(d, batch_start)
-                    )
-                ut.get_gpu_details(
-                    device, state="GPU stat after batch size error:", logger=logger
-                )
+                    pass
+# =============================================================================
+#                     logger.error(
+#                         "\tDimension: {}, Batch size : {}. CUDA out of memory".format(d, batch_start)
+#                     )
+# =============================================================================
+# =============================================================================
+#                 ut.get_gpu_details(
+#                     device, state="GPU stat after batch size error:", logger=logger
+#                 )
+# =============================================================================
 # =============================================================================
 #                 print("\tError: Dimension: {}, Batch size : {}".format(d, batch_start))
 #                 print(p.stderr.decode())
@@ -460,6 +482,7 @@ if __name__ == "__main__":
         full_result.columns = ["Patch dimnesion",
                                "Maximum Batch Size",
                                "Batch Error",
+                               "Total Patches",
                                "Patch list creation time",
                                 "Upsampling time",
                                 "CPU to GPU",
@@ -555,6 +578,7 @@ if __name__ == "__main__":
         full_result = pd.DataFrame(full_result)
         full_result.columns = [
             "Batch size",
+            "Total Patches",
             "Patch list creation time",
             "Upsampling time",
             "CPU to GPU",

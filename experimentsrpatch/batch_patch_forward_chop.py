@@ -380,6 +380,7 @@ def patch_batch_forward_chop(
 
     output_image = output_image.int()
     total_time = total_timer.toc()
+    print(len(patch_list))
     if print_timer:
         print(patch_list_processing_time)
         for t in timer_results:
@@ -438,7 +439,7 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
 if __name__ == "__main__":
     # Arguments
     img_path = sys.argv[1] if len(sys.argv) > 1 else "data/test5.jpg"
-    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 267
+    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 297
     shave = int(sys.argv[3]) if len(sys.argv) > 3 else 10
     batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 1
     print_result = bool(int(sys.argv[5])) if len(sys.argv) > 5 else True
