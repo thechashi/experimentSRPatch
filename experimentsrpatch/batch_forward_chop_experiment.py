@@ -74,7 +74,7 @@ def batch_range_checker(
         _, used_memory, _ = ut.get_gpu_details(device, None, logger, print_details=False)
         leaked_memory = used_memory - last_used_memory if used_memory > last_used_memory else 0
         t.set_description('Patch Dim: {:04}x{:04} | Start Batch Size: {:04} | Used Memory: {:09.3f} | Leaked Memory: {:09.3f}'.format(d, d, batch_start, used_memory, leaked_memory ))
-        used_memory = leaked_memory
+        last_used_memory = used_memory
         if d < max_dim and batch_start == 0:
             raise Exception("Batch execution error. Highest patch dimension couldn't be processed in a batch of size 1.")
         print('\n')
