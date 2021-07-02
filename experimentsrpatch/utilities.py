@@ -98,7 +98,7 @@ def test_image():
     img.show()
 
 
-def get_logger(stream = False):
+def get_logger(logger_suffix = None, logfile_name=None, stream = False):
     """
     Get logger
 
@@ -108,13 +108,18 @@ def get_logger(stream = False):
         keeps log.
 
     """
-    today = date.today().strftime("%b-%d-%Y")
-    today = "_".join(str(today).split("-"))
-    logfile_name = "results/logs_" + today + ".log"
-
-    logger = logging.getLogger(__name__+str(time.time()))
+    # Creating logger
+    logger_suffix = logger_suffix if logger_suffix != None else str(time.time())
+    logger = logging.getLogger(__name__+logger_suffix)
     logger.setLevel(logging.INFO)
 
+    # Logfile name by date
+    if logfile_name == None:
+        today = date.today().strftime("%b-%d-%Y")
+        today = "_".join(str(today).split("-"))
+        logfile_name = "results/logs_" + today + ".log"
+    
+    # Logfile creation
     file_formatter = logging.Formatter("%(asctime)s:%(levelname)s:%(message)s")
     file_handler = logging.FileHandler(logfile_name)
     #file_handler.setLevel(logging.ERROR)
@@ -122,6 +127,7 @@ def get_logger(stream = False):
     logger.addHandler(file_handler)
     
     if stream:
+        # Logging on console
         stream_formatter = logging.Formatter("%(levelname)s:%(message)s")
         stream_handler = logging.StreamHandler()
         stream_handler.setFormatter(stream_formatter)
@@ -500,5 +506,5 @@ if __name__ == "__main__":
     l = get_logger(stream=False)
     l.info('Hello from terminal')
     l2 = get_logger(stream=True)
-    l2.info('log2')
+    print(l2.info('log2'))
     print(l2 == l)

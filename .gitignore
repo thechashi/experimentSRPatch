@@ -8,3 +8,5 @@ experimentsrpatch/downloads/
 experimentsrpatch/temp_max_dim.txt
 *.log
 experimentsrpatch/*.png
+tests/results
+tests/test_outputs
