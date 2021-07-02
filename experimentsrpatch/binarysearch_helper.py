@@ -51,11 +51,12 @@ def binary_search_helper(dimension, logger, model_name="EDSR", device="cuda"):
         model.cpu()
         del model
     except RuntimeError as err:
-        logger.error(err)
-        raise Exception(err)
+        logger.error( "Runtime error for dimension: {}x{}: " + err)
+        sys.exit(1)
     return total_time
 
 
 if __name__ == "__main__":
+    sys.excepthook = ut.exception_handler
     logger = ut.get_logger()
     print(binary_search_helper(int(sys.argv[1]), logger, model_name=sys.argv[2]))

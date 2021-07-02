@@ -13,6 +13,11 @@ import torchvision
 from PIL import Image
 import time
 
+def exception_handler(exception_type, exception, traceback):
+    # All your trace are belong to us!
+    # your format
+    print ("%s: %s" % (exception_type.__name__, exception))
+
 class timer:
     """
     Tracks timing
@@ -149,12 +154,9 @@ def get_device_details():
 
     """
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    #print("Using device:", device)
-    device_name = "cpu"
+    device_name = "~"
     if device.type == "cuda":
         device_name = torch.cuda.get_device_name(0)
-        #print("Device: ", device_name)
-    #print()
     return device, device_name
 
 
@@ -269,7 +271,7 @@ def get_gpu_details(
 
     """
     power = 2
-    if memory_size_format == "MB":
+    if memory_size_format == "KB":
         power = 2
     elif memory_size_format == "GB":
         power = 3
@@ -282,15 +284,17 @@ def get_gpu_details(
         free_mem = info.free / (1024 ** power)
         if print_details:
             log_message = (
-                '\t' + state
-                + "\tTotal:\t{0} {1}".format(total_mem, memory_size_format)
-                + "\tUsed:\t{0} {1}".format(used_mem, memory_size_format)
-                + "\tFree:\t{0} {1}".format(free_mem, memory_size_format)
+                "\tTotal:\t{:09.3f} {}".format(total_mem, memory_size_format)
+                + "\tUsed:\t{:09.3f} {}".format(used_mem, memory_size_format)
+                + "\tFree:\t{:09.3f} {}".format(free_mem, memory_size_format)
+                + "(" 
+                + state
+                + ")"
                 + "\n"
             )
-            #logger.info(log_message)
+            logger.info(log_message)
         return total_mem, used_mem, free_mem
-    return None
+    return 0, 0, 0
 
 
 def random_image(dimension):
