@@ -29,7 +29,7 @@ def maximum_unacceptable_dimension_2n(device, logger, model, model_name="EDSR"):
 
     """
     print()
-    print("Getting maximum unacceptable dimension which is a power of two...\n")
+    print("\nGetting maximum unacceptable dimension which is a power of two...\n")
     result1 = {}
     last_dimension = 0
     dimension = 2
