@@ -231,13 +231,21 @@ def do_binary_search(model_name="EDSR"):
     )
     print("\nMaximum acceptable dimension: {}\n".format(max_dim))
     ut.clear_cuda(None, None)
+    # For batch processing
     config = toml.load("../batch_processing.toml")
     config["end_patch_dimension"] = max_dim
     f = open("../batch_processing.toml", "w")
     toml.dump(config, f)
-    file = open("temp_max_dim.txt", "w")
-    file.write("max_dim:" + str(max_dim))
-    file.close()
+    # for linear search
+    config = toml.load("../config.toml")
+    config["max_dim"] = max_dim
+    f = open("../config.toml", "w")
+    toml.dump(config, f)
+# =============================================================================
+#     file = open("temp_max_dim.txt", "w")
+#     file.write("max_dim:" + str(max_dim))
+#     file.close()
+# =============================================================================
 
 
 if __name__ == "__main__":

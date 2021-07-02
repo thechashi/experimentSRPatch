@@ -8,3 +8,4 @@ dimension = 40
 scale = 4
 start_shave = 3
 rrdb_path = "saved_models/rrdb_gen_500.pt"
+max_dim = 250

@@ -5,3 +5,6 @@ experimentsrpatch/__pycache__/
 experimentsrpatch/saved_models/*.pt
 *.pyc
 experimentsrpatch/downloads/
+experimentsrpatch/temp_max_dim.txt
+*.log
+experimentsrpatch/*.png
