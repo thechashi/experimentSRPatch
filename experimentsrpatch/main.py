@@ -1,4 +1,12 @@
 """
+SR Patch Experiment
+-------------------
+Experiment different patch and batch size for different SR models
+
+Usage:
+    main.py run_process <process_name>
+"""
+"""
 Experiment on SR models
 """
 import os
@@ -8,7 +16,7 @@ import linearsearch as ls
 import binarysearch as bs
 import modelloader as md
 import utilities as ut
-
+from docopt import docopt
 
 def main():
     """
@@ -39,4 +47,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    arguments = docopt(__doc__)
+    print(arguments)
+    #main()
