@@ -1,3 +1,29 @@
 INFO:employee:Created Employee: John Smith - John.Smith@email.com
 INFO:employee:Created Employee: Corey Schafer - Corey.Schafer@email.com
 INFO:employee:Created Employee: Jane Doe - Jane.Doe@email.com
+INFO:__main__:Created Employee: John Smith - John.Smith@email.com
+INFO:__main__:Created Employee: Corey Schafer - Corey.Schafer@email.com
+INFO:__main__:Created Employee: Jane Doe - Jane.Doe@email.com
+INFO:__main__:Created Employee: John Smith - John.Smith@email.com
+INFO:__main__:Created Employee: Corey Schafer - Corey.Schafer@email.com
+INFO:__main__:Created Employee: Jane Doe - Jane.Doe@email.com
+INFO:__main__:Created Employee: John Smith - John.Smith@email.com
+INFO:__main__:Created Employee: Corey Schafer - Corey.Schafer@email.com
+INFO:__main__:Created Employee: Jane Doe - Jane.Doe@email.com
+INFO:__main__:hello from the other side
+INFO:__main__:hello from the other side
+INFO:__main__:hello from the other side
+INFO:__main__:hello from the other side
+INFO:__main__:hello from the other side
+INFO:__main__:Hello from terminal
+INFO:__main__:log2
+INFO:__main__:log3
+INFO:__main__:log4
+INFO:__main__:Hello from terminal
+INFO:__main__:log2
+INFO:__main__:log3
+INFO:__main__:log4
+INFO:__main__:Hello from terminal
+INFO:__main__:log2
+INFO:__main__:log3
+INFO:__main__:log4

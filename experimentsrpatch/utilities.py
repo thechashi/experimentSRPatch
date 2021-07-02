@@ -11,7 +11,7 @@ from datetime import date
 import toml
 import torchvision
 from PIL import Image
-
+import time
 
 class timer:
     """
@@ -98,7 +98,7 @@ def test_image():
     img.show()
 
 
-def get_logger():
+def get_logger(stream = False):
     """
     Get logger
 
@@ -112,22 +112,20 @@ def get_logger():
     today = "_".join(str(today).split("-"))
     logfile_name = "results/logs_" + today + ".log"
 
-    logger = logging.getLogger(__name__)
-    logger.propagate = False
-    logger.setLevel(logging.DEBUG)
+    logger = logging.getLogger(__name__+str(time.time()))
+    logger.setLevel(logging.INFO)
 
     file_formatter = logging.Formatter("%(asctime)s:%(levelname)s:%(message)s")
-    stream_formatter = logging.Formatter("%(levelname)s:%(message)s")
-
     file_handler = logging.FileHandler(logfile_name)
-    # file_handler.setLevel(logging.ERROR)
+    #file_handler.setLevel(logging.ERROR)
     file_handler.setFormatter(file_formatter)
-
-    stream_handler = logging.StreamHandler()
-    stream_handler.setFormatter(stream_formatter)
-
     logger.addHandler(file_handler)
-    logger.addHandler(stream_handler)
+    
+    if stream:
+        stream_formatter = logging.Formatter("%(levelname)s:%(message)s")
+        stream_handler = logging.StreamHandler()
+        stream_handler.setFormatter(stream_formatter)
+        logger.addHandler(stream_handler)
     
     return logger
 
@@ -498,4 +496,9 @@ def save_csv(
 
 if __name__ == "__main__":
     # print(random_image(32))
-    test_image()
+    #test_image()
+    l = get_logger(stream=False)
+    l.info('Hello from terminal')
+    l2 = get_logger(stream=True)
+    l2.info('log2')
+    print(l2 == l)

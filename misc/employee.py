@@ -1,5 +1,4 @@
 import logging
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -30,5 +29,6 @@ class Employee:
 
 
 emp_1 = Employee("John", "Smith")
+print(emp_1.first)
 emp_2 = Employee("Corey", "Schafer")
 emp_3 = Employee("Jane", "Doe")

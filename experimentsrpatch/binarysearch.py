@@ -187,9 +187,11 @@ def do_binary_search(model_name="EDSR"):
     None.
 
     """
+    # Prints the header banner
     banner = pyfiglet.figlet_format("Binary Search: " + model_name)
     print(banner)
     
+    # Loads banner
     logger = ut.get_logger()
     device = ut.get_device_type()
     # device information
