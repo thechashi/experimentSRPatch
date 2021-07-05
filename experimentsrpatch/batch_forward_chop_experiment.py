@@ -36,7 +36,7 @@ def batch_range_checker(
     Parameters
     ----------
     max_dim : int
-        biggest patch dimension test.
+        biggest patch dimension to test.
     min_dim : int
         smallest patch dimension to test.
     patch_shave : int
@@ -81,17 +81,7 @@ def batch_range_checker(
         result = [d]
         error_type = [0]
         time_stats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-# =============================================================================
-#         used_memory = 0
-#         last_used_memory = 0
-# =============================================================================
         while True:
-# =============================================================================
-#             _, used_memory, _ = ut.get_gpu_details(device, None, logger, print_details=False)
-#             leaked_memory = used_memory - last_used_memory if used_memory > last_used_memory else 0
-#             t.set_description('Patch Dimension: {:04}x{:04} | Batch Size: {:04} | Used Memory: {:09.3f} | Leaked Memory: {:09.3f}'.format(d, d, batch_start, used_memory, leaked_memory ))
-#             used_memory = leaked_memory
-# =============================================================================
             command = (
                 "python3 "
                 + "helper_batch_patch_forward_chop.py "
@@ -126,21 +116,6 @@ def batch_range_checker(
                     )
                 elif p.returncode == 1:
                     pass
-# =============================================================================
-#                     logger.error(
-#                         "\tDimension: {}, Batch size : {}. CUDA out of memory".format(d, batch_start)
-#                     )
-# =============================================================================
-# =============================================================================
-#                 ut.get_gpu_details(
-#                     device, state="GPU stat after batch size error:", logger=logger
-#                 )
-# =============================================================================
-# =============================================================================
-#                 print("\tError: Dimension: {}, Batch size : {}".format(d, batch_start))
-#                 print(p.stderr.decode())
-# =============================================================================
-                
                 batch_start -= 1
                 break
         result += [batch_start]
