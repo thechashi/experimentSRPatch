@@ -1,12 +1,11 @@
-img_path = "data/t7.jpg"
+img_path = "data/test5.jpg"
 device = "cuda"
 model = "RRDB"
 shave = 10
 scale = 4
-single_patch_batch_size_start = 1
+single_patch_batch_size_start = 14
 end_patch_dimension = 80
 start_patch_dimension = 40
 dim_gap = 4
 run = 1
 single_patch_dimension = 45
-

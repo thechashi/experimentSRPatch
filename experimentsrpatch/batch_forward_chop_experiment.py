@@ -13,7 +13,7 @@ from tqdm import trange
 import pyfiglet
 import matplotlib.pyplot as plt
 import utilities as ut
-
+import batch_predictor as bp
 
 np.set_printoptions(suppress=True)
 
@@ -77,11 +77,36 @@ def batch_range_checker(
         last_used_memory = used_memory
         if d < max_dim and batch_start == 0:
             raise Exception("Batch execution error. Highest patch dimension couldn't be processed in a batch of size 1.")
-        print('\n')
+# =============================================================================
+#         print('\n')
+# =============================================================================
         result = [d]
         error_type = [0]
         time_stats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        jump = 0
+# =============================================================================
+#         print('Length: ', len(full_result))
+# =============================================================================
+        if len(full_result) >= 3:
+            last_three_results = full_result[-3:]
+# =============================================================================
+#             print(last_three_results)
+# =============================================================================
+            if last_three_results[2][1] - last_three_results[1][1] >= 2 \
+                and \
+                last_three_results[1][1] - last_three_results[0][1] >= 2:
+# =============================================================================
+#                     print('Predicting batch size...')
+# =============================================================================
+                    predicted_batch = int(bp.predict3(tuple(last_three_results[0][0:2]),
+                                tuple(last_three_results[1][0:2]), 
+                                tuple(last_three_results[2][0:2])))
+                    batch_start = predicted_batch
+                    jump = 1
         while True:
+# =============================================================================
+#             print('Batch start: ', batch_start)
+# =============================================================================
             command = (
                 "python3 "
                 + "helper_batch_patch_forward_chop.py "
@@ -106,6 +131,17 @@ def batch_range_checker(
                 #print(p.stdout.decode().split("\n")[0:10])
                 time_stats = list(map(float, p.stdout.decode().split("\n")[0:10]))
                 batch_start += 1
+                if jump == -1:
+# =============================================================================
+#                     print('Jump fault solved. starting new patch...')
+# =============================================================================
+                    batch_start -= 1
+                    break
+                elif jump == 1:
+# =============================================================================
+#                     print('Jump worked!')
+# =============================================================================
+                    jump = 0
             else:
                 # raise Exception(p.stderr.decode())
                 if p.returncode == 2:
@@ -117,10 +153,19 @@ def batch_range_checker(
                 elif p.returncode == 1:
                     pass
                 batch_start -= 1
-                break
+                if jump == 0:
+                    break
+                else:
+# =============================================================================
+#                     print('Jump fault. Decreasing...')
+# =============================================================================
+                    jump = -1
         result += [batch_start]
         result += error_type
         result += time_stats
+# =============================================================================
+#         print(result)
+# =============================================================================
 
         full_result.append(result)
     return full_result
@@ -423,7 +468,7 @@ if __name__ == "__main__":
     date = "_".join(date.split(":"))
     folder_name = "results/" + "batch_forward_chop_experiment" + "/" + date
     os.mkdir(folder_name)
-    
+        
     if process == "batch_range":
         config = toml.load("../batch_processing.toml")
         max_dim = int(config["end_patch_dimension"])
@@ -435,6 +480,24 @@ if __name__ == "__main__":
         dim_gap = int(config["dim_gap"])
         model_name = config["model"]
         device = config["device"]
+        
+# =============================================================================
+#         loader_config = toml.loader('../bfce_loader_config.toml')
+#         if loader_config["status"] == "ongoing":
+#             print("There was an unfinished batch range experiment. Would you like to continue it?")
+#             print("Press Y/y for YES and N/n for No:")
+#             reply=input()
+#             if reply == 'Y' or 'y':
+#                 temp_file_name = loader_config["temp_file_name"]
+#                 max_dim  = int(loader_config["last_patch_dim"])
+#                 shave = int(loader_config["shave"])
+#                 scale = int(loader_config["scale"])
+#                 img_path = loader_config["img_path"]
+#                 batch_size_start = int(loader_config["last_valid_batch_size"])
+#                 dim_gap = int(loader_config["dim_gap"])
+#                 model_name = loader_config["model_name"]
+#                 device = loader_config["device"]
+# =============================================================================
         
         img = ut.load_image(img_path)
         c, h, w = img.shape

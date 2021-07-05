@@ -12,6 +12,7 @@ import toml
 import torchvision
 from PIL import Image
 import time
+from pathlib import Path
 
 def exception_handler(exception_type, exception, traceback):
     # All your trace are belong to us!
@@ -207,6 +208,30 @@ def load_grayscale_image(img_path, show_img=False):
         plt.imshow(img.permute((1, 2, 0)))
     img = img[2:, :, :].float()
     return img
+
+def npz_loader(input_file):
+    """
+    :param input_file: directory of images
+    :return: image: returns the image matrix
+    """
+    input_file = Path(input_file)
+    image_paths = [".jpg", ".png", ".jpeg", ".gif"]
+    image_array_paths = [".npy", ".npz"]
+    file_name = str(input_file.name).lower()
+    is_file = "." + ".".join(file_name.split(".")[1:])
+    if is_file in image_paths:
+        image = Image.open(input_file)
+        image = np.array(image.convert(mode="F"))
+    if is_file == ".npz":
+        image = np.load(input_file)
+        image = image.f.arr_0  # Load data from inside file.
+    elif is_file in image_array_paths:
+        image = np.load(input_file)
+    
+    image = image[np.newaxis, :, :]
+    image = torch.from_numpy(image)
+    return image
+
 def save_image(image, output_folder, input_height, input_width, scale):
     """
     Saves image
