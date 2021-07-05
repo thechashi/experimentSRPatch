@@ -18,7 +18,8 @@ if __name__ == "__main__":
     if model_name == "EDSR":
         input_image = ut.load_image(img_path)
     elif model_name == "RRDB":
-        input_image = ut.load_grayscale_image(img_path)
+        #input_image = ut.load_grayscale_image(img_path)
+        input_image = ut.npz_loader(img_path)
     else:
         raise Exception('{} : Unknown model...'.format(model_name))
         

@@ -498,9 +498,14 @@ if __name__ == "__main__":
 #                 model_name = loader_config["model_name"]
 #                 device = loader_config["device"]
 # =============================================================================
+        c, h, w = 0, 0, 0
+        if model_name not in ["RRDB"]:
+            img = ut.load_image(img_path)
+            c, h, w = img.shape
+        else:
+            img = ut.npz_loader(img_path)
+            c, h, w = img.shape
         
-        img = ut.load_image(img_path)
-        c, h, w = img.shape
         
         if max_dim > h or max_dim > w:
             raise Exception('end_patch_dimension in batch_processing.toml is greater than input image dimension. Use a bigger input image or change end_patch_dimension. ')
