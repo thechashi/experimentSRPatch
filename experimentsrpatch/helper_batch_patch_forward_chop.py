@@ -20,7 +20,7 @@ if __name__ == "__main__":
     elif model_name == "RRDB":
         #input_image = ut.load_grayscale_image(img_path)
         input_image = ut.npz_loader(img_path)
-        print(input_image.shape)
+        #print(input_image.shape)
     else:
         raise Exception('{} : Unknown model...'.format(model_name))
         

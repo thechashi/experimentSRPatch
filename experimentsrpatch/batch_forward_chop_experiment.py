@@ -83,36 +83,21 @@ def batch_range_checker(
         last_used_memory = used_memory
         if d < max_dim and batch_start == 0:
             raise Exception("Batch execution error. Highest patch dimension couldn't be processed in a batch of size 1.")
-# =============================================================================
-#         print('\n')
-# =============================================================================
         result = [d]
         error_type = [0]
         time_stats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         jump = 0
-# =============================================================================
-#         print('Length: ', len(full_result))
-# =============================================================================
         if len(full_result) >= 3:
             last_three_results = full_result[-3:]
-# =============================================================================
-#             print(last_three_results)
-# =============================================================================
             if last_three_results[2][1] - last_three_results[1][1] >= 2 \
                 and \
                 last_three_results[1][1] - last_three_results[0][1] >= 2:
-# =============================================================================
-#                     print('Predicting batch size...')
-# =============================================================================
                     predicted_batch = int(bp.predict3(tuple(last_three_results[0][0:2]),
                                 tuple(last_three_results[1][0:2]), 
                                 tuple(last_three_results[2][0:2])))
                     batch_start = predicted_batch
                     jump = 1
         while True:
-# =============================================================================
-#             print('Batch start: ', batch_start)
-# =============================================================================
             command = (
                 "python3 "
                 + "helper_batch_patch_forward_chop.py "
@@ -134,22 +119,15 @@ def batch_range_checker(
             )
             p = subprocess.run(command, shell=True, capture_output=True)
             if p.returncode == 0:
-                #print(p.stdout.decode().split("\n")[0:10])
                 time_stats = list(map(float, p.stdout.decode().split("\n")[0:10]))
                 batch_start += 1
+                logger.info('Patch Dimension {} - Batch Size {}...'.format(d, batch_start ))
                 if jump == -1:
-# =============================================================================
-#                     print('Jump fault solved. starting new patch...')
-# =============================================================================
                     batch_start -= 1
                     break
                 elif jump == 1:
-# =============================================================================
-#                     print('Jump worked!')
-# =============================================================================
                     jump = 0
             else:
-                # raise Exception(p.stderr.decode())
                 if p.returncode == 2:
                     error_type[0] = 1
                 if p.returncode == 2:
@@ -162,16 +140,10 @@ def batch_range_checker(
                 if jump == 0:
                     break
                 else:
-# =============================================================================
-#                     print('Jump fault. Decreasing...')
-# =============================================================================
                     jump = -1
         result += [batch_start]
         result += error_type
         result += time_stats
-# =============================================================================
-#         print(result)
-# =============================================================================
         
         full_result.append(result)
         pd.DataFrame([result]).to_csv(temp_file, header=False, index= False)

@@ -198,6 +198,7 @@ def batch_forward_chop(
         output_image, tuple of timings.
 
     """
+    logger = ut.get_logger()
     total_patches = len(patch_list)
     if batch_size > total_patches:
         sys.exit(2)
@@ -213,6 +214,7 @@ def batch_forward_chop(
     cuda_clear_time = 0
     merging_time = 0
     for start in range(1, total_patches + 1, batch_size):
+        info = ""
         try:
             batch_creating_timer = ut.timer()
             batch = []
@@ -223,28 +225,35 @@ def batch_forward_chop(
                 batch.append(patch_list[p][4])
             batch_creating_time += batch_creating_timer.toc()
         
+            torch.cuda.synchronize()
             cpu_to_gpu_timer = ut.timer()
             batch = torch.stack(batch).to(device)
+            torch.cuda.synchronize()
             cpu_to_gpu_time += cpu_to_gpu_timer.toc()
+            info = info + "CPU 2 GPU Starts: " + str(cpu_to_gpu_timer.t0)
         
             with torch.no_grad():
 # =============================================================================
 #                 print(start, end)
 #                 print(sys.getsizeof(batch))
 # =============================================================================
+                torch.cuda.synchronize()
                 start_time = time.time()
                 sr_batch = model(batch)
+                torch.cuda.synchronize()
                 end_time = time.time()
                 processing_time = end_time - start_time
                 total_EDSR_time += processing_time
-        
+                info = info + "\tModel Starts: " + str(start_time)
+            
+            torch.cuda.synchronize()
             gpu_to_cpu_timer = ut.timer()
             sr_batch = sr_batch.to("cpu")
             torch.cuda.synchronize()
             gpu_to_cpu_time += gpu_to_cpu_timer.toc()
-        
+            info = info + "\tGPU 2 CPU Starts: " + str(gpu_to_cpu_timer.t0)
             _, _, patch_height, patch_width = sr_batch.size()
-        
+            logger.info(info)
             batch_id = 0
             merging_timer = ut.timer()
             for p in range(start, end):
