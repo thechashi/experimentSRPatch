@@ -1,4 +1,4 @@
-img_path = "data/slices/1.npz"
+img_path = "data/slices/10.npz"
 device = "cuda"
 model = "RRDB"
 shave = 10
