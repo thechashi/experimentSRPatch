@@ -240,12 +240,14 @@ def do_binary_search(model_name="EDSR", start_dim=2):
     config["end_patch_dimension"] = max_dim
     f = open("../batch_processing.toml", "w")
     toml.dump(config, f)
+    f.close()
 
     # for linear search
     config = toml.load("../config.toml")
     config["max_dim"] = max_dim
     f = open("../config.toml", "w")
     toml.dump(config, f)
+    f.close()
 
 
 if __name__ == "__main__":
@@ -253,4 +255,4 @@ if __name__ == "__main__":
     sys.excepthook = ut.exception_handler
 
     config = toml.load("../batch_processing.toml")
-    do_binary_search(config["model"])
+    do_binary_search(config["model"], start_dim=128)
