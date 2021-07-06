@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import time
 import toml
+import shutil
 from tqdm import tqdm
 from tqdm import trange
 import pyfiglet
@@ -29,6 +30,7 @@ def batch_range_checker(
     batch_start=1,
     model_name = "EDSR",
     device="cuda",
+    temp_file_path=None
 ):
     """
     Checks maximum valid batch size for every patch dimension from min_dim to amx_dim
@@ -66,6 +68,10 @@ def batch_range_checker(
     banner = pyfiglet.figlet_format("Batch Experiment: " + model_name)
     
     print(banner)
+    
+    temp_file = open(temp_file_path, "a")
+
+    
     full_result = []
     t = trange(max_dim, min_dim - 1, -dim_gap)
     used_memory = 0
@@ -166,8 +172,22 @@ def batch_range_checker(
 # =============================================================================
 #         print(result)
 # =============================================================================
-
+        
         full_result.append(result)
+        pd.DataFrame([result]).to_csv(temp_file, header=False, index= False)
+        loader_config = toml.load('../loader_config.toml')
+        loader_config["batch_range_experiment"]["last_patch_dim"] = d
+        loader_config["batch_range_experiment"]["last_valid_batch"] = batch_start
+        loader_config_file = open('../loader_config.toml', "w")
+        toml.dump(loader_config, loader_config_file)
+        loader_config_file.close()
+        
+    temp_file.close()
+    loader_config = toml.load('../loader_config.toml')
+    loader_config["batch_range_experiment"]["status"] = "finished"
+    loader_config_file = open('../loader_config.toml', "w")
+    toml.dump(loader_config, loader_config_file)
+    loader_config_file.close()
     return full_result
 
 
@@ -451,7 +471,7 @@ def save_stat_csv(
 
     """
     file = open(folder_name + "/" + file_name, "a")
-    full_result.to_csv(file)
+    full_result.to_csv(file, index = False)
     file.close()
     meta_data_path = folder_name + "/" + "gpustat.json"
     gpu_command = "gpustat --json > " + meta_data_path
@@ -464,10 +484,12 @@ if __name__ == "__main__":
     logger = ut.get_logger()
     process = sys.argv[1] if len(sys.argv) > 1 else "batch_range"
     
-    date = "_".join(str(time.ctime()).split())
-    date = "_".join(date.split(":"))
-    folder_name = "results/" + "batch_forward_chop_experiment" + "/" + date
-    os.mkdir(folder_name)
+# =============================================================================
+#     date = "_".join(str(time.ctime()).split())
+#     date = "_".join(date.split(":"))
+#     folder_name = "results/" + "batch_forward_chop_experiment" + "/" + date
+#     os.mkdir(folder_name)
+# =============================================================================
         
     if process == "batch_range":
         config = toml.load("../batch_processing.toml")
@@ -481,23 +503,94 @@ if __name__ == "__main__":
         model_name = config["model"]
         device = config["device"]
         
-# =============================================================================
-#         loader_config = toml.loader('../bfce_loader_config.toml')
-#         if loader_config["status"] == "ongoing":
-#             print("There was an unfinished batch range experiment. Would you like to continue it?")
-#             print("Press Y/y for YES and N/n for No:")
-#             reply=input()
-#             if reply == 'Y' or 'y':
-#                 temp_file_name = loader_config["temp_file_name"]
-#                 max_dim  = int(loader_config["last_patch_dim"])
-#                 shave = int(loader_config["shave"])
-#                 scale = int(loader_config["scale"])
-#                 img_path = loader_config["img_path"]
-#                 batch_size_start = int(loader_config["last_valid_batch_size"])
-#                 dim_gap = int(loader_config["dim_gap"])
-#                 model_name = loader_config["model_name"]
-#                 device = loader_config["device"]
-# =============================================================================
+        full_result_columns = ["Patch dimnesion",
+                               "Maximum Batch Size",
+                               "Batch Error",
+                               "Total Patches",
+                               "Patch list creation time",
+                                "Upsampling time",
+                                "CPU to GPU",
+                                "GPU to CPU",
+                                "Batch creation",
+                                "CUDA clear time",
+                                "Merging time",
+                                "Total batch processing time",
+                                "Total time"]
+        
+
+        
+        
+        loader_config = toml.load('../loader_config.toml')
+        
+        if loader_config["batch_range_experiment"]["status"] == "finished":
+            date = "_".join(str(time.ctime()).split())
+            date = "_".join(date.split(":"))
+            folder_name = "results/" + "batch_forward_chop_experiment" + "/" + date
+            os.mkdir(folder_name)
+            temp_file_name = folder_name + "/temp_maximum_batch_size_per_dimension.csv";
+            full_result_df = pd.DataFrame(columns=full_result_columns)
+            temp_file = open(temp_file_name, "a")
+            full_result_df.to_csv(temp_file)
+            temp_file.close()
+            loader_config["batch_range_experiment"]["status"] = "ongoing"
+            loader_config["batch_range_experiment"]["temp_file_name"] = temp_file_name
+            loader_config["batch_range_experiment"]["folder_name"] = folder_name
+            loader_config["batch_range_experiment"]["last_patch_dim"] = max_dim 
+            loader_config["batch_range_experiment"]["min_dim"] = min_dim
+            loader_config["batch_range_experiment"]["last_valid_batch"] = batch_size_start
+            loader_config["batch_range_experiment"]["shave"] = shave
+            loader_config["batch_range_experiment"]["scale"]  = scale
+            loader_config["batch_range_experiment"]["dim_gap"] = dim_gap
+            loader_config["batch_range_experiment"]["model_name"] = model_name
+            loader_config["batch_range_experiment"]["device"] = device
+            loader_config["batch_range_experiment"]["img_path"] = img_path
+        else:
+            # load every variable to pass
+            print('\nUnfinished batch experiment detected. Would you like to continue it?\n')
+            reply = input('Press  Y/y for Yes and N/n for No:\n')
+            if reply == 'Y' or reply == 'y':
+                print('Continuing unfinished process...\n')
+                temp_file_name = loader_config["batch_range_experiment"]["temp_file_name"]
+                folder_name = loader_config["batch_range_experiment"]["folder_name"]
+                min_dim = int(loader_config["batch_range_experiment"]["min_dim"])
+                shave = int(loader_config["batch_range_experiment"]["shave"])
+                scale = int(loader_config["batch_range_experiment"]["scale"])
+                img_path = loader_config["batch_range_experiment"]["img_path"]
+                batch_size_start = int(loader_config["batch_range_experiment"]["last_valid_batch"])
+                dim_gap = int(loader_config["batch_range_experiment"]["dim_gap"])
+                max_dim = int(loader_config["batch_range_experiment"]["last_patch_dim"]) - dim_gap
+                model_name = loader_config["batch_range_experiment"]["model_name"]
+                device = loader_config["batch_range_experiment"]["device"]
+            else:
+                folder_name = loader_config["batch_range_experiment"]["folder_name"]
+                shutil.rmtree(folder_name)
+                print('Starting new process...\n')
+                date = "_".join(str(time.ctime()).split())
+                date = "_".join(date.split(":"))
+                folder_name = "results/" + "batch_forward_chop_experiment" + "/" + date
+                os.mkdir(folder_name)
+                temp_file_name = folder_name + "/temp_maximum_batch_size_per_dimension.csv";
+                full_result_df = pd.DataFrame(columns=full_result_columns)
+                temp_file = open(temp_file_name, "a")
+                full_result_df.to_csv(temp_file)
+                temp_file.close()
+                loader_config["batch_range_experiment"]["status"] = "ongoing"
+                loader_config["batch_range_experiment"]["temp_file_name"] = temp_file_name
+                loader_config["batch_range_experiment"]["folder_name"] = folder_name
+                loader_config["batch_range_experiment"]["last_patch_dim"] = max_dim 
+                loader_config["batch_range_experiment"]["min_dim"] = min_dim
+                loader_config["batch_range_experiment"]["last_valid_batch"] = batch_size_start
+                loader_config["batch_range_experiment"]["shave"] = shave
+                loader_config["batch_range_experiment"]["scale"]  = scale
+                loader_config["batch_range_experiment"]["dim_gap"] = dim_gap
+                loader_config["batch_range_experiment"]["model_name"] = model_name
+                loader_config["batch_range_experiment"]["device"] = device
+                loader_config["batch_range_experiment"]["img_path"] = img_path
+
+        loader_config_file =open('../loader_config.toml', "w")
+        toml.dump(loader_config, loader_config_file)
+        loader_config_file.close()
+
         c, h, w = 0, 0, 0
         if model_name not in ["RRDB"]:
             img = ut.load_image(img_path)
@@ -519,24 +612,25 @@ if __name__ == "__main__":
             batch_start=batch_size_start,
             logger=logger,
             img_path=img_path,
-            model_name=model_name
+            model_name=model_name,
+            temp_file_path = temp_file_name
         )
         full_result = pd.DataFrame(full_result)
-        full_result.columns = ["Patch dimnesion",
-                               "Maximum Batch Size",
-                               "Batch Error",
-                               "Total Patches",
-                               "Patch list creation time",
-                                "Upsampling time",
-                                "CPU to GPU",
-                                "GPU to CPU",
-                                "Batch creation",
-                                "CUDA clear time",
-                                "Merging time",
-                                "Total batch processing time",
-                                "Total time"]
-
-
+        full_result.columns = full_result_columns
+        file_name="maximum_batch_size_per_dimension.csv"
+        
+        date = "_".join(str(time.ctime()).split())
+        date = "_".join(date.split(":"))
+        new_folder_name = "results/" + "batch_forward_chop_experiment" + "/" + date
+        os.rename(folder_name, new_folder_name)
+        folder_name = new_folder_name
+        
+        temp_file_path = folder_name + "/temp_maximum_batch_size_per_dimension.csv"
+        actual_file_path = folder_name + "/" + file_name
+        os.rename(temp_file_path, actual_file_path)
+        meta_data_path = folder_name + "/" + "gpustat.json"
+        gpu_command = "gpustat --json > " + meta_data_path
+        subprocess.run(gpu_command, shell=True)
         device_name = "CPU"
         total_memory = "~"
         device = device
@@ -547,20 +641,24 @@ if __name__ == "__main__":
             )
 
         print("\nSaving stats...\n")
-        save_stat_csv(
-            full_result=full_result,
-            img_height=h,
-            img_width=w,
-            patch_dim=str(max_dim) + "-" + str(min_dim),
-            patch_shave=shave,
-            scale=scale,
-            model=model_name,
-            device=device,
-            file_name="maximum_batch_size_per_dimension.csv",
-            folder_name = folder_name,
-            date = date
-        )
-
+# =============================================================================
+#         save_stat_csv(
+#             full_result=full_result,
+#             img_height=h,
+#             img_width=w,
+#             patch_dim=str(max_dim) + "-" + str(min_dim),
+#             patch_shave=shave,
+#             scale=scale,
+#             model=model_name,
+#             device=device,
+#             file_name=file_name,
+#             folder_name = folder_name,
+#             date = date
+#         )
+# =============================================================================
+        #file_path = folder_name +  "/" + file_name
+        # read csv
+        full_result = pd.read_csv(actual_file_path)
         print("\nPlotting result...\n")
         if device == "cuda":
             plt_title = "Model: {} | GPU: {} | Memory: {} MB".format(

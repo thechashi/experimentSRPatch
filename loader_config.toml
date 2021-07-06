@@ -1,0 +1,13 @@
+[batch_range_experiment]
+status = "ongoing"
+temp_file_name = "results/batch_forward_chop_experiment/Tue_Jul_6_14_52_57_2021/temp_maximum_batch_size_per_dimension.csv"
+last_patch_dim = 169
+min_dim = 40
+last_valid_batch = 1
+shave = 10
+scale = 4
+dim_gap = 4
+model_name = "RRDB"
+device = "cuda"
+img_path = "data/slices/1.npz"
+folder_name = "results/batch_forward_chop_experiment/Tue_Jul_6_14_52_57_2021"
