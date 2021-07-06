@@ -230,7 +230,7 @@ def batch_forward_chop(
             batch = torch.stack(batch).to(device)
             torch.cuda.synchronize()
             cpu_to_gpu_time += cpu_to_gpu_timer.toc()
-            info = info + "CPU 2 GPU Starts: " + str(cpu_to_gpu_timer.t0)
+            info = info + "C2G Starts: " + str(cpu_to_gpu_timer.t0) + "C2G total: " + str(cpu_to_gpu_time)
         
             with torch.no_grad():
 # =============================================================================
@@ -244,14 +244,14 @@ def batch_forward_chop(
                 end_time = time.time()
                 processing_time = end_time - start_time
                 total_EDSR_time += processing_time
-                info = info + "\tModel Starts: " + str(start_time)
+                info = info + "\tModel Starts: " + str(start_time) + "Model total: " + str(total_EDSR_time)
             
             torch.cuda.synchronize()
             gpu_to_cpu_timer = ut.timer()
             sr_batch = sr_batch.to("cpu")
             torch.cuda.synchronize()
             gpu_to_cpu_time += gpu_to_cpu_timer.toc()
-            info = info + "\tGPU 2 CPU Starts: " + str(gpu_to_cpu_timer.t0)
+            info = info + "\tGPU 2 CPU Starts: " + str(gpu_to_cpu_timer.t0) + "G2C total: " + str(gpu_to_cpu_time)
             _, _, patch_height, patch_width = sr_batch.size()
             logger.info(info)
             batch_id = 0
