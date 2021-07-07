@@ -1,6 +1,6 @@
-img_path = "data/test2.jpg"
+img_path = "data/slices/10.npz"
 device = "cuda"
-model = "EDSR"
+model = "RRDB"
 shave = 10
 scale = 4
 single_patch_batch_size_start = 1
