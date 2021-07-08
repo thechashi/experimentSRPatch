@@ -11,6 +11,7 @@ import modelloader as md
 import utilities as ut
 import subprocess
 
+
 def create_patch_list(
     patch_list, img, dim, shave, scale, channel, img_height, img_width
 ):
@@ -224,19 +225,25 @@ def batch_forward_chop(
             for p in range(start, end):
                 batch.append(patch_list[p][4])
             batch_creating_time += batch_creating_timer.toc()
-        
+
             torch.cuda.synchronize()
             cpu_to_gpu_timer = ut.timer()
             batch = torch.stack(batch).to(device)
             torch.cuda.synchronize()
             cpu_to_gpu_time += cpu_to_gpu_timer.toc()
-            info = info + "C2G Starts: " + str(cpu_to_gpu_timer.t0) + "C2G total: " + str(cpu_to_gpu_time)
-        
+            info = (
+                info
+                + "C2G Starts: "
+                + str(cpu_to_gpu_timer.t0)
+                + "C2G total: "
+                + str(cpu_to_gpu_time)
+            )
+
             with torch.no_grad():
-# =============================================================================
-#                 print(start, end)
-#                 print(sys.getsizeof(batch))
-# =============================================================================
+                # =============================================================================
+                #                 print(start, end)
+                #                 print(sys.getsizeof(batch))
+                # =============================================================================
                 torch.cuda.synchronize()
                 start_time = time.time()
                 sr_batch = model(batch)
@@ -244,14 +251,26 @@ def batch_forward_chop(
                 end_time = time.time()
                 processing_time = end_time - start_time
                 total_EDSR_time += processing_time
-                info = info + "\tModel Starts: " + str(start_time) + "Model total: " + str(total_EDSR_time)
-            
+                info = (
+                    info
+                    + "\tModel Starts: "
+                    + str(start_time)
+                    + "Model total: "
+                    + str(total_EDSR_time)
+                )
+
             torch.cuda.synchronize()
             gpu_to_cpu_timer = ut.timer()
             sr_batch = sr_batch.to("cpu")
             torch.cuda.synchronize()
             gpu_to_cpu_time += gpu_to_cpu_timer.toc()
-            info = info + "\tGPU 2 CPU Starts: " + str(gpu_to_cpu_timer.t0) + "G2C total: " + str(gpu_to_cpu_time)
+            info = (
+                info
+                + "\tGPU 2 CPU Starts: "
+                + str(gpu_to_cpu_timer.t0)
+                + "G2C total: "
+                + str(gpu_to_cpu_time)
+            )
             _, _, patch_height, patch_width = sr_batch.size()
             logger.info(info)
             batch_id = 0
@@ -267,7 +286,7 @@ def batch_forward_chop(
                     patch_list[p][2][2] : patch_list[p][2][3],
                 ]
                 batch_id += 1
-        
+
             merging_time += merging_timer.toc()
             cuda_clear_timer = ut.timer()
             ut.clear_cuda(batch, None)
@@ -276,7 +295,7 @@ def batch_forward_chop(
             ut.clear_cuda(batch, None)
             raise Exception(err)
     model = model.to("cpu")
-    
+
     if print_timer:
         print("Total upsampling time: {}\n".format(total_EDSR_time))
         print("Total CPU to GPU shifting time: {}\n".format(cpu_to_gpu_time))
@@ -352,7 +371,7 @@ def patch_batch_forward_chop(
         model = md.load_rrdb(device=device)
         model.eval()
     else:
-        raise Exception('{} : Unknown model...'.format(model_type))
+        raise Exception("{} : Unknown model...".format(model_type))
     total_timer = ut.timer()
     channel, height, width = input_image.shape
 
@@ -400,8 +419,9 @@ def patch_batch_forward_chop(
     del model
     return output_image
 
+
 def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
-    if model_name == 'RRDB':
+    if model_name == "RRDB":
         input_image = ut.load_grayscale_image(img_path)
         c, h, w = input_image.shape
         patch_list = {}
@@ -416,13 +436,22 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
             )
             dimension = min_dim
         output, _ = batch_forward_chop(
-        patch_list, batch_size, c, h, w, dimension, shave, scale, model=model, device=device
+            patch_list,
+            batch_size,
+            c,
+            h,
+            w,
+            dimension,
+            shave,
+            scale,
+            model=model,
+            device=device,
         )
         output = output.int()
-        output_folder = 'output_images'
+        output_folder = "output_images"
         ut.save_image(output, output_folder, h, w, scale)
         pass
-    elif model_name == 'EDSR':
+    elif model_name == "EDSR":
         input_image = ut.load_image(img_path)
         c, h, w = input_image.shape
         patch_list = {}
@@ -437,13 +466,23 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
             )
             dimension = min_dim
         output, _ = batch_forward_chop(
-        patch_list, batch_size, c, h, w, dimension, shave, scale, model=model, device=device
+            patch_list,
+            batch_size,
+            c,
+            h,
+            w,
+            dimension,
+            shave,
+            scale,
+            model=model,
+            device=device,
         )
         output = output.int()
-        output_folder = 'output_images'
+        output_folder = "output_images"
         ut.save_image(output, output_folder, h, w, scale)
     else:
-        print('Unknown model...')
+        print("Unknown model...")
+
 
 if __name__ == "__main__":
     # Arguments
@@ -501,7 +540,7 @@ if __name__ == "__main__":
     # fig = plt.figure(figsize=(4*h, 4*w))
     ax.imshow(output.permute((1, 2, 0)))
     fig.savefig(
-        "output_images/"+"4x_" + img_path.split('/')[1],
+        "output_images/" + "4x_" + img_path.split("/")[1],
         bbox_inches="tight",
         transparent=True,
         pad_inches=0,

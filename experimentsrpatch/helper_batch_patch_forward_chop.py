@@ -15,18 +15,24 @@ if __name__ == "__main__":
     print_result = bool(int(sys.argv[6])) if len(sys.argv) > 6 else False
     device = str(sys.argv[7]) if len(sys.argv) > 7 else "cuda"
     model_name = str(sys.argv[8]) if len(sys.argv) > 8 else "RRDB"
-    
+
     if model_name == "EDSR":
         input_image = ut.load_image(img_path)
     elif model_name == "RRDB":
-        #input_image = ut.load_grayscale_image(img_path)
+        # input_image = ut.load_grayscale_image(img_path)
         input_image = ut.npz_loader(img_path)
-        #print(input_image.shape)
+        # print(input_image.shape)
     else:
-        raise Exception('{} : Unknown model...'.format(model_name))
-        
+        raise Exception("{} : Unknown model...".format(model_name))
+
     output_image = bpfc.patch_batch_forward_chop(
-        input_image, dimension, shave, scale, batch_size, model_type=model_name, print_timer=True
+        input_image,
+        dimension,
+        shave,
+        scale,
+        batch_size,
+        model_type=model_name,
+        print_timer=True,
     )
     if print_result:
         np.savez("results/outputx4.npz", output_image)
