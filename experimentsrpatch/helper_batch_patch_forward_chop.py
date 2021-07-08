@@ -2,6 +2,7 @@
 Helper for batch forward chopping experiment
 """
 import sys
+import numpy as np
 import batch_patch_forward_chop as bpfc
 import utilities as ut
 
@@ -28,5 +29,7 @@ if __name__ == "__main__":
         input_image, dimension, shave, scale, batch_size, model_type=model_name, print_timer=True
     )
     if print_result:
-        c, h, w = input_image.shape
-        ut.save_image(output_image, "results/", h, w, scale)
+        np.savez("results/outputx4.npz", output_image)
+        np.save("results/outputx4", output_image)
+        #c, h, w = input_image.shape
+        #ut.save_image(output_image, "results/", h, w, scale)
