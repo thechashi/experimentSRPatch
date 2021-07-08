@@ -405,8 +405,8 @@ def patch_batch_forward_chop(
     )
 
     total_batch_processing_time = total_batch_processing_timer.toc()
-
-    output_image = output_image.int()
+    if model_type == "EDSR":
+        output_image = output_image.int()
     total_time = total_timer.toc()
     print(len(patch_list))
     if print_timer:
