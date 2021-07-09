@@ -101,20 +101,21 @@ def batch_range_checker(
             command = (
                 "python3 "
                 + "helper_batch_patch_forward_chop.py "
+                + " --img_path="
                 + img_path
-                + " "
+                + " --dimension="
                 + str(d)
-                + " "
+                + " --shave="
                 + str(patch_shave)
-                + " "
+                + " --batch_size="
                 + str(batch_start)
-                + " "
+                + " --scale="
                 + str(scale)
-                + " "
+                + " --print_result="
                 + str(0)
-                + " "
+                + " --device="
                 + device
-                + " "
+                + " --model_name="
                 + model_name 
             )
             p = subprocess.run(command, shell=True, capture_output=True)
