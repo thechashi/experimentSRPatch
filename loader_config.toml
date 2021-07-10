@@ -1,13 +1,13 @@
 [batch_range_experiment]
 status = "finished"
-temp_file_name = "results/batch_forward_chop_experiment/Fri_Jul_9_13_05_18_2021/temp_maximum_batch_size_per_dimension.csv"
-folder_name = "results/batch_forward_chop_experiment/Fri_Jul_9_13_05_18_2021"
-last_patch_dim = 40
-min_dim = 40
-last_valid_batch = 92
+temp_file_name = "results/batch_forward_chop_experiment/Fri_Jul_9_15_26_06_2021/temp_maximum_batch_size_per_dimension.csv"
+folder_name = "results/batch_forward_chop_experiment/Fri_Jul_9_15_26_06_2021"
+last_patch_dim = 42
+min_dim = 42
+last_valid_batch = 83
 shave = 10
 scale = 4
-dim_gap = 2
+dim_gap = 4
 model_name = "EDSR"
 device = "cuda"
 img_path = "data/test5.jpg"

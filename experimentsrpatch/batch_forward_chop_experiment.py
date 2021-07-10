@@ -503,7 +503,7 @@ if __name__ == "__main__":
             temp_file_name = folder_name + "/temp_maximum_batch_size_per_dimension.csv";
             full_result_df = pd.DataFrame(columns=full_result_columns)
             temp_file = open(temp_file_name, "a")
-            full_result_df.to_csv(temp_file)
+            full_result_df.to_csv(temp_file, index= False)
             temp_file.close()
             loader_config["batch_range_experiment"]["status"] = "ongoing"
             loader_config["batch_range_experiment"]["temp_file_name"] = temp_file_name
@@ -543,7 +543,7 @@ if __name__ == "__main__":
                 folder_name = "results/" + "batch_forward_chop_experiment" + "/" + date
                 os.mkdir(folder_name)
                 temp_file_name = folder_name + "/temp_maximum_batch_size_per_dimension.csv";
-                full_result_df = pd.DataFrame(columns=full_result_columns)
+                full_result_df = pd.DataFrame(columns=full_result_columns, index=False)
                 temp_file = open(temp_file_name, "a")
                 full_result_df.to_csv(temp_file)
                 temp_file.close()
