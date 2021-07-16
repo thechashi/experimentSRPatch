@@ -65,19 +65,27 @@ def batch_range_checker(
         stats of the experiment.
 
     """
-    banner = pyfiglet.figlet_format("Batch Experiment: " + model_name)
 
+    # Banner for the process
+    banner = pyfiglet.figlet_format("Batch Experiment: " + model_name)
     print(banner)
 
-    # temporary file for saving stats of a batch size
+    # Temporary file for saving stats of every batch size
     temp_file = open(temp_file_path, "a")
 
+    # For saving all results
     full_result = []
+
+    # to show memory usages
     used_memory = 0
     last_used_memory = 0
 
+    # tqdm range
     tqdm_range = trange(max_dim, min_dim - 1, -dim_gap)
+
     for patch_dim in tqdm_range:
+
+        # Show memory status in the tqdm bar
         _, used_memory, _ = ut.get_gpu_details(
             device, None, logger, print_details=False
         )
@@ -91,17 +99,29 @@ def batch_range_checker(
             )
         )
         last_used_memory = used_memory
+
+        # If the model couldn't process the maximum dimension in one size batch then stop
         if patch_dim < max_dim and batch_start == 0:
             raise Exception(
                 "Batch execution error. Highest patch dimension couldn't be \
                 processed in a batch of size 1."
             )
+
+        # Result of current patch
         result = [patch_dim]
         error_type = [0]
         time_stats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+        # Flag for jumping batch sizes when we can predict
         jump = 0
+
+        # Start predicting when we have more than three samples
         if len(full_result) >= 3:
+
+            # Take last three stat rows to predict
             last_three_results = full_result[-3:]
+
+            # Prediction condition
             if (
                 last_three_results[2][1] - last_three_results[1][1] >= 2
                 and last_three_results[1][1] - last_three_results[0][1] >= 2
@@ -114,8 +134,13 @@ def batch_range_checker(
                     )
                 )
                 batch_start = predicted_batch
+                # Jumping batches: Flag ON
                 jump = 1
+
+        # Call subprocess for each batch size for the current patch dimension
         while True:
+
+            # Subprocess
             command = (
                 "python3 "
                 + "helper_batch_patch_forward_chop.py "
@@ -137,20 +162,41 @@ def batch_range_checker(
                 + model_name
             )
             p = subprocess.run(command, shell=True, capture_output=True)
+
+            # Valid batch size
             if p.returncode == 0:
+
+                # Get the results of the current batch size
                 time_stats = list(map(float, p.stdout.decode().split("\n")[0:10]))
+
+                # Increase batch size
                 batch_start += 1
+
+                # Logging current valid batch size for the given patch dimension
                 logger.info(
                     "Patch Dimension {} - Batch Size {}...".format(
                         patch_dim, batch_start
                     )
                 )
+
+                # The batch size was a predicted batch size but wasn't valid
+                # so the flag turned to -1 and now the reduced batch size is valid
+                # so break
                 if jump == -1:
+                    # Reducing batch size to start from the last valid batch
+                    # size for the next patch dimension
                     batch_start -= 1
                     break
+
+                # The batch size was a predicted valid batch size
                 elif jump == 1:
+                    # Resetting the flag
                     jump = 0
+
+            # Invalid batch size
             else:
+
+                # Batch size greater than total batches
                 if p.returncode == 2:
                     error_type[0] = 1
                 if p.returncode == 2:
@@ -160,19 +206,35 @@ def batch_range_checker(
                             patch_dim, batch_start
                         )
                     )
+
+                # CUDA memory error
                 elif p.returncode == 1:
                     pass
+
+                # Reducing batch size for this or next iteration depends on jump value
                 batch_start -= 1
+
+                # It wasn't a predicted batch size so go to next iteration
                 if jump == 0:
                     break
+
+                # It was a predicted batch size so don't break and change the jump  flag
                 else:
+                    # Stay like this till we get a valid batch size while reducing
                     jump = -1
+
+        # Saving result for the last executed patch dimension
         result += [batch_start]
         result += error_type
         result += time_stats
 
+        # Appending to full result
         full_result.append(result)
+
+        # Saving each stat outcome for every patch dimension
         pd.DataFrame([result]).to_csv(temp_file, header=False, index=False)
+
+        # Saving checkpoint to resume
         loader_config = toml.load("../loader_config.toml")
         loader_config["batch_range_experiment"]["last_patch_dim"] = patch_dim
         loader_config["batch_range_experiment"]["last_valid_batch"] = batch_start
@@ -180,12 +242,17 @@ def batch_range_checker(
         toml.dump(loader_config, loader_config_file)
         loader_config_file.close()
 
+    # Closing temporary csv file of stats
     temp_file.close()
+
+    # Changing current process status
     loader_config = toml.load("../loader_config.toml")
     loader_config["batch_range_experiment"]["status"] = "finished"
     loader_config_file = open("../loader_config.toml", "w")
     toml.dump(loader_config, loader_config_file)
     loader_config_file.close()
+
+    # Returning result
     return full_result
 
 
@@ -782,7 +849,10 @@ if __name__ == "__main__":
         # Showing plot
         plt.show()
 
+    # Batch_details experiment: produce stats for all possible batch sizes
     elif process == "batch_details":
+
+        # Loading paramters for the batch_details process
         config = toml.load("../batch_processing.toml")
         run = int(config["run"])
         dim = int(config["single_patch_dimension"])
@@ -793,9 +863,19 @@ if __name__ == "__main__":
         model = config["model"]
         device = config["device"]
 
-        img = ut.load_image(img_path)
-        c, h, w = img.shape
+        # Channels, height, and width of the image
+        c, h, w = 0, 0, 0
 
+        if model not in ["RRDB"]:
+            # Loads normal JPEG image
+            img = ut.load_image(img_path)
+            c, h, w = img.shape
+        else:
+            # Loads special image for models like RRDB...
+            img = ut.npz_loader(img_path)
+            c, h, w = img.shape
+
+        # Batch details experiment
         full_result = single_patch_highest_batch_checker(
             dim,
             shave,
@@ -806,7 +886,10 @@ if __name__ == "__main__":
             batch_size_start=batch_size_start,
         )
 
+        # Converting full result into a dataframe
         full_result = pd.DataFrame(full_result)
+
+        # Dataframe's column
         full_result.columns = [
             "Batch size",
             "Total Patches",
@@ -832,6 +915,8 @@ if __name__ == "__main__":
         8 - Total batch processing time
         9 - Total time
         """
+
+        # Saving full result
         save_stat_csv(
             full_result,
             h,
@@ -845,6 +930,8 @@ if __name__ == "__main__":
             folder_name=folder_name,
             date=date,
         )
+
+        # Plotting the full result
         process_stats_of_single_patch_batch(
             full_result, h, w, dim, shave, scale, model=model, device=device, date=date
         )
