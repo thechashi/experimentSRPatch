@@ -292,14 +292,25 @@ def single_patch_highest_batch_checker(
         stats of the experiment.
 
     """
+
+    # Exception flag to stop the process
     exception = False
+
+    # Container for saving the stats
     full_result = []
+
     print("Processing...\n")
     while exception == False:
+
+        # Result of one batch size
         result = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         print("\nBatch size: {}\n".format(batch_size_start))
+
+        # Run for every possible batch size for the given numebr of runs
         for r in tqdm(range(run)):
             temp = [batch_size_start]
+
+            # Subprocess
             command = (
                 "python3 "
                 + "helper_batch_patch_forward_chop.py "
@@ -320,13 +331,17 @@ def single_patch_highest_batch_checker(
                 + " --model_name="
                 + model_name
             )
-
             p = subprocess.run(command, shell=True, capture_output=True)
+
+            # Valid batch size
             if p.returncode == 0:
-                # print(p.stdout.decode())
                 temp += list(map(float, p.stdout.decode().split("\n")[1:10]))
                 result = [result[i] + temp[i] for i in range(len(temp))]
+
+            # Invalid batch size
             else:
+
+                # Batch size greater than total number of patches
                 if p.returncode == 2:
                     logger.error(
                         "\tDimension: {}, Batch size : {}. Batch size larger \
@@ -334,27 +349,37 @@ def single_patch_highest_batch_checker(
                             patch_dim, batch_size_start
                         )
                     )
+
+                # CUDA memory error
                 elif p.returncode == 1:
                     logger.error(
                         "\tDimension: {}, Batch size : {}. CUDA out of memory".format(
                             patch_dim, batch_size_start
                         )
                     )
-                # raise Exception(p.stderr.decode())
+                # Logging error
                 logger.info(
                     "Error: Dimension - {}, Batch size - {}".format(
                         patch_dim, batch_size_start
                     )
                 )
+
+                # Logging gpu stats after batch error
                 ut.get_gpu_details(
                     device, state="GPU stat after batch size error:", logger=logger
                 )
+
+                # Raise falg as the batch size is not valid
                 exception = True
                 break
+
+        # Mean the result if there was no exception for the given batch size
         if exception == False:
             result = np.array(result) / run
             full_result.append(result)
             batch_size_start += 1
+
+    # Return full result
     print("Process finished!\n")
     return full_result
 
@@ -385,6 +410,7 @@ def plot_stat(x_data, y_data, x_label, y_label, plt_title, png_prefix, date):
     None.
 
     """
+
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.title(plt_title)
@@ -435,6 +461,7 @@ def process_stats_of_single_patch_batch(
     None.
 
     """
+
     model_name = model
     device_name = "CPU"
     total_memory = "~"
@@ -450,11 +477,6 @@ def process_stats_of_single_patch_batch(
         )
     else:
         plt_title = "Model: {} | Device: {}".format(model_name, "CPU")
-
-    # =============================================================================
-    #     date = "_".join(str(time.ctime()).split())
-    #     date = "_".join(date.split(":"))
-    # =============================================================================
 
     x_data, y_data = (
         np.array(full_result.iloc[:, 0].values).flatten(),
@@ -563,9 +585,12 @@ def save_stat_csv(
     None.
 
     """
+    # Saves results
     file = open(folder_name + "/" + file_name, "a")
     full_result.to_csv(file, index=False)
     file.close()
+
+    # Saves gpu information
     meta_data_path = folder_name + "/" + "gpustat.json"
     gpu_command = "gpustat --json > " + meta_data_path
     subprocess.run(gpu_command, shell=True)
