@@ -3,6 +3,7 @@ import experimentsrpatch.utilities as ut
 
 def create_custom_npz(input_file, height, width):
     image = np.load(input_file)
+    #print(type(image.f.arr_0.dtype))
     image = image.f.arr_0
     image = np.resize(image, (height, width))
     np.savez("10.npz", image)

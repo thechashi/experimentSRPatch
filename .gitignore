@@ -10,3 +10,5 @@ experimentsrpatch/temp_max_dim.txt
 experimentsrpatch/*.png
 tests/results
 tests/test_outputs
+experimentsrpatch/output_images/
+experimentsrpatch/results/

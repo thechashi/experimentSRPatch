@@ -29,8 +29,6 @@ def total_patch(dimension, height, width, shave=10, scale=4):
     """
     min_size = dimension * dimension
     size = height * width
-    h_tracker = []
-    w_trakcer = []
     h_size = 0
     w_size = 0
     count = 0

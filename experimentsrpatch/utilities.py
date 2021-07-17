@@ -1,5 +1,4 @@
 """Utilities"""
-import gc
 import time
 import torch
 import numpy as np
@@ -11,13 +10,27 @@ from datetime import date
 import toml
 import torchvision
 from PIL import Image
-import time
 from pathlib import Path
 
+
 def exception_handler(exception_type, exception, traceback):
-    # All your trace are belong to us!
-    # your format
-    print ("%s: %s" % (exception_type.__name__, exception))
+    """
+    Customized exception message
+
+    Parameters
+    ----------
+    exception_type : str
+        type of exception.
+    exception : str
+        exception message.
+
+    Returns
+    -------
+    None.
+
+    """
+    print("%s: %s" % (exception_type.__name__, exception))
+
 
 class timer:
     """
@@ -91,12 +104,32 @@ class timer:
         """
         self.acc = 0
 
+
 def get_device_type():
+    """
+    Get device type
+
+    Returns
+    -------
+    str
+        type of device.
+
+    """
     if torch.cuda.is_available():
         return "cuda"
     else:
         return "cpu"
+
+
 def test_image():
+    """
+    Creates, shows and saves random image
+
+    Returns
+    -------
+    None.
+
+    """
     data = np.random.randint(0, 255, size=(104, 104, 3), dtype=np.uint8)
     print(data.shape)
     img = Image.fromarray(data, "RGB")
@@ -104,7 +137,7 @@ def test_image():
     img.show()
 
 
-def get_logger(logger_suffix = None, logfile_name=None, stream = False):
+def get_logger(logger_suffix=None, logfile_name=None, stream=False):
     """
     Get logger
 
@@ -116,7 +149,7 @@ def get_logger(logger_suffix = None, logfile_name=None, stream = False):
     """
     # Creating logger
     logger_suffix = logger_suffix if logger_suffix != None else str(time.time())
-    logger = logging.getLogger(__name__+logger_suffix)
+    logger = logging.getLogger(__name__ + logger_suffix)
     logger.setLevel(logging.INFO)
 
     # Logfile name by date
@@ -124,21 +157,21 @@ def get_logger(logger_suffix = None, logfile_name=None, stream = False):
         today = date.today().strftime("%b-%d-%Y")
         today = "_".join(str(today).split("-"))
         logfile_name = "results/logs_" + today + ".log"
-    
+
     # Logfile creation
     file_formatter = logging.Formatter("%(asctime)s:%(levelname)s:%(message)s")
     file_handler = logging.FileHandler(logfile_name)
-    #file_handler.setLevel(logging.ERROR)
+    # file_handler.setLevel(logging.ERROR)
     file_handler.setFormatter(file_formatter)
     logger.addHandler(file_handler)
-    
+
     if stream:
         # Logging on console
         stream_formatter = logging.Formatter("%(levelname)s:%(message)s")
         stream_handler = logging.StreamHandler()
         stream_handler.setFormatter(stream_formatter)
         logger.addHandler(stream_handler)
-    
+
     return logger
 
 
@@ -185,6 +218,7 @@ def load_image(img_path, show_img=False):
     img = img.float()
     return img
 
+
 def load_grayscale_image(img_path, show_img=False):
     """
     Loads image and returns it
@@ -209,10 +243,21 @@ def load_grayscale_image(img_path, show_img=False):
     img = img[2:, :, :].float()
     return img
 
+
 def npz_loader(input_file):
     """
-    :param input_file: directory of images
-    :return: image: returns the image matrix
+    Loads npz or image file. Used for RRDB.
+
+    Parameters
+    ----------
+    input_file : str
+        input file path.
+
+    Returns
+    -------
+    image : torch tensor
+        3D torch tensor.
+
     """
     input_file = Path(input_file)
     image_paths = [".jpg", ".png", ".jpeg", ".gif"]
@@ -227,12 +272,13 @@ def npz_loader(input_file):
         image = image.f.arr_0  # Load data from inside file.
     elif is_file in image_array_paths:
         image = np.load(input_file)
-    
+
     image = image[np.newaxis, :, :]
     image = torch.from_numpy(image)
     return image
 
-def save_image(image, output_folder, input_height, input_width, scale):
+
+def save_image(image, output_folder, input_height, input_width, scale, output_file_name = "outputx4"):
     """
     Saves image
 
@@ -256,7 +302,7 @@ def save_image(image, output_folder, input_height, input_width, scale):
     """
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
-    filename = "outputx4" + "_" + date
+    filename = output_file_name + "_" + date
     img_path = output_folder + "/" + filename + ".png"
     fig = plt.figure(
         figsize=((scale * input_height) / 1000, (scale * input_width) / 1000),
@@ -312,7 +358,7 @@ def get_gpu_details(
                 "\tTotal:\t{:09.3f} {}".format(total_mem, memory_size_format)
                 + "\tUsed:\t{:09.3f} {}".format(used_mem, memory_size_format)
                 + "\tFree:\t{:09.3f} {}".format(free_mem, memory_size_format)
-                + "(" 
+                + "("
                 + state
                 + ")"
                 + "\n"
@@ -531,9 +577,9 @@ def save_csv(
 
 if __name__ == "__main__":
     # print(random_image(32))
-    #test_image()
+    # test_image()
     l = get_logger(stream=False)
-    l.info('Hello from terminal')
+    l.info("Hello from terminal")
     l2 = get_logger(stream=True)
-    print(l2.info('log2'))
+    print(l2.info("log2"))
     print(l2 == l)

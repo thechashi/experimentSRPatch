@@ -9,7 +9,6 @@ import torch
 import matplotlib.pyplot as plt
 import modelloader as md
 import utilities as ut
-import subprocess
 
 
 def create_patch_list(
@@ -421,8 +420,9 @@ def patch_batch_forward_chop(
 
 
 def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
+    file_name = img_path.split('/')[-1].split('.')[0]
     if model_name == "RRDB":
-        input_image = ut.load_grayscale_image(img_path)
+        input_image = ut.npz_loader(img_path)
         c, h, w = input_image.shape
         patch_list = {}
         create_patch_list(patch_list, input_image, dimension, shave, scale, c, h, w)
@@ -449,8 +449,7 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
         )
         output = output.int()
         output_folder = "output_images"
-        ut.save_image(output, output_folder, h, w, scale)
-        pass
+        ut.save_image(output, output_folder, h, w, scale, output_file_name=file_name+"_x4")
     elif model_name == "EDSR":
         input_image = ut.load_image(img_path)
         c, h, w = input_image.shape
@@ -479,7 +478,7 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
         )
         output = output.int()
         output_folder = "output_images"
-        ut.save_image(output, output_folder, h, w, scale)
+        ut.save_image(output, output_folder, h, w, scale, output_file_name=file_name+"_x4")
     else:
         print("Unknown model...")
 
