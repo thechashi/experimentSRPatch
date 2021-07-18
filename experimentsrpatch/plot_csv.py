@@ -37,8 +37,8 @@ def plot_csv(filepath, x_column_index, y_column_index):
 
     # X axis - Patch dimension, Y axis - Maximum batch size
     x_data, y_data = (
-        np.array(full_result.iloc[::8, x_column_index].values).flatten(),
-        np.array(full_result.iloc[::8, y_column_index].values).flatten(),
+        np.array(full_result.iloc[::4, x_column_index].values).flatten(),
+        np.array(full_result.iloc[::4, y_column_index].values).flatten(),
     )
 
     # X and y labels

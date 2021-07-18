@@ -18,7 +18,7 @@ import utilities as ut
 @click.option('--model_name', default="RRDB", help="Name of the model")
 def main(img_path, dimension, shave, batch_size, scale, print_result, device, model_name):
     """
-    Takes an imgae path and model name and produce the high resolution version 
+    Takes an image path and model name and produce the high resolution version 
     of that image with the help of that model
     """
     if model_name == "EDSR":
