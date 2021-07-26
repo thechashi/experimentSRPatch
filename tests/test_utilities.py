@@ -10,5 +10,43 @@ def test_get_logger():
     assert logger_3.info('My log') == None
     assert logger_1 != logger_2
     assert logger_4 == logger_5
+
+def test_exception_handler():
+    assert True
+
+def test_get_device_type():
+    assert True
     
+def test_test_image():
+    assert True
+    
+def test_get_device_details():
+    assert True
+    
+def test_load_image():
+    assert True
+    
+def test_load_grayscale_image():
+    assert True
+    
+def test_npz_loader():
+    assert True
+    
+def test_save_image():
+    assert True
+
+def test_get_gpu_details():
+    assert True
+    
+def test_random_image():
+    assert True
+    
+def test_clear_cuda():
+    assert True
+    
+def test_get_mean_std():
+    assert True
+    
+def test_plot_data():
+    assert True
     

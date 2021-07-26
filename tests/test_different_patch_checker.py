@@ -1,1 +1,1 @@
-# -*- coding: utf-8 -*-
+import experimentsrpatch.different_patch_checker

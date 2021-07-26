@@ -1,2 +1,4 @@
-# -*- coding: utf-8 -*-
+import experimentsrpatch.custom_upsampler
 
+def test_main():
+    assert True
