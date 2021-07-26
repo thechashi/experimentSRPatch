@@ -620,7 +620,7 @@ if __name__ == "__main__":
 
         # CSV columns for the stats of the batch_range experiment
         full_result_columns = [
-            "Patch dimnesion",
+            "Patch Dimension",
             "Maximum Batch Size",
             "Batch Error",
             "Total Patches",

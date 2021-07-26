@@ -61,7 +61,7 @@ def plot_csv(filepath, x_column_index, y_column_index):
 @click.command()
 @click.option("--csv_path", default="results/2080ti.csv", help="Path of the csv file")
 @click.option("--x_column_index", default=1, help="Data for X axis")  
-@click.option("--y_column_index", default=12, help="Data for y axis")    
+@click.option("--y_column_index", default=6, help="Data for y axis")    
 def main(csv_path, x_column_index, y_column_index):
     """
     

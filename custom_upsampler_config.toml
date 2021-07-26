@@ -1,0 +1,7 @@
+stat_csv_path = "results/2080ti.csv"
+model_name = "RRDB"
+img_path = "data/slices/0.npz"
+shave = 10
+scale = 4
+patch_dim_column = 1
+max_batch_size_column = 2
