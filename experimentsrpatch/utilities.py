@@ -1,6 +1,7 @@
 """Utilities"""
 import time
 import torch
+import math
 import numpy as np
 import matplotlib.pyplot as plt
 from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
@@ -12,7 +13,38 @@ import torchvision
 from PIL import Image
 from pathlib import Path
 
+def patch_count(img_height, img_width, patch_dimension, patch_shave):
+    """
+    Calculates total numebr of patches from an image with given patch dimension and shave value
 
+    Parameters
+    ----------
+    img_height : int
+        image height.
+    img_width : int
+        image width.
+    patch_dimension : int
+        patch dimesnion.
+    patch_shave : int
+        overlapping value.
+
+    Returns
+    -------
+    total_patches : int
+        total patch count.
+
+    """
+    actual_width = patch_dimension - 2* patch_shave - 0
+    last_start_h = img_height - patch_dimension 
+    total_rows = math.ceil(last_start_h/actual_width) + 1
+    last_start_w = img_width - patch_dimension
+    total_columns =  math.ceil(last_start_w/actual_width) + 1
+# =============================================================================
+#     print(total_rows)
+#     print(total_columns)
+# =============================================================================
+    total_patches = total_rows * total_columns
+    return total_patches
 def exception_handler(exception_type, exception, traceback):
     """
     Customized exception message
@@ -578,8 +610,9 @@ def save_csv(
 if __name__ == "__main__":
     # print(random_image(32))
     # test_image()
-    l = get_logger(stream=False)
-    l.info("Hello from terminal")
-    l2 = get_logger(stream=True)
-    print(l2.info("log2"))
-    print(l2 == l)
+    #l = get_logger(stream=False)
+    #l.info("Hello from terminal")
+    #l2 = get_logger(stream=True)
+    #print(l2.info("log2"))
+    #print(l2 == l)
+    pass

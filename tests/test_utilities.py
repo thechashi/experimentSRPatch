@@ -49,4 +49,6 @@ def test_get_mean_std():
     
 def test_plot_data():
     assert True
-    
+
+def test_patch_count():
+    assert True

@@ -45,10 +45,10 @@ def create_patch_list(
     row_count = 0
     column_count = 0
 
-    # =============================================================================
-    #     print('LR Image size: {}x{}'.format(img_height, img_width))
-    #     print('SR Image size: {}x{}'.format(img_height*scale, img_width*scale))
-    # =============================================================================
+# =============================================================================
+#     print('LR Image size: {}x{}'.format(img_height, img_width))
+#     print('SR Image size: {}x{}'.format(img_height*scale, img_width*scale))
+# =============================================================================
     new_i_s = 0
     for patch_height_start in range(0, img_height, dim - 2 * shave):
         row_count += 1
@@ -101,11 +101,11 @@ def create_patch_list(
             if patch_height_end == img_height:
                 bottom_crop = 0
 
-            # =============================================================================
-            #             print('Patch no: {}, Row: {}, Column: {}\n'.format(patch_count, row_count, column_count))
-            #             print('{}x{}:{}x{}'.format(patch_height_start, patch_height_end, patch_width_start, patch_width_end ))
-            #             print('SR Patch size: {}x{}'.format(dim*scale, dim*scale))
-            # =============================================================================
+# =============================================================================
+#             print('Patch no: {}, Row: {}, Column: {}\n'.format(patch_count, row_count, column_count))
+#             print('{}x{}:{}x{}'.format(patch_height_start, patch_height_end, patch_width_start, patch_width_end ))
+#             print('SR Patch size: {}x{}'.format(dim*scale, dim*scale))
+# =============================================================================
 
             h_s, h_e, w_s, w_e = (
                 0 + top_crop,
@@ -117,10 +117,10 @@ def create_patch_list(
             new_j_e = new_j_e + w_e - w_s
             patch_crop_positions = [h_s, h_e, w_s, w_e]
             SR_positions = [new_i_s, new_i_e, new_j_s, new_j_e]
-            # =============================================================================
-            #             print('Cropped patch position: {}-{}x{}-{}'.format(h_s, h_e, w_s, w_e))
-            #             print('SR output position: {}-{}x{}-{}\n\n'.format(new_i_s, new_i_e, new_j_s, new_j_e))
-            # =============================================================================
+# =============================================================================
+#             print('Cropped patch position: {}-{}x{}-{}'.format(h_s, h_e, w_s, w_e))
+#             print('SR output position: {}-{}x{}-{}\n\n'.format(new_i_s, new_i_e, new_j_s, new_j_e))
+# =============================================================================
             patch_details = (
                 row_count,
                 column_count,
@@ -143,6 +143,7 @@ def create_patch_list(
 
     if patch_count == 0:
         raise Exception("Shave size too big for given patch dimension")
+    #print(len(patch_list))
     return patch_count
 
 
@@ -485,15 +486,16 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
 
 if __name__ == "__main__":
     # Arguments
-    img_path = sys.argv[1] if len(sys.argv) > 1 else "data/test5.jpg"
-    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 297
+    img_path = sys.argv[1] if len(sys.argv) > 1 else "data/slices/10.npz"
+    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 585
     shave = int(sys.argv[3]) if len(sys.argv) > 3 else 10
     batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 1
     print_result = bool(int(sys.argv[5])) if len(sys.argv) > 5 else True
     device = str(sys.argv[6]) if len(sys.argv) > 6 else "cuda"
 
     # Reading image
-    img = torchvision.io.read_image(img_path)
+    #img = torchvision.io.read_image(img_path)
+    img = ut.npz_loader(img_path)
     c, h, w = img.shape
     # img = img.reshape((1, c, h, w))
     # plt.imshow(img[0].permute((1,2,0)))
@@ -506,44 +508,47 @@ if __name__ == "__main__":
     patch_list_processing_time = patch_list_timer.toc()
     print("Total patch list creating time: {}".format(patch_list_processing_time))
     # Loading model
-    model = md.load_edsr(device=device)
-    model.eval()
-
-    min_dim = min(dimension, h, w)
-
-    if min_dim != dimension:
-        print(
-            "\nPatch dimension is greater than the input image's minimum dimension. Changing patch dimension to input image's minimum dimension... \n "
-        )
-        dimension = min_dim
-    # Batch Processing
-    batch_processing_start = time.time()
-    output, _ = batch_forward_chop(
-        patch_list, batch_size, c, h, w, dimension, shave, 4, model=model, device="cuda"
-    )
-    batch_processing_end = time.time()
-
-    print(
-        "Total batch_processing_time: {}".format(
-            batch_processing_end - batch_processing_start
-        )
-    )
-
-    # Saving output image
-    output = output.int()
-    save_start = time.time()
-    fig = plt.figure(figsize=((4 * h) / 1000, (4 * w) / 1000), dpi=100, frameon=False)
-    ax = plt.Axes(fig, [0.0, 0.0, 1.0, 1.0])
-    ax.set_axis_off()
-    fig.add_axes(ax)
-    # fig = plt.figure(figsize=(4*h, 4*w))
-    ax.imshow(output.permute((1, 2, 0)))
-    fig.savefig(
-        "output_images/" + "4x_" + img_path.split("/")[1],
-        bbox_inches="tight",
-        transparent=True,
-        pad_inches=0,
-        dpi=1000,
-    )
-    save_end = time.time()
-    save_time = save_end - save_start
+# =============================================================================
+#     model = md.load_edsr(device=device)
+#     model.eval()
+# 
+#     min_dim = min(dimension, h, w)
+# 
+#     if min_dim != dimension:
+#         print(
+#             "\nPatch dimension is greater than the input image's minimum dimension. Changing patch dimension to input image's minimum dimension... \n "
+#         )
+#         dimension = min_dim
+#     # Batch Processing
+#     batch_processing_start = time.time()
+#     output, _ = batch_forward_chop(
+#         patch_list, batch_size, c, h, w, dimension, shave, 4, model=model, device="cuda"
+#     )
+#     batch_processing_end = time.time()
+# 
+#     print(
+#         "Total batch_processing_time: {}".format(
+#             batch_processing_end - batch_processing_start
+#         )
+#     )
+# 
+#     # Saving output image
+#     output = output.int()
+#     save_start = time.time()
+#     fig = plt.figure(figsize=((4 * h) / 1000, (4 * w) / 1000), dpi=100, frameon=False)
+#     ax = plt.Axes(fig, [0.0, 0.0, 1.0, 1.0])
+#     ax.set_axis_off()
+#     fig.add_axes(ax)
+#     # fig = plt.figure(figsize=(4*h, 4*w))
+#     ax.imshow(output.permute((1, 2, 0)))
+#     fig.savefig(
+#         "output_images/" + "4x_" + img_path.split("/")[1],
+#         bbox_inches="tight",
+#         transparent=True,
+#         pad_inches=0,
+#         dpi=1000,
+#     )
+#     save_end = time.time()
+#     save_time = save_end - save_start
+# 
+# =============================================================================

@@ -3,6 +3,7 @@ Decides the best patch size and batch size from a given csv file
 """
 import pandas as pd 
 import toml
+import math
 import batch_patch_forward_chop as bpfc
 import utilities as ut
 def main(stat_path, model_name, img_path, shave, scale):
@@ -14,6 +15,8 @@ def main(stat_path, model_name, img_path, shave, scale):
     stat_df['Per Batch Processing Time'] = per_batch_processing_time
     print(stat_df.columns)
     print(stat_df)
+
+        
     maximum_patch_size = stat_df['Patch dimnesion'].max()
     min_total_processing_time = stat_df['Total time'].min()
     idx_min_total_processing_time = stat_df['Total time'].idxmin()
@@ -33,7 +36,18 @@ def main(stat_path, model_name, img_path, shave, scale):
         temp = h
         h = w
         w = temp
-        
+    dimensions = stat_df.loc[:, ['Patch dimnesion', 'Maximum Batch Size', 'Per Batch Processing Time']].values
+    total_patches_from_img = []
+    for d in range(len(dimensions)): 
+        img_patch_count = ut.patch_count(h, w, dimensions[d][0], shave)
+        img_batch_count = img_patch_count/dimensions[d][1]
+        img_processing_time = img_batch_count * dimensions[d][2]
+        total_patches_from_img.append([dimensions[d][0], dimensions[d][1], img_patch_count, math.ceil(img_batch_count), img_processing_time])
+    print(total_patches_from_img[269])
+    img_df = pd.DataFrame(total_patches_from_img)
+    best_index = img_df[4].idxmin()
+    print(best_index)
+    print(img_df.iloc[best_index, [0,1]])
     if h < maximum_patch_size and w < maximum_patch_size:
         print('Height and width both are smaller than maximum valid patch size...')
     elif h >= maximum_patch_size and w < maximum_patch_size:

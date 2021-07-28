@@ -1,6 +1,6 @@
-stat_csv_path = "results/2080ti.csv"
+stat_csv_path = "results/temp_maximum_batch_size_per_dimension.csv"
 model_name = "RRDB"
-img_path = "data/slices/0.npz"
+img_path = "data/slices/10.npz"
 shave = 10
 scale = 4
 patch_dim_column = 1
