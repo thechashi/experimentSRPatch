@@ -67,13 +67,15 @@ def create_patch_list(
             if img_height < patch_height_start + dim:
                 bottom_most = True
                 old_patch_height_start = patch_height_start
-                patch_height_start = img_height - dim
+                patch_height_start = (img_height - dim)
+                patch_height_start = (img_height - dim) if (img_height - dim) >= 0 else 0
                 top_increased = old_patch_height_start - patch_height_start
 
             if img_width < patch_width_start + dim:
                 right_most = True
                 old_patch_width_start = patch_width_start
-                patch_width_start = img_width - dim
+                patch_width_start = (img_width - dim)
+                patch_width_start = (img_width - dim) if (img_width - dim) >= 0 else 0 
                 left_increased = old_patch_width_start - patch_width_start
 
             left_crop, top_crop, right_crop, bottom_crop = (
@@ -113,6 +115,15 @@ def create_patch_list(
                 0 + left_crop,
                 dim * scale - right_crop,
             )
+# =============================================================================
+#             print('hs, he, ws, we', h_s, h_e, w_s, w_e)
+# =============================================================================
+            if dim >= img_height and dim >= img_width:
+                h_s, h_e, w_s, w_e = 0, img_height*scale, 0, img_width*scale
+            elif dim < img_height and dim >= img_width:
+                w_s, w_e = 0, img_width*scale
+            elif dim >= img_height and dim < img_width:
+                h_s, h_e = 0, img_height*scale
             new_i_e = new_i_s + h_e - h_s
             new_j_e = new_j_e + w_e - w_s
             patch_crop_positions = [h_s, h_e, w_s, w_e]
@@ -486,8 +497,8 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
 
 if __name__ == "__main__":
     # Arguments
-    img_path = sys.argv[1] if len(sys.argv) > 1 else "data/slices/10.npz"
-    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 585
+    img_path = sys.argv[1] if len(sys.argv) > 1 else "data/slices/0.npz"
+    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 463
     shave = int(sys.argv[3]) if len(sys.argv) > 3 else 10
     batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 1
     print_result = bool(int(sys.argv[5])) if len(sys.argv) > 5 else True
@@ -507,6 +518,7 @@ if __name__ == "__main__":
     create_patch_list(patch_list, input_image, dimension, shave, 4, c, h, w)
     patch_list_processing_time = patch_list_timer.toc()
     print("Total patch list creating time: {}".format(patch_list_processing_time))
+    print(len(patch_list))
     # Loading model
 # =============================================================================
 #     model = md.load_edsr(device=device)
