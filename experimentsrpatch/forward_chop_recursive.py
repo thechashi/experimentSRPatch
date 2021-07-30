@@ -86,9 +86,9 @@ def forward_chop(
 
 
 @click.command()
-@click.option("--img_path", default="data/slices/0.npz", help="Path of the image")
+@click.option("--img_path", default="data/slices/10.npz", help="Path of the image")
 @click.option("--model_name", default="RRDB", help="Name of the model")
-@click.option("--patch_dimension", default=100, help="Patch dimension")
+@click.option("--patch_dimension", default=256, help="Patch dimension")
 def main(img_path, model_name, patch_dimension):
     """
     Driver for recursive forward chop. Takes an image path and model name to upsample the image.

@@ -17,13 +17,17 @@ def main(stat_path, model_name, img_path, shave, scale):
 
     
     stat_df = pd.read_csv(stat_path)
-    print(stat_df.columns)
+# =============================================================================
+#     print(stat_df.columns)
+# =============================================================================
     total_batches = stat_df[total_patches] / stat_df[maximum_batch_size]
     stat_df[total_batches_] = total_batches
     per_batch_processing_time = stat_df[total_batch_processing_time] / stat_df[total_batches_]
     stat_df[per_batch_processing_time_] = per_batch_processing_time
-    print(stat_df.columns)
-    print(stat_df)
+# =============================================================================
+#     print(stat_df.columns)
+#     print(stat_df)
+# =============================================================================
 
         
     maximum_patch_size = stat_df[patch_dimension].max()
@@ -32,16 +36,20 @@ def main(stat_path, model_name, img_path, shave, scale):
     min_per_batch_processing_time = stat_df[per_batch_processing_time_].min()
     idx_min_per_batch_processing_time = stat_df[per_batch_processing_time_].idxmin()
     
-    print(min_total_processing_time)
-    print(idx_min_total_processing_time)
-    print(min_per_batch_processing_time)
-    print(idx_min_per_batch_processing_time)
-    print('here')
+# =============================================================================
+#     print(min_total_processing_time)
+#     print(idx_min_total_processing_time)
+#     print(min_per_batch_processing_time)
+#     print(idx_min_per_batch_processing_time)
+#     print('here')
+# =============================================================================
 # =============================================================================
 #     patch_dimension = 0
 #     batch_size = 0
 # =============================================================================
-    print(stat_df.loc[idx_min_total_processing_time, patch_dimension])
+# =============================================================================
+#     print(stat_df.loc[idx_min_total_processing_time, patch_dimension])
+# =============================================================================
     img = ut.npz_loader(img_path)
     c, h, w = img.shape
     if h < w: 
@@ -59,25 +67,27 @@ def main(stat_path, model_name, img_path, shave, scale):
 
     img_df = pd.DataFrame(total_patches_from_img)
     best_index = img_df[4].idxmin()
-    print(best_index)
-    print(img_df.iloc[best_index, [0,1]])
+# =============================================================================
+#     print(best_index)
+#     print(img_df.iloc[best_index, 0])
+# =============================================================================
     if h < maximum_patch_size and w < maximum_patch_size:
-        print('Height and width both are smaller than maximum valid patch size...')
-    elif h >= maximum_patch_size and w < maximum_patch_size:
-        print('Height is bigger than the maximum valid patch size but width is smaller...')
-    elif h >= maximum_patch_size and w >= maximum_patch_size:
-        print('Height and width both are larger than maximum valid patch size...')
-# =============================================================================
-#     bpfc.upsample(
-#         model_name,
-#         img_path,
-#         patch_dimension,
-#         shave,
-#         batch_size,
-#         scale,
-#         device="cuda",
-#     )
-# =============================================================================
+        patch_dimension = int(img_df.iloc[idx_min_total_processing_time, 0])
+        batch_size = int(img_df.iloc[idx_min_total_processing_time, 1])
+    else:
+        patch_dimension = int(img_df.iloc[best_index, 0])
+        batch_size = int(img_df.iloc[best_index, 1])
+    
+    print('Patch dimension: {}, batch size: {}'.format(patch_dimension, batch_size))
+    bpfc.upsample(
+        model_name,
+        img_path,
+        patch_dimension,
+        shave,
+        batch_size,
+        scale,
+        device="cuda",
+    )
     
 if __name__ == "__main__":
     custom_upsampler_config = toml.load('../custom_upsampler_config.toml')
