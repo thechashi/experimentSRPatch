@@ -12,7 +12,25 @@ import toml
 import torchvision
 from PIL import Image
 from pathlib import Path
+def per_batch_processing_time(stat_path):
+    total_patches= 'Total Patches'
+    total_batches_= 'Total Batches'
+    maximum_batch_size= 'Maximum Batch Size'
+    total_batch_processing_time= 'Total batch processing time'
+    per_batch_processing_time_= 'Per Batch Processing Time'
+    patch_dimension= 'Patch Dimension'
+    total_time= 'Total time'
+    stat_df = pd.read_csv(stat_path)
 
+    total_batches = stat_df[total_patches] / stat_df[maximum_batch_size]
+    stat_df[total_batches_] = total_batches
+    per_batch_processing_time = stat_df[total_batch_processing_time] / stat_df[total_batches_]
+    stat_df[per_batch_processing_time_] = per_batch_processing_time
+    
+    temp_file = open("results/file2.csv", "a")
+    stat_df.to_csv(temp_file, header=False, index=False)
+    temp_file.close()
+    
 def patch_count(img_height, img_width, patch_dimension, patch_shave):
     """
     Calculates total numebr of patches from an image with given patch dimension and shave value
@@ -308,6 +326,70 @@ def npz_loader(input_file):
     image = image[np.newaxis, :, :]
     image = torch.from_numpy(image)
     return image
+
+def get_grayscale_image_tensor(img_path):
+    """
+    Creates image tensors from .jpg, .png, .jpeg, .gif, .npy, .npz files
+
+    Parameters
+    ----------
+    img_path : str
+        input file path.
+
+    Returns
+    -------
+    image : torch tensor
+        3D torch tensor.
+
+    """
+    img_path = Path(img_path)
+    image_paths = [".jpg", ".png", ".jpeg", ".gif"]
+    image_array_paths = [".npy", ".npz"]
+    file_name = str(img_path.name).lower()
+    is_file = "." + ".".join(file_name.split(".")[1:])
+    if is_file in image_paths:
+        image = Image.open(img_path)
+        image = np.array(image.convert(mode="F"))
+    if is_file == ".npz":
+        image = np.load(img_path)
+        image = image.f.arr_0  # Load data from inside file.
+    elif is_file in image_array_paths:
+        image = np.load(img_path)
+
+    image = image[np.newaxis, :, :]
+    image = torch.from_numpy(image)
+    return image
+
+def show_image(img_path, grayscale=False):
+    """
+    Shows .jpg, .jpeg, .png images
+
+    Parameters
+    ----------
+    img_path : str
+        img path.
+    grayscale :  boolean, optional
+        show as grayscale or not. The default is False.
+
+    Returns
+    -------
+    None.
+
+    """
+    img_path = Path(img_path)
+    image_paths = [".jpg", ".png", ".jpeg", ".gif"]
+    file_name = str(img_path.name).lower()
+    is_file = "." + ".".join(file_name.split(".")[1:])
+    if is_file not in image_paths:
+        print('Invalid image format')
+        return
+    if grayscale:
+        image = Image.open(img_path).convert("L")
+    else:
+        image = Image.open(img_path)
+    arr = np.asarray(image)
+    plt.imshow(arr, cmap="gray", vmin=0, vmax=255)
+    plt.show()
 
 
 def save_image(image, output_folder, input_height, input_width, scale, output_file_name = "outputx4"):

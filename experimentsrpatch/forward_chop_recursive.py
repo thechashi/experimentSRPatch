@@ -4,6 +4,7 @@ Recursive forward chop
 import torch
 import click
 import numpy as np
+import sys
 import modelloader as md
 import utilities as ut
 
@@ -86,9 +87,9 @@ def forward_chop(
 
 
 @click.command()
-@click.option("--img_path", default="data/slices/10.npz", help="Path of the image")
+@click.option("--img_path", default="data/slices/11.npz", help="Path of the image")
 @click.option("--model_name", default="RRDB", help="Name of the model")
-@click.option("--patch_dimension", default=256, help="Patch dimension")
+@click.option("--patch_dimension", default=216, help="Patch dimension")
 def main(img_path, model_name, patch_dimension):
     """
     Driver for recursive forward chop. Takes an image path and model name to upsample the image.
@@ -124,10 +125,11 @@ def main(img_path, model_name, patch_dimension):
     )
 
     # Shifting output image to CPU
+    print(output.is_cuda)
     gpu2cpu_time = ut.timer()
     output = output.to("cpu")
     gpu2cpu_time = gpu2cpu_time.toc()
-
+    print(output.is_cuda)
     if model_name in ["EDSR"]:
         output = output.int()
     total_time = total_time.toc()
@@ -146,7 +148,60 @@ def main(img_path, model_name, patch_dimension):
     print("\nMerging time: ", timer[2])
     print("\nGPU 2 CPU time", timer[3])
     print("\nTotal execution time: ", timer[4])
+def helper_rrdb_experiment(img_dimension, patch_dimension):
+    # Loading model and image
+    img = None
+    model = None
+# =============================================================================
+#     print("\nLoading model and image... \n")
+# =============================================================================
+    img = np.load("data/slices/0.npz")
+    img = img.f.arr_0
+    img = np.resize(img, (img_dimension, img_dimension))
+    img = img[np.newaxis, :, :]
+    img = torch.from_numpy(img)
+    img = img.unsqueeze(0)
+    model = md.load_rrdb(device="cuda")
 
+    # Timers for saving stats
+    timer = [0, 0, 0, 0, 0]
 
+# =============================================================================
+#     print("Processing...")
+# =============================================================================
+
+    # Shfiting input image to CUDA
+    total_time = ut.timer()
+    cpu2gpu_time = ut.timer()
+    img = img.to("cuda")
+    cpu2gpu_time = cpu2gpu_time.toc()
+
+    # Forward chopping and upsampling
+    output = forward_chop(
+        img, model, timer=timer, min_size=patch_dimension * patch_dimension
+    )
+
+    # Shifting output image to CPU
+    gpu2cpu_time = ut.timer()
+    output = output.to("cpu")
+    gpu2cpu_time = gpu2cpu_time.toc()
+
+    total_time = total_time.toc()
+
+    timer[0] = cpu2gpu_time
+    timer[-2] = gpu2cpu_time
+    timer[-1] = total_time
+
+    # Printing processing times
+# =============================================================================
+#     print("\nCPU 2 GPU time: ", timer[0])
+#     print("\nUpsampling time: ", timer[1])
+#     print("\nMerging time: ", timer[2])
+#     print("\nGPU 2 CPU time", timer[3])
+#     print("\nTotal execution time: ", timer[4])
+# =============================================================================
+    print(timer[1])
+    print(timer[4])
 if __name__ == "__main__":
     main()
+    #helper_rrdb_experiment(int(sys.argv[1]), int(sys.argv[2]))

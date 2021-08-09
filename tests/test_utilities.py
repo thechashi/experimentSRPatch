@@ -11,6 +11,9 @@ def test_get_logger():
     assert logger_1 != logger_2
     assert logger_4 == logger_5
 
+def test_get_image():
+    assert True
+
 def test_exception_handler():
     assert True
 

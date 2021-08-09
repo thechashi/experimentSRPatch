@@ -498,7 +498,7 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
 if __name__ == "__main__":
     # Arguments
     img_path = sys.argv[1] if len(sys.argv) > 1 else "data/slices/0.npz"
-    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 463
+    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 216
     shave = int(sys.argv[3]) if len(sys.argv) > 3 else 10
     batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 1
     print_result = bool(int(sys.argv[5])) if len(sys.argv) > 5 else True
@@ -520,47 +520,45 @@ if __name__ == "__main__":
     print("Total patch list creating time: {}".format(patch_list_processing_time))
     print(len(patch_list))
     # Loading model
-# =============================================================================
-#     model = md.load_edsr(device=device)
-#     model.eval()
-# 
-#     min_dim = min(dimension, h, w)
-# 
-#     if min_dim != dimension:
-#         print(
-#             "\nPatch dimension is greater than the input image's minimum dimension. Changing patch dimension to input image's minimum dimension... \n "
-#         )
-#         dimension = min_dim
-#     # Batch Processing
-#     batch_processing_start = time.time()
-#     output, _ = batch_forward_chop(
-#         patch_list, batch_size, c, h, w, dimension, shave, 4, model=model, device="cuda"
-#     )
-#     batch_processing_end = time.time()
-# 
-#     print(
-#         "Total batch_processing_time: {}".format(
-#             batch_processing_end - batch_processing_start
-#         )
-#     )
-# 
-#     # Saving output image
-#     output = output.int()
-#     save_start = time.time()
-#     fig = plt.figure(figsize=((4 * h) / 1000, (4 * w) / 1000), dpi=100, frameon=False)
-#     ax = plt.Axes(fig, [0.0, 0.0, 1.0, 1.0])
-#     ax.set_axis_off()
-#     fig.add_axes(ax)
-#     # fig = plt.figure(figsize=(4*h, 4*w))
-#     ax.imshow(output.permute((1, 2, 0)))
-#     fig.savefig(
-#         "output_images/" + "4x_" + img_path.split("/")[1],
-#         bbox_inches="tight",
-#         transparent=True,
-#         pad_inches=0,
-#         dpi=1000,
-#     )
-#     save_end = time.time()
-#     save_time = save_end - save_start
-# 
-# =============================================================================
+    model = md.load_rrdb(device=device)
+    model.eval()
+
+    min_dim = min(dimension, h, w)
+
+    if min_dim != dimension:
+        print(
+            "\nPatch dimension is greater than the input image's minimum dimension. Changing patch dimension to input image's minimum dimension... \n "
+        )
+        dimension = min_dim
+    # Batch Processing
+    batch_processing_start = time.time()
+    output, _ = batch_forward_chop(
+        patch_list, batch_size, c, h, w, dimension, shave, 4, model=model, device="cuda"
+    )
+    batch_processing_end = time.time()
+
+    print(
+        "Total batch_processing_time: {}".format(
+            batch_processing_end - batch_processing_start
+        )
+    )
+
+    # Saving output image
+    output = output.int()
+    save_start = time.time()
+    fig = plt.figure(figsize=((4 * h) / 1000, (4 * w) / 1000), dpi=100, frameon=False)
+    ax = plt.Axes(fig, [0.0, 0.0, 1.0, 1.0])
+    ax.set_axis_off()
+    fig.add_axes(ax)
+    # fig = plt.figure(figsize=(4*h, 4*w))
+    ax.imshow(output.permute((1, 2, 0)))
+    fig.savefig(
+        "output_images/" + "4x_" + img_path.split("/")[1],
+        bbox_inches="tight",
+        transparent=True,
+        pad_inches=0,
+        dpi=1000,
+    )
+    save_end = time.time()
+    save_time = save_end - save_start
+

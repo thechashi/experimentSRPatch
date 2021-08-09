@@ -1,10 +1,10 @@
-img_path = "data/slices/10.npz"
+img_path = "data/slices/11.npz"
 device = "cuda"
 model = "RRDB"
 shave = 10
 scale = 4
 single_patch_batch_size_start = 1
-end_patch_dimension = 50
+end_patch_dimension = 260
 start_patch_dimension = 40
 dim_gap = 4
 run = 1
