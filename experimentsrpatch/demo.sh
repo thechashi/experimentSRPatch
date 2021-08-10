@@ -1,3 +1,3 @@
-python3 main.py
-python3 different_patch_checker.py
-python3 different_shave_checker.py
+python3 binarysearch.py
+python3 recursive_vs_iterative.py --chop_type=recursive
+python3 recursive_vs_iterative.py --chop_type=patch_iterative

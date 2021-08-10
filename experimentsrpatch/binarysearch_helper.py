@@ -35,13 +35,13 @@ def binary_search_helper(dimension, logger, model_name="EDSR", device="cuda"):
         elif model_name == "RRDB":
             model = md.load_rrdb(device=device)
         else:
-            raise Exception('Unknown model...')
-            
+            raise Exception("Unknown model...")
+        model.eval()
         input_image = ut.random_image(dimension)
         if model_name == "RRDB":
             input_image = input_image[:, 2:, :, :]
         input_image = input_image.to(device)
-    
+
         with torch.no_grad():
             start = time.time()
             output_image = model(input_image)
@@ -51,7 +51,7 @@ def binary_search_helper(dimension, logger, model_name="EDSR", device="cuda"):
         model.cpu()
         del model
     except RuntimeError as err:
-        logger.error( "Runtime error for dimension: {}x{}: " + err)
+        logger.error("Runtime error for dimension: {}x{}: " + err)
         sys.exit(1)
     return total_time
 

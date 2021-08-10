@@ -6,6 +6,7 @@ import time
 import numpy as np
 import torchvision
 import torch
+import subprocess
 import matplotlib.pyplot as plt
 import modelloader as md
 import utilities as ut
@@ -45,10 +46,10 @@ def create_patch_list(
     row_count = 0
     column_count = 0
 
-# =============================================================================
-#     print('LR Image size: {}x{}'.format(img_height, img_width))
-#     print('SR Image size: {}x{}'.format(img_height*scale, img_width*scale))
-# =============================================================================
+    # =============================================================================
+    #     print('LR Image size: {}x{}'.format(img_height, img_width))
+    #     print('SR Image size: {}x{}'.format(img_height*scale, img_width*scale))
+    # =============================================================================
     new_i_s = 0
     for patch_height_start in range(0, img_height, dim - 2 * shave):
         row_count += 1
@@ -67,15 +68,17 @@ def create_patch_list(
             if img_height < patch_height_start + dim:
                 bottom_most = True
                 old_patch_height_start = patch_height_start
-                patch_height_start = (img_height - dim)
-                patch_height_start = (img_height - dim) if (img_height - dim) >= 0 else 0
+                patch_height_start = img_height - dim
+                patch_height_start = (
+                    (img_height - dim) if (img_height - dim) >= 0 else 0
+                )
                 top_increased = old_patch_height_start - patch_height_start
 
             if img_width < patch_width_start + dim:
                 right_most = True
                 old_patch_width_start = patch_width_start
-                patch_width_start = (img_width - dim)
-                patch_width_start = (img_width - dim) if (img_width - dim) >= 0 else 0 
+                patch_width_start = img_width - dim
+                patch_width_start = (img_width - dim) if (img_width - dim) >= 0 else 0
                 left_increased = old_patch_width_start - patch_width_start
 
             left_crop, top_crop, right_crop, bottom_crop = (
@@ -103,11 +106,11 @@ def create_patch_list(
             if patch_height_end == img_height:
                 bottom_crop = 0
 
-# =============================================================================
-#             print('Patch no: {}, Row: {}, Column: {}\n'.format(patch_count, row_count, column_count))
-#             print('{}x{}:{}x{}'.format(patch_height_start, patch_height_end, patch_width_start, patch_width_end ))
-#             print('SR Patch size: {}x{}'.format(dim*scale, dim*scale))
-# =============================================================================
+            # =============================================================================
+            #             print('Patch no: {}, Row: {}, Column: {}\n'.format(patch_count, row_count, column_count))
+            #             print('{}x{}:{}x{}'.format(patch_height_start, patch_height_end, patch_width_start, patch_width_end ))
+            #             print('SR Patch size: {}x{}'.format(dim*scale, dim*scale))
+            # =============================================================================
 
             h_s, h_e, w_s, w_e = (
                 0 + top_crop,
@@ -115,23 +118,23 @@ def create_patch_list(
                 0 + left_crop,
                 dim * scale - right_crop,
             )
-# =============================================================================
-#             print('hs, he, ws, we', h_s, h_e, w_s, w_e)
-# =============================================================================
+            # =============================================================================
+            #             print('hs, he, ws, we', h_s, h_e, w_s, w_e)
+            # =============================================================================
             if dim >= img_height and dim >= img_width:
-                h_s, h_e, w_s, w_e = 0, img_height*scale, 0, img_width*scale
+                h_s, h_e, w_s, w_e = 0, img_height * scale, 0, img_width * scale
             elif dim < img_height and dim >= img_width:
-                w_s, w_e = 0, img_width*scale
+                w_s, w_e = 0, img_width * scale
             elif dim >= img_height and dim < img_width:
-                h_s, h_e = 0, img_height*scale
+                h_s, h_e = 0, img_height * scale
             new_i_e = new_i_s + h_e - h_s
             new_j_e = new_j_e + w_e - w_s
             patch_crop_positions = [h_s, h_e, w_s, w_e]
             SR_positions = [new_i_s, new_i_e, new_j_s, new_j_e]
-# =============================================================================
-#             print('Cropped patch position: {}-{}x{}-{}'.format(h_s, h_e, w_s, w_e))
-#             print('SR output position: {}-{}x{}-{}\n\n'.format(new_i_s, new_i_e, new_j_s, new_j_e))
-# =============================================================================
+            # =============================================================================
+            #             print('Cropped patch position: {}-{}x{}-{}'.format(h_s, h_e, w_s, w_e))
+            #             print('SR output position: {}-{}x{}-{}\n\n'.format(new_i_s, new_i_e, new_j_s, new_j_e))
+            # =============================================================================
             patch_details = (
                 row_count,
                 column_count,
@@ -154,7 +157,7 @@ def create_patch_list(
 
     if patch_count == 0:
         raise Exception("Shave size too big for given patch dimension")
-    #print(len(patch_list))
+    # print(len(patch_list))
     return patch_count
 
 
@@ -249,7 +252,10 @@ def batch_forward_chop(
                 + "C2G total: "
                 + str(cpu_to_gpu_time)
             )
-
+            # =============================================================================
+            #             print(batch.shape)
+            #             subprocess.run("gpustat", shell=True)
+            # =============================================================================
             with torch.no_grad():
                 # =============================================================================
                 #                 print(start, end)
@@ -432,7 +438,7 @@ def patch_batch_forward_chop(
 
 
 def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
-    file_name = img_path.split('/')[-1].split('.')[0]
+    file_name = img_path.split("/")[-1].split(".")[0]
     if model_name == "RRDB":
         input_image = ut.npz_loader(img_path)
         c, h, w = input_image.shape
@@ -461,7 +467,9 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
         )
         output = output.int()
         output_folder = "output_images"
-        ut.save_image(output, output_folder, h, w, scale, output_file_name=file_name+"_x4")
+        ut.save_image(
+            output, output_folder, h, w, scale, output_file_name=file_name + "_x4"
+        )
     elif model_name == "EDSR":
         input_image = ut.load_image(img_path)
         c, h, w = input_image.shape
@@ -490,7 +498,9 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
         )
         output = output.int()
         output_folder = "output_images"
-        ut.save_image(output, output_folder, h, w, scale, output_file_name=file_name+"_x4")
+        ut.save_image(
+            output, output_folder, h, w, scale, output_file_name=file_name + "_x4"
+        )
     else:
         print("Unknown model...")
 
@@ -498,14 +508,14 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
 if __name__ == "__main__":
     # Arguments
     img_path = sys.argv[1] if len(sys.argv) > 1 else "data/slices/0.npz"
-    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 216
+    dimension = int(sys.argv[2]) if len(sys.argv) > 2 else 293
     shave = int(sys.argv[3]) if len(sys.argv) > 3 else 10
     batch_size = int(sys.argv[4]) if len(sys.argv) > 4 else 1
     print_result = bool(int(sys.argv[5])) if len(sys.argv) > 5 else True
     device = str(sys.argv[6]) if len(sys.argv) > 6 else "cuda"
 
     # Reading image
-    #img = torchvision.io.read_image(img_path)
+    # img = torchvision.io.read_image(img_path)
     img = ut.npz_loader(img_path)
     c, h, w = img.shape
     # img = img.reshape((1, c, h, w))
@@ -561,4 +571,3 @@ if __name__ == "__main__":
     )
     save_end = time.time()
     save_time = save_end - save_start
-

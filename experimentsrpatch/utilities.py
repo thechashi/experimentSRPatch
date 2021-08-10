@@ -12,25 +12,30 @@ import toml
 import torchvision
 from PIL import Image
 from pathlib import Path
+
+
 def per_batch_processing_time(stat_path):
-    total_patches= 'Total Patches'
-    total_batches_= 'Total Batches'
-    maximum_batch_size= 'Maximum Batch Size'
-    total_batch_processing_time= 'Total batch processing time'
-    per_batch_processing_time_= 'Per Batch Processing Time'
-    patch_dimension= 'Patch Dimension'
-    total_time= 'Total time'
+    total_patches = "Total Patches"
+    total_batches_ = "Total Batches"
+    maximum_batch_size = "Maximum Batch Size"
+    total_batch_processing_time = "Total batch processing time"
+    per_batch_processing_time_ = "Per Batch Processing Time"
+    patch_dimension = "Patch Dimension"
+    total_time = "Total time"
     stat_df = pd.read_csv(stat_path)
 
     total_batches = stat_df[total_patches] / stat_df[maximum_batch_size]
     stat_df[total_batches_] = total_batches
-    per_batch_processing_time = stat_df[total_batch_processing_time] / stat_df[total_batches_]
+    per_batch_processing_time = (
+        stat_df[total_batch_processing_time] / stat_df[total_batches_]
+    )
     stat_df[per_batch_processing_time_] = per_batch_processing_time
-    
+
     temp_file = open("results/file2.csv", "a")
     stat_df.to_csv(temp_file, header=False, index=False)
     temp_file.close()
-    
+
+
 def patch_count(img_height, img_width, patch_dimension, patch_shave):
     """
     Calculates total numebr of patches from an image with given patch dimension and shave value
@@ -52,17 +57,19 @@ def patch_count(img_height, img_width, patch_dimension, patch_shave):
         total patch count.
 
     """
-    actual_width = patch_dimension - 2* patch_shave - 0
-    last_start_h = img_height - patch_dimension 
-    total_rows = math.ceil(last_start_h/actual_width) + 1
+    actual_width = patch_dimension - 2 * patch_shave - 0
+    last_start_h = img_height - patch_dimension
+    total_rows = math.ceil(last_start_h / actual_width) + 1
     last_start_w = img_width - patch_dimension
-    total_columns =  math.ceil(last_start_w/actual_width) + 1
-# =============================================================================
-#     print(total_rows)
-#     print(total_columns)
-# =============================================================================
+    total_columns = math.ceil(last_start_w / actual_width) + 1
+    # =============================================================================
+    #     print(total_rows)
+    #     print(total_columns)
+    # =============================================================================
     total_patches = total_rows * total_columns
     return total_patches
+
+
 def exception_handler(exception_type, exception, traceback):
     """
     Customized exception message
@@ -327,6 +334,7 @@ def npz_loader(input_file):
     image = torch.from_numpy(image)
     return image
 
+
 def get_grayscale_image_tensor(img_path):
     """
     Creates image tensors from .jpg, .png, .jpeg, .gif, .npy, .npz files
@@ -360,6 +368,7 @@ def get_grayscale_image_tensor(img_path):
     image = torch.from_numpy(image)
     return image
 
+
 def show_image(img_path, grayscale=False):
     """
     Shows .jpg, .jpeg, .png images
@@ -381,7 +390,7 @@ def show_image(img_path, grayscale=False):
     file_name = str(img_path.name).lower()
     is_file = "." + ".".join(file_name.split(".")[1:])
     if is_file not in image_paths:
-        print('Invalid image format')
+        print("Invalid image format")
         return
     if grayscale:
         image = Image.open(img_path).convert("L")
@@ -392,7 +401,9 @@ def show_image(img_path, grayscale=False):
     plt.show()
 
 
-def save_image(image, output_folder, input_height, input_width, scale, output_file_name = "outputx4"):
+def save_image(
+    image, output_folder, input_height, input_width, scale, output_file_name="outputx4"
+):
     """
     Saves image
 
@@ -692,9 +703,9 @@ def save_csv(
 if __name__ == "__main__":
     # print(random_image(32))
     # test_image()
-    #l = get_logger(stream=False)
-    #l.info("Hello from terminal")
-    #l2 = get_logger(stream=True)
-    #print(l2.info("log2"))
-    #print(l2 == l)
+    # l = get_logger(stream=False)
+    # l.info("Hello from terminal")
+    # l2 = get_logger(stream=True)
+    # print(l2.info("log2"))
+    # print(l2 == l)
     pass

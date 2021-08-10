@@ -132,12 +132,12 @@ def do_linear_search(test=False, test_dim=32):
     state = "After loading model: "
     total, used, _ = ut.get_gpu_details(device, state, logger, print_details=True)
 
-# =============================================================================
-#     file = open("temp_max_dim.txt", "r")
-#     line = file.read()
-#     max_dim = int(line.split(":")[1])
-# =============================================================================
-    config = toml.load('../config.toml')
+    # =============================================================================
+    #     file = open("temp_max_dim.txt", "r")
+    #     line = file.read()
+    #     max_dim = int(line.split(":")[1])
+    # =============================================================================
+    config = toml.load("../config.toml")
     max_dim = int(config["max_dim"])
     if test == False:
         detailed_result, memory_used, memory_free = result_from_dimension_range(
