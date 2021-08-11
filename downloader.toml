@@ -1,5 +1,5 @@
 down_path = "../medicalsrgan/medicalsrgan/download"
 
 [datadict]
-rrdb_gen = ["https://www.dropbox.com/s/ojrlugt15yz4waa/rrdb_gen_500.zip?dl=0",
+rrdb_gen = ["https://www.dropbox.com/s/iae88ncaykbf4fc/rrdb.zip?dl=0",
             "./saved_models/"] #rrdb model
