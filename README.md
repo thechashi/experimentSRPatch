@@ -1,5 +1,5 @@
 # Experiment on SR model
-Experiment effectivity of different patch dimension and batch size in a SR model (EDSR model).
+Experiment effectivity of different patch dimension and batch size in a SR model (EDSR model)
 
 # Table of Contents
 

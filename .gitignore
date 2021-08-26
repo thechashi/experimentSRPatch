@@ -12,3 +12,5 @@ tests/results
 tests/test_outputs
 experimentsrpatch/output_images/
 experimentsrpatch/results/
+*.trt
+*.onnx
