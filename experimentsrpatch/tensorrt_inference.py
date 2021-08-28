@@ -47,7 +47,7 @@ output = predict(input_batch)
 print(output)
 print(type(output))
 
-output = torch.tensor(output).int()
+output = torch.tensor(output).float()
 output_folder = "output_images"
 file_name = img_path.split("/")[-1].split(".")[0]
 ut.save_image(output[0], output_folder, 100, 100, 4, output_file_name=file_name + "_x4")
