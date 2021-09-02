@@ -496,6 +496,9 @@ def upsample(model_name, img_path, dimension, shave, batch_size, scale, device):
             model=model,
             device=device,
         )
+# =============================================================================
+#         print(output)
+# =============================================================================
         output = output.int()
         output_folder = "output_images"
         ut.save_image(

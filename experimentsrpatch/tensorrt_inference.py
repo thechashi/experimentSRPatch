@@ -10,7 +10,7 @@ target_dtype = np.float16 if USE_FP16 else np.float32
 
 # input_batch = ut.random_image(100).numpy()
 img_path = "data/test2.jpg"
-input_batch = ut.load_grayscale_image(img_path).numpy()
+input_batch = ut.npz_loader(img_path).numpy()
 
 f = open("edsr.trt", "rb")
 runtime = trt.Runtime(trt.Logger(trt.Logger.WARNING))
@@ -32,7 +32,7 @@ stream = cuda.Stream()
 
 def predict(batch):  # result gets copied into output
     # transfer input data to device
-    cuda.memcpy_htod_async(d_input, batch, stream)
+    cuda.memcpy_htod_async(d_input, batch, stream) 
     # execute model
     context.execute_async_v2(bindings, stream.handle, None)
     # transfer predictions back
@@ -46,7 +46,20 @@ def predict(batch):  # result gets copied into output
 output = predict(input_batch)
 print(output)
 print(type(output))
+print(output.shape)
+print(output.max())
+print(output.min())
 
+# =============================================================================
+# old_min = output.min()
+# old_max = output.max()
+# new_min = 0
+# new_max= 255
+# old_range = old_max - old_min
+# new_range = new_max - new_min
+# output = (((output-old_min) * new_range) / old_range) + new_min
+# print(output)
+# =============================================================================
 output = torch.tensor(output).float()
 output_folder = "output_images"
 file_name = img_path.split("/")[-1].split(".")[0]
