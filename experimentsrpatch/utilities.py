@@ -493,7 +493,7 @@ def get_gpu_details(
     return 0, 0, 0
 
 
-def random_image(dimension):
+def random_image(dimension, batch=True, channel=3):
     """
     Provides a random image
 
@@ -516,8 +516,10 @@ def random_image(dimension):
     # =============================================================================
     image = torch.tensor(data)
     image.unsqueeze_(0)
-    image = image.repeat(3, 1, 1)
-    image = image.unsqueeze(0)
+    if channel > 1:
+        image = image.repeat(channel, 1, 1)
+    if batch == True:
+        image = image.unsqueeze(0)
     return image.float()
 
 
