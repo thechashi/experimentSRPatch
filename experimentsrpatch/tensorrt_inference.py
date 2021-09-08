@@ -9,9 +9,11 @@ USE_FP16 = True
 target_dtype = np.float16 if USE_FP16 else np.float32
 
 # input_batch = ut.random_image(100).numpy()
-img_path = "data/test2.jpg"
-input_batch = ut.npz_loader(img_path).numpy()
-
+img_path = "data/test6.jpg"
+#input_batch = ut.npz_loader(img_path).numpy()
+input_batch = ut.load_image(img_path).unsqueeze(0).numpy()
+print(input_batch.shape)
+input_batch = np.ascontiguousarray(input_batch, dtype=np.float16)
 f = open("edsr.trt", "rb")
 runtime = trt.Runtime(trt.Logger(trt.Logger.WARNING))
 engine = runtime.deserialize_cuda_engine(f.read())
@@ -19,7 +21,7 @@ context = engine.create_execution_context()
 
 
 # need to set input and output precisions to FP16 to fully enable it
-output = np.empty([1, 3, 400, 400], dtype=target_dtype)
+output = np.empty([1, 3, 640, 640], dtype=target_dtype)
 
 # allocate device memory
 d_input = cuda.mem_alloc(1 * input_batch.nbytes)
@@ -44,7 +46,7 @@ def predict(batch):  # result gets copied into output
 
 
 output = predict(input_batch)
-print(output)
+print(output[0][0][0])
 print(type(output))
 print(output.shape)
 print(output.max())
@@ -60,7 +62,7 @@ print(output.min())
 # output = (((output-old_min) * new_range) / old_range) + new_min
 # print(output)
 # =============================================================================
-output = torch.tensor(output).float()
+output = torch.tensor(output).int()
 output_folder = "output_images"
 file_name = img_path.split("/")[-1].split(".")[0]
-ut.save_image(output[0], output_folder, 100, 100, 4, output_file_name=file_name + "_x4")
+ut.save_image(output[0], output_folder, 160, 160, 4, output_file_name=file_name + "_x4")

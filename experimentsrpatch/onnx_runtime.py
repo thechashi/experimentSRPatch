@@ -12,7 +12,7 @@ ort_session = onnxruntime.InferenceSession("edsr.onnx")
 def to_numpy(tensor):
     return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
 
-img_path = "data/test2.jpg"
+img_path = "data/test6.jpg"
 input_batch = ut.load_image(img_path).unsqueeze(0)
 print(input_batch.shape)
 
@@ -29,4 +29,4 @@ print(output.shape)
 output = torch.tensor(output).int()
 output_folder = "output_images"
 file_name = img_path.split("/")[-1].split(".")[0]
-ut.save_image(output[0], output_folder, 100, 100, 4, output_file_name=file_name + "_x4")
+ut.save_image(output[0], output_folder, 160, 160, 4, output_file_name=file_name + "_x4")
