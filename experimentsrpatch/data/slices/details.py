@@ -2,15 +2,14 @@ import numpy as np
 import torch
 import experimentsrpatch.utilities as ut
 
-def create_custom_npz(input_file, height, width):
+def create_custom_npz(input_file, output_file, height, width):
     image = np.load(input_file)
-    #print(type(image.f.arr_0.dtype))
     image = image.f.arr_0
     image = np.resize(image, (height, width))
-    np.savez("12.npz", image)
+    np.savez(output_file, image)
 
 if __name__ == "__main__":
-    create_custom_npz("0.npz", 1700, 1400)
+    create_custom_npz("0.npz", "12.npz", 1700, 1400)
     for i in range(11):
         name = str(i) + ".npz"
         image = ut.npz_loader(name)

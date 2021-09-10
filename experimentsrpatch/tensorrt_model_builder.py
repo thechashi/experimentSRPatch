@@ -12,17 +12,27 @@ with torch.no_grad():
     b, c, h, w = 1, 3, 100, 100
     inp = torch.rand(b, c, h, w, requires_grad=True).cuda()
     output = model(inp)
+# =============================================================================
+#     torch.onnx.export(model,
+#                       inp,
+#                       "edsr.onnx",
+#                       verbose=False,
+#                       opset_version=11,
+#                       input_names=['input'],
+#                       output_names=['output'],
+#                       dynamic_axes = {'input':{0: 'batch', 2:'height', 3:'width'},
+#                                       'output':{0: 'batch', 2:'height', 3:'width'}
+#                                       }
+#                       )
+# =============================================================================
     torch.onnx.export(model,
-                      inp,
-                      "edsr.onnx",
-                      verbose=False,
-                      opset_version=11,
-                      input_names=['input'],
-                      output_names=['output'],
-                      dynamic_axes = {'input':{0: 'batch', 2:'height', 3:'width'},
-                                      'output':{0: 'batch', 2:'height', 3:'width'}
-                                      }
-                      )
+                  inp,
+                  "edsr_fixed.onnx",
+                  verbose=False,
+                  opset_version=11,
+                  input_names=['input'],
+                  output_names=['output'],
+                  )
 
 @click.command()
 @click.option("--model_name", default="RRDB", help="Name of the model")
