@@ -13,6 +13,31 @@ import torchvision
 from PIL import Image
 from pathlib import Path
 
+def create_custom_npz(height, width, input_file="data/slices/0.npz", output_file="data/slices/custom.npz"):
+    """
+    Creates custom npz files from slice direcotry's npz files
+
+    Parameters
+    ----------
+    height : int
+        height of the custom npz.
+    width : int
+        width of the custom npz.
+    input_file : str
+        input file name from which this custom npz will be made.
+    output_file : str
+        output file name for saving the custom npz.
+
+    Returns
+    -------
+    None.
+
+    """
+    image = np.load(input_file)
+    image = image.f.arr_0
+    image = np.resize(image, (height, width))
+    np.savez(output_file, image)
+    return image
 
 def per_batch_processing_time(stat_path):
     total_patches = "Total Patches"
