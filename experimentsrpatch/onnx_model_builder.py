@@ -5,6 +5,7 @@ import numpy as np
 import modelloader as md
 import utilities as ut
 
+
 @click.command()
 @click.option("--model_name", default="RRDB", help="Name of the model")
 @click.option("--patch_size", default=100, help="input patch dimension n of nxn")
@@ -21,8 +22,20 @@ def main(model_name, patch_size, onnx_model_name):
     elif model_name == "EDSR":
         model = md.load_edsr(device)
         dummy_input = ut.random_image(patch_size).to(device)
+    else:
+        print("Unknown model!")
+        return
     model.eval()
-    
-    torch.onnx.export(model, dummy_input, "inference_models/" + onnx_model_name, verbose=False, opset_version=11)# -*- coding: utf-8 -*-
+
+    torch.onnx.export(
+        model,
+        dummy_input,
+        "inference_models/" + onnx_model_name,
+        verbose=False,
+        opset_version=11,
+        input_names=["input"],
+        output_names=["output"],
+    )
+
 
 main()

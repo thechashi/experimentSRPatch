@@ -9,8 +9,12 @@ import onnxruntime
 
 ort_session = onnxruntime.InferenceSession("edsr.onnx")
 
+
 def to_numpy(tensor):
-    return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
+    return (
+        tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
+    )
+
 
 img_path = "data/test6.jpg"
 input_batch = ut.load_image(img_path).unsqueeze(0)

@@ -9,30 +9,32 @@ model = md.load_edsr(device="cuda")
 with torch.no_grad():
     model.eval()
     dummy_input = ut.random_image(100).cuda()
-    b, c, h, w = 1, 3, 100, 100
+    b, c, h, w = 1, 3, 120, 120
     inp = torch.rand(b, c, h, w, requires_grad=True).cuda()
     output = model(inp)
-# =============================================================================
-#     torch.onnx.export(model,
-#                       inp,
-#                       "edsr.onnx",
-#                       verbose=False,
-#                       opset_version=11,
-#                       input_names=['input'],
-#                       output_names=['output'],
-#                       dynamic_axes = {'input':{0: 'batch', 2:'height', 3:'width'},
-#                                       'output':{0: 'batch', 2:'height', 3:'width'}
-#                                       }
-#                       )
-# =============================================================================
-    torch.onnx.export(model,
-                  inp,
-                  "edsr_fixed.onnx",
-                  verbose=False,
-                  opset_version=11,
-                  input_names=['input'],
-                  output_names=['output'],
-                  )
+    # =============================================================================
+    #     torch.onnx.export(model,
+    #                       inp,
+    #                       "edsr.onnx",
+    #                       verbose=False,
+    #                       opset_version=11,
+    #                       input_names=['input'],
+    #                       output_names=['output'],
+    #                       dynamic_axes = {'input':{0: 'batch', 2:'height', 3:'width'},
+    #                                       'output':{0: 'batch', 2:'height', 3:'width'}
+    #                                       }
+    #                       )
+    # =============================================================================
+    torch.onnx.export(
+        model,
+        inp,
+        "edsr_fixed.onnx",
+        verbose=False,
+        opset_version=11,
+        input_names=["input"],
+        output_names=["output"],
+    )
+
 
 @click.command()
 @click.option("--model_name", default="RRDB", help="Name of the model")
@@ -47,8 +49,7 @@ def main(model_name, onnx_model_name):
         model = md.load_edsr(device)
         dummy_input = ut.random_image(100).to(device)
     model.eval()
-    
-    torch.onnx.export(model, dummy_input, "inference_models/" + onnx_model_name, verbose=False)
-    
-        
 
+    torch.onnx.export(
+        model, dummy_input, "inference_models/" + onnx_model_name, verbose=False
+    )
