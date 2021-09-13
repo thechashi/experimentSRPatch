@@ -275,31 +275,30 @@ def trt_forward_chop_iterative(
             lr = x[:, :, h_s:h_e, w_s:w_e]
             lr = lr.numpy()
 
-            with torch.no_grad():
-                # EDSR processing
-                start = time.time()
-                torch.cuda.synchronize()
-                USE_FP16 = use_fp16
-                target_dtype = np.float16 if USE_FP16 else np.float32
-                ba, ch, ht, wt = lr.shape
-                lr = np.ascontiguousarray(lr, dtype=np.float16)
+            # EDSR processing
+            start = time.time()
+            # torch.cuda.synchronize()
+            USE_FP16 = use_fp16
+            target_dtype = np.float16 if USE_FP16 else np.float32
+            ba, ch, ht, wt = lr.shape
+            lr = np.ascontiguousarray(lr, dtype=np.float16)
 
-                # need to set input and output precisions to FP16 to fully enable it
-                p_output = np.empty([b, c, ht * scale, wt * scale], dtype=target_dtype)
+            # need to set input and output precisions to FP16 to fully enable it
+            p_output = np.empty([b, c, ht * scale, wt * scale], dtype=target_dtype)
 
-                # allocate device memory
-                d_input = cuda.mem_alloc(1 * lr.nbytes)
-                d_output = cuda.mem_alloc(1 * p_output.nbytes)
+            # allocate device memory
+            d_input = cuda.mem_alloc(1 * lr.nbytes)
+            d_output = cuda.mem_alloc(1 * p_output.nbytes)
 
-                bindings = [int(d_input), int(d_output)]
+            bindings = [int(d_input), int(d_output)]
 
-                stream = cuda.Stream()
+            stream = cuda.Stream()
 
-                sr = predict(context, lr, d_input, stream, bindings, p_output, d_output)
-                torch.cuda.synchronize()
-                end = time.time()
-                processing_time = end - start
-                total_time += processing_time
+            sr = predict(context, lr, d_input, stream, bindings, p_output, d_output)
+            # torch.cuda.synchronize()
+            end = time.time()
+            processing_time = end - start
+            total_time += processing_time
 
             # new cropped patch's dimension (h and w)
             n_h_s, n_h_e, n_w_s, n_w_e = 0, 0, 0, 0
