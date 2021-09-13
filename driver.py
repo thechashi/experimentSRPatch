@@ -1,7 +1,8 @@
 import experimentsrpatch.binarysearch as bs
 import experimentsrpatch.utilities as ut
-import toml 
+import toml
 import sys
+
 if __name__ == "__main__":
     sys.excepthook = ut.exception_handler
 

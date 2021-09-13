@@ -13,6 +13,9 @@ import time
 import sys
 import click
 import subprocess
+import tensorrt as trt
+import pycuda.autoinit
+import pycuda.driver as cuda
 from PIL import Image
 
 
@@ -82,7 +85,7 @@ def forward_chop_iterative(
             # =============================================================================
 
             lr = x[:, :, h_s:h_e, w_s:w_e]
-
+            print(lr.shape)
             if device == "cuda":
                 torch.cuda.synchronize()
                 lr = lr.to(device)
@@ -190,6 +193,152 @@ def get_file_name(img_path):
     return file_name
 
 
+def predict(
+    context, batch, d_input, stream, bindings, p_output, d_output
+):  # result gets copied into output
+    # transfer input data to device
+    cuda.memcpy_htod_async(d_input, batch, stream)
+    # execute model
+    context.execute_async_v2(bindings, stream.handle, None)
+    # transfer predictions back
+    cuda.memcpy_dtoh_async(p_output, d_output, stream)
+    # syncronize threads
+    stream.synchronize()
+
+    return p_output
+
+
+def trt_forward_chop_iterative(
+    x,
+    trt_engine_path=None,
+    shave=10,
+    min_size=1024,
+    device="cuda",
+    print_result=True,
+    scale=4,
+    use_fp16=True,
+):
+    """
+    Forward chopping in an iterative way
+
+    Parameters
+    ----------
+    x : tensor
+        input image.
+    model : nn.Module, optional
+        SR model. The default is None.
+    shave : int, optional
+        patch shave value. The default is 10.
+    min_size : int, optional
+        total patch size (dimension x dimension) . The default is 1024.
+    device : int, optional
+        GPU or CPU. The default is 'cuda'.
+    print_result : bool, optional
+        print result or not. The default is True.
+
+    Returns
+    -------
+    output : tensor
+        output image.
+    total_time : float
+        total execution time.
+    total_crop_time : float
+        total cropping time.
+    total_shift_time : float
+        total GPU to CPU shfiting time.
+    total_clear_time : float
+        total GPU clearing time.
+
+    """
+    dim = int(math.sqrt(min_size))  # getting patch dimension
+    b, c, h, w = x.size()  # current image batch, channel, height, width
+    device = device
+    patch_count = 0
+    output = torch.tensor(np.zeros((b, c, h * 4, w * 4))).numpy()
+    total_time = 0
+    total_crop_time = 0
+    total_shift_time = 0
+    total_clear_time = 0
+
+    f = open(trt_engine_path, "rb")
+    runtime = trt.Runtime(trt.Logger(trt.Logger.WARNING))
+    engine = runtime.deserialize_cuda_engine(f.read())
+    context = engine.create_execution_context()
+    new_i_s = 0
+    for i in range(0, h, dim - 2 * shave):
+        new_j_s = 0
+        new_j_e = 0
+        for j in range(0, w, dim - 2 * shave):
+            patch_count += 1
+            h_s, h_e = i, min(h, i + dim)  # patch height start and end
+            w_s, w_e = j, min(w, j + dim)  # patch width start and end
+            lr = x[:, :, h_s:h_e, w_s:w_e]
+            lr = lr.numpy()
+
+            with torch.no_grad():
+                # EDSR processing
+                start = time.time()
+                torch.cuda.synchronize()
+                USE_FP16 = use_fp16
+                target_dtype = np.float16 if USE_FP16 else np.float32
+                ba, ch, ht, wt = lr.shape
+                lr = np.ascontiguousarray(lr, dtype=np.float16)
+
+                # need to set input and output precisions to FP16 to fully enable it
+                p_output = np.empty([b, c, ht * scale, wt * scale], dtype=target_dtype)
+
+                # allocate device memory
+                d_input = cuda.mem_alloc(1 * lr.nbytes)
+                d_output = cuda.mem_alloc(1 * p_output.nbytes)
+
+                bindings = [int(d_input), int(d_output)]
+
+                stream = cuda.Stream()
+
+                sr = predict(context, lr, d_input, stream, bindings, p_output, d_output)
+                torch.cuda.synchronize()
+                end = time.time()
+                processing_time = end - start
+                total_time += processing_time
+
+            # new cropped patch's dimension (h and w)
+            n_h_s, n_h_e, n_w_s, n_w_e = 0, 0, 0, 0
+
+            n_h_s = 0 if h_s == 0 else (shave * 4)
+            n_h_e = ((h_e - h_s) * 4) if h_e == h else (((h_e - h_s) - shave) * 4)
+            new_i_e = new_i_s + n_h_e - n_h_s
+
+            n_w_s = 0 if w_s == 0 else (shave * 4)
+            n_w_e = ((w_e - w_s) * 4) if w_e == w else (((w_e - w_s) - shave) * 4)
+            new_j_e = new_j_e + n_w_e - n_w_s
+
+            # corpping image in
+            crop_start = time.time()
+            sr_small = sr[:, :, n_h_s:n_h_e, n_w_s:n_w_e]
+            crop_end = time.time()
+            crop_time = crop_end - crop_start
+            total_crop_time += crop_time
+            output[:, :, new_i_s:new_i_e, new_j_s:new_j_e] = sr_small
+            del sr_small
+            clear_start = time.time()
+            if device == "cuda":
+                ut.clear_cuda(None, None)
+            clear_end = time.time()
+            clear_time = clear_end - clear_start
+            total_clear_time += clear_time
+            if w_e == w:
+                print("first break")
+                break
+            new_j_s = new_j_e
+
+        new_i_s = new_i_e
+
+        if h_e == h:
+            print("second break")
+            break
+    return output, total_time, total_crop_time, total_shift_time, total_clear_time
+
+
 # =============================================================================
 # @click.command()
 # @click.option("--model_name", default="RRDB", help="Upsampler model name")
@@ -252,6 +401,65 @@ def get_file_name(img_path):
 # =============================================================================
 
 
+def trt_helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
+    # Loading model and image
+    img = None
+    model = None
+    img = ut.load_image("data/test7.jpg").numpy()
+    # img = img.f.arr_0
+    img = np.resize(img, (img_dimension, img_dimension))
+    # =============================================================================
+    #     img = img[np.newaxis, :, :]
+    # =============================================================================
+    img2 = np.zeros((3, img.shape[0], img.shape[1]))
+    img2[0, :, :] = img
+    img2[1, :, :] = img
+    img2[2, :, :] = img
+    img = img2
+    img = torch.from_numpy(img).float()
+    img = img.unsqueeze(0)
+
+    input_image = img
+    b, c, h, w = input_image.shape
+    # input_image = input_image.reshape((1, c, h, w))
+    # Loading model
+    # =============================================================================
+    #     model = md.load_edsr("cuda")
+    #
+    #     model.eval()
+    # =============================================================================
+    total_time = ut.timer()
+    # =============================================================================
+    #     out_tuple = forward_chop_iterative(
+    #         input_image,
+    #         shave=10,
+    #         min_size=patch_dimension * patch_dimension,
+    #         model=model,
+    #         device="cuda",
+    #         print_result=True,
+    #     )
+    # =============================================================================
+    out_tuple = trt_forward_chop_iterative(
+        input_image,
+        trt_engine_path="inference_models/edsr.trt",
+        shave=10,
+        min_size=patch_dimension * patch_dimension,
+        device="cuda",
+        print_result=True,
+    )
+    # =============================================================================
+    #     model.cpu()
+    #     del model
+    # =============================================================================
+    output_image = out_tuple[0]
+    print(output_image)
+    total_time = total_time.toc()
+
+    for i in out_tuple[1:]:
+        print(i)
+    print(total_time)
+
+
 def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
     # Loading model and image
     img = None
@@ -292,4 +500,4 @@ def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
 
 if __name__ == "__main__":
     # main()
-    helper_rrdb_piterative_experiment(int(sys.argv[1]), int(sys.argv[2]))
+    trt_helper_rrdb_piterative_experiment(int(sys.argv[1]), int(sys.argv[2]))

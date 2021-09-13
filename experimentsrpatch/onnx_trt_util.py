@@ -80,13 +80,15 @@ def build_trt_engine(onnx_model, trt_model):
 
     """
     command = (
-        "trtexec --onnx=" \
-        + onnx_model \
-        + " --saveEngine=" \
-        + trt_model \
+        "trtexec --onnx="
+        + onnx_model
+        + " --saveEngine="
+        + trt_model
         + " --explicitBatch --inputIOFormats=fp16:chw --outputIOFormats=fp16:chw --fp16"
     )
-    process_output = subprocess.run(command, stdout=subprocess.PIPE, text=True, shell=True)
+    process_output = subprocess.run(
+        command, stdout=subprocess.PIPE, text=True, shell=True
+    )
     if process_output.returncode != 0:
         print("Unable to create TensorRT engine!")
         return False
@@ -158,15 +160,15 @@ def trt_inference(trt_engine, img, patch_size, scale=4, use_fp16=True):
 
 
 if __name__ == "__main__":
-# =============================================================================
-#     # build sample onnx model
-#     build_onnx_model(model_name="EDSR", patch_size=120, onnx_model_name="edsr.onnx")
-# =============================================================================
-    
-# =============================================================================
-#     # build smaple trt engine
-#     build_trt_engine("inference_models/edsr.onnx", "inference_models/edsr.trt")
-# =============================================================================
+    # =============================================================================
+    #     # build sample onnx model
+    #     build_onnx_model(model_name="EDSR", patch_size=120, onnx_model_name="edsr.onnx")
+    # =============================================================================
+
+    # =============================================================================
+    #     # build smaple trt engine
+    #     build_trt_engine("inference_models/edsr.onnx", "inference_models/edsr.trt")
+    # =============================================================================
 
     # sample inference with trt engine
     img_path = "data/test7.jpg"
