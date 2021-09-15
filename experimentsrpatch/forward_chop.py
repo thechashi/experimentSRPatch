@@ -205,6 +205,12 @@ def predict(
     # syncronize threads
     stream.synchronize()
 
+    print(f"lr_shape: {batch.shape}"
+          f"lr input : {batch}")
+
+    print(f"hr_shape: {p_output.shape}"
+          f"hr output: {p_output}")
+
     return p_output
 
 
@@ -216,7 +222,7 @@ def trt_forward_chop_iterative(
     device="cuda",
     print_result=True,
     scale=4,
-    use_fp16=True,
+    use_fp16=False,
 ):
     """
     Forward chopping in an iterative way
@@ -274,6 +280,7 @@ def trt_forward_chop_iterative(
             w_s, w_e = j, min(w, j + dim)  # patch width start and end
             lr = x[:, :, h_s:h_e, w_s:w_e]
             lr = lr.numpy()
+            print(f"shape of lr:{lr.shape}")
 
             # EDSR processing
             start = time.time()
@@ -281,7 +288,7 @@ def trt_forward_chop_iterative(
             USE_FP16 = use_fp16
             target_dtype = np.float16 if USE_FP16 else np.float32
             ba, ch, ht, wt = lr.shape
-            lr = np.ascontiguousarray(lr, dtype=np.float16)
+            lr = np.ascontiguousarray(lr, dtype=np.float32)
 
             # need to set input and output precisions to FP16 to fully enable it
             p_output = np.empty([b, c, ht * scale, wt * scale], dtype=target_dtype)
@@ -295,6 +302,13 @@ def trt_forward_chop_iterative(
             stream = cuda.Stream()
 
             sr = predict(context, lr, d_input, stream, bindings, p_output, d_output)
+
+            output_sr = torch.tensor(sr).int()
+            output_folder = "output_images"
+            file_name = "data/test7.jpg".split("/")[-1].split(".")[0]
+            ut.save_image(output_sr[0], output_folder, ht, wt, 4,
+                          output_file_name=file_name + f"{i}_{j}_x4")
+
             # torch.cuda.synchronize()
             end = time.time()
             processing_time = end - start
@@ -402,8 +416,6 @@ def trt_forward_chop_iterative(
 
 def trt_helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
     # Loading model and image
-    img = None
-    model = None
     img = ut.load_image("data/test7.jpg").numpy()
     # img = img.f.arr_0
     img = np.resize(img, (img_dimension, img_dimension))
@@ -458,7 +470,7 @@ def trt_helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
         print(i)
     print(total_time)
 
-    output = torch.tensor(output_image).float()
+    output = torch.tensor(output_image).int()
     output_folder = "output_images"
     file_name = "data/test7.jpg".split("/")[-1].split(".")[0]
     ut.save_image(output[0], output_folder, patch_dimension, patch_dimension, 4, output_file_name=file_name + "_x4")

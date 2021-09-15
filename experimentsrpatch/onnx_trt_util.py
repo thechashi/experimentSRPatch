@@ -84,7 +84,7 @@ def build_trt_engine(onnx_model, trt_model):
         + onnx_model
         + " --saveEngine="
         + trt_model
-        + " --explicitBatch --inputIOFormats=fp16:chw --outputIOFormats=fp16:chw --fp16"
+        + " --explicitBatch"
     )
     process_output = subprocess.run(
         command, stdout=subprocess.PIPE, text=True, shell=True
@@ -97,7 +97,7 @@ def build_trt_engine(onnx_model, trt_model):
         return True
 
 
-def trt_inference(trt_engine, img, patch_size, scale=4, use_fp16=True):
+def trt_inference(trt_engine, img, patch_size, scale=4, use_fp16=False):
     """
     Inference with TensorRT enigne
 
@@ -123,7 +123,7 @@ def trt_inference(trt_engine, img, patch_size, scale=4, use_fp16=True):
     USE_FP16 = use_fp16
     target_dtype = np.float16 if USE_FP16 else np.float32
     b, c, h, w = img.shape
-    input_batch = np.ascontiguousarray(img, dtype=np.float16)
+    input_batch = np.ascontiguousarray(img, dtype=np.float32)
     f = open(trt_engine, "rb")
     runtime = trt.Runtime(trt.Logger(trt.Logger.WARNING))
     engine = runtime.deserialize_cuda_engine(f.read())
@@ -162,12 +162,12 @@ def trt_inference(trt_engine, img, patch_size, scale=4, use_fp16=True):
 if __name__ == "__main__":
     # =============================================================================
     #     # build sample onnx model
-    #     build_onnx_model(model_name="EDSR", patch_size=120, onnx_model_name="edsr.onnx")
+    build_onnx_model(model_name="EDSR", patch_size=120, onnx_model_name="edsr.onnx")
     # =============================================================================
 
     # =============================================================================
     #     # build smaple trt engine
-    #     build_trt_engine("inference_models/edsr.onnx", "inference_models/edsr.trt")
+    build_trt_engine("inference_models/edsr.onnx", "inference_models/edsr.trt")
     # =============================================================================
 
     # sample inference with trt engine
@@ -183,3 +183,8 @@ if __name__ == "__main__":
     print(output)
     print(output.shape)
     print(type(output))
+
+    output = torch.tensor(output).int()
+    output_folder = "output_images"
+    file_name = "data/test7.jpg".split("/")[-1].split(".")[0]
+    ut.save_image(output[0], output_folder, 120, 120, 4, output_file_name=file_name + "_x4")
