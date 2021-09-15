@@ -271,6 +271,7 @@ def trt_forward_chop_iterative(
     engine = runtime.deserialize_cuda_engine(f.read())
     context = engine.create_execution_context()
     new_i_s = 0
+    stream = cuda.Stream()
     for i in range(0, h, dim - 2 * shave):
         new_j_s = 0
         new_j_e = 0
@@ -298,8 +299,6 @@ def trt_forward_chop_iterative(
             d_output = cuda.mem_alloc(1 * p_output.nbytes)
 
             bindings = [int(d_input), int(d_output)]
-
-            stream = cuda.Stream()
 
             sr = predict(context, lr, d_input, stream, bindings, p_output, d_output)
 
