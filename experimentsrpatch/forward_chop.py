@@ -458,6 +458,10 @@ def trt_helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
         print(i)
     print(total_time)
 
+    output = torch.tensor(output_image).float()
+    output_folder = "output_images"
+    file_name = "data/test7.jpg".split("/")[-1].split(".")[0]
+    ut.save_image(output[0], output_folder, patch_dimension, patch_dimension, 4, output_file_name=file_name + "_x4")
 
 def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
     # Loading model and image
@@ -499,4 +503,4 @@ def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
 
 if __name__ == "__main__":
     # main()
-    trt_helper_rrdb_piterative_experiment(int(sys.argv[1]), int(sys.argv[2]))
+    output = trt_helper_rrdb_piterative_experiment(int(sys.argv[1]), int(sys.argv[2]))

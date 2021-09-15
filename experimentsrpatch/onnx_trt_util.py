@@ -56,7 +56,7 @@ def build_onnx_model(model_name, patch_size, onnx_model_name):
             dummy_input,
             "inference_models/" + onnx_model_name,
             verbose=False,
-            opset_version=11,
+            opset_version=12,
             input_names=["input"],
             output_names=["output"],
         )
