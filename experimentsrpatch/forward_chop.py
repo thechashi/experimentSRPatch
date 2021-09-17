@@ -226,40 +226,42 @@ def trt_forward_chop_iterative_v2(
     use_fp16=False,
 ):
     """
-    Forward chopping in an iterative way
+    
 
     Parameters
     ----------
-    x : tensor
+    x : 4d array
         input image.
-    model : nn.Module, optional
-        SR model. The default is None.
+    trt_engine_path : str, optional
+        path of the trt engine. The default is None.
     shave : int, optional
-        patch shave value. The default is 10.
+        shave value. The default is 10.
     min_size : int, optional
-        total patch size (dimension x dimension) . The default is 1024.
-    device : int, optional
-        GPU or CPU. The default is 'cuda'.
+        total size of the image. The default is 1024.
+    device : str, optional
+        device cuda or cpu. The default is "cuda".
     print_result : bool, optional
         print result or not. The default is True.
+    scale : int, optional
+        hr = scale * lr. The default is 4.
+    use_fp16 : bool, optional
+        choose precision. The default is False.
+
+    Raises
+    ------
+    Exception
+        DESCRIPTION.
 
     Returns
     -------
-    output : tensor
-        output image.
-    total_time : float
-        total execution time.
-    total_crop_time : float
-        total cropping time.
-    total_shift_time : float
-        total GPU to CPU shfiting time.
-    total_clear_time : float
-        total GPU clearing time.
+    output : TYPE
+        DESCRIPTION.
 
     """
     patch_count = 0
     row_count = 0
     column_count = 0
+    
     dim = int(math.sqrt(min_size))  # getting patch dimension
     b, c, img_height, img_width = x.size()  # current image batch, channel, height, width
     
@@ -270,12 +272,10 @@ def trt_forward_chop_iterative_v2(
     runtime = trt.Runtime(trt.Logger(trt.Logger.WARNING))
     engine = runtime.deserialize_cuda_engine(f.read())
     context = engine.create_execution_context()
+
+
     new_i_s = 0
-    stream = cuda.Stream()
-    # =============================================================================
-    #     print('LR Image size: {}x{}'.format(img_height, img_width))
-    #     print('SR Image size: {}x{}'.format(img_height*scale, img_width*scale))
-    # =============================================================================
+
     new_i_s = 0 # new patch height start 
     for patch_height_start in range(0, img_height, dim - 2 * shave):
         row_count += 1
@@ -353,8 +353,10 @@ def trt_forward_chop_iterative_v2(
                 w_s, w_e = 0, img_width * scale
             elif dim >= img_height and dim < img_width:
                 h_s, h_e = 0, img_height * scale
-            
+
             lr = x[:, :, patch_height_start:patch_height_end, patch_width_start:patch_width_end]
+            print('x.shape: ',x.shape)
+            print('lr.shape', lr.shape)
             ba, ch, ht, wt = lr.shape
 
             lr = lr.numpy()
@@ -376,11 +378,11 @@ def trt_forward_chop_iterative_v2(
             d_output = cuda.mem_alloc(1 * p_output.nbytes)
 
             bindings = [int(d_input), int(d_output)]
-
+            stream = cuda.Stream()
             sr = predict(context, lr, d_input, stream, bindings, p_output, d_output)
             
             new_i_e = new_i_s + h_e - h_s
-            new_j_e = new_j_e + w_e - w_s
+            new_j_e = new_j_s + w_e - w_s
             patch_crop_positions = [h_s, h_e, w_s, w_e]
             SR_positions = [new_i_s, new_i_e, new_j_s, new_j_e]
             
@@ -408,6 +410,7 @@ def trt_forward_chop_iterative_v2(
         raise Exception("Shave size too big for given patch dimension")
 
     return output
+
 def trt_forward_chop_iterative(
     x,
     trt_engine_path=None,
@@ -542,156 +545,89 @@ def trt_forward_chop_iterative(
             clear_time = clear_end - clear_start
             total_clear_time += clear_time
             if w_e == w:
-                print("first break")
                 break
             new_j_s = new_j_e
 
         new_i_s = new_i_e
 
         if h_e == h:
-            print("second break")
             break
     return output, total_time, total_crop_time, total_shift_time, total_clear_time
-# =============================================================================
-#     return x.unsqueeze(0)
-# =============================================================================
 
 
-# =============================================================================
-# @click.command()
-# @click.option("--model_name", default="RRDB", help="Upsampler model name")
-# @click.option("--img_path", default="data/slices/0.npz", help="Input image path")
-# @click.option("--patch_dimension", default=293, help="Dimension of a square patch")
-# @click.option("--shave", default=10, help="Overlapping value of two patches")
-# @click.option("--scale", default=4, help="Scaling amount of the HR image")
-# @click.option(
-#     "--print_result",
-#     default=True,
-#     help="Print the timing of each segment of an upsampling or not",
-# )
-# @click.option("--device", default="cuda", help="GPU or CPU")
-# def main(model_name, img_path, patch_dimension, shave, scale, print_result, device):
-#     # Loading image
-#     input_image = ut.get_grayscale_image_tensor(img_path)
-#     c, h, w = input_image.shape
-#     input_image = input_image.reshape((1, c, h, w))
-#     # Loading model
-#     if model_name == "RRDB":
-#         model = md.load_rrdb(device)
-#     elif model_name == "EDSR":
-#         model = md.load_edsr()
-#     else:
-#         print("Unknown model")
-#     model.eval()
-#     total_time = ut.timer()
-#     out_tuple = forward_chop_iterative(
-#         input_image,
-#         shave=shave,
-#         min_size=patch_dimension * patch_dimension,
-#         model=model,
-#         device=device,
-#         print_result=print_result,
-#     )
-#     model.cpu()
-#     del model
-#     output_image = out_tuple[0]
-#     total_time = total_time.toc()
-#     #print("Total forward chopping time: ", total_time)
-#     if print_result:
-#         for i in out_tuple[1:]:
-#             print(i)
-#         print(total_time)
-# =============================================================================
-# =============================================================================
-#         print("\nSaving...\n")
-#         output_file_name = get_file_name(img_path)
-#         save_time = ut.timer()
-#         ut.save_image(
-#             output_image[0],
-#             "results/",
-#             input_height=h,
-#             input_width=w,
-#             scale=4,
-#             output_file_name=output_file_name,
-#         )
-#         save_time = save_time.toc()
-#         print("Saving time: {}".format(save_time))
-# =============================================================================
+def trt_helper_upsampler_piterative_experiment(model_name, trt_engine_path, img_path, patch_dimension, shave=10):
+    """
+    Driver function to run a trtengine
 
+    Parameters
+    ----------
+    model_name : str
+        name of the model (i.e. "EDSR", "RRDB")
+    trt_engine_path : str
+        path of the trt engine.
+    img_path : str
+        path of the image file.
+    patch_dimension : int
+        patch_size.
+    shave : int, optional
+        patch overlapping size. The default is 10.
 
-def trt_helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
+    Returns
+    -------
+    None.
+
+    """
     # Loading model and image
-    img = ut.load_image("data/test9_400.jpg").numpy()
-    # img = img.f.arr_0
-    img = np.resize(img, (img_dimension, img_dimension))
-    # =============================================================================
-    #     img = img[np.newaxis, :, :]
-    # =============================================================================
-    img2 = np.zeros((3, img.shape[0], img.shape[1]))
-    img2[0, :, :] = img
-    img2[1, :, :] = img
-    img2[2, :, :] = img
-    img = img2
-    img = torch.from_numpy(img).float()
-    img = img.unsqueeze(0)
+    if model_name in ['EDSR']:
+        img = ut.load_image(img_path)
+        input_image = img.unsqueeze(0)
+    elif model_name in ["RRDB"]:
+        img = ut.npz_loader(img_path)
+        input_image = img.unsqueeze(0)
+    else:
+        print('Unknown model!')
+        return
 
-    input_image = img
     b, c, h, w = input_image.shape
-
-    # input_image = input_image.reshape((1, c, h, w))
-    # Loading model
-    # =============================================================================
-    #     model = md.load_edsr("cuda")
-    #
-    #     model.eval()
-    # =============================================================================
+    
     total_time = ut.timer()
-    # =============================================================================
-    #     out_tuple = forward_chop_iterative(
-    #         input_image,
-    #         shave=10,
-    #         min_size=patch_dimension * patch_dimension,
-    #         model=model,
-    #         device="cuda",
-    #         print_result=True,
-    #     )
-    # =============================================================================
-# =============================================================================
-#     out_tuple = trt_forward_chop_iterative(
-#         input_image,
-#         trt_engine_path="inference_models/edsr.trt",
-#         shave=10,
-#         min_size=patch_dimension * patch_dimension,
-#         device="cuda",
-#         print_result=True,
-#     )
-# =============================================================================
     out_tuple = trt_forward_chop_iterative_v2(
         input_image,
-        trt_engine_path="inference_models/edsr.trt",
-        shave=10,
+        trt_engine_path=trt_engine_path,
+        shave=shave,
         min_size=patch_dimension * patch_dimension,
         device="cuda",
         print_result=True,
     )
-    # =============================================================================
-    #     model.cpu()
-    #     del model
-    # =============================================================================
     output_image = out_tuple[0]
-    print(output_image.shape)
     total_time = total_time.toc()
 
-    for i in out_tuple[1:]:
-        print(i)
-    print(total_time)
-
+# =============================================================================
+#     for i in out_tuple[1:]:
+#         print(i)
+# =============================================================================
+    print('Total executing time: ', total_time)
     output = torch.tensor(output_image).int()
     output_folder = "output_images"
-    file_name = "data/test9_400.jpg".split("/")[-1].split(".")[0]
-    ut.save_image(output, output_folder, h, w, 4, output_file_name=file_name + "output_x4")
+    file_name = img_path.split("/")[-1].split(".")[0]
+    ut.save_image(output, output_folder, h, w, 4, output_file_name=file_name + "_output_x4")
 
 def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
+    """
+    Driver function for running pytorch model inference
+
+    Parameters
+    ----------
+    img_dimension : int
+        image one side dimension.
+    patch_dimension : int
+        patch size.
+
+    Returns
+    -------
+    None.
+
+    """
     # Loading model and image
     img = None
     model = None
@@ -730,5 +666,12 @@ def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
 
 
 if __name__ == "__main__":
-    # main()
-    output = trt_helper_rrdb_piterative_experiment(int(sys.argv[1]), int(sys.argv[2]))
+    output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr.trt", "data/test9_400.jpg", int(sys.argv[1]))
+# =============================================================================
+#     #img = ut.load_image("data/test9_400.jpg").numpy()
+#     img = ut.npz_loader("data/slices/0.npz")
+#     print(type(img))
+#     print(img.shape)
+#     print(img.size)
+# 
+# =============================================================================
