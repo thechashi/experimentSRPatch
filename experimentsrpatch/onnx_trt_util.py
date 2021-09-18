@@ -84,7 +84,7 @@ def build_trt_engine(onnx_model, trt_model):
         + onnx_model
         + " --saveEngine="
         + trt_model
-        + " --explicitBatch"
+        + " --explicitBatch --inputIOFormats=fp16:chw --outputIOFormats=fp16:chw --fp16"
     )
     process_output = subprocess.run(
         command, stdout=subprocess.PIPE, text=True, shell=True
@@ -162,29 +162,34 @@ def trt_inference(trt_engine, img, patch_size, scale=4, use_fp16=False):
 if __name__ == "__main__":
     # =============================================================================
     #     # build sample onnx model
-    build_onnx_model(model_name="EDSR", patch_size=120, onnx_model_name="edsr.onnx")
+# =============================================================================
+#     build_onnx_model(model_name="RRDB", patch_size=120, onnx_model_name="rrdb.onnx")
+# =============================================================================
     # =============================================================================
 
     # =============================================================================
     #     # build smaple trt engine
-    build_trt_engine("inference_models/edsr.onnx", "inference_models/edsr.trt")
+    build_trt_engine("inference_models/rrdb.onnx", "inference_models/rrdb.trt")
     # =============================================================================
 
     # sample inference with trt engine
-    img_path = "data/test7.jpg"
-    input_batch = ut.load_image(img_path).unsqueeze(0).numpy()
-    print(input_batch)
-    print(input_batch.shape)
-    print(type(input_batch))
-    b, c, h, w = input_batch.shape
-
-    trt_engine = "inference_models/edsr.trt"
-    output = trt_inference(trt_engine, input_batch, h)
-    print(output)
-    print(output.shape)
-    print(type(output))
-
-    output = torch.tensor(output).int()
-    output_folder = "output_images"
-    file_name = "data/test7.jpg".split("/")[-1].split(".")[0]
-    ut.save_image(output[0], output_folder, 120, 120, 4, output_file_name=file_name + "_x4")
+# =============================================================================
+#     img_path = "data/test7.jpg"
+#     input_batch = ut.load_image(img_path).unsqueeze(0).numpy()
+#     print(input_batch)
+#     print(input_batch.shape)
+#     print(type(input_batch))
+#     b, c, h, w = input_batch.shape
+# 
+#     trt_engine = "inference_models/edsr.trt"
+#     output = trt_inference(trt_engine, input_batch, h)
+#     print(output)
+#     print(output.shape)
+#     print(type(output))
+# 
+#     output = torch.tensor(output).int()
+#     output_folder = "output_images"
+#     file_name = "data/test7.jpg".split("/")[-1].split(".")[0]
+#     ut.save_image(output[0], output_folder, 120, 120, 4, output_file_name=file_name + "_x4")
+# 
+# =============================================================================

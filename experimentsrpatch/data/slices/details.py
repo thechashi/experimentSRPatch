@@ -9,7 +9,7 @@ def create_custom_npz(input_file, output_file, height, width):
     np.savez(output_file, image)
 
 if __name__ == "__main__":
-    create_custom_npz("0.npz", "12.npz", 1700, 1400)
+    create_custom_npz("0.npz", "13.npz", 120, 120)
     for i in range(11):
         name = str(i) + ".npz"
         image = ut.npz_loader(name)
