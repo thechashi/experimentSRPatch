@@ -4,6 +4,7 @@ Binary Search Helper
 import sys
 import torch
 import time
+import subprocess
 import utilities as ut
 import modelloader as md
 
@@ -32,6 +33,7 @@ def binary_search_helper(dimension, logger, model_name="EDSR", device="cuda"):
         model = None
         if model_name == "EDSR":
             model = md.load_edsr(device=device)
+            subprocess.run("gpustat", shell = True)
         elif model_name == "RRDB":
             model = md.load_rrdb(device=device)
         else:
@@ -41,15 +43,18 @@ def binary_search_helper(dimension, logger, model_name="EDSR", device="cuda"):
         if model_name == "RRDB":
             input_image = input_image[:, 2:, :, :]
         input_image = input_image.to(device)
-
+        print(input_image.shape)
         with torch.no_grad():
             start = time.time()
+            subprocess.run("gpustat", shell = True)
             output_image = model(input_image)
+            subprocess.run("gpustat", shell = True)
             end = time.time()
             total_time = end - start
             ut.clear_cuda(input_image, output_image)
         model.cpu()
         del model
+        subprocess.run("gpustat", shell = True)
     except RuntimeError as err:
         logger.error("Runtime error for dimension: {}x{}: " + err)
         sys.exit(1)

@@ -8,6 +8,7 @@ import math
 import copy
 import subprocess
 import pyfiglet
+import click
 import utilities as ut
 
 # =============================================================================
@@ -176,8 +177,10 @@ def maximum_acceptable_dimension(
             ut.clear_cuda(None, None)
     return last
 
-
-def do_binary_search(model_name="EDSR", start_dim=2):
+@click.command()
+@click.option("--model_name", default="EDSR", help="Name of the model")
+@click.option("--start_dim", default=2, help="Starting dimension of the input patch")
+def do_binary_search(model_name, start_dim):
     """
     Binary search function...
 
@@ -256,6 +259,4 @@ def do_binary_search(model_name="EDSR", start_dim=2):
 if __name__ == "__main__":
     # Exception handling
     sys.excepthook = ut.exception_handler
-
-    config = toml.load("../batch_processing.toml")
-    do_binary_search(config["model"])
+    do_binary_search()

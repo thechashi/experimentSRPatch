@@ -278,6 +278,7 @@ def trt_forward_chop_iterative_v2(
 
     new_i_s = 0 # new patch height start 
     for patch_height_start in range(0, img_height, dim - 2 * shave):
+        print(row_count)
         row_count += 1
         right_most = False
         bottom_most = False
@@ -355,8 +356,10 @@ def trt_forward_chop_iterative_v2(
                 h_s, h_e = 0, img_height * scale
 
             lr = x[:, :, patch_height_start:patch_height_end, patch_width_start:patch_width_end]
-            print('x.shape: ',x.shape)
-            print('lr.shape', lr.shape)
+# =============================================================================
+#             print('x.shape: ',x.shape)
+#             print('lr.shape', lr.shape)
+# =============================================================================
             ba, ch, ht, wt = lr.shape
 
             lr = lr.numpy()
@@ -666,7 +669,7 @@ def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
 
 
 if __name__ == "__main__":
-    output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr.trt", "data/test9_400.jpg", int(sys.argv[1]))
+    output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr.trt", "data/t7.jpg", int(sys.argv[1]))
 # =============================================================================
 #     #img = ut.load_image("data/test9_400.jpg").numpy()
 #     img = ut.npz_loader("data/slices/0.npz")

@@ -10,6 +10,7 @@ import numpy as np
 import subprocess
 import tensorrt as trt
 import pycuda.autoinit
+import subprocess
 import pycuda.driver as cuda
 import utilities as ut
 import modelloader as md
@@ -33,6 +34,7 @@ def build_onnx_model(model_name, patch_size, onnx_model_name):
     None.
 
     """
+    subprocess.run("gpustat", shell=True)
     device = ut.get_device_type()
     model = None
     if model_name == "RRDB":
@@ -43,23 +45,33 @@ def build_onnx_model(model_name, patch_size, onnx_model_name):
         dummy_input = image.unsqueeze(0).to(device)
     elif model_name == "EDSR":
         model = md.load_edsr(device)
-        b, c, h, w = 1, 3, patch_size, patch_size
-        dummy_input = torch.rand(b, c, h, w, requires_grad=True).to(device)
+        subprocess.run("gpustat", shell=True)
+        dummy_input = ut.random_image(patch_size).to(device)
+# =============================================================================
+#         b, c, h, w = 1, 3, patch_size, patch_size
+#         dummy_input = torch.rand(b, c, h, w, requires_grad=False).to(device)
+# =============================================================================
     else:
         print("Unknown model!")
         return
+    print(dummy_input.shape)
+    model.eval()
     with torch.no_grad():
-        model.eval()
+
+        subprocess.run("gpustat", shell=True)
         output = model(dummy_input)
-        torch.onnx.export(
-            model,
-            dummy_input,
-            "inference_models/" + onnx_model_name,
-            verbose=False,
-            opset_version=12,
-            input_names=["input"],
-            output_names=["output"],
-        )
+        subprocess.run("gpustat", shell=True)
+# =============================================================================
+#         torch.onnx.export(
+#             model,
+#             dummy_input,
+#             "inference_models/" + onnx_model_name,
+#             verbose=False,
+#             opset_version=12,
+#             input_names=["input"],
+#             output_names=["output"],
+#         )
+# =============================================================================
 
 
 def build_trt_engine(onnx_model, trt_model):
@@ -84,7 +96,7 @@ def build_trt_engine(onnx_model, trt_model):
         + onnx_model
         + " --saveEngine="
         + trt_model
-        + " --explicitBatch --inputIOFormats=fp16:chw --outputIOFormats=fp16:chw --fp16"
+        + " --explicitBatch"
     )
     process_output = subprocess.run(
         command, stdout=subprocess.PIPE, text=True, shell=True
@@ -162,14 +174,14 @@ def trt_inference(trt_engine, img, patch_size, scale=4, use_fp16=False):
 if __name__ == "__main__":
     # =============================================================================
     #     # build sample onnx model
-# =============================================================================
-#     build_onnx_model(model_name="RRDB", patch_size=120, onnx_model_name="rrdb.onnx")
-# =============================================================================
+    build_onnx_model(model_name="EDSR", patch_size=349, onnx_model_name="edsr.onnx")
     # =============================================================================
 
     # =============================================================================
     #     # build smaple trt engine
-    build_trt_engine("inference_models/rrdb.onnx", "inference_models/rrdb.trt")
+# =============================================================================
+#     build_trt_engine("inference_models/edsr.onnx", "inference_models/edsr.trt")
+# =============================================================================
     # =============================================================================
 
     # sample inference with trt engine
@@ -191,5 +203,6 @@ if __name__ == "__main__":
 #     output_folder = "output_images"
 #     file_name = "data/test7.jpg".split("/")[-1].split(".")[0]
 #     ut.save_image(output[0], output_folder, 120, 120, 4, output_file_name=file_name + "_x4")
+# 
 # 
 # =============================================================================
