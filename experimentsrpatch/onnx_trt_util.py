@@ -36,7 +36,7 @@ def build_onnx_model(model_name, patch_size, onnx_model_name, device="cuda"):
 
     """
 
-def build_trt_engine(onnx_model, trt_model):
+def build_trt_engine(onnx_model, trt_model, use_fp16=False):
     """
     Runs terminal command for turning a ONNX model to TensorRT engine
 
@@ -53,13 +53,23 @@ def build_trt_engine(onnx_model, trt_model):
         returns True after succesfully creating an engine, False otherwise.
 
     """
-    command = (
-        "trtexec --onnx="
-        + onnx_model
-        + " --saveEngine="
-        + trt_model
-        + " --explicitBatch"
-    )
+    if use_fp16:
+        command = (
+            "trtexec --onnx="
+            + onnx_model
+            + " --saveEngine="
+            + trt_model
+            + " --explicitBatch"
+            + " --inputIOFormats=fp16:chw --outputIOFormats=fp16:chw --fp16"
+        )
+    else:
+        command = (
+            "trtexec --onnx="
+            + onnx_model
+            + " --saveEngine="
+            + trt_model
+            + " --explicitBatch"
+        )
     process_output = subprocess.run(
         command, stdout=subprocess.PIPE, text=True, shell=True
     )
@@ -97,7 +107,7 @@ def trt_inference(trt_engine, img, patch_size, scale=4, use_fp16=False):
     USE_FP16 = use_fp16
     target_dtype = np.float16 if USE_FP16 else np.float32
     b, c, h, w = img.shape
-    input_batch = np.ascontiguousarray(img, dtype=np.float32)
+    input_batch = np.ascontiguousarray(img, dtype=target_dtype)
     f = open(trt_engine, "rb")
     runtime = trt.Runtime(trt.Logger(trt.Logger.WARNING))
     engine = runtime.deserialize_cuda_engine(f.read())
@@ -143,7 +153,7 @@ if __name__ == "__main__":
 
     # =============================================================================
     #     # build smaple trt engine
-    build_trt_engine(sys.argv[1], sys.argv[2])
+    build_trt_engine(sys.argv[1], sys.argv[2], bool(sys.argv[3]))
     # =============================================================================
 
     # sample inference with trt engine

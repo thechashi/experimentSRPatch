@@ -373,7 +373,7 @@ def trt_forward_chop_iterative_v2(
             target_dtype = np.float16 if USE_FP16 else np.float32
             ba, ch, ht, wt = lr.shape
 
-            lr = np.ascontiguousarray(lr, dtype=np.float32)
+            lr = np.ascontiguousarray(lr, dtype=target_dtype)
 
             # need to set input and output precisions to FP16 to fully enable it
             p_output = np.empty([b, c, ht * scale, wt * scale], dtype=target_dtype)
@@ -560,7 +560,7 @@ def trt_forward_chop_iterative(
     return output, total_time, total_crop_time, total_shift_time, total_clear_time
 
 
-def trt_helper_upsampler_piterative_experiment(model_name, trt_engine_path, img_path, patch_dimension, shave=10):
+def trt_helper_upsampler_piterative_experiment(model_name, trt_engine_path, img_path, patch_dimension, shave=10, use_fp16=False):
     """
     Driver function to run a trtengine
 
@@ -602,6 +602,7 @@ def trt_helper_upsampler_piterative_experiment(model_name, trt_engine_path, img_
         shave=shave,
         min_size=patch_dimension * patch_dimension,
         device="cuda",
+        use_fp16=use_fp16,
         print_result=True,
     )
     output_image = out_tuple[0]
@@ -727,11 +728,11 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
 # =============================================================================
 
 if __name__ == "__main__":
-    output = helper_upsampler_piterative_experiment("EDSR", "data/t7.jpg", int(sys.argv[1]))
+# =============================================================================
+#     output = helper_upsampler_piterative_experiment("EDSR", "data/t7.jpg", int(sys.argv[1]))
+# =============================================================================
                                                     
-# =============================================================================
-#     output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr_fp32_.trt", "data/t7.jpg", int(sys.argv[1]))
-# =============================================================================
+    output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr_fp16_.trt", "data/t7.jpg", int(sys.argv[1]), bool(sys.argv[2]))
 # =============================================================================
 #     #img = ut.load_image("data/test9_400.jpg").numpy()
 #     img = ut.npz_loader("data/slices/0.npz")

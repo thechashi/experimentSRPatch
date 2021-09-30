@@ -32,8 +32,12 @@ def build_onnx_trt(model_name, patch_dim, use_precision, verbose):
 # =============================================================================
 #     otu.build_trt_engine("inference_models/"+onnx_model_name, trt_model)
 # =============================================================================
-    command2 = "python3 onnx_trt_util.py " + "inference_models/"+onnx_model_name + " " + \
-        str(trt_model)
+    if use_precision == "fp32":
+        command2 = "python3 onnx_trt_util.py " + "inference_models/"+onnx_model_name + " " + \
+            str(trt_model) + " 0"
+    elif use_precision == "fp16":
+        command2 = "python3 onnx_trt_util.py " + "inference_models/"+onnx_model_name + " " + \
+            str(trt_model) + " 1"
     subprocess.run(command2, shell=True)
     
 if __name__ == "__main__":
