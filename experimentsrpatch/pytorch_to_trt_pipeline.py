@@ -1,6 +1,7 @@
 import click
 import toml
-import onnx_trt_util as otu
+import subprocess
+
 
 @click.command()
 @click.option("--model_name", default="EDSR", help="Upsampler model name")
@@ -16,14 +17,24 @@ def build_onnx_trt(model_name, patch_dim, use_precision, verbose):
     # pytorch to onnx model
     if verbose:
         print("Building ONNX model from the PyTorch model...")
-    onnx_model_name = model_name.lower() + "_" + str(use_precision) + "_" + ".onnx"
-    otu.build_onnx_model(model_name, patch_dim, onnx_model_name)
+    onnx_model_name = model_name.lower() + "_" + str(use_precision)+ ".onnx"
+# =============================================================================
+#     omb.build_onnx_model(model_name, patch_dim, onnx_model_name)
+# =============================================================================
+    command1 = "python3 onnx_model_builder.py " + str(model_name) + " " + \
+        str(patch_dim) + " " + str(onnx_model_name)
+    subprocess.run(command1, shell=True)
     
     # onnx to trt
     if verbose:
         print("Building TRT engine from the ONNX model...")
     trt_model = "inference_models/" + model_name.lower() + "_" + str(use_precision) + "_" + ".trt"
-    otu.build_trt_engine("inference_models/"+onnx_model_name, trt_model)
+# =============================================================================
+#     otu.build_trt_engine("inference_models/"+onnx_model_name, trt_model)
+# =============================================================================
+    command2 = "python3 onnx_trt_util.py " + "inference_models/"+onnx_model_name + " " + \
+        str(trt_model)
+    subprocess.run(command2, shell=True)
     
 if __name__ == "__main__":
     build_onnx_trt()

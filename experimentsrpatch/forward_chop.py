@@ -85,7 +85,9 @@ def forward_chop_iterative(
             # =============================================================================
 
             lr = x[:, :, h_s:h_e, w_s:w_e]
-            print(lr.shape)
+# =============================================================================
+#             print(lr.shape)
+# =============================================================================
             if device == "cuda":
                 torch.cuda.synchronize()
                 lr = lr.to(device)
@@ -640,7 +642,7 @@ def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
     img = img[np.newaxis, :, :]
     img = torch.from_numpy(img)
     img = img.unsqueeze(0)
-    model = md.load_rrdb(device="cuda")
+
 
     input_image = img
     b, c, h, w = input_image.shape
@@ -667,9 +669,69 @@ def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
         print(i)
     print(total_time)
 
+def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension):
+    """
+    Driver function for running pytorch model inference
+
+    Parameters
+    ----------
+    img_dimension : int
+        image one side dimension.
+    patch_dimension : int
+        patch size.
+
+    Returns
+    -------
+    None.
+
+    """
+    # Loading model and image
+    if model_name in ['EDSR']:
+        model = md.load_edsr(device="cuda")
+        img = ut.load_image(img_path)
+        input_image = img.unsqueeze(0)
+    elif model_name in ["RRDB"]:
+        model = md.load_rrdb(device="cuda")
+        img = ut.npz_loader(img_path)
+        input_image = img.unsqueeze(0)
+    else:
+        print('Unknown model!')
+        return
+
+    b, c, h, w = input_image.shape
+    
+    total_time = ut.timer()
+    out_tuple = forward_chop_iterative(
+        input_image,
+        shave=10,
+        min_size=patch_dimension * patch_dimension,
+        model=model,
+        device="cuda",
+        print_result=True,
+    )
+    model.cpu()
+    del model
+    output_image = out_tuple[0]
+    total_time = total_time.toc()
+
+# =============================================================================
+#     for i in out_tuple[1:]:
+#         print(i)
+# =============================================================================
+    print('Total executing time: ', total_time)
+# =============================================================================
+#     output = torch.tensor(output_image).int()
+#     output_folder = "output_images"
+#     file_name = img_path.split("/")[-1].split(".")[0]
+#     ut.save_image(output, output_folder, h, w, 4, output_file_name=file_name + "_output_x4")
+# =============================================================================
 
 if __name__ == "__main__":
-    output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr.trt", "data/t7.jpg", int(sys.argv[1]))
+    output = helper_upsampler_piterative_experiment("EDSR", "data/t7.jpg", int(sys.argv[1]))
+                                                    
+# =============================================================================
+#     output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr_fp32_.trt", "data/t7.jpg", int(sys.argv[1]))
+# =============================================================================
 # =============================================================================
 #     #img = ut.load_image("data/test9_400.jpg").numpy()
 #     img = ut.npz_loader("data/slices/0.npz")
