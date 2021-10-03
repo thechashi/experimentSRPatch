@@ -15,4 +15,6 @@ click==8.0.1
 gpustat==0.6.0
 pyfiglet==0.8.post1
 tqdm==4.62.3
-
+scikit-image==0.18.3
+scikit-learn==1.0
+scipy==1.7.1
