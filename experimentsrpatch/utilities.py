@@ -2,6 +2,7 @@
 import time
 import torch
 import math
+import gc
 import numpy as np
 import matplotlib.pyplot as plt
 from pynvml import nvmlInit, nvmlDeviceGetHandleByIndex, nvmlDeviceGetMemoryInfo
@@ -12,7 +13,8 @@ import toml
 import torchvision
 from PIL import Image
 from pathlib import Path
-
+from skimage.metrics import structural_similarity as ssim
+from skimage.metrics import mean_squared_error
 
 def create_custom_npz(
     height, width, input_file="data/slices/0.npz", output_file="data/slices/custom.npz"
@@ -304,7 +306,10 @@ def load_image(img_path, show_img=False):
     img = img.float()
     return img
 
-
+def image_shape(img_path):
+    img = torchvision.io.read_image(img_path)
+    print(img.shape)
+    
 def load_grayscale_image(img_path, show_img=False):
     """
     Loads image and returns it
@@ -552,7 +557,7 @@ def random_image(dimension, batch=True, channel=3):
     return image.float()
 
 
-def clear_cuda(input_image, output_image):
+def clear_cuda(input_image, output_image, gc_collect=False):
     """
     Clears up the images from cuda
 
@@ -574,7 +579,8 @@ def clear_cuda(input_image, output_image):
     if input_image is not None:
         input_image = input_image.cpu()
         del input_image
-    # gc.collect()
+    if gc_collect:
+        gc.collect()
     torch.cuda.empty_cache()
 
 
@@ -730,13 +736,29 @@ def save_csv(
     data_frame.to_csv(file)
     file.close()
 
+def get_ssim(img1, img2):
+    ssim_val =  ssim(img1, img2, data_range=img2.max() - img2.min())
+    return ssim_val
 
+def get_mse(img1, img2):
+    return mean_squared_error(img1, img2)
 if __name__ == "__main__":
-    # print(random_image(32))
-    # test_image()
-    # l = get_logger(stream=False)
-    # l.info("Hello from terminal")
-    # l2 = get_logger(stream=True)
-    # print(l2.info("log2"))
-    # print(l2 == l)
+    #clear_cuda(None, None, False)
+    img1 = np.load("output_images/test4_Actual_output_x4.npy", allow_pickle=True)
+    img2 = np.load("output_images/test4_16_output_x4.npy", allow_pickle=True)
+    img1 = img1[0,:,:,:]
+    print(img1.shape)
+    print(img2.shape)
+    ssim_val = 0
+    mse_val = 3
+    for i in range(3):
+        i1 = img1[i, :, :]
+        i2 = img2[i, :, :]
+        ssim_val  += get_ssim(i1, i2)
+        mse_val += get_mse(i1, i2)
+    ssim_val /= 3
+    mse_val /= 3
+    
+    print("SSIM: ", ssim_val)
+    print("MSE: ", mse_val)
     pass

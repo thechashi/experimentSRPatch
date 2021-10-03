@@ -613,10 +613,13 @@ def trt_helper_upsampler_piterative_experiment(model_name, trt_engine_path, img_
 #         print(i)
 # =============================================================================
     print('Total executing time: ', total_time)
-    output = torch.tensor(output_image).int()
-    output_folder = "output_images"
-    file_name = img_path.split("/")[-1].split(".")[0]
-    ut.save_image(output, output_folder, h, w, 4, output_file_name=file_name + "_output_x4")
+    return output_image
+# =============================================================================
+#     output = torch.tensor(output_image).int()
+#     output_folder = "output_images"
+#     file_name = img_path.split("/")[-1].split(".")[0]
+#     ut.save_image(output, output_folder, h, w, 4, output_file_name=file_name + "_output_x4")
+# =============================================================================
 
 def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
     """
@@ -720,24 +723,55 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
 #         print(i)
 # =============================================================================
     print('Total executing time: ', total_time)
+    return output_image
 # =============================================================================
 #     output = torch.tensor(output_image).int()
 #     output_folder = "output_images"
 #     file_name = img_path.split("/")[-1].split(".")[0]
 #     ut.save_image(output, output_folder, h, w, 4, output_file_name=file_name + "_output_x4")
-# =============================================================================
-
+# ============================================================================
+@click.command()
+@click.option("--mode", default="TRT", help="TRT or TORCH model")
+@click.option("--model_name", default="EDSR", help="Model name. e.g EDSR, RRDB etc")
+@click.option("--trt_path", default=None, help="Path of the trt engine")
+@click.option("--img_path", default="data/test4.jpg", help="Image path")
+@click.option("--patch_size", default=300, help="Patch size")
+@click.option("--use_fp16", default=False, help="Use precision FP16 or FP32")
+@click.option("--save_mode", default="npy", help="Save mode: npy, npz, png")
+def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
+    if mode=="TRT" and trt_path==None:
+        print("Please provide a valid trt engine path")
+        return
+    if mode=="TRT":
+        output = trt_helper_upsampler_piterative_experiment(model_name, trt_path, img_path, patch_size, use_fp16=use_fp16)
+    elif mode=="TORCH":
+        output = helper_upsampler_piterative_experiment(model_name, img_path, patch_size)
+    else:
+        print("Invalid mode")
+        return
+    
+    fp = 16 if use_fp16 else 32
+    if mode == "TORCH":
+        fp="Actual"
+    file_name = img_path.split("/")[-1].split(".")[0] + "_" + str(fp) + "_output_x4"
+    if save_mode == "npz":
+        np.savez("output_images/" + file_name + ".npz", output)
+    elif save_mode == "npy":
+        np.save("output_images/" + file_name, output)
+    elif save_mode == "png":
+        output = torch.tensor(output).int()
+        output_folder = "output_images"
+        c, h ,w  = output.shape
+        ut.save_image(output, output_folder, h, w, 4, output_file_name=file_name)
+    
+        
+    
 if __name__ == "__main__":
+    run()
 # =============================================================================
 #     output = helper_upsampler_piterative_experiment("EDSR", "data/t7.jpg", int(sys.argv[1]))
+#                                                     
+#     output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr_fp16_340.trt", "data/test4.jpg", int(sys.argv[1]), use_fp16=bool(sys.argv[2]))
+#     print(output.shape)
 # =============================================================================
-                                                    
-    output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr_fp16_.trt", "data/t7.jpg", int(sys.argv[1]), bool(sys.argv[2]))
-# =============================================================================
-#     #img = ut.load_image("data/test9_400.jpg").numpy()
-#     img = ut.npz_loader("data/slices/0.npz")
-#     print(type(img))
-#     print(img.shape)
-#     print(img.size)
-# 
-# =============================================================================
+

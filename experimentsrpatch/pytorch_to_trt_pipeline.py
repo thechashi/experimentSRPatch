@@ -45,7 +45,10 @@ def build_onnx_trt(model_name, patch_dim, use_precision, verbose):
 #             command1 = "python3 onnx_model_builder.py " + str(model_name) + " " + \
 #                 str(patch_dim) + " " + str(onnx_model_name)
 # =============================================================================
+            onnx_model_name = model_name.lower() + "_" + str(use_precision)+ "_" + \
+                    str(patch_dim) + ".onnx"        
             command1 = ["python3", "onnx_model_builder.py", str(model_name), str(patch_dim), str(onnx_model_name)]
+        
         else:
             ut.clear_cuda(None, None)
             # for linear search
