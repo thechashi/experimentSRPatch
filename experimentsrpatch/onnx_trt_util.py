@@ -53,6 +53,7 @@ def build_trt_engine(onnx_model, trt_model, use_fp16=False):
         returns True after succesfully creating an engine, False otherwise.
 
     """
+    print(use_fp16)
     if use_fp16:
         command = (
             "trtexec --onnx="
@@ -153,7 +154,7 @@ if __name__ == "__main__":
 
     # =============================================================================
     #     # build smaple trt engine
-    build_trt_engine(sys.argv[1], sys.argv[2], bool(sys.argv[3]))
+    build_trt_engine(sys.argv[1], sys.argv[2], int(sys.argv[3]))
     # =============================================================================
 
     # sample inference with trt engine

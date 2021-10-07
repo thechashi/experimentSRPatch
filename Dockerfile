@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/tensorrt:21.08-py3
+FROM nvcr.io/nvidia/tensorrt:21.09-py3
 RUN mkdir /app
 COPY requirements.txt /app
 WORKDIR /app

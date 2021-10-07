@@ -369,6 +369,7 @@ def trt_forward_chop_iterative_v2(
             # EDSR processing
             start = time.time()
             # torch.cuda.synchronize()
+            print('USE FP: 16', use_fp16)
             USE_FP16 = use_fp16
             target_dtype = np.float16 if USE_FP16 else np.float32
             ba, ch, ht, wt = lr.shape
@@ -582,6 +583,7 @@ def trt_helper_upsampler_piterative_experiment(model_name, trt_engine_path, img_
     None.
 
     """
+    print('USE FP: 16', use_fp16)
     # Loading model and image
     if model_name in ['EDSR']:
         img = ut.load_image(img_path)
@@ -749,7 +751,7 @@ def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
     else:
         print("Invalid mode")
         return
-    
+    print('USE FP: 16', use_fp16)
     fp = 16 if use_fp16 else 32
     if mode == "TORCH":
         fp="Actual"

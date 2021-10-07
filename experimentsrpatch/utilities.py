@@ -436,7 +436,7 @@ def show_image(img_path, grayscale=False):
 
 
 def save_image(
-    image, output_folder, input_height, input_width, scale, output_file_name="outputx4"
+    image, output_folder, input_height, input_width, scale, output_file_name="outputx4", add_date=True
 ):
     """
     Saves image
@@ -461,7 +461,10 @@ def save_image(
     """
     date = "_".join(str(time.ctime()).split())
     date = "_".join(date.split(":"))
-    filename = output_file_name + "_" + date
+    if add_date:
+        filename = output_file_name + "_" + date
+    else:
+        filename = output_file_name
     img_path = output_folder + "/" + filename + ".png"
     fig = plt.figure(
         figsize=((scale * input_height) / 1000, (scale * input_width) / 1000),
@@ -737,28 +740,49 @@ def save_csv(
     file.close()
 
 def get_ssim(img1, img2):
-    ssim_val =  ssim(img1, img2, data_range=img2.max() - img2.min())
-    return ssim_val
+    if  img1.shape != img2.shape:
+        print('Both image shapes have to match')
+        return
+    if len(img1.shape) > 3:
+        print('Image shape has to be like this: (channel, height, width)')
+        return
+    c, h, w = img1.shape
+    val = 0
+    for i in range(0, c):
+        i1 = img1[i, :, :]
+        i2 = img2[i, :, :]
+        val += ssim(i1, i2, data_range=i1.max() - i2.min())
+    
+    return val/c
+
 
 def get_mse(img1, img2):
-    return mean_squared_error(img1, img2)
+    if  img1.shape != img2.shape:
+        print('Both image shapes have to match'  )
+        return
+    if len(img1.shape) > 3:
+        print('Image shape has to be like this: (channel, height, width)')
+        return
+    c, h, w = img1.shape
+    val = 0
+    for i in range(0, c):
+        i1 = img1[i, :, :]
+        i2 = img2[i, :, :]
+        val += mean_squared_error(i1, i2)
+    
+    return val/c
 if __name__ == "__main__":
     #clear_cuda(None, None, False)
     img1 = np.load("output_images/test4_Actual_output_x4.npy", allow_pickle=True)
     img2 = np.load("output_images/test4_16_output_x4.npy", allow_pickle=True)
     img1 = img1[0,:,:,:]
-    print(img1.shape)
-    print(img2.shape)
-    ssim_val = 0
-    mse_val = 3
-    for i in range(3):
-        i1 = img1[i, :, :]
-        i2 = img2[i, :, :]
-        ssim_val  += get_ssim(i1, i2)
-        mse_val += get_mse(i1, i2)
-    ssim_val /= 3
-    mse_val /= 3
+    print(img1)
+
+    
+    ssim_val = get_ssim(img1, img2)
+    mse_val = get_mse(img1, img2)
     
     print("SSIM: ", ssim_val)
     print("MSE: ", mse_val)
+    print(img2)
     pass

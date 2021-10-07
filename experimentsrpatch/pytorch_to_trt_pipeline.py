@@ -41,10 +41,6 @@ def build_onnx_trt(model_name, patch_dim, use_precision, verbose):
             ut.clear_cuda(None, None)
             patch_dim -=1
             print('Memory out. Decreasing patch size. New patch_size = {}'.format(patch_dim))
-# =============================================================================
-#             command1 = "python3 onnx_model_builder.py " + str(model_name) + " " + \
-#                 str(patch_dim) + " " + str(onnx_model_name)
-# =============================================================================
             onnx_model_name = model_name.lower() + "_" + str(use_precision)+ "_" + \
                     str(patch_dim) + ".onnx"        
             command1 = ["python3", "onnx_model_builder.py", str(model_name), str(patch_dim), str(onnx_model_name)]
@@ -63,9 +59,6 @@ def build_onnx_trt(model_name, patch_dim, use_precision, verbose):
         print("Building TRT engine from the ONNX model...")
     trt_model = "inference_models/" + model_name.lower() + "_" + str(use_precision) + \
         "_" + str(patch_dim) + ".trt"
-# =============================================================================
-#     otu.build_trt_engine("inference_models/"+onnx_model_name, trt_model)
-# =============================================================================
     if use_precision == "fp32":
         command2 = "python3 onnx_trt_util.py " + "inference_models/"+onnx_model_name + " " + \
             str(trt_model) + " 0"
