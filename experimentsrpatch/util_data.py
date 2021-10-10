@@ -420,9 +420,7 @@ def t_interpolate(image, mode, scale_factor):
     return image
 from PIL import Image
 if __name__ == "__main__":
-    #bd = BicubicDownsample()
-    conf = {'scale_factor': 0.25}
-    img_path = 'data/diff_sizes/test2_2000.png'
+    img_path = 'data/diff_sizes/test2_3000.jpg'
     
     i1 = ut.load_image(img_path)
     for i in range(8):

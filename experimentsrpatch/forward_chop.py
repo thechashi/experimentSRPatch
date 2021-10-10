@@ -280,7 +280,6 @@ def trt_forward_chop_iterative_v2(
 
     new_i_s = 0 # new patch height start 
     for patch_height_start in range(0, img_height, dim - 2 * shave):
-        print(row_count)
         row_count += 1
         right_most = False
         bottom_most = False
@@ -369,7 +368,6 @@ def trt_forward_chop_iterative_v2(
             # EDSR processing
             start = time.time()
             # torch.cuda.synchronize()
-            print('USE FP: 16', use_fp16)
             USE_FP16 = use_fp16
             target_dtype = np.float16 if USE_FP16 else np.float32
             ba, ch, ht, wt = lr.shape
@@ -380,13 +378,14 @@ def trt_forward_chop_iterative_v2(
             p_output = np.empty([b, c, ht * scale, wt * scale], dtype=target_dtype)
 
             # allocate device memory
+            #subprocess.run("gpustat", shell=True)
             d_input = cuda.mem_alloc(1 * lr.nbytes)
             d_output = cuda.mem_alloc(1 * p_output.nbytes)
-
+            #subprocess.run("gpustat", shell=True)
             bindings = [int(d_input), int(d_output)]
             stream = cuda.Stream()
             sr = predict(context, lr, d_input, stream, bindings, p_output, d_output)
-            
+            #subprocess.run("gpustat", shell=True)
             new_i_e = new_i_s + h_e - h_s
             new_j_e = new_j_s + w_e - w_s
             patch_crop_positions = [h_s, h_e, w_s, w_e]
@@ -400,6 +399,7 @@ def trt_forward_chop_iterative_v2(
             sr_small = sr[:, :, h_s:h_e, w_s:w_e]
             output[:, :, new_i_s:new_i_e, new_j_s:new_j_e] = sr_small
             del sr_small
+            #subprocess.run("gpustat", shell=True)
             clear_start = time.time()
             if device == "cuda":
                 ut.clear_cuda(None, None)
@@ -414,7 +414,7 @@ def trt_forward_chop_iterative_v2(
 
     if patch_count == 0:
         raise Exception("Shave size too big for given patch dimension")
-
+    #subprocess.run("gpustat", shell=True)
     return output
 
 def trt_forward_chop_iterative(
@@ -583,7 +583,6 @@ def trt_helper_upsampler_piterative_experiment(model_name, trt_engine_path, img_
     None.
 
     """
-    print('USE FP: 16', use_fp16)
     # Loading model and image
     if model_name in ['EDSR']:
         img = ut.load_image(img_path)
@@ -751,7 +750,6 @@ def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
     else:
         print("Invalid mode")
         return
-    print('USE FP: 16', use_fp16)
     fp = 16 if use_fp16 else 32
     if mode == "TORCH":
         fp="Actual"
@@ -776,4 +774,3 @@ if __name__ == "__main__":
 #     output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr_fp16_340.trt", "data/test4.jpg", int(sys.argv[1]), use_fp16=bool(sys.argv[2]))
 #     print(output.shape)
 # =============================================================================
-
