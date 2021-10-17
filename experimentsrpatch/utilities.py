@@ -771,9 +771,7 @@ def get_mse(img1, img2):
         val += mean_squared_error(i1, i2)
     
     return val/c
-
-def get_mse_ssim(img1, img2):
-    
+   
 if __name__ == "__main__":
     #clear_cuda(None, None, False)
     img1 = np.load("output_images/test2_2187_Actual_output_x4.npy", allow_pickle=True)

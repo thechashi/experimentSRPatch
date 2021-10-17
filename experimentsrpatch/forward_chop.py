@@ -738,7 +738,7 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
 @click.option("--img_path", default="data/test4.jpg", help="Image path")
 @click.option("--patch_size", default=300, help="Patch size")
 @click.option("--use_fp16", default=False, help="Use precision FP16 or FP32")
-@click.option("--save_mode", default="npy", help="Save mode: npy, npz, png")
+@click.option("--save_mode", default="npy", help="Save mode: npy, npz, img")
 def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
     if mode=="TRT" and trt_path==None:
         print("Please provide a valid trt engine path")
@@ -751,6 +751,8 @@ def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
         print("Invalid mode")
         return
     fp = 16 if use_fp16 else 32
+    print(output.max())
+    print(output.min())
     if mode == "TORCH":
         fp="Actual"
     file_name = img_path.split("/")[-1].split(".")[0] + "_" + str(fp) + "_output_x4"
@@ -758,7 +760,7 @@ def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
         np.savez("output_images/" + file_name + ".npz", output)
     elif save_mode == "npy":
         np.save("output_images/" + file_name, output)
-    elif save_mode == "png":
+    elif save_mode == "img":
         output = torch.tensor(output).int()
         output_folder = "output_images"
         c, h ,w  = output.shape

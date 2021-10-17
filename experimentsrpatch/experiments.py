@@ -27,7 +27,6 @@ def get_forward_chop_stats(mode, model_name, trt_path, use_fp16, save_mode):
     for file in png_files:
         img_path = file
         print('Processing {}...\n'.format(file))
-        print(mode)
         if mode == "REC":
             patch_size=310
             command = "python3 forward_chop_recursive.py " + \
@@ -43,6 +42,8 @@ def get_forward_chop_stats(mode, model_name, trt_path, use_fp16, save_mode):
                 " --patch_size=" + str(patch_size) + \
                 " --use_fp16=" + str(use_fp16) + \
                 " --save_mode=" + str(save_mode)
+                
+        print(command)
         p = subprocess.run(command, shell=True, capture_output=True)
 
         # Valid batch size
