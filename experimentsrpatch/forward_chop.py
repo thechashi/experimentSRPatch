@@ -742,16 +742,17 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
         device="cuda",
         print_result=True,
     )
+    total_time = total_time.toc()
     model.cpu()
     del model
     output_image = out_tuple[0]
-    total_time = total_time.toc()
+    
 
     # =============================================================================
     #     for i in out_tuple[1:]:
     #         print(i)
     # =============================================================================
-    print("Total executing time: ", total_time)
+    print("Total execution time: ", total_time)
     return output_image
 
 
