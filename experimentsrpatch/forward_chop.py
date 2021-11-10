@@ -719,6 +719,7 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
 
     """
     # Loading model and image
+    time = ut.timer()
     if model_name in ["EDSR"]:
         model = md.load_edsr(device="cuda")
         img = ut.load_image(img_path)
@@ -747,12 +748,13 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
     del model
     output_image = out_tuple[0]
     
-
+    time = time.toc()
     # =============================================================================
     #     for i in out_tuple[1:]:
     #         print(i)
     # =============================================================================
     print("Total execution time: ", total_time)
+    print("Total time: ", time)
     return output_image
 
 

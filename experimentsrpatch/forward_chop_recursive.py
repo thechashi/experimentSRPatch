@@ -55,6 +55,7 @@ def forward_chop(
                 lr_batch = torch.cat(lr_list[i : (i + n_GPUs)], dim=0)
                 upsampling_time = ut.timer()
                 sr_batch = model(lr_batch)
+                torch.cuda.synchronize()
                 upsampling_time = upsampling_time.toc()
                 timer[1] += upsampling_time
                 sr_list.extend(sr_batch.chunk(n_GPUs, dim=0))
@@ -99,6 +100,7 @@ def main(img_path, model_name, patch_dimension):
     img = None
     model = None
     print("\nLoading model and image... \n")
+    time = ut.timer()
     if model_name in ["EDSR"]:
         img = ut.load_image(img_path)
         img = img.unsqueeze(0)
@@ -131,11 +133,12 @@ def main(img_path, model_name, patch_dimension):
     if model_name in ["EDSR"]:
         output = output.int()
     total_time = total_time.toc()
-
+    time = time.toc()
+    print('Total time: ', time)
     timer[0] = cpu2gpu_time
     timer[-2] = gpu2cpu_time
     timer[-1] = total_time
-
+    
     # Saving output
     np.savez("results/recursive_outputx4.npz", output)
     np.save("results/recursive_outputx4", output)
@@ -172,6 +175,7 @@ def helper_rrdb_experiment(img_dimension, patch_dimension):
 
     # Shfiting input image to CUDA
     total_time = ut.timer()
+    print(total_time)
     cpu2gpu_time = ut.timer()
     img = img.to("cuda")
     cpu2gpu_time = cpu2gpu_time.toc()

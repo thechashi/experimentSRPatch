@@ -1,0 +1,8 @@
+time python3 forward_chop.py --mode=TRT --trt_path=inference_models/edsr_fp16_400.trt --use_fp16=True --img_path=data/diff_sizes/test2_3000.jpg --patch_size=400 --save_mode=None
+
+time python3 forward_chop.py --mode=TRT --trt_path=inference_models/edsr_fp16_400.trt --img_path=data/diff_sizes/test2_3000.jpg --patch_size=400 --save_mode=None
+
+python3 pytorch_to_trt_pipeline.py --model_name=EDSR --patch_dim=400 --use_precision=fp16
+
+time python3 forward_chop_recursive.py --img_path=data/diff_sizes/test2_3000.jpg --model_name=EDSR --patch_dimension=400
+
