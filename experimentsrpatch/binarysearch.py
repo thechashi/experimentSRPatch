@@ -10,13 +10,7 @@ import subprocess
 import pyfiglet
 import click
 import utilities as ut
-
-# =============================================================================
-# import experimentsrpatch.utilities as ut
-# from experimentsrpatch import utilities as ut
-# =============================================================================
 import toml
-
 
 def maximum_unacceptable_dimension_2n(device, logger, start_dim=2, model_name="EDSR"):
     """
@@ -42,7 +36,7 @@ def maximum_unacceptable_dimension_2n(device, logger, start_dim=2, model_name="E
     last_used_memory = 0
     iteration = 0
     while True:
-        # Prinitng loop status
+        # Printing loop status
         iteration += 1
         _, used_memory, _ = ut.get_gpu_details(
             device, None, logger, print_details=False
@@ -176,6 +170,7 @@ def maximum_acceptable_dimension(
                 dimension = minm + (maxm - minm) // 2
             ut.clear_cuda(None, None)
     return last
+
 
 @click.command()
 @click.option("--model_name", default="EDSR", help="Name of the model")

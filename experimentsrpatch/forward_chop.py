@@ -85,9 +85,9 @@ def forward_chop_iterative(
             # =============================================================================
 
             lr = x[:, :, h_s:h_e, w_s:w_e]
-# =============================================================================
-#             print(lr.shape)
-# =============================================================================
+            # =============================================================================
+            #             print(lr.shape)
+            # =============================================================================
             if device == "cuda":
                 torch.cuda.synchronize()
                 lr = lr.to(device)
@@ -207,15 +207,16 @@ def predict(
     # syncronize threads
     stream.synchronize()
 
-# =============================================================================
-#     print(f"lr_shape: {batch.shape}"
-#           f"lr input : {batch}")
-# 
-#     print(f"hr_shape: {p_output.shape}"
-#           f"hr output: {p_output}")
-# =============================================================================
+    # =============================================================================
+    #     print(f"lr_shape: {batch.shape}"
+    #           f"lr input : {batch}")
+    #
+    #     print(f"hr_shape: {p_output.shape}"
+    #           f"hr output: {p_output}")
+    # =============================================================================
 
     return p_output
+
 
 def trt_forward_chop_iterative_v2(
     x,
@@ -228,7 +229,7 @@ def trt_forward_chop_iterative_v2(
     use_fp16=False,
 ):
     """
-    
+
 
     Parameters
     ----------
@@ -263,10 +264,15 @@ def trt_forward_chop_iterative_v2(
     patch_count = 0
     row_count = 0
     column_count = 0
-    
+
     dim = int(math.sqrt(min_size))  # getting patch dimension
-    b, c, img_height, img_width = x.size()  # current image batch, channel, height, width
-    
+    (
+        b,
+        c,
+        img_height,
+        img_width,
+    ) = x.size()  # current image batch, channel, height, width
+
     device = device
     output = torch.tensor(np.zeros((b, c, img_height * 4, img_width * 4))).numpy()
 
@@ -275,10 +281,11 @@ def trt_forward_chop_iterative_v2(
     engine = runtime.deserialize_cuda_engine(f.read())
     context = engine.create_execution_context()
 
+    patch_processing_time = ut.timer()
 
     new_i_s = 0
 
-    new_i_s = 0 # new patch height start 
+    new_i_s = 0  # new patch height start
     for patch_height_start in range(0, img_height, dim - 2 * shave):
         row_count += 1
         right_most = False
@@ -356,11 +363,16 @@ def trt_forward_chop_iterative_v2(
             elif dim >= img_height and dim < img_width:
                 h_s, h_e = 0, img_height * scale
 
-            lr = x[:, :, patch_height_start:patch_height_end, patch_width_start:patch_width_end]
-# =============================================================================
-#             print('x.shape: ',x.shape)
-#             print('lr.shape', lr.shape)
-# =============================================================================
+            lr = x[
+                :,
+                :,
+                patch_height_start:patch_height_end,
+                patch_width_start:patch_width_end,
+            ]
+            # =============================================================================
+            #             print('x.shape: ',x.shape)
+            #             print('lr.shape', lr.shape)
+            # =============================================================================
             ba, ch, ht, wt = lr.shape
 
             lr = lr.numpy()
@@ -378,29 +390,25 @@ def trt_forward_chop_iterative_v2(
             p_output = np.empty([b, c, ht * scale, wt * scale], dtype=target_dtype)
 
             # allocate device memory
-            #subprocess.run("gpustat", shell=True)
+            # subprocess.run("gpustat", shell=True)
             d_input = cuda.mem_alloc(1 * lr.nbytes)
             d_output = cuda.mem_alloc(1 * p_output.nbytes)
-            #subprocess.run("gpustat", shell=True)
+            # subprocess.run("gpustat", shell=True)
             bindings = [int(d_input), int(d_output)]
             stream = cuda.Stream()
             sr = predict(context, lr, d_input, stream, bindings, p_output, d_output)
-            #subprocess.run("gpustat", shell=True)
+            # subprocess.run("gpustat", shell=True)
             new_i_e = new_i_s + h_e - h_s
             new_j_e = new_j_s + w_e - w_s
-            patch_crop_positions = [h_s, h_e, w_s, w_e]
-            SR_positions = [new_i_s, new_i_e, new_j_s, new_j_e]
-            
+
             # torch.cuda.synchronize()
             end = time.time()
             processing_time = end - start
 
-
             sr_small = sr[:, :, h_s:h_e, w_s:w_e]
             output[:, :, new_i_s:new_i_e, new_j_s:new_j_e] = sr_small
             del sr_small
-            #subprocess.run("gpustat", shell=True)
-            clear_start = time.time()
+            # subprocess.run("gpustat", shell=True)
             if device == "cuda":
                 ut.clear_cuda(None, None)
 
@@ -414,8 +422,10 @@ def trt_forward_chop_iterative_v2(
 
     if patch_count == 0:
         raise Exception("Shave size too big for given patch dimension")
-    #subprocess.run("gpustat", shell=True)
-    return output
+    # subprocess.run("gpustat", shell=True)
+    patch_processing_time = patch_processing_time.toc()
+    return output, patch_processing_time
+
 
 def trt_forward_chop_iterative(
     x,
@@ -484,13 +494,19 @@ def trt_forward_chop_iterative(
             w_s, w_e = j, min(w, j + dim)  # patch width start and end
             lr = x[:, :, h_s:h_e, w_s:w_e]
             ba, ch, ht, wt = lr.shape
-            print('\nx: {}\n'.format(x))
-            print('\nlr: {}\n'.format(lr))
+            print("\nx: {}\n".format(x))
+            print("\nlr: {}\n".format(lr))
             input_lr = torch.tensor(lr).int()
             output_folder = "output_images"
             file_name = "data/test7.jpg".split("/")[-1].split(".")[0]
-            ut.save_image(input_lr[0].int(), output_folder, ht, wt, 4,
-                          output_file_name=file_name + f"input_{i}_{j}_x4")
+            ut.save_image(
+                input_lr[0].int(),
+                output_folder,
+                ht,
+                wt,
+                4,
+                output_file_name=file_name + f"input_{i}_{j}_x4",
+            )
             lr = lr.numpy()
             print(f"shape of lr:{lr.shape}")
 
@@ -517,8 +533,14 @@ def trt_forward_chop_iterative(
             output_sr = torch.tensor(sr).int()
             output_folder = "output_images"
             file_name = "data/test7.jpg".split("/")[-1].split(".")[0]
-            ut.save_image(output_sr[0], output_folder, ht, wt, 4,
-                          output_file_name=file_name + f"{i}_{j}_x4")
+            ut.save_image(
+                output_sr[0],
+                output_folder,
+                ht,
+                wt,
+                4,
+                output_file_name=file_name + f"{i}_{j}_x4",
+            )
 
             # torch.cuda.synchronize()
             end = time.time()
@@ -561,7 +583,9 @@ def trt_forward_chop_iterative(
     return output, total_time, total_crop_time, total_shift_time, total_clear_time
 
 
-def trt_helper_upsampler_piterative_experiment(model_name, trt_engine_path, img_path, patch_dimension, shave=10, use_fp16=False):
+def trt_helper_upsampler_piterative_experiment(
+    model_name, trt_engine_path, img_path, patch_dimension, shave=10, use_fp16=False
+):
     """
     Driver function to run a trtengine
 
@@ -584,20 +608,20 @@ def trt_helper_upsampler_piterative_experiment(model_name, trt_engine_path, img_
 
     """
     # Loading model and image
-    if model_name in ['EDSR']:
+    if model_name in ["EDSR"]:
         img = ut.load_image(img_path)
         input_image = img.unsqueeze(0)
     elif model_name in ["RRDB"]:
         img = ut.npz_loader(img_path)
         input_image = img.unsqueeze(0)
     else:
-        print('Unknown model!')
+        print("Unknown model!")
         return
 
     b, c, h, w = input_image.shape
-    
+
     total_time = ut.timer()
-    out_tuple = trt_forward_chop_iterative_v2(
+    out_tuple, patch_processing_time = trt_forward_chop_iterative_v2(
         input_image,
         trt_engine_path=trt_engine_path,
         shave=shave,
@@ -609,18 +633,22 @@ def trt_helper_upsampler_piterative_experiment(model_name, trt_engine_path, img_
     output_image = out_tuple[0]
     total_time = total_time.toc()
 
-# =============================================================================
-#     for i in out_tuple[1:]:
-#         print(i)
-# =============================================================================
-    print('Total executing time: ', total_time)
+    # =============================================================================
+    #     for i in out_tuple[1:]:
+    #         print(i)
+    # =============================================================================
+    print("Total patch processing time: ", patch_processing_time)
+    print("Total executing time: ", total_time)
     return output_image
+
+
 # =============================================================================
 #     output = torch.tensor(output_image).int()
 #     output_folder = "output_images"
 #     file_name = img_path.split("/")[-1].split(".")[0]
 #     ut.save_image(output, output_folder, h, w, 4, output_file_name=file_name + "_output_x4")
 # =============================================================================
+
 
 def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
     """
@@ -648,7 +676,6 @@ def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
     img = torch.from_numpy(img)
     img = img.unsqueeze(0)
 
-
     input_image = img
     b, c, h, w = input_image.shape
     # input_image = input_image.reshape((1, c, h, w))
@@ -674,6 +701,7 @@ def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
         print(i)
     print(total_time)
 
+
 def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension):
     """
     Driver function for running pytorch model inference
@@ -691,7 +719,7 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
 
     """
     # Loading model and image
-    if model_name in ['EDSR']:
+    if model_name in ["EDSR"]:
         model = md.load_edsr(device="cuda")
         img = ut.load_image(img_path)
         input_image = img.unsqueeze(0)
@@ -700,11 +728,11 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
         img = ut.npz_loader(img_path)
         input_image = img.unsqueeze(0)
     else:
-        print('Unknown model!')
+        print("Unknown model!")
         return
 
     b, c, h, w = input_image.shape
-    
+
     total_time = ut.timer()
     out_tuple = forward_chop_iterative(
         input_image,
@@ -719,12 +747,14 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
     output_image = out_tuple[0]
     total_time = total_time.toc()
 
-# =============================================================================
-#     for i in out_tuple[1:]:
-#         print(i)
-# =============================================================================
-    print('Total executing time: ', total_time)
+    # =============================================================================
+    #     for i in out_tuple[1:]:
+    #         print(i)
+    # =============================================================================
+    print("Total executing time: ", total_time)
     return output_image
+
+
 # =============================================================================
 #     output = torch.tensor(output_image).int()
 #     output_folder = "output_images"
@@ -740,13 +770,17 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
 @click.option("--use_fp16", default=False, help="Use precision FP16 or FP32")
 @click.option("--save_mode", default="npy", help="Save mode: npy, npz, img")
 def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
-    if mode=="TRT" and trt_path==None:
+    if mode == "TRT" and trt_path == None:
         print("Please provide a valid trt engine path")
         return
-    if mode=="TRT":
-        output = trt_helper_upsampler_piterative_experiment(model_name, trt_path, img_path, patch_size, use_fp16=use_fp16)
-    elif mode=="TORCH":
-        output = helper_upsampler_piterative_experiment(model_name, img_path, patch_size)
+    if mode == "TRT":
+        output = trt_helper_upsampler_piterative_experiment(
+            model_name, trt_path, img_path, patch_size, use_fp16=use_fp16
+        )
+    elif mode == "TORCH":
+        output = helper_upsampler_piterative_experiment(
+            model_name, img_path, patch_size
+        )
     else:
         print("Invalid mode")
         return
@@ -754,7 +788,7 @@ def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
     print(output.max())
     print(output.min())
     if mode == "TORCH":
-        fp="Actual"
+        fp = "Actual"
     file_name = img_path.split("/")[-1].split(".")[0] + "_" + str(fp) + "_output_x4"
     if save_mode == "npz":
         np.savez("output_images/" + file_name + ".npz", output)
@@ -763,16 +797,24 @@ def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
     elif save_mode == "img":
         output = torch.tensor(output).int()
         output_folder = "output_images"
-        c, h ,w  = output.shape
-        ut.save_image(output, output_folder, h, w, 4, output_file_name=file_name)
-    
-        
-    
+        if len(output.shape) == 3:
+            c, h, w = output.shape
+        elif len(output.shape) == 2:
+            h, w = output.shape
+            output = output.unsqueeze(0)
+        else:
+            b, c, h, w = output.shape
+            output = output[0]
+        ut.save_image(
+            output, output_folder, h, w, 1, output_file_name=file_name, add_date=False
+        )
+
+
 if __name__ == "__main__":
     run()
 # =============================================================================
 #     output = helper_upsampler_piterative_experiment("EDSR", "data/t7.jpg", int(sys.argv[1]))
-#                                                     
+#
 #     output = trt_helper_upsampler_piterative_experiment("EDSR", "inference_models/edsr_fp16_340.trt", "data/test4.jpg", int(sys.argv[1]), use_fp16=bool(sys.argv[2]))
 #     print(output.shape)
 # =============================================================================

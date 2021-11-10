@@ -1,4 +1,4 @@
-import experimentsrpatch.file_downloader
+import file_downloader
 
 def test_download_file_from_google_drive():
     assert True

@@ -25,32 +25,32 @@ def build_onnx_model(model_name, patch_size, onnx_model_name, device="cuda"):
     None.
 
     """
-# =============================================================================
-#     print('Before loading model: ')
-#     subprocess.run("gpustat", shell = True)
-#     print()
-#     total_time = 0
-#     model = None
-#     if model_name == "EDSR":
-#         model = md.load_edsr(device=device)
-#         print('After loading model: ')
-#         subprocess.run("gpustat", shell = True)
-#         print()
-#     elif model_name == "RRDB":
-#         model = md.load_rrdb(device=device)
-#     else:
-#         raise Exception("Unknown model...")
-#     model.eval()
-#     input_image = ut.random_image(patch_size)
-#     if model_name == "RRDB":
-#         input_image = input_image[:, 2:, :, :]
-#     dummy_input = input_image.to(device)
-# =============================================================================
-# =============================================================================
-#     print('Before loading model: ')
-#     subprocess.run("gpustat", shell = True)
-#     print()
-# =============================================================================
+    # =============================================================================
+    #     print('Before loading model: ')
+    #     subprocess.run("gpustat", shell = True)
+    #     print()
+    #     total_time = 0
+    #     model = None
+    #     if model_name == "EDSR":
+    #         model = md.load_edsr(device=device)
+    #         print('After loading model: ')
+    #         subprocess.run("gpustat", shell = True)
+    #         print()
+    #     elif model_name == "RRDB":
+    #         model = md.load_rrdb(device=device)
+    #     else:
+    #         raise Exception("Unknown model...")
+    #     model.eval()
+    #     input_image = ut.random_image(patch_size)
+    #     if model_name == "RRDB":
+    #         input_image = input_image[:, 2:, :, :]
+    #     dummy_input = input_image.to(device)
+    # =============================================================================
+    # =============================================================================
+    #     print('Before loading model: ')
+    #     subprocess.run("gpustat", shell = True)
+    #     print()
+    # =============================================================================
     device = ut.get_device_type()
     model = None
     if model_name == "RRDB":
@@ -61,21 +61,21 @@ def build_onnx_model(model_name, patch_size, onnx_model_name, device="cuda"):
         dummy_input = image.unsqueeze(0).to(device)
     elif model_name == "EDSR":
         model = md.load_edsr(device)
-# =============================================================================
-#         print('After loading model: ')
-#         subprocess.run("gpustat", shell = True)
-#         print()
-# =============================================================================
+        # =============================================================================
+        #         print('After loading model: ')
+        #         subprocess.run("gpustat", shell = True)
+        #         print()
+        # =============================================================================
         dummy_input = ut.random_image(patch_size).to(device)
-# =============================================================================
-#         print('After loading image: ')
-#         subprocess.run("gpustat", shell = True)
-#         print()
-# =============================================================================
-# =============================================================================
-#         b, c, h, w = 1, 3, patch_size, patch_size
-#         dummy_input = torch.rand(b, c, h, w, requires_grad=False).to(device)
-# =============================================================================
+    # =============================================================================
+    #         print('After loading image: ')
+    #         subprocess.run("gpustat", shell = True)
+    #         print()
+    # =============================================================================
+    # =============================================================================
+    #         b, c, h, w = 1, 3, patch_size, patch_size
+    #         dummy_input = torch.rand(b, c, h, w, requires_grad=False).to(device)
+    # =============================================================================
     else:
         print("Unknown model!")
         return
@@ -83,17 +83,17 @@ def build_onnx_model(model_name, patch_size, onnx_model_name, device="cuda"):
     model.eval()
     with torch.no_grad():
 
-# =============================================================================
-#         print('Before processing: ')
-#         subprocess.run("gpustat", shell = True)
-#         print()
-# =============================================================================
-# =============================================================================
-#         output = model(input_image )
-#         print('After processing: ')
-#         subprocess.run("gpustat", shell = True)
-#         print()
-# =============================================================================
+        # =============================================================================
+        #         print('Before processing: ')
+        #         subprocess.run("gpustat", shell = True)
+        #         print()
+        # =============================================================================
+        # =============================================================================
+        #         output = model(input_image )
+        #         print('After processing: ')
+        #         subprocess.run("gpustat", shell = True)
+        #         print()
+        # =============================================================================
         try:
             torch.onnx.export(
                 model,
@@ -106,12 +106,14 @@ def build_onnx_model(model_name, patch_size, onnx_model_name, device="cuda"):
             )
         except RuntimeError as err:
             sys.exit(1)
+
+
 # =============================================================================
 #         print('After processing: ')
 #         subprocess.run("gpustat", shell = True)
 #         print()
 # =============================================================================
-        
+
 if __name__ == "__main__":
     # =============================================================================
     #     # build sample onnx model

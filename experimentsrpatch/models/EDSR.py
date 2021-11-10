@@ -3,6 +3,9 @@ import math
 import torch
 import torch.nn as nn
 import torch.utils.model_zoo
+import ssl
+
+
 
 url = {
     "r16f64x2": "https://cv.snu.ac.kr/research/EDSR/models/edsr_baseline_x2-1bc95232.pt",
@@ -203,6 +206,7 @@ class EDSR(nn.Module):
 def load(model, pre_train="download", resume=0, cpu=False):
     load_from = None
     kwargs = {}
+    ssl._create_default_https_context = ssl._create_unverified_context
     if pre_train == "download":
         # print("Downloading the model")
         # dir_model = os.path.join('..', 'models')

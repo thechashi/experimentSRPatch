@@ -8,4 +8,4 @@ dimension = 40
 scale = 4
 start_shave = 3
 rrdb_path = "saved_models/rrdb/gen/best/2021-07-21-23:48:46.449228_best_model_385.pt"
-max_dim = 340
+max_dim = 346

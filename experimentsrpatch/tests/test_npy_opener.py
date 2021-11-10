@@ -1,4 +1,4 @@
-import experimentsrpatch.npy_opener
+import npy_opener
 
 def test_plot_image():
     assert True

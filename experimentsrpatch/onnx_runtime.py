@@ -22,7 +22,9 @@ input_batch = ut.npz_loader(img_path).unsqueeze(0)
 input_ = torch.tensor(input_batch).int()
 output_folder = "output_images"
 file_name = img_path.split("/")[-1].split(".")[0]
-ut.save_image(input_[0], output_folder, 30, 30, 4, output_file_name=file_name + "_input_x4")
+ut.save_image(
+    input_[0], output_folder, 30, 30, 4, output_file_name=file_name + "_input_x4"
+)
 
 print(input_batch.shape)
 

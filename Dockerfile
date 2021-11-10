@@ -1,4 +1,6 @@
-FROM nvcr.io/nvidia/tensorrt:21.09-py3
+#FROM nvcr.io/nvidia/tensorrt:21.09-py3
+FROM tensorrt-ubuntu18.04-cuda11.4
+USER root
 RUN mkdir /app
 COPY requirements.txt /app
 WORKDIR /app

@@ -1,4 +1,4 @@
-import experimentsrpatch.modelloader as md
+import modelloader as md
 
 def test_load_edsr():
     assert True

@@ -104,3 +104,8 @@ def load_rrdb(device):
     model = model.to(device)
     rrdb.load(model, path)
     return model
+
+
+if __name__ == "__main__":
+    model = load_edsr("cuda")
+    print(model)

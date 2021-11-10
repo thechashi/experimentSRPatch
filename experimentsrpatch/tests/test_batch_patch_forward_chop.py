@@ -1,4 +1,4 @@
-import experimentsrpatch.batch_patch_forward_chop
+import batch_patch_forward_chop
 
 def test_create_patch_list():
     assert True

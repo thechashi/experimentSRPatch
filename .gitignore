@@ -14,3 +14,5 @@ experimentsrpatch/output_images/
 experimentsrpatch/results/
 *.trt
 *.onnx
+*.deb
+TensorRT/

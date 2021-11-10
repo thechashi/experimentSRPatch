@@ -1,7 +1,7 @@
 import numpy as np
-import experimentsrpatch.forward_chop_recursive as fcr
-import experimentsrpatch.utilities as ut
-import experimentsrpatch.modelloader as md
+import forward_chop_recursive as fcr
+import utilities as ut
+import modelloader as md
 
 def test_forward_chop():
     img_path = "../experimentsrpatch/data/test2.jpg"

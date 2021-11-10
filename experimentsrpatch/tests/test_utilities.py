@@ -1,4 +1,4 @@
-import experimentsrpatch.utilities as ut
+import utilities as ut
 
 def test_get_logger():
     logger_1 = ut.get_logger()
@@ -11,20 +11,27 @@ def test_get_logger():
     assert logger_1 != logger_2
     assert logger_4 == logger_5
 
+def test_get_device_type():
+    device = ut.get_device_type()
+    assert device == 'cuda' or device == 'cpu'
+    
+def test_get_device_details():
+    device, device_name = ut.get_device_details()
+    print(device, device_name)
+    assert type(device_name) == 'str'
+
 def test_get_image():
     assert True
 
 def test_exception_handler():
     assert True
 
-def test_get_device_type():
-    assert True
+
     
 def test_test_image():
     assert True
     
-def test_get_device_details():
-    assert True
+
     
 def test_load_image():
     assert True

@@ -28,16 +28,16 @@ def binary_search_helper(dimension, logger, model_name="EDSR", device="cuda"):
         EDSR processing time.
 
     """
-    print('Before loading model: ')
-    subprocess.run("gpustat", shell = True)
+    print("Before loading model: ")
+    subprocess.run("gpustat", shell=True)
     print()
     total_time = 0
     try:
         model = None
         if model_name == "EDSR":
             model = md.load_edsr(device=device)
-            print('After loading model: ')
-            subprocess.run("gpustat", shell = True)
+            print("After loading model: ")
+            subprocess.run("gpustat", shell=True)
             print()
         elif model_name == "RRDB":
             model = md.load_rrdb(device=device)
@@ -50,18 +50,18 @@ def binary_search_helper(dimension, logger, model_name="EDSR", device="cuda"):
         input_image = input_image.to(device)
         with torch.no_grad():
             start = time.time()
-            print('Before processing: ')
-            subprocess.run("gpustat", shell = True)
+            print("Before processing: ")
+            subprocess.run("gpustat", shell=True)
             output_image = model(input_image)
-            print('After processing: ')
-            subprocess.run("gpustat", shell = True)
+            print("After processing: ")
+            subprocess.run("gpustat", shell=True)
             end = time.time()
             total_time = end - start
             ut.clear_cuda(input_image, output_image)
         model.cpu()
         del model
-        print('After model shifting and deleting: ')
-        subprocess.run("gpustat", shell = True)
+        print("After model shifting and deleting: ")
+        subprocess.run("gpustat", shell=True)
     except RuntimeError as err:
         logger.error("Runtime error for dimension: {}x{}: " + err)
         sys.exit(1)

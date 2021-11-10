@@ -36,6 +36,7 @@ def build_onnx_model(model_name, patch_size, onnx_model_name, device="cuda"):
 
     """
 
+
 def build_trt_engine(onnx_model, trt_model, use_fp16=False):
     """
     Runs terminal command for turning a ONNX model to TensorRT engine
@@ -147,9 +148,9 @@ def trt_inference(trt_engine, img, patch_size, scale=4, use_fp16=False):
 if __name__ == "__main__":
     # =============================================================================
     #     # build sample onnx model
-# =============================================================================
-#     build_onnx_model(model_name="EDSR", patch_size=345, onnx_model_name="edsr.onnx")
-# =============================================================================
+    # =============================================================================
+    #     build_onnx_model(model_name="EDSR", patch_size=345, onnx_model_name="edsr.onnx")
+    # =============================================================================
     # =============================================================================
 
     # =============================================================================
@@ -165,17 +166,17 @@ if __name__ == "__main__":
 #     print(input_batch.shape)
 #     print(type(input_batch))
 #     b, c, h, w = input_batch.shape
-# 
+#
 #     trt_engine = "inference_models/edsr.trt"
 #     output = trt_inference(trt_engine, input_batch, h)
 #     print(output)
 #     print(output.shape)
 #     print(type(output))
-# 
+#
 #     output = torch.tensor(output).int()
 #     output_folder = "output_images"
 #     file_name = "data/test7.jpg".split("/")[-1].split(".")[0]
 #     ut.save_image(output[0], output_folder, 120, 120, 4, output_file_name=file_name + "_x4")
-# 
-# 
+#
+#
 # =============================================================================

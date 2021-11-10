@@ -16,6 +16,7 @@ from pathlib import Path
 from skimage.metrics import structural_similarity as ssim
 from skimage.metrics import mean_squared_error
 
+
 def create_custom_npz(
     height, width, input_file="data/slices/0.npz", output_file="data/slices/custom.npz"
 ):
@@ -275,11 +276,12 @@ def get_device_details():
         gpu model name.
 
     """
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device_type = get_device_type()
     device_name = "~"
-    if device.type == "cuda":
-        device_name = torch.cuda.get_device_name(0)
-    return device, device_name
+    if device_type == "cuda":
+        device = torch.cuda.get_device_properties(device_type)
+        
+    return device.total_memory, device.name
 
 
 def load_image(img_path, show_img=False):
@@ -306,10 +308,12 @@ def load_image(img_path, show_img=False):
     img = img.float()
     return img
 
+
 def image_shape(img_path):
     img = torchvision.io.read_image(img_path)
     print(img.shape)
-    
+
+
 def load_grayscale_image(img_path, show_img=False):
     """
     Loads image and returns it
@@ -436,7 +440,13 @@ def show_image(img_path, grayscale=False):
 
 
 def save_image(
-    image, output_folder, input_height, input_width, scale, output_file_name="outputx4", add_date=True
+    image,
+    output_folder,
+    input_height,
+    input_width,
+    scale,
+    output_file_name="outputx4",
+    add_date=True,
 ):
     """
     Saves image
@@ -739,12 +749,13 @@ def save_csv(
     data_frame.to_csv(file)
     file.close()
 
+
 def get_ssim(img1, img2):
-    if  img1.shape != img2.shape:
-        print('Both image shapes have to match')
+    if img1.shape != img2.shape:
+        print("Both image shapes have to match")
         return
     if len(img1.shape) > 3:
-        print('Image shape has to be like this: (channel, height, width)')
+        print("Image shape has to be like this: (channel, height, width)")
         return
     c, h, w = img1.shape
     val = 0
@@ -752,16 +763,16 @@ def get_ssim(img1, img2):
         i1 = img1[i, :, :]
         i2 = img2[i, :, :]
         val += ssim(i1, i2, data_range=i1.max() - i2.min())
-    
-    return val/c
+
+    return val / c
 
 
 def get_mse(img1, img2):
-    if  img1.shape != img2.shape:
-        print('Both image shapes have to match'  )
+    if img1.shape != img2.shape:
+        print("Both image shapes have to match")
         return
     if len(img1.shape) > 3:
-        print('Image shape has to be like this: (channel, height, width)')
+        print("Image shape has to be like this: (channel, height, width)")
         return
     c, h, w = img1.shape
     val = 0
@@ -769,25 +780,42 @@ def get_mse(img1, img2):
         i1 = img1[i, :, :]
         i2 = img2[i, :, :]
         val += mean_squared_error(i1, i2)
-    
-    return val/c
-   
-if __name__ == "__main__":
-    #clear_cuda(None, None, False)
-    img1 = np.load("output_images/test2_2187_Actual_output_x4.npy", allow_pickle=True)
-    img2 = np.load("output_images/test2_2187_32_output_x4.npy", allow_pickle=True)
-    img1 = img1[0,:,:,:]
 
-    ssim_val = get_ssim(img1, img2)
-    mse_val = get_mse(img1, img2)
-    
-    print("SSIM: ", ssim_val)
-    print("MSE: ", mse_val)
-# =============================================================================
-#     data = pd.read_csv('results/fp16vfp32v9nt_results.csv')
-#     data.plot(x='size', y=['fp16_340', 'fp32_340', 'iterative_340', 'recursive_310'], ylabel='Execution time (sec)', xlabel='Image dimension n of (nxn)', title='Recur. vs Iter. vs TRT_FP16 vs TRT_FP32 (NVIDIA GeForce GTX 860M - 2004MB)', kind='bar')
-#     #data.plot(x='size', y=['mse_fp16_iterative', 'mse_fp32_iterative'], ylabel='MSE - FP16 & FP32 vs Iterative', xlabel='Image dimension n of (nxn)', title='Iterative vs TRT_FP16 AND TRT_FP32 MSE (NVIDIA GeForce GTX 860M - 2004MB)', kind='bar')
-# 
-#     plt.show()
-# =============================================================================
+    return val / c
+
+
+if __name__ == "__main__":
+    # clear_cuda(None, None, False)
+    # =============================================================================
+    #     img1 = np.load("output_images/test2_2187_Actual_output_x4.npy", allow_pickle=True)
+    #     img2 = np.load("output_images/test2_2187_32_output_x4.npy", allow_pickle=True)
+    #     img1 = img1[0,:,:,:]
+    #
+    # =============================================================================
+    # =============================================================================
+    #     img1 = Image.open('data/diff_sizes/compare_with/test2_3000.jpg')
+    #     img1 = np.array(img1)
+    #     img1 = img1.reshape((img1.shape[2], img1.shape[0], img1.shape[1]))
+    #
+    #     img2 = Image.open('output_images/test2_750_Actual_output_x4.jpg')
+    #     img2 = np.array(img2)
+    #     img2 = img2.reshape((img2.shape[2], img2.shape[0], img2.shape[1]))
+    #     ssim_val = get_ssim(img1, img2)
+    #     mse_val = get_mse(img1, img2)
+    #
+    #     print("SSIM: ", ssim_val)
+    #     print("MSE: ", mse_val)
+    # =============================================================================
+    data = pd.read_csv("results/ssim_mse_actual_fp16_fp32.csv")
+    data.plot(
+        x="Size",
+        y=["SSIM_ACTUAL", "SSIM_FP16", "SSIM_FP32"],
+        ylabel="SSIM - PYTORCH vs FP16 & FP32",
+        xlabel="Image dimension n of (nxn)",
+        title="PyTOrch vs TRT_FP16 vs TRT_FP32 (NVIDIA GeForce GTX 860M - 2004MB)",
+        kind="bar",
+    )
+    # data.plot(x='size', y=['mse_fp16_iterative', 'mse_fp32_iterative'], ylabel='MSE - FP16 & FP32 vs Iterative', xlabel='Image dimension n of (nxn)', title='Iterative vs TRT_FP16 AND TRT_FP32 MSE (NVIDIA GeForce GTX 860M - 2004MB)', kind='bar')
+
+    plt.show()
     pass

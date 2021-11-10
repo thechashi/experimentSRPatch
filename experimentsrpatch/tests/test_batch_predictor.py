@@ -1,4 +1,4 @@
-import experimentsrpatch.batch_predictor
+import batch_predictor
 
 def test_predict():
     assert True

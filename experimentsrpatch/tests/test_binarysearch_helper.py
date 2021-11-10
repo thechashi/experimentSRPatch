@@ -1,4 +1,4 @@
-import experimentsrpatch.binarysearch_helper
+import binarysearch_helper
 
 def test_binary_search_helper():
     assert True
