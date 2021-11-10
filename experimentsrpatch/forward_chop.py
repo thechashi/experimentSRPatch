@@ -785,8 +785,6 @@ def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
         print("Invalid mode")
         return
     fp = 16 if use_fp16 else 32
-    print(output.max())
-    print(output.min())
     if mode == "TORCH":
         fp = "Actual"
     file_name = img_path.split("/")[-1].split(".")[0] + "_" + str(fp) + "_output_x4"

@@ -555,12 +555,7 @@ def random_image(dimension, batch=True, channel=3):
         random image.
 
     """
-    data = np.random.randint(0, 255, size=(dimension, dimension), dtype=np.uint8)
-    # =============================================================================
-    #     image = np.random.random((dimension, dimension)) * 255.0
-    #     image = np.round(image, 0)
-    #     print(image.shape)
-    # =============================================================================
+    data = np.random.randint(0, 255, size=(dimension, dimension))
     image = torch.tensor(data)
     image.unsqueeze_(0)
     if channel > 1:
@@ -806,16 +801,20 @@ if __name__ == "__main__":
     #     print("SSIM: ", ssim_val)
     #     print("MSE: ", mse_val)
     # =============================================================================
-    data = pd.read_csv("results/ssim_mse_actual_fp16_fp32.csv")
-    data.plot(
-        x="Size",
-        y=["SSIM_ACTUAL", "SSIM_FP16", "SSIM_FP32"],
-        ylabel="SSIM - PYTORCH vs FP16 & FP32",
-        xlabel="Image dimension n of (nxn)",
-        title="PyTOrch vs TRT_FP16 vs TRT_FP32 (NVIDIA GeForce GTX 860M - 2004MB)",
-        kind="bar",
-    )
-    # data.plot(x='size', y=['mse_fp16_iterative', 'mse_fp32_iterative'], ylabel='MSE - FP16 & FP32 vs Iterative', xlabel='Image dimension n of (nxn)', title='Iterative vs TRT_FP16 AND TRT_FP32 MSE (NVIDIA GeForce GTX 860M - 2004MB)', kind='bar')
-
-    plt.show()
     pass
+# =============================================================================
+#     data = pd.read_csv("results/ssim_mse_actual_fp16_fp32.csv")
+#     data.plot(
+#         x="Size",
+#         y=["SSIM_ACTUAL", "SSIM_FP16", "SSIM_FP32"],
+#         ylabel="SSIM - PYTORCH vs FP16 & FP32",
+#         xlabel="Image dimension n of (nxn)",
+#         title="PyTOrch vs TRT_FP16 vs TRT_FP32 (NVIDIA GeForce GTX 860M - 2004MB)",
+#         kind="bar",
+#     )
+#     # data.plot(x='size', y=['mse_fp16_iterative', 'mse_fp32_iterative'], ylabel='MSE - FP16 & FP32 vs Iterative', xlabel='Image dimension n of (nxn)', title='Iterative vs TRT_FP16 AND TRT_FP32 MSE (NVIDIA GeForce GTX 860M - 2004MB)', kind='bar')
+# 
+#     plt.show()
+#     pass
+# 
+# =============================================================================

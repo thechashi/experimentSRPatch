@@ -3,7 +3,7 @@ import utilities as ut
 def test_get_logger():
     logger_1 = ut.get_logger()
     logger_2 = ut.get_logger()
-    logger_3 = ut.get_logger(logfile_name='test_outputs/my_logger.log')
+    logger_3 = ut.get_logger(logfile_name='tests/test_outputs/my_logger.log')
     logger_4 = ut.get_logger(logger_suffix='same')
     logger_5 = ut.get_logger(logger_suffix='same')
     
@@ -17,8 +17,18 @@ def test_get_device_type():
     
 def test_get_device_details():
     device, device_name = ut.get_device_details()
-    print(device, device_name)
-    assert type(device_name) == 'str'
+    assert type(device_name) == str
+    
+def test_random_image():
+    r1 = ut.random_image(50)
+    r2 = ut.random_image(50, False)
+    r3 = ut.random_image(50, True, 2)
+    assert r1.shape[0] == 1
+    assert r1.shape[1] == 3
+    assert r1.shape[2] == 50
+    assert r1.shape[3] == 50
+    assert r2.shape[0] == 3
+    assert r3.shape[1] == 2
 
 def test_get_image():
     assert True
@@ -48,8 +58,7 @@ def test_save_image():
 def test_get_gpu_details():
     assert True
     
-def test_random_image():
-    assert True
+
     
 def test_clear_cuda():
     assert True
