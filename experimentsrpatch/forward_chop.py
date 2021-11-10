@@ -806,6 +806,8 @@ def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
         ut.save_image(
             output, output_folder, h, w, 1, output_file_name=file_name, add_date=False
         )
+    else:
+        print('Not saving output')
 
 
 if __name__ == "__main__":
