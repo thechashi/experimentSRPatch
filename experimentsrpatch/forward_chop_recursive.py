@@ -243,10 +243,30 @@ if __name__ == "__main__":
     # command: 
     # python3 forward_chop_recursive.py --img_path=data/diff_sizes/test2_3000.jpg --model_name=EDSR --patch_dimension=400 
     # output: 
-    # 1) Total execution time:  6.7821245193481445
-
-    # Total time with model loading:  10.343112230300903
+# =============================================================================
+#     CPU 2 GPU time:  0.029902219772338867
+#     
+#     Upsampling time:  5.233108758926392
+#     
+#     Merging time:  0.009498119354248047
+#     
+#     GPU 2 CPU time 0.9901220798492432
+#     
+#     Total execution time:  6.750842094421387
+#     
+#     Total time with model loading:  10.302536487579346
+# =============================================================================
     
-    # 2) Total execution time:  6.756831407546997
-
-    # Total time with model loading:  10.335697174072266
+# =============================================================================
+#     CPU 2 GPU time:  0.03246641159057617
+#     
+#     Upsampling time:  5.245194911956787
+#     
+#     Merging time:  0.004265546798706055
+#     
+#     GPU 2 CPU time 1.0059294700622559
+#     
+#     Total execution time:  6.763887643814087
+#     
+#     Total time with model loading:  10.359148025512695
+# =============================================================================

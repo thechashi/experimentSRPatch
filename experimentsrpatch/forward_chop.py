@@ -150,9 +150,11 @@ def forward_chop_iterative(
             else:
                 ut.clear_cuda(None, None)
                 
-            clear_end = time.time()
-            clear_time = clear_end - clear_start
-            total_clear_time += clear_time
+# =============================================================================
+#             clear_end = time.time()
+#             clear_time = clear_end - clear_start
+#             total_clear_time += clear_time
+# =============================================================================
             
             if w_e == w:
                 break
@@ -414,8 +416,10 @@ def trt_forward_chop_iterative_v2(
             output[:, :, new_i_s:new_i_e, new_j_s:new_j_e] = sr_small
             del sr_small
             # subprocess.run("gpustat", shell=True)
-            if device == "cuda":
-                ut.clear_cuda(None, None)
+# =============================================================================
+#             if device == "cuda":
+#                 ut.clear_cuda(None, None)
+# =============================================================================
 
             new_j_s = new_j_e
             if patch_width_end == img_width:
@@ -823,6 +827,38 @@ def run(mode, model_name, trt_path, img_path, patch_size, use_fp16, save_mode):
 
 if __name__ == "__main__":
     run()
+    # command: python3 forward_chop.py --mode=TORCH --img_path=data/diff_sizes/test2_3000.jpg --patch_size=400 --save_mode=None
+    # output 
+# =============================================================================
+#     Patch dimension: 400x400
+#     Total pacthes:  64
+#     Total EDSR Processing time:  5.969139814376831
+#     Total crop time:  0.007237911224365234
+#     Total shift time:  0.4114508628845215
+#     Total clear time:  1.826021432876587
+#     Total execution time:  9.663320779800415
+#     Total time with model loading:  13.15612530708313
+# =============================================================================
+# =============================================================================
+#     Patch dimension: 1100x1100
+#     Total pacthes:  9
+#     Total EDSR Processing time:  5.8129401206970215
+#     Total crop time:  0.00035572052001953125
+#     Total shift time:  1.0256047248840332
+#     Total clear time:  0.5202081203460693
+#     Total execution time:  8.795506477355957
+#     Total time with model loading:  12.327601432800293
+# =============================================================================
+# command : time python3 forward_chop.py --mode=TRT --trt_path=inference_models/edsr_fp32_800.trt --img_path=data/diff_sizes/test2_3000.jpg --patch_size=800 --save_mode=None
+# =============================================================================
+#     Total EDSR Processing time:  5.310329437255859
+#     Total Total time with model loading:  7.5943443775177
+# =============================================================================
+# command: time python3 forward_chop.py --mode=TRT --trt_path=inference_models/edsr_fp16_799.trt --use_fp16=True --img_path=data/diff_sizes/test2_3000.jpg --patch_size=799 --save_mode=None
+# =============================================================================
+#     Total EDSR Processing time:  8.088985681533813
+#     Total Total time with model loading:  10.573142290115356
+# =============================================================================
 # =============================================================================
 #     output = helper_upsampler_piterative_experiment("EDSR", "data/t7.jpg", int(sys.argv[1]))
 #
