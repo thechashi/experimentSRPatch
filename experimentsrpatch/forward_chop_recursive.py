@@ -240,4 +240,13 @@ def helper_rrdb_experiment(img_dimension, patch_dimension):
 
 if __name__ == "__main__":
     main()
-    # helper_rrdb_experiment(int(sys.argv[1]), int(sys.argv[2]))
+    # command: 
+    # python3 forward_chop_recursive.py --img_path=data/diff_sizes/test2_3000.jpg --model_name=EDSR --patch_dimension=400 
+    # output: 
+    # 1) Total execution time:  6.7821245193481445
+
+    # Total time with model loading:  10.343112230300903
+    
+    # 2) Total execution time:  6.756831407546997
+
+    # Total time with model loading:  10.335697174072266

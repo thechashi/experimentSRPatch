@@ -20,7 +20,7 @@ from PIL import Image
 
 
 def forward_chop_iterative(
-    x, model=None, shave=10, min_size=1024, device="cuda", print_result=True
+    x, model=None, shave=10, min_size=1024, device="cuda", print_result=False
 ):
     """
     Forward chopping in an iterative way
@@ -89,28 +89,30 @@ def forward_chop_iterative(
             #             print(lr.shape)
             # =============================================================================
             if device == "cuda":
-                torch.cuda.synchronize()
+                #torch.cuda.synchronize()
                 lr = lr.to(device)
             with torch.no_grad():
                 # EDSR processing
-                start = time.time()
-                torch.cuda.synchronize()
+                
+                upsampling_time = ut.timer()
+                #torch.cuda.synchronize()
                 sr = model(lr)
                 torch.cuda.synchronize()
                 end = time.time()
-                processing_time = end - start
-                total_time += processing_time
+                
+                upsampling_time = upsampling_time.toc()
+                total_time += upsampling_time
             # =============================================================================
             #             print('Processing time: ', processing_time)
             # =============================================================================
 
             shift_start = time.time()
-            torch.cuda.synchronize()
             sr = sr.cpu()
-            torch.cuda.synchronize()
+            #torch.cuda.synchronize()
             shift_end = time.time()
             shift_time = shift_end - shift_start
-
+            total_shift_time += shift_time
+            
             # new cropped patch's dimension (h and w)
             n_h_s, n_h_e, n_w_s, n_w_e = 0, 0, 0, 0
 
@@ -122,7 +124,7 @@ def forward_chop_iterative(
             n_w_e = ((w_e - w_s) * 4) if w_e == w else (((w_e - w_s) - shave) * 4)
             new_j_e = new_j_e + n_w_e - n_w_s
 
-            # corpping image in
+            # cropping image in
             crop_start = time.time()
             sr_small = sr[:, :, n_h_s:n_h_e, n_w_s:n_w_e]
             crop_end = time.time()
@@ -138,15 +140,20 @@ def forward_chop_iterative(
             #             shift_end = time.time()
             #             shift_time = shift_end - shift_start
             # =============================================================================
-            total_shift_time += shift_time
+
             output[:, :, new_i_s:new_i_e, new_j_s:new_j_e] = sr_small
             del sr_small
+            
             clear_start = time.time()
             if device == "cuda":
                 ut.clear_cuda(lr, sr)
+            else:
+                ut.clear_cuda(None, None)
+                
             clear_end = time.time()
             clear_time = clear_end - clear_start
             total_clear_time += clear_time
+            
             if w_e == w:
                 break
             new_j_s = new_j_e
@@ -155,15 +162,13 @@ def forward_chop_iterative(
 
         if h_e == h:
             break
-    # =============================================================================
-    #     if print_result == True:
-    #         print("Patch dimension: {}x{}".format(dim, dim))
-    #         print("Total pacthes: ", patch_count)
-    #         print("Total EDSR Processing time: ", total_time)
-    #         print("Total crop time: ", total_crop_time)
-    #         print("Total shift time: ", total_shift_time)
-    #         print("Total clear time: ", total_clear_time)
-    # =============================================================================
+    if print_result == True:
+        print("Patch dimension: {}x{}".format(dim, dim))
+        print("Total pacthes: ", patch_count)
+        print("Total EDSR Processing time: ", total_time)
+        print("Total crop time: ", total_crop_time)
+        print("Total shift time: ", total_shift_time)
+        print("Total clear time: ", total_clear_time)
     return output, total_time, total_crop_time, total_shift_time, total_clear_time
 
 
@@ -697,8 +702,10 @@ def helper_rrdb_piterative_experiment(img_dimension, patch_dimension):
     output_image = out_tuple[0]
     total_time = total_time.toc()
 
-    for i in out_tuple[1:]:
-        print(i)
+# =============================================================================
+#     for i in out_tuple[1:]:
+#         print(i)
+# =============================================================================
     print(total_time)
 
 
@@ -719,7 +726,7 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
 
     """
     # Loading model and image
-    time = ut.timer()
+    time_with_model_loading = ut.timer()
     if model_name in ["EDSR"]:
         model = md.load_edsr(device="cuda")
         img = ut.load_image(img_path)
@@ -744,17 +751,18 @@ def helper_upsampler_piterative_experiment(model_name, img_path, patch_dimension
         print_result=True,
     )
     total_time = total_time.toc()
+    
     model.cpu()
     del model
     output_image = out_tuple[0]
     
-    time = time.toc()
+    time_with_model_loading = time_with_model_loading.toc()
     # =============================================================================
     #     for i in out_tuple[1:]:
     #         print(i)
     # =============================================================================
     print("Total execution time: ", total_time)
-    print("Total time: ", time)
+    print("Total time with model loading: ", time_with_model_loading)
     return output_image
 
 
