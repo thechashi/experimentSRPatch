@@ -144,13 +144,13 @@ def forward_chop_iterative(
             output[:, :, new_i_s:new_i_e, new_j_s:new_j_e] = sr_small
             del sr_small
             
-            clear_start = time.time()
-            if device == "cuda":
-                ut.clear_cuda(lr, sr)
-            else:
-                ut.clear_cuda(None, None)
-                
 # =============================================================================
+#             clear_start = time.time()
+#             if device == "cuda":
+#                 ut.clear_cuda(lr, sr)
+#             else:
+#                 ut.clear_cuda(None, None)
+#                 
 #             clear_end = time.time()
 #             clear_time = clear_end - clear_start
 #             total_clear_time += clear_time
