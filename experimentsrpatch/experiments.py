@@ -13,14 +13,14 @@ def get_filelist_from_folder(folder, file_format):
 
 
 @click.command()
-@click.option("--mode", default="TRT", help="TRT or TORCH model")
+@click.option("--mode", default="TRT", help="TRT, REC or TORCH model")
 @click.option("--model_name", default="EDSR", help="Model name. e.g EDSR, RRDB etc")
 @click.option("--trt_path", default=None, help="Path of the trt engine")
 @click.option("--use_fp16", default=False, help="Use precision FP16 or FP32")
 @click.option("--save_mode", default="img", help="Save mode: npy, npz, png")
 def get_forward_chop_stats(mode, model_name, trt_path, use_fp16, save_mode):
     png_files = get_filelist_from_folder("data/diff_sizes/set2/", ".jpg")
-    png_files = ["data/diff_sizes/" + file for file in png_files]
+    png_files = ["data/diff_sizes/set2/" + file for file in png_files]
     print("Found {} files.".format(len(png_files)))
     config = toml.load("../config.toml")
     patch_size = config["max_dim"]
