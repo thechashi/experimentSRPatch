@@ -19,7 +19,7 @@ def get_filelist_from_folder(folder, file_format):
 @click.option("--use_fp16", default=False, help="Use precision FP16 or FP32")
 @click.option("--save_mode", default="img", help="Save mode: npy, npz, png")
 def get_forward_chop_stats(mode, model_name, trt_path, use_fp16, save_mode):
-    png_files = get_filelist_from_folder("data/diff_sizes/", ".jpg")
+    png_files = get_filelist_from_folder("data/diff_sizes/set2/", ".jpg")
     png_files = ["data/diff_sizes/" + file for file in png_files]
     print("Found {} files.".format(len(png_files)))
     config = toml.load("../config.toml")
@@ -29,7 +29,7 @@ def get_forward_chop_stats(mode, model_name, trt_path, use_fp16, save_mode):
         img_path = file
         print("Processing {}...\n".format(file))
         if mode == "REC":
-            patch_size = 310
+            patch_size = 400
             command = (
                 "python3 forward_chop_recursive.py "
                 + " --img_path="
